@@ -8,7 +8,7 @@ import styles from "./player.module.css";
 /**
  * Primary UI component for user interaction
  */
-export const Player = ({ src, ...props }) => {
+export const Player = ({ previewTrackUrl, ...props }) => {
   const [isPlay, setIsPlay] = React.useState(false);
   const [time, setTime] = React.useState(0);
 
@@ -44,14 +44,18 @@ export const Player = ({ src, ...props }) => {
 
   return (
     <Container css={{ pl: 0 }}>
-      <audio style={{ display: "none" }} ref={audio} src={src}></audio>
+      <audio
+        style={{ display: "none" }}
+        ref={audio}
+        src={previewTrackUrl}
+      ></audio>
       <Row justify="start" align="center">
         {!isPlay ? (
           <Play
             className={styles.hoverCursor}
             size={54}
             set="bold"
-            primaryColor="green"
+            primaryColor="#1cb050"
             onClick={() => {
               audio.current.play();
               setIsPlay(true);
@@ -60,7 +64,7 @@ export const Player = ({ src, ...props }) => {
         ) : (
           <HiPause
             className={styles.hoverCursor}
-            fill="green"
+            fill="#1cb050"
             size={54}
             onClick={() => {
               audio.current.pause();
@@ -79,8 +83,4 @@ Player.propTypes = {
    * Is this the principal call to action on the page?
    */
   src: PropTypes.string,
-};
-
-Player.defaultProps = {
-  src: "https://p.scdn.co/mp3-preview/e3d78c84f476a7220a07b281bd81271af0047472?cid=6b724621694e4c26a75d1503298241f8",
 };
