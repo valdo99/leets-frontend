@@ -19,6 +19,7 @@ export const MainCard = ({
   return (
     <Card
       css={{
+        "@smMax": { h: "350px", maxW: "400px", minWidth: "300px" },
         "@mdMax": { h: "350px", maxW: "320px", minWidth: "300px" },
         "@lgMax": { h: "350px", maxW: "500px", minWidth: "300px" },
       }}

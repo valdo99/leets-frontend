@@ -14,7 +14,7 @@ export const Feed = ({}) => {
   );
 
   return (
-    <Container css={{ py: "$10" }}>
+    <Container css={{ py: "$10", px: "$0" }}>
       {loading ? (
         <Row justify="center" css={{ py: "30%" }}>
           <Loading color="secondary" />
@@ -22,7 +22,7 @@ export const Feed = ({}) => {
       ) : (
         posts.map((post, index) => {
           return (
-            <Container key={post._id} css={{ py: "$5" }}>
+            <Container key={post._id} css={{ py: "$5", px: "$0" }}>
               {size.width >= 780 ? (
                 <FlatCard
                   position={index}

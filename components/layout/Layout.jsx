@@ -14,6 +14,7 @@ export const Layout = ({ children }) => {
           px: "$28",
           py: "$10",
         },
+        px: "$0",
       }}
     >
       <Navbar />
