@@ -1,17 +1,26 @@
 import { useApiClient } from "@providers/AuthProvider";
 import useFetch from "hooks/useFetch";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Loading, Row } from "@nextui-org/react";
 import { FlatCard } from "@components/cards/FlatCard";
 import useScreenSize from "hooks/useScreenSize";
 import { MainCard } from "@components/cards/Card";
+import { useAtom } from "jotai";
+import { userAtom } from "state/user";
 
 export const Feed = ({}) => {
+  const [user] = useAtom(userAtom);
   const size = useScreenSize();
   const apiClient = useApiClient();
-  const { data: posts, loading } = useFetch(() =>
-    apiClient.posts.feed().then((data) => data.data)
+  const [reload, setReload] = useState(false);
+  const { data: posts, loading } = useFetch(
+    () => apiClient.posts.feed().then((data) => data.data),
+    [reload]
   );
+
+  useEffect(() => {
+    setReload(!reload);
+  }, [user]);
 
   return (
     <Container css={{ py: "$10", px: "$7" }}>

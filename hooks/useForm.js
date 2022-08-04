@@ -1,4 +1,4 @@
-import { useToast } from "@providers/ToastProvider";
+import { toast } from "react-toastify";
 import {
   ValidationError,
   ForbiddenError,
@@ -86,8 +86,6 @@ const useForm = (initialData, options = {}) => {
     disabled: false,
   });
 
-  const addToast = useToast();
-
   const handleChange = (event) => {
     const { name, type } = event.target;
     let value;
@@ -161,7 +159,7 @@ const useForm = (initialData, options = {}) => {
         });
 
         if (options.successMessage) {
-          addToast({ type: "success", content: options.successMessage });
+          toast.success(options.successMessage);
         }
       } catch (err) {
         if (err instanceof ValidationError) {
@@ -180,7 +178,7 @@ const useForm = (initialData, options = {}) => {
         }
 
         if (options.errorMessage) {
-          addToast({ type: "error", content: options.errorMessage });
+          toast.error(options.errorMessage);
         }
       }
     };

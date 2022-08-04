@@ -15,8 +15,6 @@ export const Navbar = () => {
   const [visible, setVisible] = useAtom(loginModalAtom);
   const apiClient = useApiClient();
 
-  useEffect(() => {}, [user]);
-
   return (
     <>
       <Row justify="space-between" align="center" css={{}}>
@@ -53,9 +51,13 @@ export const Navbar = () => {
                   <Button
                     color="error"
                     onClick={async () => {
+                      try {
+                        await apiClient.auth.logout();
+                        setUser({ user: null, loading: true });
+                      } catch (error) {
+                        console.log(error);
+                      }
                       // TODO add toast
-                      await apiClient.auth.logout();
-                      setUser({ user: null, loading: true });
                     }}
                   >
                     Log Out
@@ -65,8 +67,8 @@ export const Navbar = () => {
             </Dropdown>
           ) : (
             <Button
-              shadow
-              color="secondary"
+              flat
+              color="primary"
               auto
               icon={<Login set="bold" primaryColor="currentColor" />}
               onClick={() => setVisible(true)}

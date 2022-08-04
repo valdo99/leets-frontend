@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import { createContext, useContext, useEffect, useRef } from "react";
+import { toast } from "react-toastify";
 import { userAtom } from "state/user";
 
 // import { useToast } from '@providers/ToastProvider'
@@ -8,7 +9,6 @@ import ApiClient from "../api/client";
 const ApiClientContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  // const addToast = useToast()
   const [userState, setUserState] = useAtom(userAtom);
 
   const handleUnauthorizedError = async () => {
@@ -18,9 +18,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleForbiddenError = (error) => {
-    alert(error.message);
-    // TODO ADD MODAL
-    //addToast({ type: 'error', content: error.message })
+    toast.error(error.message);
   };
 
   const apiClientRef = useRef(

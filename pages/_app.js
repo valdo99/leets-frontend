@@ -2,7 +2,10 @@ import { Provider } from "jotai";
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 import AuthProvider from "providers/AuthProvider";
 import AuthGuard from "guards/AuthGuard";
+import { ToastContainer } from "react-toastify";
 import "@utils/i18n";
+
+import "react-toastify/dist/ReactToastify.min.css";
 
 const myDarkTheme = createTheme({
   type: "dark",
@@ -62,20 +65,41 @@ const myDarkTheme = createTheme({
     },
     space: {},
     fonts: {},
+    zIndices: {
+      1: "100",
+      2: "200",
+      3: "300",
+      4: "400",
+      5: "500",
+      10: "1000",
+      max: "9998",
+    },
   },
 });
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider>
-      <NextUIProvider theme={myDarkTheme}>
-        <AuthProvider>
-          <AuthGuard auth={Component.auth}>
-            <Component {...pageProps} />
-          </AuthGuard>
-        </AuthProvider>
-      </NextUIProvider>
-    </Provider>
+    <>
+      <ToastContainer
+        position="top-right"
+        closeOnClick
+        pauseOnHover
+        autoClose={5000}
+        toastStyle={{
+          zIndex: 9999,
+          position: "relative",
+        }}
+      />
+      <Provider>
+        <NextUIProvider theme={myDarkTheme}>
+          <AuthProvider>
+            <AuthGuard auth={Component.auth}>
+              <Component {...pageProps} />
+            </AuthGuard>
+          </AuthProvider>
+        </NextUIProvider>
+      </Provider>
+    </>
   );
 }
 
