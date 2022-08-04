@@ -19,9 +19,8 @@ export const MainCard = ({
   return (
     <Card
       css={{
-        "@smMax": { h: "350px", maxW: "400px", minWidth: "300px" },
-        "@mdMax": { h: "350px", maxW: "320px", minWidth: "300px" },
-        "@lgMax": { h: "350px", maxW: "500px", minWidth: "300px" },
+        "@mdMax": { h: "250px", maxW: "320px", minWidth: "300px" },
+        "@lgMax": { h: "200px", maxW: "500px", minWidth: "300px" },
       }}
     >
       <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
@@ -71,6 +70,7 @@ export const MainCard = ({
           bottom: 0,
           zIndex: 1,
           backdropFilter: "none",
+          height: "60px",
         }}
       >
         <Row justify="space-between" align="center">
@@ -98,7 +98,13 @@ export const MainCard = ({
               <Text css={{ pl: "$10" }}>Listen on Spotify</Text>
             </Button>
           )}
-          <LikeButton id={id} likes={likeCount} isLiked={isLiked} />
+          <LikeButton
+            size="small"
+            id={id}
+            likes={likeCount}
+            isLiked={isLiked}
+            isMobile={true}
+          />
         </Row>
       </Card.Footer>
     </Card>
