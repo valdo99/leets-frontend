@@ -4,13 +4,16 @@ import { Container, Row, Progress, Button } from "@nextui-org/react";
 import { Play } from "react-iconly";
 import { HiPause } from "react-icons/hi";
 import styles from "./player.module.css";
+import { useAtom } from "jotai";
+import { trackPlayingAtom } from "state/player";
 
 /**
  * Primary UI component for user interaction
  */
-export const Player = ({ previewTrackUrl, ...props }) => {
+export const Player = ({ previewTrackUrl, id, ...props }) => {
   const [isPlay, setIsPlay] = React.useState(false);
   const [time, setTime] = React.useState(0);
+  const [trackPlaying, setTrackPlaying] = useAtom(trackPlayingAtom);
 
   const audio = React.useRef();
 
@@ -42,6 +45,17 @@ export const Player = ({ previewTrackUrl, ...props }) => {
     // timeline.current.addEventListener("change", changeSeek);
   }, []);
 
+  React.useEffect(() => {
+    if (audio.current) {
+      if (trackPlaying === id) {
+        audio.current.play();
+      } else {
+        audio.current.pause();
+        setIsPlay(false);
+      }
+    }
+  }, [trackPlaying]);
+
   return (
     <Container css={{ pl: 0 }}>
       <audio
@@ -57,6 +71,7 @@ export const Player = ({ previewTrackUrl, ...props }) => {
             set="bold"
             primaryColor="#1cb050"
             onClick={() => {
+              setTrackPlaying(id);
               audio.current.play();
               setIsPlay(true);
             }}
@@ -72,7 +87,12 @@ export const Player = ({ previewTrackUrl, ...props }) => {
             }}
           />
         )}
-        <Progress value={time} color="success" status="success" />
+        <Progress
+          animated={false}
+          value={time}
+          color="success"
+          status="success"
+        />
       </Row>
     </Container>
   );

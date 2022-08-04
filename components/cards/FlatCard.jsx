@@ -1,13 +1,14 @@
 import React from "react";
-import { Card, Col, Row, Button, Text } from "@nextui-org/react";
+import { Col, Image, Row, Button, Text } from "@nextui-org/react";
 import { Player } from "../mini-player/Player";
 import { HeartIcon } from "../assets/HeartIcon";
 import { FaSpotify } from "react-icons/fa";
 import PropTypes from "prop-types";
 import LikeButton from "@components/likeButton/LikeButton";
 
-export const MainCard = ({
+export const FlatCard = ({
   id,
+  position,
   spotifyId,
   artistName,
   trackTitle,
@@ -17,23 +18,43 @@ export const MainCard = ({
   previewTrackUrl,
 }) => {
   return (
-    <Card
+    <Row
+      justify="space-between"
+      align="center"
       css={{
-        "@mdMax": { h: "350px", maxW: "320px", minWidth: "300px" },
-        "@lgMax": { h: "350px", maxW: "500px", minWidth: "300px" },
+        height: "100px",
+        my: "$10",
       }}
     >
-      <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-        <Row justify="space-between">
-          <Col>
-            <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
-              {artistName}
-            </Text>
-            <Text h3 color="white">
+      <Row
+        justify="start"
+        align="center"
+        css={{
+          maxW: "80%",
+        }}
+      >
+        <Image
+          css={{ borderRadius: "$base" }}
+          src={postImage}
+          objectFit="cover"
+          width="200px"
+          height="100%"
+          alt="Relaxing app background"
+        />
+        <Col dir="column" css={{ px: "$3" }}>
+          <Text
+            css={{ pl: "$5" }}
+            size={12}
+            weight="bold"
+            transform="uppercase"
+            color="#9E9E9E"
+          >
+            {artistName}
+          </Text>
+          <Row align="center">
+            <Text css={{ pl: "$5" }} h3 color="white">
               {trackTitle}
             </Text>
-          </Col>
-          <Text>
             {previewTrackUrl && (
               <Button
                 onClick={() =>
@@ -44,35 +65,18 @@ export const MainCard = ({
                     )
                     .focus()
                 }
-                css={{ bgColor: "#1cb050" }}
+                css={{
+                  bgColor: "#1cb050",
+                  ml: "$3",
+                  w: "auto",
+                  h: "auto",
+                  p: "$2",
+                }}
                 auto
-                icon={<FaSpotify size={32} />}
+                icon={<FaSpotify size={24} />}
               ></Button>
             )}
-          </Text>
-        </Row>
-      </Card.Header>
-      <Card.Body css={{ p: 0 }}>
-        <Card.Image
-          src={postImage}
-          objectFit="cover"
-          width="100%"
-          height="100%"
-          alt="Relaxing app background"
-        />
-      </Card.Body>
-      <Card.Footer
-        isBlurred
-        css={{
-          position: "absolute",
-          bgBlur: "#0f111466",
-          borderTop: "$borderWeights$light solid $gray800",
-          bottom: 0,
-          zIndex: 1,
-          backdropFilter: "none",
-        }}
-      >
-        <Row justify="space-between" align="center">
+          </Row>
           {previewTrackUrl && (
             <Player id={spotifyId} previewTrackUrl={previewTrackUrl} />
           )}
@@ -97,16 +101,15 @@ export const MainCard = ({
               <Text css={{ pl: "$10" }}>Listen on Spotify</Text>
             </Button>
           )}
-          <LikeButton id={id} likes={likeCount} isLiked={isLiked} />
-        </Row>
-      </Card.Footer>
-    </Card>
+        </Col>
+      </Row>
+
+      <LikeButton id={id} likes={likeCount} isLiked={isLiked} />
+    </Row>
   );
 };
 
-MainCard.propTypes = {
-  id: PropTypes.string.isRequired,
-
+FlatCard.propTypes = {
   spotifyId: PropTypes.string,
 
   artistName: PropTypes.string,
@@ -116,8 +119,6 @@ MainCard.propTypes = {
   postImage: PropTypes.string,
 
   likeCount: PropTypes.number,
-
-  isLiked: PropTypes.bool,
 
   previewTrackUrl: PropTypes.string,
 };
