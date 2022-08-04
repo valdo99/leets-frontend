@@ -14,7 +14,7 @@ export const Feed = ({}) => {
   );
 
   return (
-    <Container css={{ py: "$10", px: "$0" }}>
+    <Container css={{ py: "$10", px: "$10" }}>
       {loading ? (
         <Row justify="center" css={{ py: "30%" }}>
           <Loading color="secondary" />
