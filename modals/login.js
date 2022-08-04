@@ -12,6 +12,7 @@ import { useApiClient } from "providers/AuthProvider";
 import { userAtom } from "state/user";
 import { useAtom } from "jotai";
 import useForm from "hooks/useForm";
+import { toast } from "react-toastify";
 
 export default function LoginModal({ visible, setVisible }) {
   const apiClient = useApiClient();
@@ -39,6 +40,9 @@ export default function LoginModal({ visible, setVisible }) {
     if (isRegister) {
       await apiClient.users.create(data);
       setVisible(false);
+      toast.success(
+        "Utente registrato, riceverai una mail per confermare il tuo profilo"
+      );
     } else {
       await apiClient.auth.login(data);
       const loggedUser = await apiClient.auth.getLoggedUser();
