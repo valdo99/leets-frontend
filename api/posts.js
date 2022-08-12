@@ -1,4 +1,5 @@
 import ApiService from "./api-service";
+import getQueryString from "./get-query-string";
 
 class PostService extends ApiService {
   async list(data) {
@@ -10,8 +11,8 @@ class PostService extends ApiService {
   async unlike(post) {
     return await this.http.post(`${this.baseUrl}/${post}/dislike`);
   }
-  async feed() {
-    return await this.http.get(`${this.baseUrl}/feed`);
+  async feed(params={}) {
+    return await this.http.get(`${this.baseUrl}/feed${getQueryString(params)}`);
   }
 }
 

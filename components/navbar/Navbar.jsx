@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { Row, Button, Text, Image, Dropdown } from "@nextui-org/react";
+import {
+  Row,
+  Button,
+  Text,
+  Image,
+  Dropdown,
+  Container,
+} from "@nextui-org/react";
 import { Login } from "react-iconly";
 import { User } from "@nextui-org/react";
 
@@ -9,6 +16,14 @@ import LoginModal from "@modals/login";
 import { useAtom } from "jotai";
 import { userAtom } from "state/user";
 import { loginModalAtom } from "state/loginModal";
+import styled from "styled-components";
+
+const UsernameDiv = styled.div`
+  text-align: end;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export const Navbar = () => {
   const [{ user }, setUser] = useAtom(userAtom);
@@ -25,11 +40,7 @@ export const Navbar = () => {
           {user ? (
             <Dropdown placement="bottom-left">
               <Dropdown.Trigger>
-                <User
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                  name={user.username}
-                  css={{ "@hover": { cursor: "pointer" } }}
-                />
+                <UsernameDiv>{user.username}</UsernameDiv>
               </Dropdown.Trigger>
               <Dropdown.Menu color="primary" aria-label="Avatar Actions">
                 <Dropdown.Item key="profile" css={{ height: "$18" }}>

@@ -11,6 +11,8 @@ const myDarkTheme = createTheme({
   type: "dark",
   theme: {
     colors: {
+      white: "#fff",
+
       // brand colors
       background: "#1d1d1d",
       // "purple"

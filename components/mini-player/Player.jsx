@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Row, Progress, Button } from "@nextui-org/react";
+import { Container, Row, Progress, useTheme } from "@nextui-org/react";
 import { Play } from "react-iconly";
 import { HiPause } from "react-icons/hi";
 import styles from "./player.module.css";
@@ -14,6 +14,7 @@ export const Player = ({ previewTrackUrl, id, ...props }) => {
   const [isPlay, setIsPlay] = React.useState(false);
   const [time, setTime] = React.useState(0);
   const [trackPlaying, setTrackPlaying] = useAtom(trackPlayingAtom);
+  const { theme } = useTheme();
 
   const audio = React.useRef();
 
@@ -69,7 +70,7 @@ export const Player = ({ previewTrackUrl, id, ...props }) => {
             className={styles.hoverCursor}
             size={54}
             set="bold"
-            primaryColor="#1cb050"
+            primaryColor="#fff"
             onClick={() => {
               setTrackPlaying(id);
               audio.current.play();
@@ -79,7 +80,7 @@ export const Player = ({ previewTrackUrl, id, ...props }) => {
         ) : (
           <HiPause
             className={styles.hoverCursor}
-            fill="#1cb050"
+            fill="#fff"
             size={54}
             onClick={() => {
               audio.current.pause();
@@ -87,12 +88,7 @@ export const Player = ({ previewTrackUrl, id, ...props }) => {
             }}
           />
         )}
-        <Progress
-          animated={false}
-          value={time}
-          color="success"
-          status="success"
-        />
+        <Progress animated={false} value={time} className={styles.progress} />
       </Row>
     </Container>
   );

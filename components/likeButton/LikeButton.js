@@ -13,7 +13,7 @@ export const LikeButton = ({
   isLiked,
   likes: totalLikes,
   id,
-  isMobile = false,
+  isMobile = true,
 }) => {
   const [{ user }, setUser] = useAtom(userAtom);
   const [, setVisible] = useAtom(loginModalAtom);

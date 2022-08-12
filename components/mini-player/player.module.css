@@ -1,3 +1,7 @@
 .hoverCursor:hover {
   cursor: pointer;
 }
+
+.progress > div {
+  background: white;
+}

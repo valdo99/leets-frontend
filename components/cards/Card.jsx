@@ -35,7 +35,7 @@ export const MainCard = ({
           </Col>
           <Text>
             {previewTrackUrl && (
-              <Button
+              <FaSpotify
                 onClick={() =>
                   window
                     .open(
@@ -44,10 +44,8 @@ export const MainCard = ({
                     )
                     .focus()
                 }
-                css={{ bgColor: "#1cb050" }}
-                auto
-                icon={<FaSpotify size={32} />}
-              ></Button>
+                size={32}
+              />
             )}
           </Text>
         </Row>

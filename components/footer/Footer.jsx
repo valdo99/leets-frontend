@@ -1,4 +1,5 @@
 import { Grid, Text, Divider } from "@nextui-org/react";
+import { Heart, Heart2 } from "react-iconly";
 
 export const Footer = () => {
   return (
@@ -10,7 +11,14 @@ export const Footer = () => {
         </Grid>
         <Grid xs={4} justify="center">
           <Text>
-            Made with {"<3"} by federica alderighi and edvaldo gjonikaj
+            Made with <Heart2 /> by{" "}
+            <a href="https://www.linkedin.com/in/federica-alderighi-b712a9188/">
+              Federica
+            </a>{" "}
+            and{" "}
+            <a href="https://www.linkedin.com/in/edvaldo-g-20a271121/">
+              Edvaldo
+            </a>
           </Text>
         </Grid>
         <Grid xs={4} justify="end">

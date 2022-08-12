@@ -14,7 +14,8 @@ export const Feed = ({}) => {
   const apiClient = useApiClient();
   const [reload, setReload] = useState(false);
   const { data: posts, loading } = useFetch(
-    () => apiClient.posts.feed().then((data) => data.data),
+    () =>
+      apiClient.posts.feed({ year: 2022, week: 32 }).then((data) => data.data),
     [reload]
   );
 
