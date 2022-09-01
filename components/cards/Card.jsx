@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
-import { Player } from "../mini-player/Player";
+import { Player } from "../player/Player";
 import { HeartIcon } from "../assets/HeartIcon";
 import { FaSpotify } from "react-icons/fa";
 import PropTypes from "prop-types";
