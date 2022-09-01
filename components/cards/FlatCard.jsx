@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Image, Row, Button, Text, Container } from "@nextui-org/react";
-import { Player } from "../mini-player/Player";
+import { Player } from "../player/Player";
 import { HeartIcon } from "../assets/HeartIcon";
 import { FaSpotify } from "react-icons/fa";
 import PropTypes from "prop-types";
@@ -81,7 +81,7 @@ export const FlatCard = ({
             )}
           </Row>
           {previewTrackUrl && (
-            <Player id={spotifyId} previewTrackUrl={previewTrackUrl} />
+            <Player id={spotifyId} size={3} previewTrackUrl={previewTrackUrl} />
           )}
           {!previewTrackUrl && (
             <Button
