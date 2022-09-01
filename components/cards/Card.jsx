@@ -73,7 +73,7 @@ export const MainCard = ({
       >
         <Row justify="space-between" align="center">
           {previewTrackUrl && (
-            <Player id={spotifyId} previewTrackUrl={previewTrackUrl} />
+            <Player size={3} id={spotifyId} previewTrackUrl={previewTrackUrl} />
           )}
           {!previewTrackUrl && (
             <Button
