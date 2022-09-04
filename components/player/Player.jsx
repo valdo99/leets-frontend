@@ -2,8 +2,6 @@ import { useAtom } from "jotai";
 import React from "react";
 import { trackPlayingAtom } from "state/player";
 
-import styles from "./player.module.css";
-
 export function Player({ previewTrackUrl, id, size = 4, ...props }) {
   const [isPlay, setIsPlay] = React.useState(false);
   const [trackPlaying, setTrackPlaying] = useAtom(trackPlayingAtom);

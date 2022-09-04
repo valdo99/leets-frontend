@@ -1,0 +1,25 @@
+.cardContainer {
+  display: flex;
+  background: white;
+  height: 200px;
+  border-radius: 12px;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 12px;
+}
+
+.imageColumnContainer {
+  margin-right: 24px;
+  max-width: 180px;
+  width: 100%;
+}
+
+.imageColumnContainer > img {
+  border-radius: 12px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoColumnContainer {
+  color: #050e1d;
+}

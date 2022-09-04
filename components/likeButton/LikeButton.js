@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Button, Text } from "@nextui-org/react";
 
-import { HeartIcon } from "../assets/HeartIcon";
+import HeartIcon from "../assets/heart";
 
 import { useApiClient } from "@providers/AuthProvider";
 import { useAtom } from "jotai";
@@ -47,10 +47,9 @@ export const LikeButton = ({
       }}
       auto
       css={{ h: "auto", lineHeight: 0, py: "$5" }}
-      color="primary"
       icon={
         isMobile && (
-          <HeartIcon size={30} fill="currentColor" filled={hasLiked} />
+          <HeartIcon size={24} fill="currentColor" filled={hasLiked} />
         )
       }
     >
@@ -61,7 +60,7 @@ export const LikeButton = ({
       ) : (
         <Col dir="column">
           <Col size={30} fill="currentColor" filled={hasLiked} />
-          <HeartIcon size={30} fill="currentColor" filled={hasLiked} />
+          <HeartIcon size={24} fill="currentColor" filled={hasLiked} />
           <Text
             css={{ fontWeight: "$extrabold", fontSize: "$lg" }}
             color="white"

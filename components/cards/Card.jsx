@@ -1,79 +1,72 @@
 import React from "react";
-import { Card, Col, Row, Button, Text } from "@nextui-org/react";
-import { Player } from "../player/Player";
-import { HeartIcon } from "../assets/HeartIcon";
-import { FaSpotify } from "react-icons/fa";
-import PropTypes from "prop-types";
+import { Col, Row, Button, Text } from "@nextui-org/react";
 import LikeButton from "@components/likeButton/LikeButton";
+import { Player } from "../player/Player";
+import { FaSpotify } from "react-icons/fa";
+import styles from "./card.module.css";
 
-export const MainCard = ({
-  id,
+export const Card = ({
+  position,
   spotifyId,
   artistName,
   trackTitle,
   postImage,
   likeCount,
-  isLiked,
   previewTrackUrl,
+  id,
+  isLiked,
+  image = true,
 }) => {
   return (
-    <Card
-      css={{
-        "@mdMax": { h: "250px", maxW: "320px", minWidth: "300px" },
-        "@lgMax": { h: "200px", maxW: "500px", minWidth: "300px" },
-      }}
-    >
-      <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-        <Row justify="space-between">
-          <Col>
-            <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
-              {artistName}
-            </Text>
-            <Text h3 color="white">
-              {trackTitle}
-            </Text>
-          </Col>
-          <Text>
-            {previewTrackUrl && (
-              <FaSpotify
-                onClick={() =>
-                  window
-                    .open(
-                      "https://open.spotify.com/track/".concat(spotifyId),
-                      "_blank"
-                    )
-                    .focus()
-                }
-                size={32}
-              />
-            )}
-          </Text>
-        </Row>
-      </Card.Header>
-      <Card.Body css={{ p: 0 }}>
-        <Card.Image
-          src={postImage}
-          objectFit="cover"
-          width="100%"
-          height="100%"
-          alt="Relaxing app background"
-        />
-      </Card.Body>
-      <Card.Footer
-        isBlurred
+    <div className={styles.cardContainer}>
+      {image && (
+        <div className={styles.imageColumnContainer}>
+          <img src={postImage}></img>
+        </div>
+      )}
+      <Row
+        justify="start"
+        align="center"
         css={{
-          position: "absolute",
-          bgBlur: "#0f111466",
-          borderTop: "$borderWeights$light solid $gray800",
-          bottom: 0,
-          zIndex: 1,
-          backdropFilter: "none",
-          height: "60px",
+          maxW: "80%",
         }}
       >
-        <Row justify="space-between" align="center">
+        <Col dir="column" css={{ px: "$3" }}>
+          <Text
+            css={{ pl: "$5" }}
+            size={12}
+            weight="bold"
+            transform="uppercase"
+            color="#050e1d"
+          >
+            {artistName}
+          </Text>
+          <Row align="center">
+            <Text
+              css={{ pl: "$5", lineHeight: "20px", pt: 10, pb: 15 }}
+              h3
+              color="#050e1d"
+            >
+              {trackTitle}
+            </Text>
+            {/* {previewTrackUrl && (
+              <SpotifyDiv>
+                <FaSpotify
+                  onClick={() =>
+                    window
+                      .open(
+                        "https://open.spotify.com/track/".concat(spotifyId),
+                        "_blank"
+                      )
+                      .focus()
+                  }
+                  size={24}
+                />
+              </SpotifyDiv>
+            )} */}
+          </Row>
           {previewTrackUrl && (
-            <Player size={3} id={spotifyId} previewTrackUrl={previewTrackUrl} />
+            <Player id={spotifyId} size={3} previewTrackUrl={previewTrackUrl} />
           )}
           {!previewTrackUrl && (
             <Button
@@ -96,33 +89,8 @@ export const MainCard = ({
               <Text css={{ pl: "$10" }}>Listen on Spotify</Text>
             </Button>
           )}
-          <LikeButton
-            size="small"
-            id={id}
-            likes={likeCount}
-            isLiked={isLiked}
-            isMobile={true}
-          />
-        </Row>
-      </Card.Footer>
-    </Card>
+        </Col>
+      </Row>
+    </div>
   );
-};
-
-MainCard.propTypes = {
-  id: PropTypes.string.isRequired,
-
-  spotifyId: PropTypes.string,
-
-  artistName: PropTypes.string,
-
-  trackTitle: PropTypes.string,
-
-  postImage: PropTypes.string,
-
-  likeCount: PropTypes.number,
-
-  isLiked: PropTypes.bool,
-
-  previewTrackUrl: PropTypes.string,
 };

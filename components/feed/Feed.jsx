@@ -1,12 +1,11 @@
 import { useApiClient } from "@providers/AuthProvider";
 import useFetch from "hooks/useFetch";
+import useScreenSize from "hooks/useScreenSize";
 import React, { useEffect, useState } from "react";
 import { Container, Loading, Row } from "@nextui-org/react";
-import { FlatCard } from "@components/cards/FlatCard";
-import useScreenSize from "hooks/useScreenSize";
-import { MainCard } from "@components/cards/Card";
 import { useAtom } from "jotai";
 import { userAtom } from "state/user";
+import { Card } from "@components/cards/Card";
 
 export const Feed = ({}) => {
   const [user] = useAtom(userAtom);
@@ -33,31 +32,17 @@ export const Feed = ({}) => {
         posts.map((post, index) => {
           return (
             <Container key={post._id} css={{ py: "$5", px: "$0" }}>
-              {size.width >= 780 ? (
-                <FlatCard
-                  position={index}
-                  spotifyId={post.spotify_id}
-                  artistName={post.artist.name}
-                  trackTitle={post.title}
-                  postImage={post.image}
-                  likeCount={post.likes}
-                  previewTrackUrl={post?.preview_url}
-                  id={post._id}
-                  isLiked={post.isLiked}
-                />
-              ) : (
-                <MainCard
-                  position={index}
-                  spotifyId={post.spotify_id}
-                  artistName={post.artist.name}
-                  trackTitle={post.title}
-                  postImage={post.image}
-                  likeCount={post.likes}
-                  previewTrackUrl={post?.preview_url}
-                  id={post._id}
-                  isLiked={post.isLiked}
-                />
-              )}
+              <Card
+                position={index}
+                spotifyId={post.spotify_id}
+                artistName={post.artist.name}
+                trackTitle={post.title}
+                postImage={post.image}
+                likeCount={post.likes}
+                previewTrackUrl={post?.preview_url}
+                id={post._id}
+                isLiked={post.isLiked}
+              />
             </Container>
           );
         })
