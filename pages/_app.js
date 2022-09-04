@@ -15,19 +15,16 @@ const myDarkTheme = createTheme({
 
       // brand colors
       background: "#050e1d",
-      // "purple"
-      purple1: "#fefcfe",
-      purple2: "#fdfaff",
-      purple3: "#f9f1fe",
-      purple4: "#f3e7fc",
-      purple5: "#eddbf9",
-      purple6: "#e3ccf4",
-      purple7: "#d3b4ed",
-      purple8: "#be93e4",
-      purple9: "#8e4ec6",
-      purple10: "#8445bc",
-      purple11: "#793aaf",
-      purple12: "#2b0e44",
+      // "green"
+      green1: "#D6FDDA",
+      green2: "#AEFBBD",
+      green3: "#83F3A4",
+      green4: "#62E897",
+      green5: "#33D985",
+      green6: "#25BA7D",
+      green7: "#199C74",
+      green8: "#107D67",
+      green9: "#09685E",
 
       // "yellow"
       yellowA1: "#abab05",
@@ -43,16 +40,16 @@ const myDarkTheme = createTheme({
       yellowA11: "#926600",
       yellowA12: "#291c00",
 
-      primaryLight: "$purple5",
-      primaryLightHover: "$purple6", // commonly used on hover state
-      primaryLightActive: "$purple7", // commonly used on pressed state
-      primaryLightContrast: "$purple9", // commonly used for text inside the component
-      primary: "$purple9",
-      primaryBorder: "$purple9",
-      primaryBorderHover: "$purple10",
-      primarySolidHover: "$purple11",
+      primaryLight: "$green5",
+      primaryLightHover: "$green6", // commonly used on hover state
+      primaryLightActive: "$green7", // commonly used on pressed state
+      primaryLightContrast: "$green9", // commonly used for text inside the component
+      primary: "$green9",
+      primaryBorder: "$green9",
+      primaryBorderHover: "$green10",
+      primarySolidHover: "$green11",
       primarySolidContrast: "$white", // commonly used for text inside the component
-      primaryShadow: "$purple8",
+      primaryShadow: "$green8",
 
       secondaryLight: "$yellowA4",
       secondaryLightHover: "$yellowA5", // commonly used on hover state
