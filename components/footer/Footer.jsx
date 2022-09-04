@@ -19,7 +19,7 @@ export const Footer = () => {
             <a href="https://www.linkedin.com/in/edvaldo-g-20a271121/">
               Edvaldo
             </a>{" "}
-            and
+            and{" "}
             <a href="https://www.linkedin.com/in/mattia-pomelli-b857511b1/">
               Mattia
             </a>
