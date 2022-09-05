@@ -23,6 +23,10 @@ export const Footer = () => {
             <a href="https://www.linkedin.com/in/mattia-pomelli-b857511b1/">
               Mattia
             </a>
+            , designed by{" "}
+            <a href="https://www.linkedin.com/in/guido-bambi-1458b8200/">
+              Guido
+            </a>
           </Text>
         </Grid>
         <Grid xs={4} justify="end">
