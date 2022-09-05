@@ -19,11 +19,22 @@ export const Card = ({
 }) => {
   return (
     <div className={styles.cardContainer}>
-      {image && (
-        <div className={styles.imageColumnContainer}>
-          <img src={postImage}></img>
-        </div>
-      )}
+      {image && <img className={styles.cardImageCover} src={postImage}></img>}
+      <div className={styles.spotifyLink}>
+        <FaSpotify
+          color="#050e1d"
+          onClick={() =>
+            window
+              .open(
+                "https://open.spotify.com/track/".concat(spotifyId),
+                "_blank"
+              )
+              .focus()
+          }
+          size={24}
+        />
+      </div>
+
       <Row
         justify="start"
         align="center"

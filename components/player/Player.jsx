@@ -2,6 +2,8 @@ import { useAtom } from "jotai";
 import React from "react";
 import { trackPlayingAtom } from "state/player";
 
+import styles from "./player.module.css";
+
 export function Player({ previewTrackUrl, id, size = 4, ...props }) {
   const [isPlay, setIsPlay] = React.useState(false);
   const [trackPlaying, setTrackPlaying] = useAtom(trackPlayingAtom);
@@ -62,22 +64,22 @@ export function Player({ previewTrackUrl, id, size = 4, ...props }) {
     }
   }, [trackPlaying]);
   return (
-    <div
-      onClick={() => {
-        if (isPlay) {
-          pause();
-        } else {
-          setTrackPlaying(id);
-          play();
-        }
-      }}
-    >
+    <div>
       <audio
         style={{ display: "none" }}
         ref={audio}
         src={previewTrackUrl}
       ></audio>
       <svg
+        className={styles.playerSVG}
+        onClick={() => {
+          if (isPlay) {
+            pause();
+          } else {
+            setTrackPlaying(id);
+            play();
+          }
+        }}
         stroke="currentColor"
         fill="currentColor"
         strokeWidth="0"

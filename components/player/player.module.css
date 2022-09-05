@@ -14,3 +14,7 @@
 .circleFill {
   transform: scale(1);
 }
+
+.playerSVG:hover {
+  cursor: pointer;
+}
