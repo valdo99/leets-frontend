@@ -66,11 +66,17 @@ export default function LoginModal({ visible, setVisible }) {
       aria-labelledby="modal-title"
       open={visible}
       onClose={closeHandler}
+      css={{ mb: "$32", background: "$background" }}
     >
       <Modal.Header>
-        <Text id="modal-title" size={18}>
+        <Text
+          id="modal-title"
+          size={22}
+          css={{ letterSpacing: "$normal" }}
+          // weight="bold"
+        >
           Get started on{" "}
-          <Text b size={18}>
+          <Text b size={22}>
             Leets
           </Text>
         </Text>
@@ -199,10 +205,16 @@ export default function LoginModal({ visible, setVisible }) {
         </Row>
       </Modal.Body>
       <Modal.Footer>
-        <Button auto flat color="error" onClick={closeHandler}>
+        <Button flat auto onClick={closeHandler} color="primary" bordered>
           Close
         </Button>
-        <Button disabled={disabled} auto onClick={onSubmit}>
+        <Button
+          flat
+          disabled={disabled}
+          auto
+          onClick={onSubmit}
+          color="primary"
+        >
           {disabled ? (
             <Loading color="currentColor" size="sm" />
           ) : (

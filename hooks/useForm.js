@@ -146,7 +146,7 @@ const useForm = (initialData, options = {}) => {
 
   const handleSubmit = (onSubmit) => {
     return async (event) => {
-      event?.preventDefault();
+      event?.preventDefault?.();
 
       if (formState.disabled) return;
       dispatch({ type: "INIT_SUBMIT" });

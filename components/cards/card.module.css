@@ -1,7 +1,7 @@
 .cardContainer {
   display: flex;
   background: white;
-  height: 160px;
+  height: 140px;
   border-radius: 12px;
   flex-direction: row;
   justify-content: flex-start;
@@ -29,7 +29,7 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  z-index: 9999;
+  z-index: 10;
 }
 
 .spotifyLink:hover {

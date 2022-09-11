@@ -14,7 +14,8 @@ const myDarkTheme = createTheme({
       white: "#fff",
 
       // brand colors
-      background: "#050e1d",
+      darkBlue: "#050e1d",
+
       // "green"
       green1: "#D6FDDA",
       green2: "#AEFBBD",
@@ -40,15 +41,18 @@ const myDarkTheme = createTheme({
       yellowA11: "#926600",
       yellowA12: "#291c00",
 
+      background: "$darkBlue",
+
       primaryLight: "$green5",
       primaryLightHover: "$green6", // commonly used on hover state
       primaryLightActive: "$green7", // commonly used on pressed state
-      primaryLightContrast: "$green9", // commonly used for text inside the component
-      primary: "$green9",
-      primaryBorder: "$green9",
+      primaryLightContrast: "$darkBlue", // commonly used for text inside the component
+      primary: "$green5",
+      primaryHover: "green10",
+      primaryBorder: "$green5",
       primaryBorderHover: "$green10",
       primarySolidHover: "$green11",
-      primarySolidContrast: "$white", // commonly used for text inside the component
+      primarySolidContrast: "$darkBlue", // commonly used for text inside the component
       primaryShadow: "$green8",
 
       secondaryLight: "$yellowA4",
@@ -61,9 +65,16 @@ const myDarkTheme = createTheme({
       secondarySolidHover: "$yellowA10",
       secondarySolidContrast: "$black", // commonly used for text inside the component
       secondaryShadow: "$yellowA7",
+
+      textPrimary: "$white",
+      textSecondary: "$darkBlue",
+
+      inputBorderColor: "#ff0000",
     },
     space: {},
-    fonts: {},
+    fonts: {
+      sans: "Manrope",
+    },
     zIndices: {
       1: "100",
       2: "200",

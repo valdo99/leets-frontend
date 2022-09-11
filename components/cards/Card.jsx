@@ -44,19 +44,26 @@ export const Card = ({
       >
         <Col dir="column" css={{ px: "$3" }}>
           <Text
-            css={{ pl: "$5" }}
+            css={{ pl: "$6", letterSpacing: "$wider" }}
             size={12}
             weight="bold"
             transform="uppercase"
-            color="#050e1d"
+            color="$background"
           >
             {artistName}
           </Text>
           <Row align="center">
             <Text
-              css={{ pl: "$5", lineHeight: "20px", pt: 10, pb: 15 }}
+              css={{
+                pl: "$6",
+                lineHeight: "20px",
+                pt: 4,
+                pb: 10,
+                letterSpacing: "$tight",
+              }}
               h3
-              color="#050e1d"
+              weight="bold"
+              color="$background"
             >
               {trackTitle}
             </Text>
@@ -77,7 +84,13 @@ export const Card = ({
             )} */}
           </Row>
           {previewTrackUrl && (
-            <Player id={spotifyId} size={3} previewTrackUrl={previewTrackUrl} />
+            <Row css={{ pl: "$5" }}>
+              <Player
+                id={spotifyId}
+                size={3}
+                previewTrackUrl={previewTrackUrl}
+              />
+            </Row>
           )}
           {!previewTrackUrl && (
             <Button
@@ -90,10 +103,10 @@ export const Card = ({
                   .focus()
               }
               css={{
-                bgColor: "#1cb050",
-                pl: "$5",
-                ml: "$5",
-                mt: "$5",
+                bgColor: "$textSecondary",
+                pl: "$6",
+                ml: "$6",
+                mt: "$6",
               }}
               icon={<FaSpotify size={24} />}
             >

@@ -38,17 +38,22 @@ export const Navbar = () => {
         </Row>
         <Row justify="flex-end" align="center">
           {user ? (
-            <Dropdown placement="bottom-left">
+            <Dropdown placement="bottom-right">
               <Dropdown.Trigger>
                 <UsernameDiv>{user.username}</UsernameDiv>
               </Dropdown.Trigger>
-              <Dropdown.Menu color="primary" aria-label="Avatar Actions">
-                <Dropdown.Item key="profile" css={{ height: "$18" }}>
-                  <Text b color="inherit" css={{ d: "flex" }}>
-                    Signed in as
-                  </Text>
-                  <Text b color="inherit" css={{ d: "flex" }}>
-                    {`${user.name} ${user.surname}`}
+              <Dropdown.Menu
+                color="primary"
+                aria-label="Avatar Actions"
+                css={{
+                  p: "$8",
+                  background: "$background",
+                  boxShadow: "rgba(0, 0, 0, 0.15) 0px 2px 8px",
+                }}
+              >
+                <Dropdown.Item key="profile" css={{ p: "$4" }}>
+                  <Text b color="inherit">
+                    Profile
                   </Text>
                 </Dropdown.Item>
 
@@ -56,11 +61,14 @@ export const Navbar = () => {
                   key="logout"
                   css={{
                     marginTop: "$8",
+                    px: "$0",
                     "@hover": { backgroundColor: "transparent" },
                   }}
                 >
                   <Button
-                    color="error"
+                    color="primary"
+                    bordered
+                    css={{ w: "100%" }}
                     onClick={async () => {
                       try {
                         await apiClient.auth.logout();
