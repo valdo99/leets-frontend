@@ -19,8 +19,20 @@ class UserService extends ApiService {
     return await this.http.post(this.baseUrl, data);
   }
 
+  async read(username) {
+    return await this.http.get(`${this.baseUrl}/${username}`);
+  }
+
   async me() {
     return await this.http.get(`${this.baseUrl}/me`);
+  }
+
+  async uploads(username) {
+    return await this.http.get(`${this.baseUrl}/${username}/uploads`);
+  }
+
+  async likes(username) {
+    return await this.http.get(`${this.baseUrl}/${username}/likes`);
   }
 
   async update(data) {
