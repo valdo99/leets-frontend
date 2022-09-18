@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        main: ["Plus Jakarta Sans", ...fontFamily.sans],
+        main: ["Manrope", ...fontFamily.sans],
       },
       colors: {
         primary: {
