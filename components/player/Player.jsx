@@ -1,10 +1,17 @@
 import { useAtom } from "jotai";
 import React from "react";
-import { trackPlayingAtom } from "state/player";
+import { trackPlayingAtom } from "@state/player";
 
-import styles from "./player.module.css";
+import classNames from "classnames";
 
-export function Player({ previewTrackUrl, id, size = 4, ...props }) {
+const Player = ({
+  previewTrackUrl,
+  id,
+  size = 4,
+  className,
+  playerClassName,
+  ...props
+}) => {
   const [isPlay, setIsPlay] = React.useState(false);
   const [trackPlaying, setTrackPlaying] = useAtom(trackPlayingAtom);
   const [percentagePlayed, setPercentagePlayed] = React.useState(0);
@@ -63,15 +70,15 @@ export function Player({ previewTrackUrl, id, size = 4, ...props }) {
       }
     }
   }, [trackPlaying]);
+
   return (
-    <div>
+    <div className={className}>
       <audio
         style={{ display: "none" }}
         ref={audio}
         src={previewTrackUrl}
       ></audio>
       <svg
-        className={styles.playerSVG}
         onClick={() => {
           if (isPlay) {
             pause();
@@ -86,6 +93,7 @@ export function Player({ previewTrackUrl, id, size = 4, ...props }) {
         viewBox="0 0 16 16"
         height={`${size}em`}
         width={`${size}em`}
+        className={classNames("cursor-pointer", playerClassName)}
       >
         <circle
           cx="50%"
@@ -130,4 +138,6 @@ export function Player({ previewTrackUrl, id, size = 4, ...props }) {
       </svg>
     </div>
   );
-}
+};
+
+export default Player;

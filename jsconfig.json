@@ -6,7 +6,8 @@
       "@providers/*": ["./providers/*"],
       "@api/*": ["./api/*"],
       "@utils/*": ["./utils/*"],
-      "@modals/*": ["./modals/*"]
+      "@modals/*": ["./modals/*"],
+      "@state/*": ["./state/*"],
     }
   }
 }

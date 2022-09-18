@@ -5,7 +5,6 @@ const Checkbox = ({
   checked,
   onChange: baseOnChange,
   label,
-  labelSmall = false,
   className,
   id,
   onValueChange,

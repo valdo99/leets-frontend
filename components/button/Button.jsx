@@ -55,17 +55,13 @@ const Button = React.forwardRef(
         )}
       >
         <span
-          className={classNames("flex justify-center items-center", {
+          className={classNames("flex justify-center items-center gap-2", {
             "opacity-0": loading,
           })}
         >
-          {leftIcon && (
-            <span className="mr-1 fill-current w-5">{leftIcon}</span>
-          )}
+          {leftIcon && <span className="fill-current w-5">{leftIcon}</span>}
           {children}
-          {rightIcon && (
-            <span className="ml-1 fill-current w-5">{rightIcon}</span>
-          )}
+          {rightIcon && <span className="fill-current w-5">{rightIcon}</span>}
         </span>
         {loading && <Spinner className="animate-spin w-4 absolute" />}
       </Tag>

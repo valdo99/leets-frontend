@@ -1,25 +1,15 @@
-import { Footer } from "@components/footer/Footer";
-import { Navbar } from "@components/navbar/Navbar";
-import { Container } from "@nextui-org/react";
+import Container from "@components/Container";
+import Footer from "@components/footer/Footer";
+import Navbar from "@components/navbar/Navbar";
 
 export const Layout = ({ children }) => {
   return (
-    <Container
-      css={{
-        "@mdMax": {
-          px: "$7",
-          py: "$10",
-        },
-        "@md": {
-          px: "$28",
-          py: "$10",
-        },
-        px: "$0",
-      }}
-    >
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main>{children}</main>
+      <main className="flex-grow pb-20">
+        <Container>{children}</Container>
+      </main>
       <Footer />
-    </Container>
+    </div>
   );
 };

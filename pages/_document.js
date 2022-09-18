@@ -1,9 +1,7 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { CssBaseline } from "@nextui-org/react";
 
 class MyDocument extends Document {
-  // TODO delete this next-ui baseline
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
     return {
@@ -17,12 +15,15 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
             rel="stylesheet"
           />
-          {CssBaseline.flush()}
         </Head>
         <body>
           <Main />
