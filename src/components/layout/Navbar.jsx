@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <header className="flex items-center py-6">
       <Container className="flex justify-between items-center w-full">
-        <Image src="/logo_1.png" height="50px" width="123px" alt="Leets logo" />
+        <Image src="/logo_1.png" height="46px" width="113px" alt="Leets logo" />
         <Transition
           show={show}
           enter="transition-opacity duration-200"
