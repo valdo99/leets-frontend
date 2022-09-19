@@ -1,5 +1,5 @@
 import Button from "@components/basic/button";
-import Player from "@components/player";
+import Player from "./Player";
 import classNames from "classnames";
 import Image from "next/image";
 import React from "react";

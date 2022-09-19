@@ -3,8 +3,8 @@ import useFetch from "@hooks/useFetch";
 import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { userAtom } from "@state/user";
-import Spinner from "./basic/Spinner";
-import { SongCard } from "./song-card";
+import Spinner from "@components/basic/Spinner";
+import { SongCard } from "@components/song/SongCard";
 
 export const Feed = () => {
   const [user] = useAtom(userAtom);
