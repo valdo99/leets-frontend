@@ -1,4 +1,4 @@
-import { useUser } from "../providers/AuthProvider";
+import { useUser } from "@providers/AuthProvider";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 

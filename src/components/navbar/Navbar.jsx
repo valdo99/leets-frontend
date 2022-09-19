@@ -8,9 +8,9 @@ import { Login } from "react-iconly";
 import { useApiClient } from "@providers/AuthProvider";
 import LoginModal from "@components/LoginModal";
 import { useAtom } from "jotai";
-import { userAtom } from "state/user";
+import { userAtom } from "@state/user";
 import Button from "@components/button";
-import useTransitionControl from "hooks/useTransitionControl";
+import useTransitionControl from "@hooks/useTransitionControl";
 import { useState } from "react";
 import UserDropdown from "@components/UserDropdown";
 

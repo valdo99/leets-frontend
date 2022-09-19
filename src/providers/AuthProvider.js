@@ -1,9 +1,8 @@
 import { useAtom } from "jotai";
 import { createContext, useContext, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
-import { userAtom } from "state/user";
+import { userAtom } from "@state/user";
 
-// import { useToast } from '@providers/ToastProvider'
 import ApiClient from "../api/client";
 
 const ApiClientContext = createContext();

@@ -1,9 +1,9 @@
 import React from "react";
 
-import { useApiClient } from "providers/AuthProvider";
-import { userAtom } from "state/user";
+import { useApiClient } from "@providers/AuthProvider";
+import { userAtom } from "@state/user";
 import { useAtom } from "jotai";
-import useForm from "hooks/useForm";
+import useForm from "@hooks/useForm";
 import { toast } from "react-toastify";
 
 import Modal from "@components/modal";

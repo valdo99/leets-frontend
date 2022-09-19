@@ -1,7 +1,8 @@
 import "../styles/globals.css";
+
 import { Provider } from "jotai";
-import AuthProvider from "providers/AuthProvider";
-import AuthGuard from "guards/AuthGuard";
+import AuthProvider from "@providers/AuthProvider";
+import AuthGuard from "../guards/AuthGuard";
 import { ToastContainer } from "react-toastify";
 import "@utils/i18n";
 

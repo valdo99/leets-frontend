@@ -1,8 +1,8 @@
 import { useApiClient } from "@providers/AuthProvider";
-import useFetch from "hooks/useFetch";
+import useFetch from "@hooks/useFetch";
 import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
-import { userAtom } from "state/user";
+import { userAtom } from "@state/user";
 import Spinner from "./Spinner";
 import { SongCard } from "./song-card";
 
