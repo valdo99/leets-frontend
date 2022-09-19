@@ -2,6 +2,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
 import classNames from "classnames";
 
+import CloseIcon from "@icons/close.svg";
+
 const Modal = ({ show, onClose, title, children, closable = true }) => {
   return (
     <Transition appear show={show} as={Fragment}>
@@ -33,9 +35,12 @@ const Modal = ({ show, onClose, title, children, closable = true }) => {
           >
             <div
               className={classNames(
-                "bg-gray-900 max-w-sm inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform border-gray-500 rounded-2xl mb-10"
+                "bg-gray-900 relative max-w-sm inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform border-gray-500 rounded-2xl mb-10"
               )}
             >
+              <button className="absolute top-2 right-2" onClick={onClose}>
+                <CloseIcon className="w-6 h-6 text-gray-500" />
+              </button>
               {title && (
                 <h3 className="text-xl font-bold mb-6 text-center">{title}</h3>
               )}
