@@ -1,4 +1,4 @@
-import Button from "@components/button";
+import Button from "@components/basic/button";
 import Player from "@components/player";
 import classNames from "classnames";
 import Image from "next/image";

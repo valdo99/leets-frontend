@@ -6,10 +6,10 @@ import { useAtom } from "jotai";
 import useForm from "@hooks/useForm";
 import { toast } from "react-toastify";
 
-import Modal from "@components/modal";
-import Input from "./input";
-import Checkbox from "./checkbox";
-import Button from "./button";
+import Modal from "@components/basic/modal";
+import Input from "../basic/input";
+import Checkbox from "../basic/checkbox";
+import Button from "../basic/button";
 
 const LoginModal = ({ show, onClose }) => {
   const apiClient = useApiClient();

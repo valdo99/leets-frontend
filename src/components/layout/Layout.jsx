@@ -1,6 +1,6 @@
-import Container from "@components/Container";
-import Footer from "@components/footer/Footer";
-import Navbar from "@components/navbar/Navbar";
+import Container from "@components/layout/Container";
+import Footer from "@components/layout/Footer";
+import Navbar from "@components/layout/Navbar";
 
 export const Layout = ({ children }) => {
   return (

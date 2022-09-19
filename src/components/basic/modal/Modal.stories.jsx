@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "@components/button";
+import Button from "@components/basic/button";
 import Modal from "./Modal";
 
 // eslint-disable-next-line import/no-anonymous-default-export

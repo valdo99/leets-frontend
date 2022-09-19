@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import Spinner from "@components/Spinner";
+import Spinner from "@components/basic/Spinner";
 
 const variantClassNames = {
   primary:
