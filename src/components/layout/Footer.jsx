@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <footer>
       <Container>
-        <div className="flex items-center justify-between flex-wrap gap-4 border-t py-6 border-gray-700">
-          <div className="md:flex-1 shrink-0">copyright leets 2022</div>
+        <div className="flex items-center justify-between flex-wrap gap-4 border-t py-6 border-gray-700 text-sm">
+          <div className="md:flex-1 shrink-0">© 2022, Leets</div>
 
           <span className="basis-full order-1 md:basis-auto md:order-none text-center">
             <p>
@@ -44,15 +44,12 @@ const Footer = () => {
           </span>
 
           <div className="flex justify-end items-center md:flex-1">
-            <p>
-              For support contact:{" "}
-              <a
-                href="mailto:edvaldogjonikaj@gmail.com"
-                className="text-blue-300"
-              >
-                leets
-              </a>
-            </p>
+            <a
+              href="mailto:edvaldogjonikaj@gmail.com"
+              className="text-blue-300"
+            >
+              Support
+            </a>
           </div>
         </div>
       </Container>
