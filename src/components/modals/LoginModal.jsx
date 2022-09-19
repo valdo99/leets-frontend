@@ -49,7 +49,11 @@ const LoginModal = ({ show, onClose }) => {
   });
 
   return (
-    <Modal show={show} onClose={onClose} title="Get started on Leets">
+    <Modal
+      show={show}
+      onClose={onClose}
+      title={isRegister ? "Get started on Leets" : "Login"}
+    >
       <form className="flex flex-col gap-3" onSubmit={onSubmit}>
         <Input
           fullWidth

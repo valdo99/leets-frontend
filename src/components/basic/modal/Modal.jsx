@@ -2,14 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
 import classNames from "classnames";
 
-const Modal = ({
-  show,
-  onClose,
-  title,
-  size = "medium",
-  children,
-  closable = true,
-}) => {
+const Modal = ({ show, onClose, title, children, closable = true }) => {
   return (
     <Transition appear show={show} as={Fragment}>
       <Dialog
@@ -40,12 +33,11 @@ const Modal = ({
           >
             <div
               className={classNames(
-                "bg-gray-900 inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform border-gray-500 rounded-2xl mb-10",
-                size === "large" ? "max-w-3xl" : "max-w-md"
+                "bg-gray-900 max-w-sm inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform border-gray-500 rounded-2xl mb-10"
               )}
             >
               {title && (
-                <h3 className="text-2xl font-bold mb-4 text-center">{title}</h3>
+                <h3 className="text-xl font-bold mb-6 text-center">{title}</h3>
               )}
               {children}
             </div>
