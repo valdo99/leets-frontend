@@ -121,12 +121,12 @@ const LoginModal = ({ show, onClose }) => {
           )}
         </div>
         <div className="flex justify-end gap-2 mt-4">
-          <Button onClick={onClose} variant="secondary">
+          <Button onClick={onClose} variant="secondary" type="button">
             Close
           </Button>
           <Button
             disabled={disabled}
-            onClick={onSubmit}
+            type="submit"
             color="primary"
             loading={disabled}
           >
