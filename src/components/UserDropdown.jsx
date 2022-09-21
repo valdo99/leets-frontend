@@ -18,7 +18,7 @@ const UserDropdown = ({ user, onLogout }) => {
         <Menu.Items className="absolute min-w-[220px] z-20 mt-3 -right-2 flex flex-col gap-1 p-2 rounded-default shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-900">
           <Menu.Item>
             <button>
-              <Link href="/profile">
+              <Link href={`/${user.username}`}>
                 <a className="flex items-center p-2 rounded-lg cursor-pointer">
                   Profile
                 </a>
