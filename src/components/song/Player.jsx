@@ -28,7 +28,7 @@ const Player = ({
           clearInterval(interval);
         }
         setPercentagePlayed(
-          (42 * audio.current.currentTime) / audio.current.duration
+          (44 * audio.current.currentTime) / audio.current.duration
         );
       }, 11);
       return () => {
