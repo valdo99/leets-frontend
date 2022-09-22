@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+  "plugins": ["import", "simple-import-sort", "@typescript-eslint"],
+  "rules": {
+    "import/no-unresolved": "error",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "warn",
+    "import/no-named-as-default": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "type"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "@typescript-eslint/no-unused-vars": ["error"]
+  }
 }

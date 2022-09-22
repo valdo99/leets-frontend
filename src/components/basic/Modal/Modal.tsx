@@ -1,10 +1,27 @@
 import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment } from "react";
 import classNames from "classnames";
+import React, { Fragment, ReactNode } from "react";
 
 import CloseIcon from "@icons/close.svg";
 
-const Modal = ({ show, onClose, title, children, closable = true }) => {
+export interface BaseModalProps {
+  show: boolean;
+  onClose: () => void;
+}
+
+export interface ModalProps extends BaseModalProps {
+  children: ReactNode;
+  title?: string;
+  closable?: boolean;
+}
+
+export const Modal = ({
+  show,
+  onClose,
+  title,
+  children,
+  closable = true,
+}: ModalProps) => {
   return (
     <Transition appear show={show} as={Fragment}>
       <Dialog
@@ -12,7 +29,7 @@ const Modal = ({ show, onClose, title, children, closable = true }) => {
         className="fixed inset-0 z-20 overflow-y-auto"
         onClose={closable ? onClose : () => undefined}
       >
-        <div className="min-h-screen px-4 flex justify-center items-center">
+        <div className="flex min-h-screen items-center justify-center px-4">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -22,7 +39,7 @@ const Modal = ({ show, onClose, title, children, closable = true }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+            <Dialog.Overlay className="fixed inset-0 bg-black/25" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -35,17 +52,17 @@ const Modal = ({ show, onClose, title, children, closable = true }) => {
           >
             <div
               className={classNames(
-                "bg-gray-900 relative max-w-sm inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform border-gray-500 rounded-2xl mb-10"
+                "max-w-md inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform bg-base-200 shadow-xl rounded-btn mb-10"
               )}
             >
               <button
-                className="focus-visible:outline-none focus-visible:ring-2 ring-primary ring-opacity-50 rounded-lg absolute top-2 right-2"
+                className="absolute top-2 right-2 rounded-lg ring-primary/50 focus-visible:outline-none focus-visible:ring-2"
                 onClick={onClose}
               >
-                <CloseIcon className="w-6 h-6 text-gray-500" />
+                <CloseIcon className="h-6 w-6 text-base-content/50" />
               </button>
               {title && (
-                <h3 className="text-xl font-bold mb-6 text-center">{title}</h3>
+                <h3 className="mb-4 text-center text-xl font-bold">{title}</h3>
               )}
               {children}
             </div>
@@ -55,5 +72,3 @@ const Modal = ({ show, onClose, title, children, closable = true }) => {
     </Transition>
   );
 };
-
-export default Modal;

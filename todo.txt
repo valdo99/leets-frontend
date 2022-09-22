@@ -1,0 +1,5 @@
+- Layout in _app?
+- Typescript?
+- sort imports
+- plugin tailwind css
+- base content neutral

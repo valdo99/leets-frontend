@@ -1,20 +1,21 @@
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { useState } from "react";
-import Button from "@components/basic/button";
-import Modal from "./Modal";
 
-// eslint-disable-next-line import/no-anonymous-default-export
+import { Button } from "@components/Basic/Button";
+import { Modal } from "@components/Basic/Modal";
+
 export default {
-  title: "Components/Modal",
+  title: "Basic/Modal",
   component: Modal,
-};
+} as ComponentMeta<typeof Modal>;
 
-const Template = (args) => {
+const Template: ComponentStory<typeof Modal> = (args) => {
   const [showModal, setShowModal] = useState(true);
 
   return (
     <>
       <Button onClick={() => setShowModal(true)}>Open modal</Button>
-      <Modal show={showModal} onClose={() => setShowModal(false)} {...args}>
+      <Modal {...args} show={showModal} onClose={() => setShowModal(false)}>
         Modal Content
       </Modal>
     </>
