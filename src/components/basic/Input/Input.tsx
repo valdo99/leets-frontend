@@ -5,8 +5,8 @@ const iconClass =
   "absolute top-1/2 transform -translate-y-1/2 [&>svg]:max-w-min";
 
 const variantClassname = {
-  solid: "bg-base-200",
-  bordered: "border-2 border-base-200 disabled:bg-transparent",
+  solid: "border-base-300 bg-base-300",
+  bordered: "border-base-300 bg-transparent",
   ghost: "input-ghost disabled:bg-transparent",
 };
 
@@ -44,7 +44,7 @@ type InputProps = BaseInputProps & {
 export const Input = forwardRef(
   (
     {
-      variant = "bordered",
+      variant = "solid",
       size = "md",
       placeholder,
       label,
@@ -103,9 +103,10 @@ export const Input = forwardRef(
           placeholder={placeholder}
           className={cx(
             "input",
+            "border-2",
             "text-base-content",
             "placeholder:text-base-content/50",
-            "focus:outline-none focus:ring-primary focus:ring-4 focus:ring-opacity-50",
+            "focus:outline-none focus:border-primary",
             "w-full",
             variantClassname[variant],
             sizeClassname[size],

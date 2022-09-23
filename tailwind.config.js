@@ -11,21 +11,6 @@ module.exports = {
       fontFamily: {
         main: ["Manrope", ...fontFamily.sans],
       },
-      // colors: {
-      //   primary: {
-      //     DEFAULT: "#33D985",
-      //     hover: "#21bf6f",
-      //     light: "#a2f5b2",
-      //   },
-      //   background: {
-      //     primary: "#050e1d",
-      //     secondary: "#ffffff",
-      //   },
-      //   text: {
-      //     primary: "#ffffff",
-      //     secondary: "#050e1d",
-      //   },
-      // },
       borderRadius: {
         default: "0.75rem",
       },
@@ -42,7 +27,8 @@ module.exports = {
           secondary: "#FFFFFF",
           "secondary-content": "#050e1d",
           "base-100": "#050e1d",
-          "base-200": "#283752",
+          "base-200": "#101827",
+          "base-300": "#6b7280",
           "base-content": "#FFFFFF",
           neutral: "#777777",
           "--btn-text-case": "none",
