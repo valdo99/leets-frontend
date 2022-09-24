@@ -1,6 +1,7 @@
 import { Transition } from "@headlessui/react";
 import { useAtom } from "jotai";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Login } from "react-iconly";
 
@@ -31,7 +32,16 @@ export const Navbar = () => {
   return (
     <header className="flex items-center py-6">
       <Container className="flex w-full items-center justify-between">
-        <Image src="/logo_1.png" height="46px" width="113px" alt="Leets logo" />
+        <Link href="/">
+          <a className="cursor-pointer">
+            <Image
+              src="/logo_1.png"
+              height="46px"
+              width="113px"
+              alt="Leets logo"
+            />
+          </a>
+        </Link>
         <Transition
           show={show}
           enter="transition-opacity duration-200"
