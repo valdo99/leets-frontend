@@ -1,16 +1,17 @@
+import { useQuery } from "@tanstack/react-query";
+
+import { User } from "@api/users";
 import { Spinner } from "@components/Basic/Spinner";
-import { useFetch } from "@hooks/useFetch";
-import { useApiClient, useUser } from "@providers/AuthProvider";
+import { useApiClient } from "@providers/AuthProvider";
 
-export const UserLikedSongs = () => {
+export const UserLikedSongs = ({ user }: { user: User }) => {
   const apiClient = useApiClient();
-  const { user } = useUser();
 
-  const { loading } = useFetch(() =>
-    user ? apiClient.users.likes(user.username).then((data) => data.data) : []
+  const { isLoading } = useQuery(["likedPosts", user?._id], () =>
+    apiClient.users.likes(user.username).then((data) => data.data)
   );
 
-  if (loading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return <div></div>;
 };

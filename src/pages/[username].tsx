@@ -13,18 +13,18 @@ interface TabItem {
   content: ReactNode;
 }
 
-const tabs: TabItem[] = [
-  {
-    label: "Liked",
-    content: <UserLikedSongs />,
-  },
-  {
-    label: "Hunted",
-    content: <div>Hunted songs</div>,
-  },
-];
-
 const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
+  const tabs: TabItem[] = [
+    {
+      label: "Liked",
+      content: <UserLikedSongs user={user} />,
+    },
+    {
+      label: "Hunted",
+      content: <div>Hunted songs</div>,
+    },
+  ];
+
   return (
     <>
       <h3 className="mt-8 mb-6 text-2xl font-bold">{user.username}</h3>

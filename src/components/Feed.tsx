@@ -1,19 +1,20 @@
-import { useAtom } from "jotai";
+import { useQuery } from "@tanstack/react-query";
 
 import { Spinner } from "@components/Basic/Spinner";
 import { SongCard } from "@components/Song/SongCard";
-import { useFetch } from "@hooks/useFetch";
-import { useApiClient } from "@providers/AuthProvider";
-import { userAtom } from "@state/user";
+import { useApiClient, useUser } from "@providers/AuthProvider";
 
 export const Feed = () => {
-  const [user] = useAtom(userAtom);
+  const { user, loading } = useUser();
   const apiClient = useApiClient();
 
-  const { data: posts, loading } = useFetch(
+  const { data: posts, isLoading } = useQuery(
+    ["feed", user?._id],
     () =>
       apiClient.posts.feed({ year: 2022, week: 32 }).then((data) => data.data),
-    [user.user?._id]
+    {
+      enabled: !loading,
+    }
   );
 
   return (
@@ -22,7 +23,7 @@ export const Feed = () => {
         <h1 className="mb-8 mt-10 text-xl font-bold leading-tight">
           This week&apos;s top songs
         </h1>
-        {loading ? (
+        {isLoading ? (
           <div className="flex justify-center py-32">
             <Spinner />
           </div>

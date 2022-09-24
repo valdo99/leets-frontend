@@ -1,17 +1,19 @@
 import "../styles/globals.css";
+import "react-toastify/dist/ReactToastify.min.css";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "jotai";
 import { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
 
+import "@utils/i18n";
 import { DefaultLayout } from "@layouts/Layout";
 import { AuthProvider } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 
 import { AuthGuard } from "../guards/AuthGuard";
-import "@utils/i18n";
 
-import "react-toastify/dist/ReactToastify.min.css";
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   const getLayout =
@@ -30,13 +32,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           position: "relative",
         }}
       />
-      <Provider>
-        <AuthProvider>
-          <AuthGuard auth={(Component as PageWithLayout).auth}>
-            {getLayout(<Component {...pageProps} />)}
-          </AuthGuard>
-        </AuthProvider>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider>
+          <AuthProvider>
+            <AuthGuard auth={(Component as PageWithLayout).auth}>
+              {getLayout(<Component {...pageProps} />)}
+            </AuthGuard>
+          </AuthProvider>
+        </Provider>
+      </QueryClientProvider>
     </>
   );
 }
