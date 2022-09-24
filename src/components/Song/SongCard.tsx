@@ -9,12 +9,7 @@ import HeartSolid from "@icons/heart-solid.svg";
 
 import { Player } from "./Player";
 
-interface SongCardProps {
-  post: Post;
-  position: number;
-}
-
-export const SongCard = ({ post }: SongCardProps) => {
+export const SongCard = ({ post }: { post: Post }) => {
   return (
     <div className="relative flex gap-4 rounded-xl bg-secondary p-4 sm:p-3">
       <a

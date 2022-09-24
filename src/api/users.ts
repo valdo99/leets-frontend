@@ -1,4 +1,5 @@
 import { ApiService } from "./apiService";
+import { Post } from "./posts";
 import { Entity } from "./types";
 
 export interface User extends Entity {
@@ -63,7 +64,7 @@ export class UserService extends ApiService {
   }
 
   async likes(username: string) {
-    return await this.http.get(`${this.baseUrl}/${username}/likes`);
+    return await this.http.get<Post[]>(`${this.baseUrl}/${username}/likes`);
   }
 
   async update(data: UserUpdateBody) {

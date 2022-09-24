@@ -29,8 +29,8 @@ export const Feed = () => {
           </div>
         ) : (
           <div className="flex flex-col gap-4">
-            {posts?.map((post, index) => (
-              <SongCard key={post._id} position={index} post={post} />
+            {posts?.map((post) => (
+              <SongCard key={post._id} post={post} />
             ))}
           </div>
         )}

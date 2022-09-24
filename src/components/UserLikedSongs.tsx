@@ -4,14 +4,23 @@ import { User } from "@api/users";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
 
+import { SongCard } from "./Song/SongCard";
+
 export const UserLikedSongs = ({ user }: { user: User }) => {
   const apiClient = useApiClient();
 
-  const { isLoading } = useQuery(["likedPosts", user?._id], () =>
-    apiClient.users.likes(user.username).then((data) => data.data)
+  const { data: likedPosts, isLoading } = useQuery(
+    ["likedPosts", user?._id],
+    () => apiClient.users.likes(user.username).then((data) => data.data)
   );
 
   if (isLoading) return <Spinner />;
 
-  return <div></div>;
+  return (
+    <div className="flex flex-col gap-4">
+      {likedPosts?.map((post) => (
+        <SongCard key={post._id} post={post} />
+      ))}
+    </div>
+  );
 };
