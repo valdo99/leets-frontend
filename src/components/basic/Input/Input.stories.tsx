@@ -7,7 +7,6 @@ export default {
   title: "Basic/Input",
   component: Input,
   args: {
-    className: "max-w-xs",
     placeholder: "Type something...",
   },
 } as ComponentMeta<typeof Input>;
@@ -60,6 +59,12 @@ export const Disabled = Template.bind({});
 
 Disabled.args = {
   disabled: true,
+};
+
+export const FullWidth = Template.bind({});
+
+FullWidth.args = {
+  block: true,
 };
 
 export const WithLabels = Template.bind({});

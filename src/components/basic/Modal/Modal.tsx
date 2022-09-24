@@ -52,7 +52,7 @@ export const Modal = ({
           >
             <div
               className={classNames(
-                "max-w-md inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform bg-base-200 shadow-xl rounded-btn mb-10"
+                "max-w-sm inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform bg-base-200 shadow-xl rounded-btn mb-10"
               )}
             >
               <button

@@ -17,11 +17,15 @@ const sizeClassname = {
   lg: "input-lg min-w-[7.8rem] h-12 px-6",
 };
 
+const iconSizeClassname = {
+  xs: "[&>svg]:max-h-4",
+  sm: "[&>svg]:max-h-4",
+  md: "[&>svg]:max-h-6",
+  lg: "[&>svg]:max-h-6",
+};
+
 export interface BaseInputProps
-  extends Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    "type" | "size" | "onChange"
-  > {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   variant?: keyof typeof variantClassname;
   size?: keyof typeof sizeClassname;
   placeholder?: string;
@@ -32,12 +36,13 @@ export interface BaseInputProps
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   disabled?: boolean;
+  block?: boolean;
   error?: string;
   className?: string;
   onValueChange?: (value: string) => void;
 }
 
-type InputProps = BaseInputProps & {
+export type InputProps = BaseInputProps & {
   ref?: Ref<HTMLInputElement>;
 };
 
@@ -54,25 +59,31 @@ export const Input = forwardRef(
       leftIcon,
       rightIcon,
       disabled,
+      block,
       error,
       className,
       onValueChange,
+      onChange: baseOnChange,
       ...props
     }: InputProps,
     ref?: Ref<HTMLInputElement>
   ) => {
     const id = useId();
 
-    const maxIconSize =
-      size === "xs" || size === "sm" ? "[&>svg]:max-h-4" : "[&>svg]:max-h-6";
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
       onValueChange?.(value);
+      baseOnChange?.(event);
     };
 
     return (
-      <div className={cx("form-control relative", className)}>
+      <div
+        className={cx(
+          "form-control relative",
+          { "inline-flex flex-col": !block },
+          className
+        )}
+      >
         {(label || topRightLabel) && (
           <label className="label py-1.5">
             {label && <span className="label-text font-medium">{label}</span>}
@@ -87,7 +98,7 @@ export const Input = forwardRef(
           <span
             className={cx(
               iconClass,
-              maxIconSize,
+              iconSizeClassname[size],
               "left-3 text-base-content/50"
             )}
           >
@@ -106,7 +117,7 @@ export const Input = forwardRef(
             "border-2",
             "text-base-content",
             "placeholder:text-base-content/50",
-            "focus:outline-none focus:border-primary",
+            "focus:outline-none focus:border-primary focus:ring-0",
             "w-full",
             variantClassname[variant],
             sizeClassname[size],
@@ -119,7 +130,7 @@ export const Input = forwardRef(
           <span
             className={cx(
               iconClass,
-              maxIconSize,
+              iconSizeClassname[size],
               "right-3 text-base-content/50"
             )}
           >

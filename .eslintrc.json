@@ -4,7 +4,16 @@
   "rules": {
     "import/no-unresolved": "error",
     "import/prefer-default-export": "off",
-    "import/no-cycle": "warn",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "import/no-named-as-default": "off",
     "import/order": [
       "error",
@@ -18,5 +27,25 @@
     ],
     "simple-import-sort/exports": "error",
     "@typescript-eslint/no-unused-vars": ["error"]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["./src/**/*.ts", "./src/**/*.tsx"],
+      "rules": {
+        "import/no-default-export": "error"
+      }
+    },
+    {
+      "files": ["./src/**/*.stories.tsx"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    },
+    {
+      "files": ["./src/pages/**/*.ts", "./src/pages/**/*.tsx"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
 }

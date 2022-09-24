@@ -21,13 +21,10 @@ const labelSizeClassname = {
   lg: "text-lg",
 };
 
-interface CheckboxProps
-  extends Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    "type" | "onChange" | "size"
-  > {
-  checked: boolean;
-  onValueChange: (checked: boolean) => void;
+export interface CheckboxProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "size"> {
+  checked?: boolean;
+  onValueChange?: (checked: boolean) => void;
   color?: keyof typeof colorClassname;
   size?: keyof typeof sizeClassname;
   label?: string;
@@ -40,6 +37,7 @@ export const Checkbox = forwardRef(
     {
       checked,
       onValueChange,
+      onChange: baseOnChange,
       color = "primary",
       size = "md",
       label,
@@ -55,6 +53,7 @@ export const Checkbox = forwardRef(
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const { checked } = event.target;
       onValueChange?.(checked);
+      baseOnChange?.(event);
     };
 
     return (

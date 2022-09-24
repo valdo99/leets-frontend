@@ -49,7 +49,7 @@ export interface BaseButtonProps
   className?: string;
 }
 
-type ButtonProps = BaseButtonProps & {
+export type ButtonProps = BaseButtonProps & {
   ref?: Ref<HTMLButtonElement>;
 };
 

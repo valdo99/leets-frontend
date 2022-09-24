@@ -3,3 +3,7 @@
 - sort imports
 - plugin tailwind css
 - base content neutral
+- cambiare pacchetto icone, svgr
+- custom toasts instead of react-toastify? Or at least style toasts
+- react-query?
+- react-hook-form?
