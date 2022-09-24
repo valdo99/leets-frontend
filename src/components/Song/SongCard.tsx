@@ -1,10 +1,11 @@
-import cx from "classnames";
 import Image from "next/image";
 import React from "react";
-import { FaSpotify, FaHeart } from "react-icons/fa";
+import { FaSpotify } from "react-icons/fa";
 
 import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
+import HeartOutline from "@icons/heart-outline.svg";
+import HeartSolid from "@icons/heart-solid.svg";
 
 import { Player } from "./Player";
 
@@ -53,7 +54,11 @@ export const SongCard = ({ post }: SongCardProps) => {
             </a>
           )}
           <div className="flex items-center gap-2">
-            <FaHeart className={cx({ "text-red-500": post.isLiked })} />
+            {post.isLiked ? (
+              <HeartSolid className="h-5 w-5" />
+            ) : (
+              <HeartOutline className="h-5 w-5" />
+            )}
             {post.likes}
           </div>
         </div>
