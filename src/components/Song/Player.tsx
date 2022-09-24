@@ -35,7 +35,7 @@ export const Player = ({
       const interval = setInterval(() => {
         setPercentagePlayed(
           audio.current
-            ? (42 * audio.current.currentTime) / audio.current.duration
+            ? (44 * audio.current.currentTime) / audio.current.duration
             : 0
         );
       }, 11);
