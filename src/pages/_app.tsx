@@ -7,7 +7,7 @@ import { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
 
 import "@utils/i18n";
-import { DefaultLayout } from "@layouts/Layout";
+import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AuthProvider } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 
