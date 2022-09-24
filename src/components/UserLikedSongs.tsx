@@ -9,9 +9,12 @@ import { SongCard } from "./Song/SongCard";
 export const UserLikedSongs = ({ user }: { user: User }) => {
   const apiClient = useApiClient();
 
-  const { data: likedPosts, isLoading } = useQuery(
-    ["likedPosts", user?._id],
-    () => apiClient.users.likes(user.username).then((data) => data.data)
+  const {
+    data: likedPosts,
+    isLoading,
+    refetch,
+  } = useQuery(["likedPosts", user?._id], () =>
+    apiClient.users.likes(user.username).then((data) => data.data)
   );
 
   if (isLoading) return <Spinner />;
@@ -19,7 +22,7 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
   return (
     <div className="flex flex-col gap-4">
       {likedPosts?.map((post) => (
-        <SongCard key={post._id} post={post} />
+        <SongCard key={post._id} post={post} onLikeChange={refetch} />
       ))}
     </div>
   );
