@@ -7,11 +7,11 @@ export const Footer = () => {
   return (
     <footer>
       <Container>
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-gray-700 py-6 text-sm">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-base-300/50 py-6 text-sm">
           <div className="shrink-0 md:flex-1">© 2022, Leets</div>
 
           <span className="order-1 basis-full text-center md:order-none md:basis-auto">
-            <p className="flex gap-1">
+            <p className="flex flex-wrap justify-center gap-1">
               <span>Made with </span>
               <Heart2 />
               <span>
