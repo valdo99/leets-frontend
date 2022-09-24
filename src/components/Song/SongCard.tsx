@@ -1,3 +1,4 @@
+import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import React from "react";
 import { FaSpotify } from "react-icons/fa";
@@ -6,10 +7,36 @@ import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
+import { useApiClient } from "@providers/AuthProvider";
 
 import { Player } from "./Player";
 
-export const SongCard = ({ post }: { post: Post }) => {
+interface SongCardProps {
+  post: Post;
+  onLikeChange?: () => void;
+}
+
+export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
+  const apiClient = useApiClient();
+
+  const { mutate: likeSong } = useMutation(
+    () => apiClient.posts.like(post._id),
+    {
+      onSuccess: onLikeChange,
+    }
+  );
+
+  const { mutate: unlikeSong } = useMutation(
+    () => apiClient.posts.unlike(post._id),
+    {
+      onSuccess: onLikeChange,
+    }
+  );
+
+  const toggleLike = () => {
+    post.isLiked ? unlikeSong() : likeSong();
+  };
+
   return (
     <div className="relative flex gap-4 rounded-xl bg-secondary p-4 sm:p-3">
       <a
@@ -49,11 +76,13 @@ export const SongCard = ({ post }: { post: Post }) => {
             </a>
           )}
           <div className="flex items-center gap-2">
-            {post.isLiked ? (
-              <HeartSolid className="h-5 w-5" />
-            ) : (
-              <HeartOutline className="h-5 w-5" />
-            )}
+            <button onClick={toggleLike} className="cursor-pointer">
+              {post.isLiked ? (
+                <HeartSolid className="h-5 w-5" />
+              ) : (
+                <HeartOutline className="h-5 w-5" />
+              )}
+            </button>
             {post.likes}
           </div>
         </div>

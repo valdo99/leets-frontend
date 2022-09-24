@@ -8,7 +8,11 @@ export const Feed = () => {
   const { user, loading } = useUser();
   const apiClient = useApiClient();
 
-  const { data: posts, isLoading } = useQuery(
+  const {
+    data: posts,
+    isLoading,
+    refetch,
+  } = useQuery(
     ["feed", user?._id],
     () =>
       apiClient.posts.feed({ year: 2022, week: 32 }).then((data) => data.data),
@@ -30,7 +34,7 @@ export const Feed = () => {
         ) : (
           <div className="flex flex-col gap-4">
             {posts?.map((post) => (
-              <SongCard key={post._id} post={post} />
+              <SongCard key={post._id} post={post} onLikeChange={refetch} />
             ))}
           </div>
         )}
