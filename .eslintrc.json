@@ -2,7 +2,6 @@
   "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
   "plugins": ["import", "simple-import-sort", "@typescript-eslint"],
   "rules": {
-    "import/no-unresolved": "error",
     "import/prefer-default-export": "off",
     "import/extensions": [
       "error",

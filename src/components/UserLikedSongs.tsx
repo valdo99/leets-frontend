@@ -6,7 +6,7 @@ export const UserLikedSongs = () => {
   const apiClient = useApiClient();
   const { user } = useUser();
 
-  const { data, loading } = useFetch(() =>
+  const { loading } = useFetch(() =>
     user ? apiClient.users.likes(user.username).then((data) => data.data) : []
   );
 
