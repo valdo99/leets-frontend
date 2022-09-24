@@ -108,6 +108,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
                 label="Accept terms and conditions"
                 checked={formData.terms}
                 onChange={handleChange}
+                variant="bordered"
               />
               <p className="mt-2 text-xs text-error">{errors.terms}</p>
             </div>

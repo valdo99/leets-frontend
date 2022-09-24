@@ -1,6 +1,12 @@
 import cx from "classnames";
 import { forwardRef, InputHTMLAttributes, Ref, useId } from "react";
 
+const variantClassname = {
+  solid: "border-base-300 bg-base-300",
+  bordered:
+    "border-base-300 bg-transparent hover:bg-base-300/40 disabled:bg-transparent",
+};
+
 const colorClassname = {
   primary: "text-primary focus:ring-primary",
   secondary: "text-secondary focus:ring-secondary",
@@ -23,6 +29,7 @@ const labelSizeClassname = {
 
 export interface CheckboxProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "size"> {
+  variant?: keyof typeof variantClassname;
   checked?: boolean;
   onValueChange?: (checked: boolean) => void;
   color?: keyof typeof colorClassname;
@@ -39,6 +46,7 @@ export const Checkbox = forwardRef(
       onValueChange,
       onChange: baseOnChange,
       color = "primary",
+      variant = "solid",
       size = "md",
       label,
       labelSize = "md",
@@ -75,11 +83,12 @@ export const Checkbox = forwardRef(
           onChange={handleChange}
           className={cx(
             colorClassname[color],
+            variantClassname[variant],
             sizeClassname[size],
-            "bg-transparent border-2 border-base-200",
+            "border-2",
             "disabled:opacity-50",
             "disabled:cursor-not-allowed",
-            { "cursor-pointer hover:bg-base-200": !disabled },
+            { "cursor-pointer": !disabled },
             "focus:outline-none focus:ring-offset-0 focus:ring-primary focus:ring-4 focus:ring-opacity-50"
           )}
         />
