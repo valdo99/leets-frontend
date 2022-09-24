@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cx from "classnames";
 import Image from "next/image";
 import React from "react";
 import { FaSpotify, FaHeart } from "react-icons/fa";
@@ -53,7 +53,7 @@ export const SongCard = ({ post }: SongCardProps) => {
             </a>
           )}
           <div className="flex items-center gap-2">
-            <FaHeart className={classNames({ "text-red-500": post.isLiked })} />
+            <FaHeart className={cx({ "text-red-500": post.isLiked })} />
             {post.likes}
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import classNames from "classnames";
+import cx from "classnames";
 import React, { Fragment, ReactNode } from "react";
 
 import CloseIcon from "@icons/close.svg";
@@ -51,7 +51,7 @@ export const Modal = ({
             leaveTo="opacity-0 scale-95"
           >
             <div
-              className={classNames(
+              className={cx(
                 "max-w-sm inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform bg-base-200 shadow-xl rounded-btn mb-10"
               )}
             >

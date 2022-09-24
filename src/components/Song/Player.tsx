@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cx from "classnames";
 import { useAtom } from "jotai";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -95,7 +95,7 @@ export const Player = ({
         viewBox="0 0 16 16"
         height={`${size}em`}
         width={`${size}em`}
-        className={classNames("cursor-pointer", playerClassName)}
+        className={cx("cursor-pointer", playerClassName)}
       >
         <circle
           cx="50%"

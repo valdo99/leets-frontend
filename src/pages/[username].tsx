@@ -1,5 +1,5 @@
 import { Tab } from "@headlessui/react";
-import classNames from "classnames";
+import cx from "classnames";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Fragment, ReactNode } from "react";
 
@@ -34,7 +34,7 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
             <Tab key={tab.label} as={Fragment}>
               {({ selected }) => (
                 <button
-                  className={classNames(
+                  className={cx(
                     "rounded-lg",
                     "text-sm font-medium",
                     "py-2.5 min-w-[140px]",
