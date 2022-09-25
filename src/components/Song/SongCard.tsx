@@ -7,7 +7,7 @@ import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
-import { useApiClient } from "@providers/AuthProvider";
+import { useApiClient, useLoginModal, useUser } from "@providers/AuthProvider";
 
 import { Player } from "./Player";
 
@@ -17,7 +17,9 @@ interface SongCardProps {
 }
 
 export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
+  const openLoginModal = useLoginModal();
   const apiClient = useApiClient();
+  const { user } = useUser();
 
   const { mutate: likeSong } = useMutation(
     () => apiClient.posts.like(post._id),
@@ -34,7 +36,11 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
   );
 
   const toggleLike = () => {
-    post.isLiked ? unlikeSong() : likeSong();
+    if (!user) {
+      openLoginModal();
+    } else {
+      post.isLiked ? unlikeSong() : likeSong();
+    }
   };
 
   return (

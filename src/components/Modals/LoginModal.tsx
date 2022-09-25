@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 import { Button } from "@components/Basic/Button";
@@ -14,7 +14,7 @@ import { userAtom } from "@state/user";
 export const LoginModal = ({ show, onClose }: BaseModalProps) => {
   const apiClient = useApiClient();
   const [, setUser] = useAtom(userAtom);
-  const [isRegister, setIsRegister] = React.useState(false);
+  const [isRegister, setIsRegister] = useState(false);
 
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {

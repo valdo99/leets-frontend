@@ -2,20 +2,18 @@ import { Transition } from "@headlessui/react";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Login } from "react-iconly";
 
 import { Button } from "@components/Basic/Button";
 import { Container } from "@components/Layout/Container";
-import { LoginModal } from "@components/Modals/LoginModal";
 import { UserDropdown } from "@components/UserDropdown";
 import { useTransitionControl } from "@hooks/useTransitionControl";
-import { useApiClient } from "@providers/AuthProvider";
+import { useApiClient, useLoginModal } from "@providers/AuthProvider";
 import { userAtom } from "@state/user";
 
 export const Navbar = () => {
   const [{ user, loading }, setUser] = useAtom(userAtom);
-  const [visible, setVisible] = useState(false);
+  const openLoginModal = useLoginModal();
   const apiClient = useApiClient();
 
   const [show] = useTransitionControl(loading);
@@ -54,12 +52,9 @@ export const Navbar = () => {
           {user ? (
             <UserDropdown user={user} onLogout={onLogout} />
           ) : (
-            <>
-              <Button leftIcon={<Login />} onClick={() => setVisible(true)}>
-                Get started
-              </Button>
-              <LoginModal show={visible} onClose={() => setVisible(false)} />
-            </>
+            <Button leftIcon={<Login />} onClick={openLoginModal}>
+              Get started
+            </Button>
           )}
         </Transition>
       </Container>
