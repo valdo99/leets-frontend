@@ -1,8 +1,65 @@
 import { Menu, Transition } from "@headlessui/react";
+import cx from "classnames";
 import Link from "next/link";
-import { Fragment } from "react";
+import {
+  AnchorHTMLAttributes,
+  ElementType,
+  forwardRef,
+  Fragment,
+  ReactNode,
+} from "react";
 
 import { User } from "@api/users";
+
+interface WrappedLinkProps {
+  href: string;
+  children: ReactNode;
+  className?: string;
+}
+
+const WrappedLink = forwardRef<HTMLAnchorElement, WrappedLinkProps>(
+  (props, ref) => {
+    const { href, children, ...rest } = props;
+
+    return (
+      <Link href={href}>
+        <a ref={ref} {...rest}>
+          {children}
+        </a>
+      </Link>
+    );
+  }
+);
+
+WrappedLink.displayName = "WrappedLink";
+
+interface DropdownItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  as?: ElementType;
+  text: string;
+  onClick?: () => void;
+}
+
+const DropdownItem = ({
+  as: Tag = "button",
+  text,
+  ...rest
+}: DropdownItemProps) => {
+  return (
+    <Menu.Item>
+      {({ active }) => (
+        <Tag
+          className={cx(
+            "rounded-btn flex cursor-pointer items-center py-2 px-4 font-medium hover:bg-secondary hover:text-secondary-content",
+            { "bg-secondary text-secondary-content": active }
+          )}
+          {...rest}
+        >
+          {text}
+        </Tag>
+      )}
+    </Menu.Item>
+  );
+};
 
 interface UserDropdownProps {
   user: User;
@@ -12,7 +69,7 @@ interface UserDropdownProps {
 export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button>{user.username}</Menu.Button>
+      <Menu.Button className="font-bold">{user.username}</Menu.Button>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-200"
@@ -22,23 +79,22 @@ export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Menu.Items className="absolute -right-2 z-20 mt-3 flex min-w-[220px] flex-col gap-1 rounded-default bg-base-200 p-2 shadow-lg ring-1 ring-black/5">
-          <Menu.Item>
-            <button>
-              <Link href={`/${user.username}`}>
-                <a className="flex cursor-pointer items-center rounded-lg p-2">
-                  Profile
-                </a>
-              </Link>
-            </button>
-          </Menu.Item>
-          <Menu.Item>
-            <button onClick={onLogout}>
-              <a className="flex cursor-pointer items-center rounded-lg p-2">
-                Logout
-              </a>
-            </button>
-          </Menu.Item>
+        <Menu.Items
+          className={cx(
+            "absolute -right-2 z-20 mt-3",
+            "flex flex-col gap-1",
+            "min-w-[220px] p-2",
+            "rounded-btn",
+            "bg-base-200",
+            "shadow-xl drop-shadow-white ring-1 ring-white/10 shadow-white/10 focus:outline-none"
+          )}
+        >
+          <DropdownItem
+            text="Profile"
+            href={`/${user.username}`}
+            as={WrappedLink}
+          />
+          <DropdownItem text="Logout" onClick={onLogout} />
         </Menu.Items>
       </Transition>
     </Menu>

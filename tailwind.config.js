@@ -11,9 +11,6 @@ module.exports = {
       fontFamily: {
         main: ["Manrope", ...fontFamily.sans],
       },
-      borderRadius: {
-        default: "0.75rem",
-      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("daisyui")],
@@ -27,7 +24,7 @@ module.exports = {
           secondary: "#FFFFFF",
           "secondary-content": "#050e1d",
           "base-100": "#050e1d",
-          "base-200": "#101827",
+          "base-200": "#162031",
           "base-300": "#6b7280",
           "base-content": "#FFFFFF",
           neutral: "#777777",
