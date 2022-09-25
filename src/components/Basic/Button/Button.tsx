@@ -2,13 +2,23 @@ import cx from "classnames";
 import { ButtonHTMLAttributes, forwardRef, ReactNode, Ref } from "react";
 
 const colorClassName = {
-  primary: "btn-primary focus:ring-primary",
-  secondary: "btn-secondary focus:ring-secondary",
-  accent: "btn-accent focus:ring-accent",
-  info: "btn-info focus:ring-info",
-  success: "btn-success focus:ring-success",
-  warning: "btn-warning focus:ring-warning",
-  error: "btn-error focus:ring-error",
+  primary: "btn-primary",
+  secondary: "btn-secondary",
+  accent: "btn-accent",
+  info: "btn-info",
+  success: "btn-success",
+  warning: "btn-warning",
+  error: "btn-error",
+};
+
+const ringClassName = {
+  primary: "focus:ring-primary",
+  secondary: "focus:ring-secondary",
+  accent: "focus:ring-accent",
+  info: "focus:ring-info",
+  success: "focus:ring-success",
+  warning: "focus:ring-warning",
+  error: "focus:ring-error",
 };
 
 const sizeClassname = {
@@ -18,7 +28,7 @@ const sizeClassname = {
   lg: "btn-lg min-w-[8.55rem] h-12 px-6",
 };
 
-const textColorClassname = {
+const textColorClassName = {
   primary: "text-primary",
   secondary: "text-secondary",
   accent: "text-accent",
@@ -28,7 +38,7 @@ const textColorClassname = {
   error: "text-error",
 };
 
-const variantClassname = {
+const variantClassName = {
   solid: "",
   outline: "btn-outline",
   ghost: "btn-ghost disabled:bg-transparent disabled:text-opacity-30",
@@ -40,7 +50,7 @@ export interface BaseButtonProps
   children?: ReactNode;
   color?: keyof typeof colorClassName;
   size?: keyof typeof sizeClassname;
-  variant?: keyof typeof variantClassname;
+  variant?: keyof typeof variantClassName;
   block?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -84,10 +94,11 @@ export const Button = forwardRef(
           },
           // Ghost and link variants only affect text color
           {
-            [textColorClassname[color]]:
+            [textColorClassName[color]]:
               (variant === "ghost" || variant === "link") && !disabled,
           },
-          variantClassname[variant],
+          variantClassName[variant],
+          ringClassName[color],
           sizeClassname[size],
           { "w-full": block },
           "disabled:cursor-not-allowed disabled:pointer-events-auto disabled:active:transform-none",

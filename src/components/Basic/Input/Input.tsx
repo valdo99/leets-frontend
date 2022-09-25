@@ -4,20 +4,20 @@ import { forwardRef, InputHTMLAttributes, ReactNode, Ref, useId } from "react";
 const iconClass =
   "absolute top-1/2 transform -translate-y-1/2 [&>svg]:max-w-min";
 
-const variantClassname = {
+const variantClassName = {
   solid: "border-base-300 bg-base-300",
   bordered: "border-base-300 bg-transparent",
   ghost: "input-ghost disabled:bg-transparent",
 };
 
-const sizeClassname = {
+const sizeClassName = {
   xs: "input-xs min-w-[4.55rem] h-7 px-3.5",
   sm: "input-sm min-w-[5.2rem] h-8 px-4",
   md: "min-w-[6.5rem] h-10 px-5",
   lg: "input-lg min-w-[7.8rem] h-12 px-6",
 };
 
-const iconSizeClassname = {
+const iconSizeClassName = {
   xs: "[&>svg]:max-h-4",
   sm: "[&>svg]:max-h-4",
   md: "[&>svg]:max-h-6",
@@ -26,8 +26,8 @@ const iconSizeClassname = {
 
 export interface BaseInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
-  variant?: keyof typeof variantClassname;
-  size?: keyof typeof sizeClassname;
+  variant?: keyof typeof variantClassName;
+  size?: keyof typeof sizeClassName;
   placeholder?: string;
   label?: string;
   topRightLabel?: string;
@@ -98,7 +98,7 @@ export const Input = forwardRef(
           <span
             className={cx(
               iconClass,
-              iconSizeClassname[size],
+              iconSizeClassName[size],
               "left-3 text-base-content/50"
             )}
           >
@@ -119,8 +119,8 @@ export const Input = forwardRef(
             "placeholder:text-base-content/50",
             "focus:outline-none focus:border-primary focus:ring-0",
             "w-full",
-            variantClassname[variant],
-            sizeClassname[size],
+            variantClassName[variant],
+            sizeClassName[size],
             { "pl-11": leftIcon },
             { "pr-11": rightIcon },
             { "border-2 border-error focus:ring-error": error }
@@ -130,7 +130,7 @@ export const Input = forwardRef(
           <span
             className={cx(
               iconClass,
-              iconSizeClassname[size],
+              iconSizeClassName[size],
               "right-3 text-base-content/50"
             )}
           >

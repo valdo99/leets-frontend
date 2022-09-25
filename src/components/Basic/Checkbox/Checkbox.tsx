@@ -1,26 +1,26 @@
 import cx from "classnames";
 import { forwardRef, InputHTMLAttributes, Ref, useId } from "react";
 
-const variantClassname = {
+const variantClassName = {
   solid: "border-base-300 bg-base-300",
   bordered:
     "border-base-300 bg-transparent hover:bg-base-300/40 disabled:bg-transparent",
 };
 
-const colorClassname = {
+const colorClassName = {
   primary: "text-primary focus:ring-primary",
   secondary: "text-secondary focus:ring-secondary",
   accent: "text-accent focus:ring-accent",
 };
 
-const sizeClassname = {
+const sizeClassName = {
   xs: "w-3.5 h-3.5 rounded-sm focus:ring-2",
   sm: "w-4 h-4 rounded-sm focus:ring-2",
   md: "w-5 h-5 rounded focus:ring",
   lg: "w-6 h-6 rounded focus:ring",
 };
 
-const labelSizeClassname = {
+const labelSizeClassName = {
   xs: "text-xs",
   sm: "text-sm",
   md: "text-base",
@@ -29,13 +29,13 @@ const labelSizeClassname = {
 
 export interface CheckboxProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "size"> {
-  variant?: keyof typeof variantClassname;
+  variant?: keyof typeof variantClassName;
   checked?: boolean;
   onValueChange?: (checked: boolean) => void;
-  color?: keyof typeof colorClassname;
-  size?: keyof typeof sizeClassname;
+  color?: keyof typeof colorClassName;
+  size?: keyof typeof sizeClassName;
   label?: string;
-  labelSize?: keyof typeof labelSizeClassname;
+  labelSize?: keyof typeof labelSizeClassName;
   disabled?: boolean;
 }
 
@@ -82,9 +82,9 @@ export const Checkbox = forwardRef(
           checked={checked}
           onChange={handleChange}
           className={cx(
-            colorClassname[color],
-            variantClassname[variant],
-            sizeClassname[size],
+            colorClassName[color],
+            variantClassName[variant],
+            sizeClassName[size],
             "border-2",
             "disabled:opacity-50",
             "disabled:cursor-not-allowed",
@@ -96,7 +96,7 @@ export const Checkbox = forwardRef(
           <span
             className={cx(
               "ml-2 select-none",
-              labelSizeClassname[labelSize],
+              labelSizeClassName[labelSize],
               !disabled &&
                 (checked ? "opacity-100" : "opacity-50 hover:opacity-100"),
               { "opacity-50": disabled }
