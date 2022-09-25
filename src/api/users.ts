@@ -60,7 +60,7 @@ export class UserService extends ApiService {
   }
 
   async uploads(username: string) {
-    return await this.http.get(`${this.baseUrl}/${username}/uploads`);
+    return await this.http.get<Post[]>(`${this.baseUrl}/${username}/uploads`);
   }
 
   async likes(username: string) {
@@ -68,7 +68,10 @@ export class UserService extends ApiService {
   }
 
   async update(data: UserUpdateBody) {
-    return await this.http.put(`${this.baseUrl}/me`, data);
+    return await this.http.put<UserUpdateBody, User>(
+      `${this.baseUrl}/me`,
+      data
+    );
   }
 
   async changePassword(data: ChangePasswordBody) {
