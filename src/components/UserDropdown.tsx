@@ -86,7 +86,7 @@ export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
             "min-w-[220px] p-2",
             "rounded-btn",
             "bg-base-200",
-            "shadow-xl drop-shadow-white ring-1 ring-white/10 shadow-white/10 focus:outline-none"
+            "shadow-lg drop-shadow-white ring-1 ring-white/10 shadow-white/10 focus:outline-none"
           )}
         >
           <DropdownItem
