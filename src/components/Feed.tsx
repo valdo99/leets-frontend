@@ -1,4 +1,6 @@
+import autoAnimate from "@formkit/auto-animate";
 import { useQuery } from "@tanstack/react-query";
+import { useRef, useEffect } from "react";
 
 import { Spinner } from "@components/Basic/Spinner";
 import { SongCard } from "@components/Song/SongCard";
@@ -7,6 +9,13 @@ import { useApiClient, useUser } from "@providers/AuthProvider";
 export const Feed = () => {
   const { user, loading } = useUser();
   const apiClient = useApiClient();
+  const parentRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+
+  useEffect(() => {
+    if (parentRef.current) {
+      autoAnimate(parentRef.current);
+    }
+  }, [parentRef]);
 
   const {
     data: posts,
@@ -32,7 +41,7 @@ export const Feed = () => {
             <Spinner />
           </div>
         ) : (
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4" ref={parentRef}>
             {posts?.map((post) => (
               <SongCard key={post._id} post={post} onLikeChange={refetch} />
             ))}
