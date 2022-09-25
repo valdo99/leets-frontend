@@ -38,17 +38,19 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
   };
 
   return (
-    <div className="relative flex gap-4 rounded-xl bg-secondary p-4 sm:p-3">
+    <div className="relative flex gap-3 rounded-xl bg-secondary p-2.5 text-secondary-content xs:gap-4 xs:p-3">
+      {/* Spotify Icon */}
       <a
         href={`https://open.spotify.com/track/${post.spotify_id}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-2 right-2 z-10 cursor-pointer"
+        className="absolute top-2 right-2 cursor-pointer"
       >
-        <FaSpotify color="#050e1d" className="h-6 w-6" />
+        <FaSpotify color="#050e1d" className="h-4 w-4 xs:h-6 xs:w-6" />
       </a>
+      {/* Song Image */}
       {post.image && (
-        <div className="relative hidden h-28 w-28 shrink-0 sm:block">
+        <div className="relative hidden h-20 w-20 shrink-0 xs:block xs:h-28 xs:w-28 [@media(min-width:320px)]:block">
           <Image
             className="h-full rounded-xl object-cover"
             src={post.image}
@@ -57,35 +59,45 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
           />
         </div>
       )}
-      <div className="flex w-full flex-col justify-center text-secondary-content sm:gap-1">
+      {/* Song Details */}
+      <div className="flex w-full min-w-0 flex-col justify-center xs:gap-1">
         <span className="text-xs font-bold uppercase">{post.artist.name}</span>
-        <span className="text-xl font-bold">{post.title}</span>
-        <div className="mt-2 flex items-center justify-between sm:mt-0">
-          {post.preview_url ? (
-            <Player
-              id={post.spotify_id}
-              previewTrackUrl={post.preview_url}
-              className="-ml-1"
-              playerClassName="w-10 h-10"
-            />
+        <span className="truncate text-lg font-bold xs:text-xl">
+          {post.title}
+        </span>
+        {post.preview_url ? (
+          <Player
+            id={post.spotify_id}
+            previewTrackUrl={post.preview_url}
+            className="-ml-1"
+            playerClassName="w-8 h-8 xs:w-10 xs:h-10"
+          />
+        ) : (
+          <a
+            href={`https://open.spotify.com/track/${post.spotify_id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              leftIcon={<FaSpotify size={18} />}
+              size="xs"
+              className="px-2"
+            >
+              Listen on Spotify
+            </Button>
+          </a>
+        )}
+      </div>
+      {/* Likes */}
+      <div className="absolute bottom-2 right-2 flex cursor-pointer items-center gap-2">
+        <button onClick={toggleLike} className="cursor-pointer">
+          {post.isLiked ? (
+            <HeartSolid className="text-base xs:text-lg" />
           ) : (
-            <a href={`https://open.spotify.com/track/${post.spotify_id}`}>
-              <Button leftIcon={<FaSpotify size={22} />} size="xs">
-                Listen on Spotify
-              </Button>
-            </a>
+            <HeartOutline className="text-base xs:text-lg" />
           )}
-          <div className="flex items-center gap-2">
-            <button onClick={toggleLike} className="cursor-pointer">
-              {post.isLiked ? (
-                <HeartSolid className="h-5 w-5" />
-              ) : (
-                <HeartOutline className="h-5 w-5" />
-              )}
-            </button>
-            {post.likes}
-          </div>
-        </div>
+        </button>
+        <span className="text-sm xs:text-base">{post.likes}</span>
       </div>
     </div>
   );
