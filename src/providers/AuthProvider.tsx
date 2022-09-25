@@ -69,8 +69,5 @@ export const useApiClient = () => {
 
 export const useUser = () => {
   const [user] = useAtom(userAtom);
-
-  useEffect(() => {}, [user]);
-
   return user;
 };
