@@ -37,6 +37,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
       toast.success(
         "Utente registrato, riceverai una mail per confermare il tuo profilo"
       );
+      onClose();
     } else {
       await apiClient.auth.login(data);
       const loggedUser = await apiClient.auth.getLoggedUser();
@@ -45,6 +46,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
         user: loggedUser,
         loading: false,
       });
+      onClose();
     }
   });
 
