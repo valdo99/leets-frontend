@@ -10,14 +10,14 @@ import { SongCard } from "./Song/SongCard";
 
 export const UserLikedSongs = ({ user }: { user: User }) => {
   const apiClient = useApiClient();
-  const { loading } = useUser();
+  const { loading, user: loggedUser } = useUser();
 
   const {
     data: likedPosts,
     isLoading,
     refetch,
   } = useQuery(
-    ["likedPosts", user?._id],
+    ["likedPosts", user?._id, loggedUser?._id],
     () => apiClient.users.likes(user.username).then((data) => data.data),
     {
       enabled: !loading,
@@ -35,7 +35,7 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
   if (likedPosts?.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-14">
-        <span className="text-lg">You have no liked songs yet</span>
+        <p className="text-lg">You have no liked songs yet</p>
         <Link href="/">
           <a>
             <Button>Discover songs</Button>

@@ -10,14 +10,14 @@ import { SongCard } from "./Song/SongCard";
 
 export const UserHuntedSongs = ({ user }: { user: User }) => {
   const apiClient = useApiClient();
-  const { loading } = useUser();
+  const { loading, user: loggedUser } = useUser();
 
   const {
     data: likedPosts,
     isLoading,
     refetch,
   } = useQuery(
-    ["uploadedPosts", user?._id],
+    ["uploadedPosts", user?._id, loggedUser?._id],
     () => apiClient.users.uploads(user.username).then((data) => data.data),
     {
       enabled: !loading,
