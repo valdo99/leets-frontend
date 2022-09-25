@@ -1,5 +1,5 @@
-import "../styles/globals.css";
 import "react-toastify/dist/ReactToastify.min.css";
+import "../styles/globals.css";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "jotai";
@@ -27,10 +27,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         closeOnClick
         pauseOnHover
         autoClose={5000}
-        toastStyle={{
-          zIndex: 9999,
-          position: "relative",
-        }}
+        toastClassName={() =>
+          "relative flex p-3 rounded-btn overflow-hidden bg-secondary cursor-pointer mb-2"
+        }
+        bodyClassName={() =>
+          "flex items-center p-2 text-sm font-medium text-secondary-content"
+        }
       />
       <QueryClientProvider client={queryClient}>
         <Provider>

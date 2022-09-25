@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --toastify-color-info: theme(colors.info);
+  --toastify-color-success: theme(colors.success);
+  --toastify-color-warning: theme(colors.warning);
+  --toastify-color-error: theme(colors.error);
+
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
+}
+
 body {
-  /* @apply bg-background-primary font-main text-text-primary */
   @apply bg-base-100 font-main
 }
