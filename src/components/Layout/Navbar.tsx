@@ -23,7 +23,7 @@ export const Navbar = () => {
   const onLogout = async () => {
     try {
       await apiClient.auth.logout();
-      setUser({ user: null, loading: true });
+      setUser({ user: null, loading: false });
     } catch (error) {
       console.log(error);
     }
