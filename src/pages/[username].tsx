@@ -5,6 +5,7 @@ import { Fragment, ReactNode } from "react";
 
 import { ApiClient } from "@api/client";
 import { User } from "@api/users";
+import { UserHuntedSongs } from "@components/UserHuntedSongs";
 import { UserLikedSongs } from "@components/UserLikedSongs";
 import { PageWithLayout } from "@types";
 
@@ -21,7 +22,7 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
     },
     {
       label: "Hunted",
-      content: <div>Hunted songs</div>,
+      content: <UserHuntedSongs user={user} />,
     },
   ];
 
