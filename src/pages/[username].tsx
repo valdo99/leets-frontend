@@ -52,7 +52,7 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="mt-4">
+        <Tab.Panels className="mt-8">
           {tabs.map((tab) => (
             <Tab.Panel key={tab.label}>{tab.content}</Tab.Panel>
           ))}
