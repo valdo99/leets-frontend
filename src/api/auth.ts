@@ -93,6 +93,7 @@ export class AuthService extends ApiService {
 
   logout() {
     this.removeToken();
+    this.removeAuthHeader();
   }
 
   setToken(token: TokenResponse) {
@@ -119,5 +120,9 @@ export class AuthService extends ApiService {
 
   setAuthHeader(token: string) {
     this.http.instance.defaults.headers.common["x-auth-token"] = token;
+  }
+
+  removeAuthHeader() {
+    delete this.http.instance.defaults.headers.common["x-auth-token"];
   }
 }
