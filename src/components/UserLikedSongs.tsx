@@ -12,6 +12,8 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
   const apiClient = useApiClient();
   const { loading, user: loggedUser } = useUser();
 
+  const isLoggedUser = user._id === loggedUser?._id;
+
   const {
     data: likedPosts,
     isLoading,
@@ -35,12 +37,18 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
   if (likedPosts?.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-14">
-        <p className="text-lg">You have no liked songs yet</p>
-        <Link href="/">
-          <a>
-            <Button>Discover songs</Button>
-          </a>
-        </Link>
+        {isLoggedUser ? (
+          <>
+            <p className="text-lg">You have no liked songs yet</p>
+            <Link href="/">
+              <a>
+                <Button>Discover songs</Button>
+              </a>
+            </Link>
+          </>
+        ) : (
+          <p className="text-lg">No liked songs</p>
+        )}
       </div>
     );
   }
