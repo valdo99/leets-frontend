@@ -49,7 +49,7 @@ export const Navbar = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             {user ? (
               <>
                 <Link href="/upload">

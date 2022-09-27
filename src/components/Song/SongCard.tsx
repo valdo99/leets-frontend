@@ -52,11 +52,11 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
         rel="noopener noreferrer"
         className="absolute top-2 right-2 cursor-pointer"
       >
-        <FaSpotify color="#050e1d" className="h-4 w-4 xs:h-6 xs:w-6" />
+        <FaSpotify color="#050e1d" className="h-5 w-5 xs:h-6 xs:w-6" />
       </a>
       {/* Song Image */}
       {post.image && (
-        <div className="relative hidden h-20 w-20 shrink-0 xs:block xs:h-28 xs:w-28 [@media(min-width:320px)]:block">
+        <div className="relative hidden h-24 w-24 shrink-0 xs:block xs:h-28 xs:w-28 [@media(min-width:320px)]:block">
           <Image
             className="h-full rounded-xl object-cover"
             src={post.image}
@@ -68,15 +68,13 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
       {/* Song Details */}
       <div className="flex w-full min-w-0 flex-col justify-center xs:gap-1">
         <span className="text-xs font-bold uppercase">{post.artist.name}</span>
-        <span className="truncate text-lg font-bold xs:text-xl">
-          {post.title}
-        </span>
+        <span className="truncate text-xl font-bold">{post.title}</span>
         {post.preview_url ? (
           <Player
             id={post.spotify_id}
             previewTrackUrl={post.preview_url}
             className="-ml-1"
-            playerClassName="w-8 h-8 xs:w-10 xs:h-10"
+            playerClassName="w-9 h-9 xs:w-10 xs:h-10"
           />
         ) : (
           <a
@@ -87,7 +85,7 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
             <Button
               leftIcon={<FaSpotify size={18} />}
               size="xs"
-              className="px-2"
+              className="mt-1 px-2"
             >
               Listen on Spotify
             </Button>
@@ -98,12 +96,12 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
       <div className="absolute bottom-2 right-2 flex cursor-pointer items-center gap-2">
         <button onClick={toggleLike} className="cursor-pointer">
           {post.isLiked ? (
-            <HeartSolid className="text-base xs:text-lg" />
+            <HeartSolid className="text-xl" />
           ) : (
-            <HeartOutline className="text-base xs:text-lg" />
+            <HeartOutline className="text-xl" />
           )}
         </button>
-        <span className="text-sm xs:text-base">{post.likes}</span>
+        <span className="text-base">{post.likes}</span>
       </div>
     </div>
   );

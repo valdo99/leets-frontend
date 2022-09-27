@@ -64,7 +64,7 @@ export const Modal = ({
                 className="absolute top-2 right-2 rounded-lg ring-primary/50 focus-visible:outline-none focus-visible:ring-2"
                 onClick={onClose}
               >
-                <CloseIcon className="h-6 w-6 text-base-content/50" />
+                <CloseIcon className="h-6 w-6 text-base-content-neutral" />
               </button>
               {/* Body */}
               {title && (

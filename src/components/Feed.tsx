@@ -24,8 +24,8 @@ export const Feed = () => {
   return (
     <div className="flex flex-col gap-14 lg:flex-row">
       <div className="flex-1">
-        <h1 className="mb-8 mt-10 text-xl font-bold leading-tight">
-          This week&apos;s top songs
+        <h1 className="mb-8 mt-10 text-2xl font-bold leading-tight">
+          Today&apos;s top songs
         </h1>
         {isLoading ? (
           <div className="flex justify-center py-32">
@@ -40,7 +40,7 @@ export const Feed = () => {
         )}
       </div>
       <div className="lg:w-[340px]">
-        <h3 className="mb-8 mt-10 text-xl font-bold leading-tight">
+        <h3 className="mb-8 mt-10 text-2xl font-bold leading-tight">
           Last weeks
         </h3>
       </div>

@@ -13,28 +13,28 @@ export const Footer = () => {
             Made with <HeartIcon className="inline h-6 w-6" /> by{" "}
             <a
               href="https://www.linkedin.com/in/federica-alderighi-b712a9188/"
-              className="text-blue-300"
+              className="text-blue-300 hover:underline"
             >
               Federica
             </a>{" "}
             ,{" "}
             <a
               href="https://www.linkedin.com/in/edvaldo-g-20a271121/"
-              className="text-blue-300"
+              className="text-blue-300 hover:underline"
             >
               Edvaldo
             </a>{" "}
             and{" "}
             <a
               href="https://www.linkedin.com/in/mattia-pomelli-b857511b1/"
-              className="text-blue-300"
+              className="text-blue-300 hover:underline"
             >
               Mattia
             </a>
             , designed by{" "}
             <a
               href="https://www.linkedin.com/in/guido-bambi-1458b8200/"
-              className="text-blue-300"
+              className="text-blue-300 hover:underline"
             >
               Guido
             </a>
@@ -43,7 +43,7 @@ export const Footer = () => {
           <div className="flex items-center justify-end md:flex-1">
             <a
               href="mailto:edvaldogjonikaj@gmail.com"
-              className="text-blue-300"
+              className="text-blue-300 hover:underline"
             >
               Support
             </a>
