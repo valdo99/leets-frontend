@@ -43,4 +43,11 @@ export class PostService extends ApiService {
       `${this.baseUrl}/feed${getQueryString(params)}`
     );
   }
+
+  async upload(spotifyId: string) {
+    console.log("yoyo");
+    return await this.http.post<{ id: string }>(`${this.baseUrl}/upload`, {
+      id: spotifyId,
+    });
+  }
 }
