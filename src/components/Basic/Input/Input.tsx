@@ -99,7 +99,7 @@ export const Input = forwardRef(
             className={cx(
               iconClass,
               iconSizeClassName[size],
-              "left-3 text-base-content/50"
+              "left-3 text-base-content-neutral"
             )}
           >
             {leftIcon}
@@ -116,7 +116,7 @@ export const Input = forwardRef(
             "input",
             "border-2",
             "text-base-content",
-            "placeholder:text-base-content/50",
+            "placeholder:text-base-content-neutral",
             "focus:outline-none focus:border-primary focus:ring-0",
             "w-full",
             variantClassName[variant],
@@ -131,7 +131,7 @@ export const Input = forwardRef(
             className={cx(
               iconClass,
               iconSizeClassName[size],
-              "right-3 text-base-content/50"
+              "right-3 text-base-content-neutral"
             )}
           >
             {rightIcon}

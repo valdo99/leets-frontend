@@ -15,6 +15,9 @@ module.exports = {
       screens: {
         xs: "520px",
       },
+      colors: {
+        "base-content-neutral": "hsl(var(--bc) / 0.6)",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("daisyui")],

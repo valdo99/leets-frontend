@@ -28,7 +28,7 @@ const UploadPage: PageWithLayout = () => {
   return (
     <div className="flex flex-col items-center pt-12">
       <h1 className="mb-2 text-2xl font-bold">Upload new song</h1>
-      <p className="mb-8 text-lg text-base-content/50">
+      <p className="mb-8 text-lg text-base-content-neutral">
         Be the hunter of the next hit
       </p>
       <form
