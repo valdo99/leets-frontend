@@ -104,7 +104,7 @@ export const Button = forwardRef(
           "disabled:cursor-not-allowed disabled:pointer-events-auto disabled:active:transform-none",
           { "loading cursor-not-allowed pointer-events-auto": loading },
           { "gap-2": leftIcon || rightIcon },
-          "focus:outline-none focus:ring-4 focus:ring-opacity-50",
+          "focus:outline-none focus-visible:ring-4 focus:ring-opacity-50",
           className
         )}
       >

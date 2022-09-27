@@ -45,7 +45,6 @@ export class PostService extends ApiService {
   }
 
   async upload(spotifyId: string) {
-    console.log("yoyo");
     return await this.http.post<{ id: string }>(`${this.baseUrl}/upload`, {
       id: spotifyId,
     });

@@ -40,8 +40,8 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
                     "text-sm font-medium",
                     "py-2.5 min-w-[140px]",
                     "focus:outline-none",
-                    "focus:ring-4",
-                    "ring-primary ring-opacity-50",
+                    "focus-visible:ring-4",
+                    "focus:ring-primary focus:ring-opacity-50",
                     selected
                       ? "bg-secondary text-secondary-content shadow"
                       : "bg-base-200 text-text-primary hover:opacity-80"
