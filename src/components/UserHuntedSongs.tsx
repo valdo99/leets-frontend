@@ -40,7 +40,7 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
         {isLoggedUser ? (
           <>
             <p className="text-lg">You have no uploaded songs yet</p>
-            <Link href="/">
+            <Link href="/upload">
               <a>
                 <Button>Upload new song</Button>
               </a>

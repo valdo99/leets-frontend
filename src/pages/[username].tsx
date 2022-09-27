@@ -44,7 +44,7 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
                     "ring-primary ring-opacity-50",
                     selected
                       ? "bg-secondary text-secondary-content shadow"
-                      : "bg-base-200 text-text-primary"
+                      : "bg-base-200 text-text-primary hover:opacity-80"
                   )}
                 >
                   {tab.label}
