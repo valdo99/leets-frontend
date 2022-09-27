@@ -49,13 +49,22 @@ export const Navbar = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          {user ? (
-            <UserDropdown user={user} onLogout={onLogout} />
-          ) : (
-            <Button leftIcon={<Login />} onClick={openLoginModal}>
-              Get started
-            </Button>
-          )}
+          <div className="flex items-center gap-4">
+            {user ? (
+              <>
+                <Link href="/upload">
+                  <a>
+                    <Button>Upload song</Button>
+                  </a>
+                </Link>
+                <UserDropdown user={user} onLogout={onLogout} />
+              </>
+            ) : (
+              <Button leftIcon={<Login />} onClick={openLoginModal}>
+                Get started
+              </Button>
+            )}
+          </div>
         </Transition>
       </Container>
     </header>

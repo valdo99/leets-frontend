@@ -81,7 +81,7 @@ export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
       >
         <Menu.Items
           className={cx(
-            "absolute -right-2 z-20 mt-3",
+            "absolute -right-2 z-20 mt-4",
             "flex flex-col gap-1",
             "min-w-[220px] p-2",
             "rounded-btn",
