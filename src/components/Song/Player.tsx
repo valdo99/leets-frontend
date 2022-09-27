@@ -1,8 +1,7 @@
 import cx from "classnames";
-import { useAtom } from "jotai";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { trackPlayingAtom } from "@state/player";
+import { useTrack } from "@state/player";
 
 interface PlayerProps {
   previewTrackUrl: string;
@@ -19,19 +18,13 @@ export const Player = ({
   className,
   playerClassName,
 }: PlayerProps) => {
-  const [isPlay, setIsPlay] = useState(false);
-  const [trackPlaying, setTrackPlaying] = useAtom(trackPlayingAtom);
+  const [track, setTrack] = useTrack();
   const [percentagePlayed, setPercentagePlayed] = useState(0);
 
   const audio = useRef<HTMLAudioElement>(null);
 
-  function play() {
-    setIsPlay(true);
-    audio.current?.play();
-  }
-
   useEffect(() => {
-    if (isPlay) {
+    if (track.isPlaying) {
       const interval = setInterval(() => {
         setPercentagePlayed(
           audio.current
@@ -44,34 +37,51 @@ export const Player = ({
         clearInterval(interval);
       };
     }
-  }, [isPlay]);
+  }, [track.isPlaying]);
 
-  function pause() {
-    audio.current?.pause();
-    setIsPlay(false);
-  }
+  const play = () => {
+    setTrack({
+      id,
+      isPlaying: true,
+    });
+  };
 
-  function audioEnded() {
-    setIsPlay(false);
-  }
+  const pause = useCallback(() => {
+    setTrack((track) => ({
+      id: track.id,
+      isPlaying: false,
+    }));
+  }, [setTrack]);
+
+  useEffect(() => {
+    return () => {
+      pause();
+    };
+  }, [pause]);
+
+  const togglePlay = () => {
+    if (track.id === id && track.isPlaying) {
+      pause();
+    } else {
+      play();
+    }
+  };
 
   useEffect(() => {
     if (audio.current) {
-      // audio.current.ontimeupdate = changeTimelinePosition;
-      audio.current.onended = audioEnded;
+      audio.current.onended = pause;
     }
-    // timeline.current.addEventListener("change", changeSeek);
-  }, []);
+  }, [pause]);
 
   useEffect(() => {
-    if (audio.current) {
-      if (trackPlaying === id) {
-        audio.current.play();
-      } else {
-        audio.current.pause();
-      }
+    if (!audio.current) return;
+
+    if (track.id === id && track.isPlaying) {
+      audio.current.play();
+    } else {
+      audio.current.pause();
     }
-  }, [trackPlaying, id]);
+  }, [track, id]);
 
   return (
     <div className={className}>
@@ -81,14 +91,7 @@ export const Player = ({
         src={previewTrackUrl}
       ></audio>
       <svg
-        onClick={() => {
-          if (isPlay) {
-            pause();
-          } else {
-            setTrackPlaying(id);
-            play();
-          }
-        }}
+        onClick={togglePlay}
         stroke="currentColor"
         fill="currentColor"
         strokeWidth="0"
@@ -122,18 +125,18 @@ export const Player = ({
           strokeDasharray={`${percentagePlayed} 100`}
         />
 
-        {!isPlay ? (
-          <g transform="translate(3.5,2.7) scale(0.65)">
-            <path
-              fill="#050e1f"
-              d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
-            ></path>
-          </g>
-        ) : (
+        {track.id === id && track.isPlaying ? (
           <g transform="translate(3,2.7) scale(0.65)">
             <path
               fill="#050e1f"
               d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"
+            ></path>
+          </g>
+        ) : (
+          <g transform="translate(3.5,2.7) scale(0.65)">
+            <path
+              fill="#050e1f"
+              d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
             ></path>
           </g>
         )}
