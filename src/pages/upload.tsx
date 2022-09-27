@@ -2,8 +2,9 @@ import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
 import { useForm } from "@hooks/useForm";
 import { useApiClient } from "@providers/AuthProvider";
+import { PageAuth, PageWithLayout } from "@types";
 
-export default function UploadPage() {
+const UploadPage: PageWithLayout = () => {
   const apiClient = useApiClient();
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {
@@ -48,4 +49,8 @@ export default function UploadPage() {
       </form>
     </div>
   );
-}
+};
+
+UploadPage.auth = PageAuth.Private;
+
+export default UploadPage;

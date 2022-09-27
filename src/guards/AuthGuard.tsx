@@ -9,7 +9,7 @@ const checkAccess = (user: User | null, auth?: PageAuth): [boolean, string] => {
   switch (auth) {
     case PageAuth.Private:
       if (user) return [true, ""];
-      return [false, "/login"];
+      return [false, "/"];
 
     default:
       return [true, ""];
