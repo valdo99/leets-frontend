@@ -29,7 +29,7 @@ export const Feed = () => {
         </h1>
         {isLoading ? (
           <div className="flex justify-center py-32">
-            <Spinner />
+            <Spinner className="h-10 w-10" />
           </div>
         ) : (
           <div className="flex flex-col gap-4">

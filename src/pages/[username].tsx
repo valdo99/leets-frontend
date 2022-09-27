@@ -36,7 +36,7 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
               {({ selected }) => (
                 <button
                   className={cx(
-                    "rounded-lg",
+                    "rounded-btn",
                     "text-sm font-medium",
                     "py-2.5 min-w-[140px]",
                     "focus:outline-none",

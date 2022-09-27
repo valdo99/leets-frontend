@@ -44,7 +44,7 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
   };
 
   return (
-    <div className="relative flex gap-3 rounded-xl bg-secondary p-2.5 text-secondary-content xs:gap-4 xs:p-3">
+    <div className="rounded-btn relative flex gap-3 bg-secondary p-2.5 text-secondary-content xs:gap-4 xs:p-3">
       {/* Spotify Icon */}
       <a
         href={`https://open.spotify.com/track/${post.spotify_id}`}
@@ -58,7 +58,7 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
       {post.image && (
         <div className="relative hidden h-24 w-24 shrink-0 xs:block xs:h-28 xs:w-28 [@media(min-width:320px)]:block">
           <Image
-            className="h-full rounded-xl object-cover"
+            className="rounded-btn h-full object-cover"
             src={post.image}
             alt="song"
             layout="fill"
