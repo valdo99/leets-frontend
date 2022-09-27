@@ -92,13 +92,14 @@ export const Player = ({
       ></audio>
       <svg
         onClick={togglePlay}
-        stroke="currentColor"
-        fill="currentColor"
         strokeWidth="0"
         viewBox="0 0 16 16"
         height={`${size}em`}
         width={`${size}em`}
-        className={cx("cursor-pointer", playerClassName)}
+        className={cx(
+          "cursor-pointer text-primary hover:text-primary-focus",
+          playerClassName
+        )}
       >
         <circle
           cx="50%"
@@ -121,7 +122,7 @@ export const Player = ({
           stroke="#050e1f"
           strokeWidth={percentagePlayed > 0 ? 1 : 0}
           strokeLinecap="round"
-          fill="#33d985"
+          fill="currentColor"
           strokeDasharray={`${percentagePlayed} 100`}
         />
 

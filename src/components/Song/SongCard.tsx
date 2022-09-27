@@ -96,12 +96,12 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
       <div className="absolute bottom-2 right-2 flex cursor-pointer items-center gap-2">
         <button onClick={toggleLike} className="cursor-pointer">
           {post.isLiked ? (
-            <HeartSolid className="text-xl" />
+            <HeartSolid className="text-2xl" />
           ) : (
-            <HeartOutline className="text-xl" />
+            <HeartOutline className="text-2xl" />
           )}
         </button>
-        <span className="text-base">{post.likes}</span>
+        <span className="text-lg">{post.likes}</span>
       </div>
     </div>
   );
