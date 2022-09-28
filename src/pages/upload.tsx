@@ -1,10 +1,16 @@
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import { toast } from "react-toastify";
+
+import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
+import { SongCard } from "@components/Song/SongCard";
 import { useForm } from "@hooks/useForm";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageAuth, PageWithLayout } from "@types";
 
-const UploadPage: PageWithLayout = () => {
+const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
   const apiClient = useApiClient();
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {
@@ -12,7 +18,6 @@ const UploadPage: PageWithLayout = () => {
     },
     {
       resetOnSuccess: true,
-      successMessage: "Song uploaded!",
     }
   );
 
@@ -21,32 +26,112 @@ const UploadPage: PageWithLayout = () => {
       "https://open.spotify.com/track/",
       ""
     );
-    console.log(spotifyId);
-    await apiClient.posts.upload(spotifyId);
+    const { data: post } = await apiClient.posts.uploadPreview(spotifyId);
+    onSuccess(post);
   });
 
   return (
-    <div className="flex flex-col items-center pt-12">
-      <h1 className="mb-2 text-2xl font-bold">Upload new song</h1>
-      <p className="mb-8 text-lg text-base-content-neutral">
-        Be the hunter of the next hit
+    <>
+      <p className="mb-6 text-center text-base-content-neutral">
+        Remember, songs should be from artists who have less than X monthly
+        listeners on Spotify
       </p>
-      <form
-        className="flex w-full max-w-[360px] flex-col gap-3"
-        onSubmit={onSubmit}
-      >
+
+      <form className="flex w-full gap-2" onSubmit={onSubmit}>
         <Input
           placeholder="Spotify url"
+          block
           variant="bordered"
           name="spotifyUrl"
           value={formData.spotifyUrl}
           onChange={handleChange}
           error={errors.spotifyUrl}
+          className="flex-1"
         />
         <Button type="submit" loading={disabled}>
           Upload
         </Button>
       </form>
+    </>
+  );
+};
+
+interface UploadPreviewProps {
+  post: Post;
+  onSuccess: () => void;
+}
+
+const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
+  const apiClient = useApiClient();
+
+  const { mutate: confirmUpload } = useMutation(
+    (spotifyId: string) =>
+      apiClient.posts.upload(spotifyId).then((data) => data.data),
+    {
+      onSuccess() {
+        toast.success("Song uploaded and under review");
+      },
+    }
+  );
+
+  const onConfirmUpload = () => {
+    confirmUpload(post.spotify_id);
+    onSuccess();
+  };
+
+  return (
+    <>
+      <p className="mb-6 text-center text-base-content-neutral">
+        Here&apos;s a preview of the song you are uploading
+      </p>
+      <SongCard post={post} />
+      <Button className="mt-4" onClick={onConfirmUpload}>
+        Confirm upload
+      </Button>
+    </>
+  );
+};
+
+const UploadSuccess = ({ post }: { post: Post }) => {
+  return (
+    <>
+      <p className="text-base-content-neutral">You have succesfully uploaded</p>
+      <h4 className="my-4 text-3xl font-bold">{post.title}</h4>
+      <p className="text-base-content-neutral">The song is under review</p>
+    </>
+  );
+};
+
+enum UploadStep {
+  Form,
+  Preview,
+  Success,
+}
+
+const UploadPage: PageWithLayout = () => {
+  const [step, setStep] = useState(UploadStep.Form);
+  const [post, setPost] = useState<Post | null>(null);
+
+  return (
+    <div className="mx-auto flex w-full max-w-[440px] flex-col items-center pt-12">
+      <h1 className="mb-2 text-2xl font-bold">Upload new song</h1>
+      <p className="mb-8 text-lg text-base-content-neutral">
+        Be the hunter of the next hit
+      </p>
+      {step === UploadStep.Form && (
+        <UploadForm
+          onSuccess={(post) => {
+            setPost(post), setStep(UploadStep.Preview);
+          }}
+        />
+      )}
+      {step === UploadStep.Preview && post && (
+        <UploadPreview
+          post={post}
+          onSuccess={() => setStep(UploadStep.Success)}
+        />
+      )}
+      {step === UploadStep.Success && post && <UploadSuccess post={post} />}
     </div>
   );
 };

@@ -49,4 +49,13 @@ export class PostService extends ApiService {
       id: spotifyId,
     });
   }
+
+  async uploadPreview(spotifyId: string) {
+    return await this.http.post<{ id: string }, Post>(
+      `${this.baseUrl}/upload/preview`,
+      {
+        id: spotifyId,
+      }
+    );
+  }
 }

@@ -44,7 +44,7 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
   };
 
   return (
-    <div className="rounded-btn relative flex gap-3 bg-secondary p-2.5 text-secondary-content xs:gap-4 xs:p-3">
+    <div className="rounded-btn relative flex w-full gap-3 bg-secondary p-2.5 text-secondary-content xs:gap-4 xs:p-3">
       {/* Spotify Icon */}
       <a
         href={`https://open.spotify.com/track/${post.spotify_id}`}
