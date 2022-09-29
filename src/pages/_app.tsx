@@ -6,10 +6,10 @@ import { Provider } from "jotai";
 import { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
 
-import "@utils/i18n";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AuthProvider } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
+import { LocaleProvider } from "locales/locale-provider";
 
 import { AuthGuard } from "../guards/AuthGuard";
 
@@ -36,11 +36,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <QueryClientProvider client={queryClient}>
         <Provider>
-          <AuthProvider>
-            <AuthGuard auth={(Component as PageWithLayout).auth}>
-              {getLayout(<Component {...pageProps} />)}
-            </AuthGuard>
-          </AuthProvider>
+          <LocaleProvider>
+            <AuthProvider>
+              <AuthGuard auth={(Component as PageWithLayout).auth}>
+                {getLayout(<Component {...pageProps} />)}
+              </AuthGuard>
+            </AuthProvider>
+          </LocaleProvider>
         </Provider>
       </QueryClientProvider>
     </>
