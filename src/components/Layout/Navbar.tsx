@@ -32,12 +32,22 @@ export const Navbar = () => {
       <Container className="flex w-full items-center justify-between">
         <Link href="/">
           <a className="cursor-pointer">
-            <Image
-              src="/logo_1.png"
-              height="46px"
-              width="113px"
-              alt="Leets logo"
-            />
+            <span className="hidden sm:block">
+              <Image
+                src="/logo.png"
+                height="46px"
+                width="113px"
+                alt="Leets logo"
+              />
+            </span>
+            <span className="sm:hidden">
+              <Image
+                src="/logo_only.png"
+                height="46px"
+                width="35.74px"
+                alt="Leets logo"
+              />
+            </span>
           </a>
         </Link>
         <Transition
