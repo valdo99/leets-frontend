@@ -9,7 +9,7 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "i18n:extract": "cross-env NODE_ENV=development lingui extract --overwrite --clean --locale en",
+    "i18n:extract": "cross-env NODE_ENV=development lingui extract --overwrite --clean",
     "i18n:compile": "lingui compile",
     "i18n": "yarn i18n:extract && yarn i18n:compile"
   },

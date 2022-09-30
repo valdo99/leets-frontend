@@ -12,3 +12,113 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
+
+#: src/pages/404.tsx
+msgid "404 - Not Found"
+msgstr "404 - Not Found"
+
+#: src/pages/404.tsx
+msgid "Are you lost? No worries, here's the way home"
+msgstr "Are you lost? No worries, here's the way home"
+
+#: src/pages/upload.tsx
+msgid "Be the hunter of the next hit"
+msgstr "Be the hunter of the next hit"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Close"
+msgstr "Close"
+
+#: src/pages/upload.tsx
+msgid "Confirm upload"
+msgstr "Confirm upload"
+
+#: src/components/Modals/LoginModal.tsx
+#: src/components/Modals/LoginModal.tsx
+msgid "Create account"
+msgstr "Create account"
+
+#: src/components/UserLikedSongs.tsx
+msgid "Discover songs"
+msgstr "Discover songs"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+#: src/pages/404.tsx
+msgid "Go home"
+msgstr "Go home"
+
+#: src/pages/upload.tsx
+msgid "Here's a preview of the song you are uploading"
+msgstr "Here's a preview of the song you are uploading"
+
+#: src/components/Feed.tsx
+msgid "Last weeks"
+msgstr "Last weeks"
+
+#: src/components/Song/SongCard.tsx
+msgid "Listen on Spotify"
+msgstr "Listen on Spotify"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Log in"
+msgstr "Log in"
+
+#: src/components/Layout/Footer.tsx
+msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
+msgstr "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
+
+#: src/components/UserLikedSongs.tsx
+msgid "No liked songs"
+msgstr "No liked songs"
+
+#: src/components/UserHuntedSongs.tsx
+msgid "No uploaded songs"
+msgstr "No uploaded songs"
+
+#: src/pages/upload.tsx
+msgid "Remember, songs should be from artists who have less than X monthly listeners on Spotify"
+msgstr "Remember, songs should be from artists who have less than X monthly listeners on Spotify"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Sign in"
+msgstr "Sign in"
+
+#: src/components/Layout/Footer.tsx
+msgid "Support"
+msgstr "Support"
+
+#: src/pages/upload.tsx
+msgid "The song is under review"
+msgstr "The song is under review"
+
+#: src/components/Feed.tsx
+msgid "Today's top songs"
+msgstr "Today's top songs"
+
+#: src/components/Song/SongCard.tsx
+msgid "Under review"
+msgstr "Under review"
+
+#: src/pages/upload.tsx
+msgid "Upload"
+msgstr "Upload"
+
+#: src/components/UserHuntedSongs.tsx
+#: src/pages/upload.tsx
+msgid "Upload new song"
+msgstr "Upload new song"
+
+#: src/components/UserLikedSongs.tsx
+msgid "You have no liked songs yet"
+msgstr "You have no liked songs yet"
+
+#: src/components/UserHuntedSongs.tsx
+msgid "You have no uploaded songs yet"
+msgstr "You have no uploaded songs yet"
+
+#: src/pages/upload.tsx
+msgid "You have succesfully uploaded"
+msgstr "You have succesfully uploaded"

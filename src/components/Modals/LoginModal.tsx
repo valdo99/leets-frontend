@@ -1,3 +1,5 @@
+import { Trans } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -12,6 +14,7 @@ import { useApiClient } from "@providers/AuthProvider";
 import { userAtom } from "@state/user";
 
 export const LoginModal = ({ show, onClose }: BaseModalProps) => {
+  const { i18n } = useLingui();
   const apiClient = useApiClient();
   const [, setUser] = useAtom(userAtom);
   const [isRegister, setIsRegister] = useState(false);
@@ -35,7 +38,9 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
     if (isRegister) {
       await apiClient.users.create(data);
       toast.success(
-        "Utente registrato, riceverai una mail per confermare il tuo profilo"
+        i18n._(
+          "Utente registrato, riceverai una mail per confermare il tuo profilo"
+        )
       );
       onClose();
     } else {
@@ -54,11 +59,11 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
     <Modal
       show={show}
       onClose={onClose}
-      title={isRegister ? "Get started on Leets" : "Login"}
+      title={isRegister ? i18n._("Get started on Leets") : i18n._("Login")}
     >
       <form className="flex flex-col gap-3" onSubmit={onSubmit}>
         <Input
-          placeholder="Email"
+          placeholder={i18n._("Email")}
           variant="bordered"
           name="email"
           onChange={handleChange}
@@ -66,7 +71,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
         />
         <Input
           type="password"
-          placeholder="Password"
+          placeholder={i18n._("Password")}
           variant="bordered"
           name="password"
           onChange={handleChange}
@@ -76,28 +81,28 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
           <>
             <Input
               type="password"
-              placeholder="Repeat password"
+              placeholder={i18n._("Repeat Password")}
               variant="bordered"
               name="repeatPassword"
               onChange={handleChange}
               error={errors.repeatPassword}
             />
             <Input
-              placeholder="Name"
+              placeholder={i18n._("Name")}
               variant="bordered"
               name="name"
               onChange={handleChange}
               error={errors.name}
             />
             <Input
-              placeholder="Surname"
+              placeholder={i18n._("Surname")}
               variant="bordered"
               name="surname"
               onChange={handleChange}
               error={errors.surname}
             />
             <Input
-              placeholder="Username"
+              placeholder={i18n._("Username")}
               variant="bordered"
               name="username"
               onChange={handleChange}
@@ -107,7 +112,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
               <Checkbox
                 id="terms"
                 name="terms"
-                label="Accept terms and conditions"
+                label={i18n._("Accept terms and conditions")}
                 checked={formData.terms}
                 onChange={handleChange}
                 variant="bordered"
@@ -121,15 +126,21 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
             onClick={() => setIsRegister((isRegister) => !isRegister)}
             className="cursor-pointer text-sm"
           >
-            {!isRegister ? "Create account" : "Log in"}
+            {!isRegister ? (
+              <Trans>Create account</Trans>
+            ) : (
+              <Trans>Log in</Trans>
+            )}
           </p>
           {!isRegister && (
-            <p className="cursor-pointer text-sm">Forgot password?</p>
+            <p className="cursor-pointer text-sm">
+              <Trans>Forgot password?</Trans>
+            </p>
           )}
         </div>
         <div className="mt-4 flex justify-end gap-2">
           <Button onClick={onClose} color="secondary" type="button">
-            Close
+            <Trans>Close</Trans>
           </Button>
           <Button
             disabled={disabled}
@@ -137,7 +148,11 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
             color="primary"
             loading={disabled}
           >
-            {isRegister ? "Create account" : "Sign in"}
+            {isRegister ? (
+              <Trans>Create account</Trans>
+            ) : (
+              <Trans>Sign in</Trans>
+            )}
           </Button>
         </div>
       </form>

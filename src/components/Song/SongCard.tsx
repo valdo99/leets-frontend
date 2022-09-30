@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import React from "react";
@@ -87,7 +88,7 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
               size="xs"
               className="mt-1 px-2"
             >
-              Listen on Spotify
+              <Trans>Listen on Spotify</Trans>
             </Button>
           </a>
         )}
@@ -96,7 +97,7 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
       <div className="absolute bottom-2 right-2">
         {post.status === "UPLOADED" && (
           <span className="top-0 right-0 z-10 rounded-lg bg-info py-0.5 px-1.5 text-sm">
-            Under review
+            <Trans>Under review</Trans>
           </span>
         )}
         {post.status === "ONLINE" && (

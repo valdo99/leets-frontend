@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -33,8 +34,10 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
   return (
     <>
       <p className="mb-6 text-center text-base-content-neutral">
-        Remember, songs should be from artists who have less than X monthly
-        listeners on Spotify
+        <Trans>
+          Remember, songs should be from artists who have less than X monthly
+          listeners on Spotify
+        </Trans>
       </p>
 
       <form className="flex w-full gap-2" onSubmit={onSubmit}>
@@ -49,7 +52,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
           className="flex-1"
         />
         <Button type="submit" loading={disabled}>
-          Upload
+          <Trans>Upload</Trans>
         </Button>
       </form>
     </>
@@ -82,11 +85,11 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
   return (
     <>
       <p className="mb-6 text-center text-base-content-neutral">
-        Here&apos;s a preview of the song you are uploading
+        <Trans>Here&apos;s a preview of the song you are uploading</Trans>
       </p>
       <SongCard post={post} />
       <Button className="mt-6" onClick={onConfirmUpload}>
-        Confirm upload
+        <Trans>Confirm upload</Trans>
       </Button>
     </>
   );
@@ -95,9 +98,13 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
 const UploadSuccess = ({ post }: { post: Post }) => {
   return (
     <>
-      <p className="text-base-content-neutral">You have succesfully uploaded</p>
+      <p className="text-base-content-neutral">
+        <Trans>You have succesfully uploaded</Trans>
+      </p>
       <h4 className="my-4 text-3xl font-bold">{post.title}</h4>
-      <p className="text-base-content-neutral">The song is under review</p>
+      <p className="text-base-content-neutral">
+        <Trans>The song is under review</Trans>
+      </p>
     </>
   );
 };
@@ -114,9 +121,11 @@ const UploadPage: PageWithLayout = () => {
 
   return (
     <div className="mx-auto flex w-full max-w-[440px] flex-col items-center pt-12">
-      <h1 className="mb-2 text-2xl font-bold">Upload new song</h1>
+      <h1 className="mb-2 text-2xl font-bold">
+        <Trans>Upload new song</Trans>
+      </h1>
       <p className="mb-8 text-lg text-base-content-neutral">
-        Be the hunter of the next hit
+        <Trans> Be the hunter of the next hit</Trans>
       </p>
       {step === UploadStep.Form && (
         <UploadForm

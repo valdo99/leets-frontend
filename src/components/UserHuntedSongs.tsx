@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
@@ -39,15 +40,21 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
       <div className="flex flex-col items-center justify-center gap-4 py-14">
         {isLoggedUser ? (
           <>
-            <p className="text-lg">You have no uploaded songs yet</p>
+            <p className="text-lg">
+              <Trans>You have no uploaded songs yet</Trans>
+            </p>
             <Link href="/upload">
               <a>
-                <Button>Upload new song</Button>
+                <Button>
+                  <Trans>Upload new song</Trans>
+                </Button>
               </a>
             </Link>
           </>
         ) : (
-          <p className="text-lg">No uploaded songs</p>
+          <p className="text-lg">
+            <Trans>No uploaded songs</Trans>
+          </p>
         )}
       </div>
     );

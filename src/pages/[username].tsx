@@ -1,4 +1,5 @@
 import { Tab } from "@headlessui/react";
+import { useLingui } from "@lingui/react";
 import cx from "classnames";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Fragment, ReactNode } from "react";
@@ -15,13 +16,15 @@ interface TabItem {
 }
 
 const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
+  const { i18n } = useLingui();
+
   const tabs: TabItem[] = [
     {
-      label: "Liked",
+      label: i18n._("Liked"),
       content: <UserLikedSongs user={user} />,
     },
     {
-      label: "Hunted",
+      label: i18n._("Hunted"),
       content: <UserHuntedSongs user={user} />,
     },
   ];

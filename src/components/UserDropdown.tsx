@@ -1,4 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
+import { useLingui } from "@lingui/react";
 import cx from "classnames";
 import Link from "next/link";
 import {
@@ -67,6 +68,8 @@ interface UserDropdownProps {
 }
 
 export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
+  const { i18n } = useLingui();
+
   return (
     <Menu as="div" className="relative">
       <Menu.Button className="font-bold">{user.username}</Menu.Button>
@@ -90,11 +93,11 @@ export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
           )}
         >
           <DropdownItem
-            text="Profile"
+            text={i18n._("Profile")}
             href={`/${user.username}`}
             as={WrappedLink}
           />
-          <DropdownItem text="Logout" onClick={onLogout} />
+          <DropdownItem text={i18n._("Logout")} onClick={onLogout} />
         </Menu.Items>
       </Transition>
     </Menu>

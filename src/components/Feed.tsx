@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { useQuery } from "@tanstack/react-query";
 
 import { Spinner } from "@components/Basic/Spinner";
@@ -25,7 +26,7 @@ export const Feed = () => {
     <div className="flex flex-col gap-14 lg:flex-row">
       <div className="flex-1">
         <h1 className="mb-8 mt-10 text-2xl font-bold leading-tight">
-          Today&apos;s top songs
+          <Trans>Today&apos;s top songs</Trans>
         </h1>
         {isLoading ? (
           <div className="flex justify-center py-32">
@@ -41,7 +42,7 @@ export const Feed = () => {
       </div>
       <div className="lg:w-[340px]">
         <h3 className="mb-8 mt-10 text-2xl font-bold leading-tight">
-          Last weeks
+          <Trans>Last weeks</Trans>
         </h3>
       </div>
     </div>
