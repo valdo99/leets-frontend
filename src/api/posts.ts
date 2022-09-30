@@ -19,7 +19,7 @@ export interface Post extends Entity {
   spotify_id: string;
   hunter: User;
   artist: Artist;
-  status: string;
+  status: "CREATED" | "UPLOADED" | "ONLINE";
   likes: number;
   isLiked: number;
   partialLikes: number;

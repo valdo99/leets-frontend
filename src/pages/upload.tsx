@@ -85,7 +85,7 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
         Here&apos;s a preview of the song you are uploading
       </p>
       <SongCard post={post} />
-      <Button className="mt-4" onClick={onConfirmUpload}>
+      <Button className="mt-6" onClick={onConfirmUpload}>
         Confirm upload
       </Button>
     </>

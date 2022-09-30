@@ -93,15 +93,24 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
         )}
       </div>
       {/* Likes */}
-      <div className="absolute bottom-2 right-2 flex cursor-pointer items-center gap-2">
-        <button onClick={toggleLike} className="cursor-pointer">
-          {post.isLiked ? (
-            <HeartSolid className="text-2xl" />
-          ) : (
-            <HeartOutline className="text-2xl" />
-          )}
-        </button>
-        <span className="text-lg">{post.likes}</span>
+      <div className="absolute bottom-2 right-2">
+        {post.status === "UPLOADED" && (
+          <span className="top-0 right-0 z-10 rounded-lg bg-info py-0.5 px-1.5 text-sm">
+            Under review
+          </span>
+        )}
+        {post.status === "ONLINE" && (
+          <div className="flex cursor-pointer items-center gap-2">
+            <button onClick={toggleLike} className="cursor-pointer">
+              {post.isLiked ? (
+                <HeartSolid className="text-2xl" />
+              ) : (
+                <HeartOutline className="text-2xl" />
+              )}
+            </button>
+            <span className="text-lg">{post.likes}</span>
+          </div>
+        )}
       </div>
     </div>
   );
