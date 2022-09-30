@@ -12,7 +12,3 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
-
-#: src/components/Feed.tsx
-msgid "Today's top songs"
-msgstr "Today's top songs"

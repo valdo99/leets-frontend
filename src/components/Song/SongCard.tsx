@@ -100,7 +100,7 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
           </span>
         )}
         {post.status === "ONLINE" && (
-          <div className="flex cursor-pointer items-center gap-2">
+          <div className="flex cursor-pointer items-center gap-1">
             <button onClick={toggleLike} className="cursor-pointer">
               {post.isLiked ? (
                 <HeartSolid className="text-2xl" />
