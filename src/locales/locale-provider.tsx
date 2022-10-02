@@ -27,7 +27,8 @@ export async function dynamicActivateLanguage(locale: Locale) {
 export const LocaleProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const savedLocale = localStorage.getItem("locale") || DEFAULT_LOCALE;
-    if (i18n._locale !== savedLocale && isAvailableLocale(savedLocale)) dynamicActivateLanguage(savedLocale);
+    if (i18n._locale !== savedLocale && isAvailableLocale(savedLocale))
+      dynamicActivateLanguage(savedLocale);
   }, []);
 
   return (

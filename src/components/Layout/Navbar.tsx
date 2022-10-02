@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Login } from "react-iconly";
 
 import { Button } from "@components/Basic/Button";
+import { LanguageMenu } from "@components/LanguageMenu";
 import { Container } from "@components/Layout/Container";
 import { UserDropdown } from "@components/UserDropdown";
 import { useTransitionControl } from "@hooks/useTransitionControl";
@@ -60,6 +61,7 @@ export const Navbar = () => {
           leaveTo="opacity-0"
         >
           <div className="flex items-center gap-6">
+            <LanguageMenu />
             {user ? (
               <>
                 <Link href="/upload">
