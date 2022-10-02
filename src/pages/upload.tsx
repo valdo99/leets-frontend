@@ -1,5 +1,6 @@
 import { Trans } from "@lingui/macro";
 import { useMutation } from "@tanstack/react-query";
+import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -55,6 +56,14 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
           <Trans>Upload</Trans>
         </Button>
       </form>
+
+      <h5 className="mt-8 mb-2 font-bold">How to get song url</h5>
+      <Image
+        src="/tutorial-upload.png"
+        alt="Upload tutorial"
+        width={567}
+        height={375}
+      />
     </>
   );
 };
@@ -120,11 +129,11 @@ const UploadPage: PageWithLayout = () => {
   const [post, setPost] = useState<Post | null>(null);
 
   return (
-    <div className="mx-auto flex w-full max-w-[440px] flex-col items-center pt-12">
-      <h1 className="mb-2 text-2xl font-bold">
+    <div className="mx-auto flex w-full max-w-[440px] flex-col pt-12">
+      <h1 className="mb-2 text-center text-2xl font-bold">
         <Trans>Upload new song</Trans>
       </h1>
-      <p className="mb-8 text-lg text-base-content-neutral">
+      <p className="mb-8 text-center text-lg text-base-content-neutral">
         <Trans> Be the hunter of the next hit</Trans>
       </p>
       {step === UploadStep.Form && (
