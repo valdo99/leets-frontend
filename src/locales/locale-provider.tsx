@@ -4,6 +4,7 @@ import { en, it } from "make-plural/plurals";
 import React, { ReactNode, useEffect } from "react";
 
 import { DEFAULT_LOCALE, isAvailableLocale, Locale } from "./available-locales";
+// eslint-disable-next-line import/extensions
 import { messages } from "./en/messages";
 
 i18n.loadLocaleData({
