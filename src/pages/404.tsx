@@ -9,7 +9,7 @@ export default function NotFoundPage() {
       <h3 className="text-3xl font-bold">
         <Trans>404 - Not Found</Trans>
       </h3>
-      <p className="text-lg">
+      <p className="text-center text-lg">
         <Trans>Are you lost? No worries, here&apos;s the way home</Trans>
       </p>
       <Link href="/">
