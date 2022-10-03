@@ -34,9 +34,9 @@ export const LanguageMenu = ({ className }: LanguageMenuProps) => {
       >
         <Menu.Items
           className={cx(
-            "absolute -right-2 z-20 mt-4",
+            "absolute -left-2 sm:-right-2 sm:left-auto z-20 mt-4",
             "flex flex-col gap-1",
-            "min-w-[220px] p-2",
+            "p-2",
             "rounded-btn",
             "bg-base-200",
             "shadow-lg drop-shadow-white ring-1 ring-white/10 shadow-white/10 focus:outline-none"
