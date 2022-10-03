@@ -10,7 +10,8 @@
         "js": "never",
         "jsx": "never",
         "ts": "never",
-        "tsx": "never"
+        "tsx": "never",
+        "po": "never"
       }
     ],
     "import/no-named-as-default": "off",
