@@ -60,7 +60,9 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
 
       <hr className="my-12 h-px border-0 bg-base-content-neutral" />
 
-      <h5 className="mb-4 text-center font-bold">How to get song url</h5>
+      <h5 className="mb-4 text-center font-bold">
+        <Trans>How to get song url</Trans>
+      </h5>
       <Tabs
         className="flex justify-center"
         items={[

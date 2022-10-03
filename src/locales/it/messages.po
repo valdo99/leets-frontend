@@ -24,80 +24,104 @@ msgstr "404 - Non Trovato"
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
-msgstr ""
+msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 
 #: src/pages/upload.tsx
 msgid "Be the hunter of the next hit"
-msgstr ""
+msgstr "Sarai proprio tu a scoprire la nuova hit?"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: src/pages/upload.tsx
 msgid "Confirm upload"
-msgstr ""
+msgstr "Conferma caricamento"
 
 #: src/components/Modals/LoginModal.tsx
 #: src/components/Modals/LoginModal.tsx
 msgid "Create account"
-msgstr ""
+msgstr "Registrati"
 
 #: src/components/UserLikedSongs.tsx
 msgid "Discover songs"
-msgstr ""
+msgstr "Scopri canzoni"
+
+#: src/components/LanguageMenu.tsx
+msgid "English"
+msgstr "Inglese"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Forgot password?"
-msgstr ""
+msgstr "Password dimenticata?"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Get started"
+msgstr "Inizia ora"
 
 #: src/pages/404.tsx
 msgid "Go home"
-msgstr ""
+msgstr "Torna in home"
 
 #: src/pages/upload.tsx
 msgid "Here's a preview of the song you are uploading"
-msgstr ""
+msgstr "Ecco un'anteprima della canzone che stai caricando"
+
+#: src/pages/upload.tsx
+msgid "How to get song url"
+msgstr "Come trovare il link della canzone"
+
+#: src/pages/[username].tsx
+msgid "Hunted"
+msgstr "Scoperte"
+
+#: src/components/LanguageMenu.tsx
+msgid "Italian"
+msgstr "Italiano"
 
 #: src/components/Feed.tsx
 msgid "Last weeks"
-msgstr ""
+msgstr "Scorsa settimana"
+
+#: src/pages/[username].tsx
+msgid "Liked"
+msgstr "Mi piace"
 
 #: src/components/Song/SongCard.tsx
 msgid "Listen on Spotify"
-msgstr ""
+msgstr "Ascolta su Spotify"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Log in"
-msgstr ""
+msgstr "Accedi"
 
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
-msgstr ""
+msgstr "Fatto con tanto amore <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, design da <4>Guido</4>"
 
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
-msgstr ""
+msgstr "Nessuna canzone piaciuta"
 
 #: src/components/UserHuntedSongs.tsx
 msgid "No uploaded songs"
-msgstr ""
+msgstr "Nessuna canzone caricata"
 
 #: src/pages/upload.tsx
 msgid "Remember, songs should be from artists who have less than X monthly listeners on Spotify"
-msgstr ""
+msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di X ascolti mensili su Spotify"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
-msgstr ""
+msgstr "Accedi"
 
 #: src/components/Layout/Footer.tsx
 msgid "Support"
-msgstr ""
+msgstr "Assistenza"
 
 #: src/pages/upload.tsx
 msgid "The song is under review"
-msgstr ""
+msgstr "La canonza è sotto revisione"
 
 #: src/components/Feed.tsx
 msgid "Today's top songs"
@@ -105,25 +129,29 @@ msgstr "Migliori canzoni del giorno"
 
 #: src/components/Song/SongCard.tsx
 msgid "Under review"
-msgstr ""
+msgstr "In revisione"
 
 #: src/pages/upload.tsx
 msgid "Upload"
-msgstr ""
+msgstr "Carica"
 
 #: src/components/UserHuntedSongs.tsx
 #: src/pages/upload.tsx
 msgid "Upload new song"
-msgstr ""
+msgstr "Carica una nuova canzone"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Upload song"
+msgstr "Carica canzone"
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"
-msgstr ""
+msgstr "Non hai ancora messo like a nessuna canonze"
 
 #: src/components/UserHuntedSongs.tsx
 msgid "You have no uploaded songs yet"
-msgstr ""
+msgstr "Non hai ancora caricato nessuna"
 
 #: src/pages/upload.tsx
 msgid "You have succesfully uploaded"
-msgstr ""
+msgstr "Hai caricato con successo la canzone"

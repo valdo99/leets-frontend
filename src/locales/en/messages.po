@@ -42,9 +42,17 @@ msgstr "Create account"
 msgid "Discover songs"
 msgstr "Discover songs"
 
+#: src/components/LanguageMenu.tsx
+msgid "English"
+msgstr "English"
+
 #: src/components/Modals/LoginModal.tsx
 msgid "Forgot password?"
 msgstr "Forgot password?"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Get started"
+msgstr "Get started"
 
 #: src/pages/404.tsx
 msgid "Go home"
@@ -54,9 +62,25 @@ msgstr "Go home"
 msgid "Here's a preview of the song you are uploading"
 msgstr "Here's a preview of the song you are uploading"
 
+#: src/pages/upload.tsx
+msgid "How to get song url"
+msgstr "How to get song url"
+
+#: src/pages/[username].tsx
+msgid "Hunted"
+msgstr "Hunted"
+
+#: src/components/LanguageMenu.tsx
+msgid "Italian"
+msgstr "Italian"
+
 #: src/components/Feed.tsx
 msgid "Last weeks"
 msgstr "Last weeks"
+
+#: src/pages/[username].tsx
+msgid "Liked"
+msgstr "Liked"
 
 #: src/components/Song/SongCard.tsx
 msgid "Listen on Spotify"
@@ -110,6 +134,10 @@ msgstr "Upload"
 #: src/pages/upload.tsx
 msgid "Upload new song"
 msgstr "Upload new song"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Upload song"
+msgstr "Upload song"
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"

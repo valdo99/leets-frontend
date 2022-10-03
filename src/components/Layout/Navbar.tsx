@@ -1,4 +1,5 @@
 import { Transition } from "@headlessui/react";
+import { Trans } from "@lingui/macro";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
@@ -66,14 +67,16 @@ export const Navbar = () => {
               <>
                 <Link href="/upload">
                   <a>
-                    <Button>Upload song</Button>
+                    <Button>
+                      <Trans>Upload song</Trans>
+                    </Button>
                   </a>
                 </Link>
                 <UserDropdown user={user} onLogout={onLogout} />
               </>
             ) : (
               <Button leftIcon={<Login />} onClick={openLoginModal}>
-                Get started
+                <Trans>Get started</Trans>
               </Button>
             )}
           </div>

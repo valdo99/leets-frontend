@@ -1,4 +1,4 @@
-import { useLingui } from "@lingui/react";
+import { Trans } from "@lingui/macro";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Fragment, ReactNode } from "react";
 
@@ -10,16 +10,14 @@ import { UserLikedSongs } from "@components/UserLikedSongs";
 import { PageWithLayout } from "@types";
 
 interface TabItem {
-  label: string;
+  label: ReactNode;
   content: ReactNode;
 }
 
 const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
-  const { i18n } = useLingui();
-
   const tabItems: TabItem[] = [
     {
-      label: i18n._("Liked"),
+      label: <Trans>Liked</Trans>,
       content: (
         <div className="mt-8">
           <UserLikedSongs user={user} />
@@ -27,7 +25,7 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
       ),
     },
     {
-      label: i18n._("Hunted"),
+      label: <Trans>Hunted</Trans>,
       content: (
         <div className="mt-8">
           <UserHuntedSongs user={user} />

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { Fragment, ReactNode } from "react";
 
 interface TabItem {
-  label: string;
+  label: ReactNode;
   content: ReactNode;
 }
 
@@ -17,7 +17,7 @@ export const Tabs = ({ items, className }: TabsProps) => {
     <Tab.Group>
       <Tab.List className={cx("flex gap-2", className)}>
         {items.map((item) => (
-          <Tab key={item.label} as={Fragment}>
+          <Tab key={item.label?.toString()} as={Fragment}>
             {({ selected }) => (
               <button
                 className={cx(
@@ -40,7 +40,7 @@ export const Tabs = ({ items, className }: TabsProps) => {
       </Tab.List>
       <Tab.Panels className="mt-4">
         {items.map((item) => (
-          <Tab.Panel key={item.label}>{item.content}</Tab.Panel>
+          <Tab.Panel key={item.label?.toString()}>{item.content}</Tab.Panel>
         ))}
       </Tab.Panels>
     </Tab.Group>
