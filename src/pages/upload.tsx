@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
+import { Tabs } from "@components/Basic/Tabs";
 import { SongCard } from "@components/Song/SongCard";
 import { useForm } from "@hooks/useForm";
 import { useApiClient } from "@providers/AuthProvider";
@@ -57,12 +58,37 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
         </Button>
       </form>
 
-      <h5 className="mt-8 mb-2 font-bold">How to get song url</h5>
-      <Image
-        src="/tutorial-upload.png"
-        alt="Upload tutorial"
-        width={567}
-        height={375}
+      <hr className="my-12 h-px border-0 bg-base-content-neutral" />
+
+      <h5 className="mb-4 text-center font-bold">How to get song url</h5>
+      <Tabs
+        className="flex justify-center"
+        items={[
+          {
+            label: "Desktop",
+            content: (
+              <Image
+                src="/tutorial-upload.png"
+                alt="Upload tutorial"
+                width={567}
+                height={375}
+              />
+            ),
+          },
+          {
+            label: "Mobile",
+            content: (
+              <div className="text-center">
+                <Image
+                  src="/tutorial-upload-mobile.gif"
+                  alt="Upload tutorial"
+                  width={300}
+                  height={636}
+                />
+              </div>
+            ),
+          },
+        ]}
       />
     </>
   );
