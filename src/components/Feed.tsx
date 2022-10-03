@@ -24,7 +24,7 @@ export const Feed = () => {
 
   return (
     <div className="flex flex-col gap-14 lg:flex-row">
-      <div className="flex-1">
+      <div className="min-w-0 flex-1">
         <h1 className="mb-8 mt-10 text-2xl font-bold leading-tight">
           <Trans>Today&apos;s top songs</Trans>
         </h1>
@@ -40,7 +40,7 @@ export const Feed = () => {
           </div>
         )}
       </div>
-      <div className="lg:w-[340px]">
+      <div className="shrink-0 lg:w-[340px]">
         <h3 className="mb-8 mt-10 text-2xl font-bold leading-tight">
           <Trans>Last weeks</Trans>
         </h3>
