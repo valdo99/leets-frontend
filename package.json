@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn i18n && next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
