@@ -24,6 +24,11 @@ interface UserCreateBody
   repeatPassword: string;
 }
 
+interface TopHunter
+  extends Pick<User, "name" | "surname" | "username" | "createdAt"> {
+  points: number;
+}
+
 const nonUpdatableFields = [
   "_id",
   "createdAt",
@@ -76,5 +81,9 @@ export class UserService extends ApiService {
 
   async changePassword(data: ChangePasswordBody) {
     return await this.http.post(`${this.baseUrl}/change-password`, data);
+  }
+
+  async topHunters() {
+    return await this.http.get<TopHunter[]>(`${this.baseUrl}/top-hunters`);
   }
 }

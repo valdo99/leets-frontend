@@ -1,7 +1,8 @@
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 
-import { Feed } from "@components/Feed";
+import { TopHuntersFeed } from "@components/TopHuntersFeed";
+import { TopSongsFeed } from "@components/TopSongsFeed";
 
 export default function Home() {
   return (
@@ -27,10 +28,14 @@ export default function Home() {
           site_name: "Leets",
         }}
       />
-      <Head>
-        <title>Leets</title>
-      </Head>
-      <Feed />
+      <div className="flex flex-col gap-14 lg:flex-row">
+        <div className="min-w-0 flex-1">
+          <TopSongsFeed />
+        </div>
+        <div className="shrink-0 lg:w-[340px]">
+          <TopHuntersFeed />
+        </div>
+      </div>
     </>
   );
 }
