@@ -1,4 +1,5 @@
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 
 import { Feed } from "@components/Feed";
 
@@ -26,6 +27,9 @@ export default function Home() {
           site_name: "Leets",
         }}
       />
+      <Head>
+        <title>Leets</title>
+      </Head>
       <Feed />
     </>
   );

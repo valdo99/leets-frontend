@@ -136,6 +136,7 @@ msgid "Upload new song"
 msgstr "Upload new song"
 
 #: src/components/Layout/Navbar.tsx
+#: src/pages/upload.tsx
 msgid "Upload song"
 msgstr "Upload song"
 

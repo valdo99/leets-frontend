@@ -141,6 +141,7 @@ msgid "Upload new song"
 msgstr "Carica una nuova canzone"
 
 #: src/components/Layout/Navbar.tsx
+#: src/pages/upload.tsx
 msgid "Upload song"
 msgstr "Carica canzone"
 

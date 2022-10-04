@@ -1,5 +1,6 @@
 import { Trans } from "@lingui/macro";
 import { useMutation } from "@tanstack/react-query";
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -35,6 +36,9 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
 
   return (
     <>
+      <Head>
+        <title>Leets | Upload song</title>
+      </Head>
       <p className="mb-6 text-center text-base-content-neutral">
         <Trans>
           Remember, songs should be from artists who have less than X monthly
