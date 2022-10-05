@@ -79,10 +79,6 @@ msgstr "Scoperte"
 msgid "Italian"
 msgstr "Italiano"
 
-#: src/components/Feed.tsx
-msgid "Last weeks"
-msgstr "Scorsa settimana"
-
 #: src/pages/[username].tsx
 msgid "Liked"
 msgstr "Mi piace"
@@ -123,9 +119,13 @@ msgstr "Assistenza"
 msgid "The song is under review"
 msgstr "La canonza è sotto revisione"
 
-#: src/components/Feed.tsx
+#: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Migliori canzoni del giorno"
+
+#: src/components/TopHuntersFeed.tsx
+msgid "Top Hunters"
+msgstr ""
 
 #: src/components/Song/SongCard.tsx
 msgid "Under review"
@@ -134,6 +134,10 @@ msgstr "In revisione"
 #: src/pages/upload.tsx
 msgid "Upload"
 msgstr "Carica"
+
+#: src/pages/upload.tsx
+msgid "Upload another song"
+msgstr ""
 
 #: src/components/UserHuntedSongs.tsx
 #: src/pages/upload.tsx

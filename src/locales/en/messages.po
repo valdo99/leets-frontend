@@ -74,10 +74,6 @@ msgstr "Hunted"
 msgid "Italian"
 msgstr "Italian"
 
-#: src/components/Feed.tsx
-msgid "Last weeks"
-msgstr "Last weeks"
-
 #: src/pages/[username].tsx
 msgid "Liked"
 msgstr "Liked"
@@ -118,9 +114,13 @@ msgstr "Support"
 msgid "The song is under review"
 msgstr "The song is under review"
 
-#: src/components/Feed.tsx
+#: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Today's top songs"
+
+#: src/components/TopHuntersFeed.tsx
+msgid "Top Hunters"
+msgstr "Top Hunters"
 
 #: src/components/Song/SongCard.tsx
 msgid "Under review"
@@ -129,6 +129,10 @@ msgstr "Under review"
 #: src/pages/upload.tsx
 msgid "Upload"
 msgstr "Upload"
+
+#: src/pages/upload.tsx
+msgid "Upload another song"
+msgstr "Upload another song"
 
 #: src/components/UserHuntedSongs.tsx
 #: src/pages/upload.tsx
