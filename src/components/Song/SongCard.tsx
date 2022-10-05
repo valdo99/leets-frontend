@@ -105,7 +105,7 @@ export const SongCard = ({
             <p className="text-xs leading-3">Hunted by</p>
             <Link href={`/${post.hunter.username}`}>
               <a className="font-bold hover:text-secondary-content/60">
-                @{post.hunter.username}
+                {post.hunter.username}
               </a>
             </Link>
           </div>

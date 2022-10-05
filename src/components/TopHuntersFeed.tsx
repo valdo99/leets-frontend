@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
 
+import { TopHunterCard } from "./TopHunterCard";
+
 export const TopHuntersFeed = () => {
   const apiClient = useApiClient();
 
@@ -23,7 +25,7 @@ export const TopHuntersFeed = () => {
       ) : (
         <div className="flex flex-col gap-4">
           {hunters?.map((hunter) => (
-            <div key={hunter.username}>{hunter.username}</div>
+            <TopHunterCard key={hunter.username} hunter={hunter} />
           ))}
         </div>
       )}

@@ -24,7 +24,7 @@ interface UserCreateBody
   repeatPassword: string;
 }
 
-interface TopHunter
+export interface TopHunter
   extends Pick<User, "name" | "surname" | "username" | "createdAt"> {
   points: number;
 }
@@ -84,6 +84,6 @@ export class UserService extends ApiService {
   }
 
   async topHunters() {
-    return await this.http.get<TopHunter[]>(`${this.baseUrl}/top-hunters`);
+    return await this.http.get<TopHunter[]>(`${this.baseUrl}/feed/top-hunters`);
   }
 }
