@@ -128,7 +128,7 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
       <p className="mb-6 text-center text-base-content-neutral">
         <Trans>Here&apos;s a preview of the song you are uploading</Trans>
       </p>
-      <SongCard post={post} />
+      <SongCard post={post} showHunter={false} />
       <Button className="mt-6" onClick={onConfirmUpload}>
         <Trans>Confirm upload</Trans>
       </Button>
@@ -136,7 +136,12 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
   );
 };
 
-const UploadSuccess = ({ post }: { post: Post }) => {
+interface UploadPreviewProps {
+  post: Post;
+  onSuccess: () => void;
+}
+
+const UploadSuccess = ({ post, onSuccess }: UploadPreviewProps) => {
   return (
     <>
       <p className="text-base-content-neutral">
@@ -146,6 +151,9 @@ const UploadSuccess = ({ post }: { post: Post }) => {
       <p className="text-base-content-neutral">
         <Trans>The song is under review</Trans>
       </p>
+      <Button className="mt-6" onClick={onSuccess}>
+        <Trans>Upload another song</Trans>
+      </Button>
     </>
   );
 };
@@ -161,7 +169,7 @@ const UploadPage: PageWithLayout = () => {
   const [post, setPost] = useState<Post | null>(null);
 
   return (
-    <div className="mx-auto flex w-full max-w-[440px] flex-col pt-12">
+    <div className="mx-auto flex w-full max-w-[440px] flex-col items-center pt-12">
       <h1 className="mb-2 text-center text-2xl font-bold">
         <Trans>Upload new song</Trans>
       </h1>
@@ -181,7 +189,9 @@ const UploadPage: PageWithLayout = () => {
           onSuccess={() => setStep(UploadStep.Success)}
         />
       )}
-      {step === UploadStep.Success && post && <UploadSuccess post={post} />}
+      {step === UploadStep.Success && post && (
+        <UploadSuccess post={post} onSuccess={() => setStep(UploadStep.Form)} />
+      )}
     </div>
   );
 };

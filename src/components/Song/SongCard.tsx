@@ -16,9 +16,14 @@ import { Player } from "./Player";
 interface SongCardProps {
   post: Post;
   onLikeChange?: () => void;
+  showHunter?: boolean;
 }
 
-export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
+export const SongCard = ({
+  post,
+  onLikeChange,
+  showHunter = true,
+}: SongCardProps) => {
   const openLoginModal = useLoginModal();
   const apiClient = useApiClient();
   const { user } = useUser();
@@ -95,14 +100,16 @@ export const SongCard = ({ post, onLikeChange }: SongCardProps) => {
 
       <div className="flex items-center justify-between sm:flex-col sm:items-end">
         {/* Hunter */}
-        <div className="sm:text-right">
-          <p className="text-xs leading-3">Hunted by</p>
-          <Link href={`/${post.hunter.username}`}>
-            <a className="font-bold hover:text-secondary-content/60">
-              @{post.hunter.username}
-            </a>
-          </Link>
-        </div>
+        {showHunter && (
+          <div className="sm:text-right">
+            <p className="text-xs leading-3">Hunted by</p>
+            <Link href={`/${post.hunter.username}`}>
+              <a className="font-bold hover:text-secondary-content/60">
+                @{post.hunter.username}
+              </a>
+            </Link>
+          </div>
+        )}
 
         <div className="flex items-center gap-4">
           {/* Spotify Icon */}
