@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { User } from "@api/users";
 import { formatDate } from "@utils/dates";
+import { stringToColour } from "@utils/stringToColor";
 
 interface AvatarProps {
   user: Pick<User, "name" | "surname" | "username" | "createdAt">;
@@ -15,9 +16,14 @@ export const Avatar = ({
   className,
   onlyAvatar = false,
 }: AvatarProps) => {
+  const color = stringToColour(user.username);
+
   return (
     <div className={cx("flex items-center gap-2 text-left", className)}>
-      <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg text-primary-content">
+      <div
+        style={{ backgroundColor: color }}
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full text-lg text-primary-content"
+      >
         <span>
           {user.name.charAt(0)}
           {user.surname.charAt(0)}
