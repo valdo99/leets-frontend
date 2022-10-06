@@ -12,6 +12,8 @@ import {
 
 import { User } from "@api/users";
 
+import { Avatar } from "./Basic/Avatar";
+
 interface WrappedLinkProps {
   href: string;
   children: ReactNode;
@@ -72,7 +74,10 @@ export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
 
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="font-bold">{user.username}</Menu.Button>
+      <Menu.Button className="flex items-center gap-2">
+        <Avatar user={user} onlyAvatar />
+        <span className="hidden font-bold xs:block">{user.username}</span>
+      </Menu.Button>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-200"
