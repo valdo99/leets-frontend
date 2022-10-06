@@ -70,6 +70,10 @@ msgstr "How to get song url"
 msgid "Hunted"
 msgstr "Hunted"
 
+#: src/components/Song/SongCard.tsx
+msgid "Hunted by"
+msgstr "Hunted by"
+
 #: src/components/LanguageMenu.tsx
 msgid "Italian"
 msgstr "Italian"
@@ -140,7 +144,6 @@ msgid "Upload new song"
 msgstr "Upload new song"
 
 #: src/components/Layout/Navbar.tsx
-#: src/pages/upload.tsx
 msgid "Upload song"
 msgstr "Upload song"
 

@@ -75,6 +75,10 @@ msgstr "Come trovare il link della canzone"
 msgid "Hunted"
 msgstr "Scoperte"
 
+#: src/components/Song/SongCard.tsx
+msgid "Hunted by"
+msgstr "Scoperta da"
+
 #: src/components/LanguageMenu.tsx
 msgid "Italian"
 msgstr "Italiano"
@@ -125,7 +129,7 @@ msgstr "Migliori canzoni del giorno"
 
 #: src/components/TopHuntersFeed.tsx
 msgid "Top Hunters"
-msgstr ""
+msgstr "Migliori Hunters"
 
 #: src/components/Song/SongCard.tsx
 msgid "Under review"
@@ -137,7 +141,7 @@ msgstr "Carica"
 
 #: src/pages/upload.tsx
 msgid "Upload another song"
-msgstr ""
+msgstr "Carica un'altra canzone"
 
 #: src/components/UserHuntedSongs.tsx
 #: src/pages/upload.tsx
@@ -145,7 +149,6 @@ msgid "Upload new song"
 msgstr "Carica una nuova canzone"
 
 #: src/components/Layout/Navbar.tsx
-#: src/pages/upload.tsx
 msgid "Upload song"
 msgstr "Carica canzone"
 
@@ -155,7 +158,7 @@ msgstr "Non hai ancora messo like a nessuna canonze"
 
 #: src/components/UserHuntedSongs.tsx
 msgid "You have no uploaded songs yet"
-msgstr "Non hai ancora caricato nessuna"
+msgstr "Non hai ancora caricato nessuna canzone"
 
 #: src/pages/upload.tsx
 msgid "You have succesfully uploaded"
