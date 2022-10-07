@@ -28,10 +28,12 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
   );
 
   const onSubmit = handleSubmit(async (data) => {
-    const spotifyId = data.spotifyUrl.replace(
-      "https://open.spotify.com/track/",
-      ""
-    );
+    const spotifyId = data.spotifyUrl
+      .replace("https://open.spotify.com/track/", "")
+      .split("?")[0];
+
+    console.log(spotifyId);
+
     const { data: post } = await apiClient.posts.uploadPreview(spotifyId);
     onSuccess(post);
   });
@@ -73,7 +75,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
         className="flex justify-center"
         items={[
           {
-            label: t(i18n)`Mobile`,
+            label: t(i18n)`Desktop`,
             content: (
               <Image
                 src="/tutorial-upload.png"
