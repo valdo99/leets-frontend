@@ -99,6 +99,10 @@ msgstr "Scoperte"
 msgid "Hunted by"
 msgstr "Scoperta da"
 
+#: src/pages/upload.tsx
+msgid "Invalid Song URL"
+msgstr "Link non valido"
+
 #: src/components/LanguageMenu.tsx
 msgid "Italian"
 msgstr "Italiano"
@@ -162,6 +166,10 @@ msgstr "Conferma Password"
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
 msgstr "Accedi"
+
+#: src/pages/upload.tsx
+msgid "Something went wrong, please retry later"
+msgstr "Qualcosa é andato storto, riprova più tardi"
 
 #: src/pages/upload.tsx
 msgid "Song uploaded! 🚀"

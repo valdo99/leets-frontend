@@ -94,6 +94,10 @@ msgstr "Hunted"
 msgid "Hunted by"
 msgstr "Hunted by"
 
+#: src/pages/upload.tsx
+msgid "Invalid Song URL"
+msgstr "Invalid Song URL"
+
 #: src/components/LanguageMenu.tsx
 msgid "Italian"
 msgstr "Italian"
@@ -157,6 +161,10 @@ msgstr "Repeat Password"
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
 msgstr "Sign in"
+
+#: src/pages/upload.tsx
+msgid "Something went wrong, please retry later"
+msgstr "Something went wrong, please retry later"
 
 #: src/pages/upload.tsx
 msgid "Song uploaded! 🚀"

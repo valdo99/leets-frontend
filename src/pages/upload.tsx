@@ -28,6 +28,11 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
   );
 
   const onSubmit = handleSubmit(async (data) => {
+    if (!data.spotifyUrl.startsWith("https://open.spotify.com/track/")) {
+      toast.error(i18n._(t`Invalid Song URL`));
+      throw Error();
+    }
+
     const spotifyId = data.spotifyUrl
       .replace("https://open.spotify.com/track/", "")
       .split("?")[0];
@@ -120,6 +125,9 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
       onSuccess() {
         toast.success(t(i18n)`Song uploaded! 🚀`);
         onSuccess();
+      },
+      onError() {
+        toast.error(t(i18n)`Something went wrong, please retry later`);
       },
     }
   );
