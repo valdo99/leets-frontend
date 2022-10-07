@@ -148,8 +148,8 @@ msgid "Profile"
 msgstr "Profile"
 
 #: src/pages/upload.tsx
-msgid "Remember, songs should be from artists who have less than X monthly listeners on Spotify"
-msgstr "Remember, songs should be from artists who have less than X monthly listeners on Spotify"
+msgid "Remember, songs should be from artists who have less than 35.000 monthly listeners on Spotify"
+msgstr "Remember, songs should be from artists who have less than 35.000 monthly listeners on Spotify"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Repeat Password"
