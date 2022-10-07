@@ -1,4 +1,4 @@
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useAtom } from "jotai";
 import React, { useState } from "react";
@@ -38,9 +38,9 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
     if (isRegister) {
       await apiClient.users.create(data);
       toast.success(
-        i18n._(
-          "Utente registrato, riceverai una mail per confermare il tuo profilo"
-        )
+        t(
+          i18n
+        )`Account created, you'll receive an email to confirm your account`
       );
       onClose();
     } else {
@@ -59,11 +59,11 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
     <Modal
       show={show}
       onClose={onClose}
-      title={isRegister ? i18n._("Get started on Leets") : i18n._("Login")}
+      title={isRegister ? t(i18n)`Get started on Leets` : t(i18n)`Login`}
     >
       <form className="flex flex-col gap-3" onSubmit={onSubmit}>
         <Input
-          placeholder={i18n._("Email")}
+          placeholder={t(i18n)`Email`}
           variant="bordered"
           name="email"
           onChange={handleChange}
@@ -71,7 +71,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
         />
         <Input
           type="password"
-          placeholder={i18n._("Password")}
+          placeholder={t(i18n)`Password`}
           variant="bordered"
           name="password"
           onChange={handleChange}
@@ -81,28 +81,28 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
           <>
             <Input
               type="password"
-              placeholder={i18n._("Repeat Password")}
+              placeholder={t(i18n)`Repeat Password`}
               variant="bordered"
               name="repeatPassword"
               onChange={handleChange}
               error={errors.repeatPassword}
             />
             <Input
-              placeholder={i18n._("Name")}
+              placeholder={t(i18n)`Name`}
               variant="bordered"
               name="name"
               onChange={handleChange}
               error={errors.name}
             />
             <Input
-              placeholder={i18n._("Surname")}
+              placeholder={t(i18n)`Surname`}
               variant="bordered"
               name="surname"
               onChange={handleChange}
               error={errors.surname}
             />
             <Input
-              placeholder={i18n._("Username")}
+              placeholder={t(i18n)`Username`}
               variant="bordered"
               name="username"
               onChange={handleChange}
@@ -112,7 +112,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
               <Checkbox
                 id="terms"
                 name="terms"
-                label={i18n._("Accept terms and conditions")}
+                label={t(i18n)`Accept terms and conditions`}
                 checked={formData.terms}
                 onChange={handleChange}
                 variant="bordered"
@@ -124,7 +124,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
         <div className="flex justify-between">
           <p
             onClick={() => setIsRegister((isRegister) => !isRegister)}
-            className="cursor-pointer text-sm"
+            className="cursor-pointer text-sm text-blue-300 hover:underline"
           >
             {!isRegister ? (
               <Trans>Create account</Trans>

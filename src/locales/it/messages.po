@@ -18,9 +18,21 @@ msgstr ""
 "X-Crowdin-File: /src/locales/en/messages.po\n"
 "X-Crowdin-File-ID: 10\n"
 
+#: src/pages/upload.tsx
+msgid "\"Song uploaded! 🚀\""
+msgstr "\"Canzone caricata! 🚀\""
+
 #: src/pages/404.tsx
 msgid "404 - Not Found"
 msgstr "404 - Non Trovato"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Accept terms and conditions"
+msgstr "Accetto i termini e le condizioni"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Account created, you'll receive an email to confirm your account"
+msgstr "Account creato, riceverai un email per confermare il tuo account"
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
@@ -47,6 +59,10 @@ msgstr "Registrati"
 msgid "Discover songs"
 msgstr "Scopri canzoni"
 
+#: src/components/Modals/LoginModal.tsx
+msgid "Email"
+msgstr "Email"
+
 #: src/components/LanguageMenu.tsx
 msgid "English"
 msgstr "Inglese"
@@ -58,6 +74,10 @@ msgstr "Password dimenticata?"
 #: src/components/Layout/Navbar.tsx
 msgid "Get started"
 msgstr "Inizia ora"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Get started on Leets"
+msgstr "Registrati su Leets"
 
 #: src/pages/404.tsx
 msgid "Go home"
@@ -95,9 +115,26 @@ msgstr "Ascolta su Spotify"
 msgid "Log in"
 msgstr "Accedi"
 
+#: src/components/Modals/LoginModal.tsx
+msgid "Login"
+msgstr "Accedi"
+
+#: src/components/UserDropdown.tsx
+msgid "Logout"
+msgstr "Esci"
+
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
 msgstr "Fatto con tanto amore <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, design da <4>Guido</4>"
+
+#: src/pages/upload.tsx
+#: src/pages/upload.tsx
+msgid "Mobile"
+msgstr "Telefono"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Name"
+msgstr "Nome"
 
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
@@ -107,9 +144,21 @@ msgstr "Nessuna canzone piaciuta"
 msgid "No uploaded songs"
 msgstr "Nessuna canzone caricata"
 
+#: src/components/Modals/LoginModal.tsx
+msgid "Password"
+msgstr "Password"
+
+#: src/components/UserDropdown.tsx
+msgid "Profile"
+msgstr "Profilo"
+
 #: src/pages/upload.tsx
 msgid "Remember, songs should be from artists who have less than X monthly listeners on Spotify"
 msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di X ascolti mensili su Spotify"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Repeat Password"
+msgstr "Conferma Password"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
@@ -118,6 +167,10 @@ msgstr "Accedi"
 #: src/components/Layout/Footer.tsx
 msgid "Support"
 msgstr "Assistenza"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Surname"
+msgstr "Cognome"
 
 #: src/pages/upload.tsx
 msgid "The song is under review"
@@ -151,6 +204,10 @@ msgstr "Carica una nuova canzone"
 #: src/components/Layout/Navbar.tsx
 msgid "Upload song"
 msgstr "Carica canzone"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Username"
+msgstr "Nome utente"
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"

@@ -1,4 +1,5 @@
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useMutation } from "@tanstack/react-query";
 import Head from "next/head";
 import Image from "next/image";
@@ -15,6 +16,7 @@ import { useApiClient } from "@providers/AuthProvider";
 import { PageAuth, PageWithLayout } from "@types";
 
 const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
+  const { i18n } = useLingui();
   const apiClient = useApiClient();
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {
@@ -71,7 +73,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
         className="flex justify-center"
         items={[
           {
-            label: "Desktop",
+            label: t(i18n)`Mobile`,
             content: (
               <Image
                 src="/tutorial-upload.png"
@@ -82,7 +84,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
             ),
           },
           {
-            label: "Mobile",
+            label: t(i18n)`Mobile`,
             content: (
               <div className="text-center">
                 <Image
@@ -106,6 +108,7 @@ interface UploadPreviewProps {
 }
 
 const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
+  const { i18n } = useLingui();
   const apiClient = useApiClient();
 
   const { mutate: confirmUpload } = useMutation(
@@ -113,14 +116,14 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
       apiClient.posts.upload(spotifyId).then((data) => data.data),
     {
       onSuccess() {
-        toast.success("Song uploaded and under review");
+        toast.success(t(i18n)`"Song uploaded! 🚀"`);
+        onSuccess();
       },
     }
   );
 
   const onConfirmUpload = () => {
     confirmUpload(post.spotify_id);
-    onSuccess();
   };
 
   return (

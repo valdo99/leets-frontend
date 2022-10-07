@@ -102,7 +102,9 @@ export const SongCard = ({
         {/* Hunter */}
         {showHunter && (
           <div className="sm:text-right">
-            <p className="text-xs leading-3">Hunted by</p>
+            <p className="text-xs leading-3">
+              <Trans>Hunted by</Trans>
+            </p>
             <Link href={`/${post.hunter.username}`}>
               <a className="font-bold hover:text-secondary-content/60">
                 {post.hunter.username}

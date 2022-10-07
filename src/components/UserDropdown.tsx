@@ -1,4 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
+import { t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import cx from "classnames";
 import Link from "next/link";
@@ -98,11 +99,11 @@ export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
           )}
         >
           <DropdownItem
-            text={i18n._("Profile")}
+            text={t(i18n)`Profile`}
             href={`/${user.username}`}
             as={WrappedLink}
           />
-          <DropdownItem text={i18n._("Logout")} onClick={onLogout} />
+          <DropdownItem text={t(i18n)`Logout`} onClick={onLogout} />
         </Menu.Items>
       </Transition>
     </Menu>
