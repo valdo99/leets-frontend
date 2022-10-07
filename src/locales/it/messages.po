@@ -51,6 +51,10 @@ msgstr "Conferma caricamento"
 msgid "Create account"
 msgstr "Registrati"
 
+#: src/pages/upload.tsx
+msgid "Desktop"
+msgstr "Computer"
+
 #: src/components/UserLikedSongs.tsx
 msgid "Discover songs"
 msgstr "Scopri canzoni"
@@ -123,7 +127,6 @@ msgstr "Esci"
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
 msgstr "Fatto con tanto amore <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, design da <4>Guido</4>"
 
-#: src/pages/upload.tsx
 #: src/pages/upload.tsx
 msgid "Mobile"
 msgstr "Telefono"

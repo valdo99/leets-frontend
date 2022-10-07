@@ -46,6 +46,10 @@ msgstr "Confirm upload"
 msgid "Create account"
 msgstr "Create account"
 
+#: src/pages/upload.tsx
+msgid "Desktop"
+msgstr "Desktop"
+
 #: src/components/UserLikedSongs.tsx
 msgid "Discover songs"
 msgstr "Discover songs"
@@ -118,7 +122,6 @@ msgstr "Logout"
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
 msgstr "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
 
-#: src/pages/upload.tsx
 #: src/pages/upload.tsx
 msgid "Mobile"
 msgstr "Mobile"
