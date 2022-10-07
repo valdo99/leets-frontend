@@ -18,10 +18,6 @@ msgstr ""
 "X-Crowdin-File: /src/locales/en/messages.po\n"
 "X-Crowdin-File-ID: 10\n"
 
-#: src/pages/upload.tsx
-msgid "\"Song uploaded! 🚀\""
-msgstr "\"Canzone caricata! 🚀\""
-
 #: src/pages/404.tsx
 msgid "404 - Not Found"
 msgstr "404 - Non Trovato"
@@ -163,6 +159,10 @@ msgstr "Conferma Password"
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
 msgstr "Accedi"
+
+#: src/pages/upload.tsx
+msgid "Song uploaded! 🚀"
+msgstr "Canzone caricata! 🚀"
 
 #: src/components/Layout/Footer.tsx
 msgid "Support"

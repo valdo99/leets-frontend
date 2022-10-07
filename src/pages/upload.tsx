@@ -116,7 +116,7 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
       apiClient.posts.upload(spotifyId).then((data) => data.data),
     {
       onSuccess() {
-        toast.success(t(i18n)`"Song uploaded! 🚀"`);
+        toast.success(t(i18n)`Song uploaded! 🚀`);
         onSuccess();
       },
     }

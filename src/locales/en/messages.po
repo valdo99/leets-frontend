@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/upload.tsx
-msgid "\"Song uploaded! 🚀\""
-msgstr "\"Song uploaded! 🚀\""
-
 #: src/pages/404.tsx
 msgid "404 - Not Found"
 msgstr "404 - Not Found"
@@ -158,6 +154,10 @@ msgstr "Repeat Password"
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
 msgstr "Sign in"
+
+#: src/pages/upload.tsx
+msgid "Song uploaded! 🚀"
+msgstr "Song uploaded! 🚀"
 
 #: src/components/Layout/Footer.tsx
 msgid "Support"
