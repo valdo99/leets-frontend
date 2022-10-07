@@ -151,9 +151,6 @@ const UploadSuccess = ({ post, onSuccess }: UploadPreviewProps) => {
         <Trans>You have succesfully uploaded</Trans>
       </p>
       <h4 className="my-4 text-3xl font-bold">{post.title}</h4>
-      <p className="text-base-content-neutral">
-        <Trans>The song is under review</Trans>
-      </p>
       <Button className="mt-6" onClick={onSuccess}>
         <Trans>Upload another song</Trans>
       </Button>

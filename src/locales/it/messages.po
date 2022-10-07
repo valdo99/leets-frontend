@@ -172,10 +172,6 @@ msgstr "Assistenza"
 msgid "Surname"
 msgstr "Cognome"
 
-#: src/pages/upload.tsx
-msgid "The song is under review"
-msgstr "La canonza è sotto revisione"
-
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Migliori canzoni del giorno"

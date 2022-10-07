@@ -167,10 +167,6 @@ msgstr "Support"
 msgid "Surname"
 msgstr "Surname"
 
-#: src/pages/upload.tsx
-msgid "The song is under review"
-msgstr "The song is under review"
-
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Today's top songs"
