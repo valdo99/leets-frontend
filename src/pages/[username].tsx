@@ -32,10 +32,12 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
     },
   ];
 
+  const title = `Leets | ${user.username}`;
+
   return (
     <>
       <Head>
-        <title>Leets | {user.username}</title>
+        <title>{title}</title>
       </Head>
       <h3 className="mt-8 mb-6 text-2xl font-bold">{user.username}</h3>
       <Tabs items={tabItems} />
