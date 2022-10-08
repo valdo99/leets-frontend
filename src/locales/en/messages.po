@@ -170,6 +170,10 @@ msgstr "Something went wrong, please retry later"
 msgid "Song uploaded! 🚀"
 msgstr "Song uploaded! 🚀"
 
+#: src/pages/upload.tsx
+msgid "Spotify song url"
+msgstr "Spotify song url"
+
 #: src/components/Layout/Footer.tsx
 msgid "Support"
 msgstr "Support"

@@ -175,6 +175,10 @@ msgstr "Qualcosa é andato storto, riprova più tardi"
 msgid "Song uploaded! 🚀"
 msgstr "Canzone caricata! 🚀"
 
+#: src/pages/upload.tsx
+msgid "Spotify song url"
+msgstr "Link spotify della canzone"
+
 #: src/components/Layout/Footer.tsx
 msgid "Support"
 msgstr "Assistenza"

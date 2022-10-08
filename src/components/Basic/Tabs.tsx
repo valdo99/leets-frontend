@@ -2,8 +2,8 @@ import { Tab } from "@headlessui/react";
 import cx from "classnames";
 import { Fragment, ReactNode } from "react";
 
-interface TabItem {
-  label: ReactNode;
+export interface TabItem {
+  label: string;
   content: ReactNode;
 }
 

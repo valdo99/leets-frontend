@@ -57,7 +57,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
 
       <form className="flex w-full gap-2" onSubmit={onSubmit}>
         <Input
-          placeholder="Spotify url"
+          placeholder={t(i18n)`Spotify song url`}
           block
           variant="bordered"
           name="spotifyUrl"
