@@ -40,6 +40,7 @@ export const Navbar = () => {
                 height="46px"
                 width="113px"
                 alt="Leets logo"
+                priority
               />
             </span>
             <span className="sm:hidden">
@@ -48,6 +49,7 @@ export const Navbar = () => {
                 height="46px"
                 width="35.74px"
                 alt="Leets logo"
+                priority
               />
             </span>
           </a>
