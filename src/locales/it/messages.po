@@ -132,7 +132,7 @@ msgstr "Esci"
 
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
-msgstr "Fatto con tanto amore <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, design da <4>Guido</4>"
+msgstr "Creato con <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, design da <4>Guido</4>"
 
 #: src/pages/upload.tsx
 msgid "Mobile"
