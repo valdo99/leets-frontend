@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
+import { ForbiddenError } from "@api/errors";
 import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
@@ -36,8 +37,6 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
     const spotifyId = data.spotifyUrl
       .replace("https://open.spotify.com/track/", "")
       .split("?")[0];
-
-    console.log(spotifyId);
 
     const { data: post } = await apiClient.posts.uploadPreview(spotifyId);
     onSuccess(post);
@@ -126,7 +125,8 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
         toast.success(t(i18n)`Song uploaded! 🚀`);
         onSuccess();
       },
-      onError() {
+      onError(error) {
+        if (error instanceof ForbiddenError) return; // handled globally
         toast.error(t(i18n)`Something went wrong, please retry later`);
       },
     }
