@@ -1,5 +1,6 @@
 import { Trans } from "@lingui/macro";
 import { useMutation } from "@tanstack/react-query";
+import cx from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -50,6 +51,8 @@ export const SongCard = ({
     }
   };
 
+  const isPreview = post.status !== "ONLINE";
+
   return (
     <div className="rounded-btn relative flex w-full flex-col justify-between gap-3 bg-secondary p-2.5 text-secondary-content sm:flex-row xs:gap-4 xs:p-3">
       <div className="flex min-w-0 gap-3">
@@ -98,7 +101,14 @@ export const SongCard = ({
         </div>
       </div>
 
-      <div className="flex items-center justify-between sm:flex-col sm:items-end">
+      <div
+        className={cx(
+          "flex items-center justify-between sm:flex-col sm:items-end",
+          {
+            "absolute top-2 right-2": isPreview,
+          }
+        )}
+      >
         {/* Hunter */}
         {showHunter && (
           <div className="sm:text-right">
@@ -125,11 +135,11 @@ export const SongCard = ({
           </a>
 
           {/* Status / Likes */}
-          {post.status === "UPLOADED" && (
+          {/* {post.status === "UPLOADED" && (
             <span className="top-0 right-0 z-10 rounded-lg bg-info py-0.5 px-1.5 text-sm">
               <Trans>Under review</Trans>
             </span>
-          )}
+          )} */}
           {post.status === "ONLINE" && (
             <div className="flex cursor-pointer items-center gap-1">
               <button onClick={toggleLike} className="cursor-pointer">
