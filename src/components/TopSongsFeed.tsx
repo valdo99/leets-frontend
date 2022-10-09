@@ -5,6 +5,8 @@ import { Spinner } from "@components/Basic/Spinner";
 import { SongCard } from "@components/Song/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 
+import { InfoTooltip } from "./Basic/Tooltip";
+
 export const TopSongsFeed = () => {
   const { user, loading } = useUser();
   const apiClient = useApiClient();
@@ -24,9 +26,19 @@ export const TopSongsFeed = () => {
 
   return (
     <>
-      <h1 className="mb-8 mt-10 text-2xl font-bold leading-tight">
-        <Trans>Today&apos;s top songs</Trans>
-      </h1>
+      <div className="mb-8 mt-10 flex items-center gap-3">
+        <h2 className="text-2xl font-bold leading-tight">
+          <Trans>Today&apos;s top songs</Trans>
+        </h2>
+        <InfoTooltip
+          color="secondary"
+          content={
+            <p className="max-w-[200px] text-center text-sm">
+              <Trans>Songs which received the most likes today</Trans>
+            </p>
+          }
+        />
+      </div>
       {isLoading ? (
         <div className="flex justify-center py-32">
           <Spinner className="h-10 w-10" />

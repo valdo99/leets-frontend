@@ -167,6 +167,10 @@ msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 35.000 as
 msgid "Repeat Password"
 msgstr "Conferma Password"
 
+#: src/components/TopHuntersFeed.tsx
+msgid "Score is based on likes to hunted songs"
+msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
+
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
 msgstr "Accedi"
@@ -178,6 +182,10 @@ msgstr "Qualcosa é andato storto, riprova più tardi"
 #: src/pages/upload.tsx
 msgid "Song uploaded! 🚀"
 msgstr "Canzone caricata! 🚀"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Songs which received the most likes today"
+msgstr "Canzoni che hanno ricevuto più like oggi"
 
 #: src/pages/upload.tsx
 msgid "Spotify song url"

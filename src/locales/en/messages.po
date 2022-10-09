@@ -162,6 +162,10 @@ msgstr "Remember, songs should be by artists who have less than 35.000 monthly l
 msgid "Repeat Password"
 msgstr "Repeat Password"
 
+#: src/components/TopHuntersFeed.tsx
+msgid "Score is based on likes to hunted songs"
+msgstr "Score is based on likes to hunted songs"
+
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
 msgstr "Sign in"
@@ -173,6 +177,10 @@ msgstr "Something went wrong, please retry later"
 #: src/pages/upload.tsx
 msgid "Song uploaded! 🚀"
 msgstr "Song uploaded! 🚀"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Songs which received the most likes today"
+msgstr "Songs which received the most likes today"
 
 #: src/pages/upload.tsx
 msgid "Spotify song url"
