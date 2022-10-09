@@ -15,18 +15,18 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
 
   const tabItems: TabItem[] = [
     {
-      label: t(i18n)`Liked`,
-      content: (
-        <div className="mt-8">
-          <UserLikedSongs user={user} />
-        </div>
-      ),
-    },
-    {
       label: t(i18n)`Hunted`,
       content: (
         <div className="mt-8">
           <UserHuntedSongs user={user} />
+        </div>
+      ),
+    },
+    {
+      label: t(i18n)`Liked`,
+      content: (
+        <div className="mt-8">
+          <UserLikedSongs user={user} />
         </div>
       ),
     },
