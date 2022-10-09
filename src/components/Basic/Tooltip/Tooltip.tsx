@@ -8,7 +8,7 @@ import {
   TooltipProvider,
 } from "@radix-ui/react-tooltip";
 import cx from "classnames";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 const colorClassname = {
   primary: "bg-primary text-primary-content fill-primary",
@@ -33,14 +33,33 @@ export const Tooltip = ({
   className,
   ...props
 }: TooltipProps) => {
+  const [open, setOpen] = useState(false);
+
+  const onOpen = () => setOpen(true);
+  const onClose = () => setOpen(false);
+
+  useEffect(() => {
+    const close = () => setOpen(false);
+    document.addEventListener("scroll", close);
+    return () => document.removeEventListener("scroll", close);
+  }, []);
+
   return (
     <TooltipProvider>
-      <TooltipRoot delayDuration={200}>
-        <TooltipTrigger className={cx("cursor-pointer", className)} asChild>
+      <TooltipRoot delayDuration={200} open={open}>
+        <TooltipTrigger
+          className={cx("cursor-pointer", className)}
+          asChild
+          onClick={onOpen}
+          onMouseEnter={onOpen}
+          onMouseLeave={onClose}
+        >
           {children}
         </TooltipTrigger>
         <TooltipPortal>
           <TooltipContent
+            onMouseEnter={onOpen}
+            onMouseLeave={onClose}
             className={cx(
               "animate-fade-in rounded-btn py-2 px-3 z-30 max-w-[90vw]",
               colorClassname[color]
