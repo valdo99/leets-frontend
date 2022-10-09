@@ -3,13 +3,13 @@ import { Trans } from "@lingui/macro";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
-import { Login } from "react-iconly";
 
 import { Button } from "@components/Basic/Button";
 import { LanguageMenu } from "@components/LanguageMenu";
 import { Container } from "@components/Layout/Container";
 import { UserDropdown } from "@components/UserDropdown";
 import { useTransitionControl } from "@hooks/useTransitionControl";
+import LoginIcon from "@icons/login.svg";
 import { useApiClient, useLoginModal } from "@providers/AuthProvider";
 import { userAtom } from "@state/user";
 
@@ -77,7 +77,10 @@ export const Navbar = () => {
                 <UserDropdown user={user} onLogout={onLogout} />
               </>
             ) : (
-              <Button leftIcon={<Login />} onClick={openLoginModal}>
+              <Button
+                leftIcon={<LoginIcon className="h-6 w-6" />}
+                onClick={openLoginModal}
+              >
                 <Trans>Get started</Trans>
               </Button>
             )}
