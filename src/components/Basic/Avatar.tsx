@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import cx from "classnames";
 import Link from "next/link";
 
@@ -36,7 +37,9 @@ export const Avatar = ({
               {user.username}
             </a>
           </Link>
-          <p className="text-sm">Joined on {formatDate(user.createdAt)}</p>
+          <p className="text-sm">
+            <Trans>Joined on {formatDate(user.createdAt)}</Trans>
+          </p>
         </div>
       )}
     </div>

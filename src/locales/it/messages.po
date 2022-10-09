@@ -107,6 +107,10 @@ msgstr "Link non valido"
 msgid "Italian"
 msgstr "Italiano"
 
+#: src/components/Basic/Avatar.tsx
+msgid "Joined on {0}"
+msgstr "Iscritto il {0}"
+
 #: src/pages/[username].tsx
 msgid "Liked"
 msgstr "Mi piace"

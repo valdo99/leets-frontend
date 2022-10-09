@@ -102,6 +102,10 @@ msgstr "Invalid Song URL"
 msgid "Italian"
 msgstr "Italian"
 
+#: src/components/Basic/Avatar.tsx
+msgid "Joined on {0}"
+msgstr "Joined on {0}"
+
 #: src/pages/[username].tsx
 msgid "Liked"
 msgstr "Liked"
