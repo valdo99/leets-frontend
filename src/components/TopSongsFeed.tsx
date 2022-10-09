@@ -1,10 +1,12 @@
 import { Trans } from "@lingui/macro";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { Fragment } from "react";
 
 import { Spinner } from "@components/Basic/Spinner";
 import { SongCard } from "@components/Song/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 
+import { Button } from "./Basic/Button";
 import { InfoTooltip } from "./Basic/Tooltip";
 
 export const TopSongsFeed = () => {
@@ -12,15 +14,24 @@ export const TopSongsFeed = () => {
   const apiClient = useApiClient();
 
   const {
-    data: posts,
+    data: songs,
     isLoading,
     refetch,
-  } = useQuery(
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery(
     ["feed", user?._id],
-    () =>
-      apiClient.posts.feed({ year: 2022, week: 32 }).then((data) => data.data),
+    ({ pageParam }) => apiClient.posts.feed({ page: pageParam }),
     {
       enabled: !loading,
+      getNextPageParam: ({ pagination }) => {
+        const { page, perPage, total } = pagination;
+        if ((page + 1) * perPage < total) {
+          return page + 1;
+        }
+        return undefined;
+      },
     }
   );
 
@@ -44,11 +55,30 @@ export const TopSongsFeed = () => {
           <Spinner className="h-10 w-10" />
         </div>
       ) : (
-        <div className="flex flex-col gap-4">
-          {posts?.map((post) => (
-            <SongCard key={post._id} post={post} onLikeChange={refetch} />
-          ))}
-        </div>
+        <>
+          <div className="flex flex-col gap-4">
+            {songs?.pages.map((page, index) => (
+              <Fragment key={index}>
+                {page.data.map((song) => (
+                  <SongCard key={song._id} post={song} onLikeChange={refetch} />
+                ))}
+              </Fragment>
+            ))}
+          </div>
+          <div className="mt-8 flex h-10 items-center justify-center">
+            {isFetchingNextPage ? (
+              <Spinner className="h-10 w-10" />
+            ) : (
+              <>
+                {hasNextPage && (
+                  <Button onClick={() => fetchNextPage()}>
+                    <Trans>Load more</Trans>
+                  </Button>
+                )}
+              </>
+            )}
+          </div>
+        </>
       )}
     </>
   );

@@ -25,6 +25,12 @@ export interface Post extends Entity {
   partialLikes: number;
 }
 
+type FeedQueryParams = {
+  date?: string;
+  page?: number;
+  limit?: number;
+};
+
 export class PostService extends ApiService {
   async list() {
     return await this.http.get<Post[]>(this.baseUrl);
@@ -38,8 +44,8 @@ export class PostService extends ApiService {
     return await this.http.post(`${this.baseUrl}/${postId}/dislike`);
   }
 
-  async feed(params = {}) {
-    return await this.http.get<Post[]>(
+  async feed(params: FeedQueryParams = {}) {
+    return await this.http.getPaginated<Post[]>(
       `${this.baseUrl}/feed${getQueryString(params)}`
     );
   }
