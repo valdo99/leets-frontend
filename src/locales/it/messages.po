@@ -42,10 +42,6 @@ msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 msgid "Be the hunter of the next hit"
 msgstr "Sarai proprio tu a scoprire la nuova hit?"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Close"
-msgstr "Chiudi"
-
 #: src/pages/upload.tsx
 msgid "Confirm upload"
 msgstr "Conferma caricamento"
@@ -121,6 +117,10 @@ msgstr "Mi piace"
 #: src/components/Song/SongCard.tsx
 msgid "Listen on Spotify"
 msgstr "Ascolta su Spotify"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Load more"
+msgstr "Carica di più"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Login"
@@ -205,10 +205,6 @@ msgstr "Migliori canzoni del giorno"
 #: src/components/TopHuntersFeed.tsx
 msgid "Top Hunters"
 msgstr "Migliori Hunters"
-
-#: src/components/Song/SongCard.tsx
-msgid "Under review"
-msgstr "In revisione"
 
 #: src/pages/upload.tsx
 msgid "Upload"

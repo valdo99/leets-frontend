@@ -37,10 +37,6 @@ msgstr "Are you lost? No worries, here's the way home"
 msgid "Be the hunter of the next hit"
 msgstr "Be the hunter of the next hit"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Close"
-msgstr "Close"
-
 #: src/pages/upload.tsx
 msgid "Confirm upload"
 msgstr "Confirm upload"
@@ -116,6 +112,10 @@ msgstr "Liked"
 #: src/components/Song/SongCard.tsx
 msgid "Listen on Spotify"
 msgstr "Listen on Spotify"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Load more"
+msgstr "Load more"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Login"
@@ -200,10 +200,6 @@ msgstr "Today's top songs"
 #: src/components/TopHuntersFeed.tsx
 msgid "Top Hunters"
 msgstr "Top Hunters"
-
-#: src/components/Song/SongCard.tsx
-msgid "Under review"
-msgstr "Under review"
 
 #: src/pages/upload.tsx
 msgid "Upload"
