@@ -25,6 +25,10 @@ msgstr "Accept terms and conditions"
 msgid "Account created, you'll receive an email to confirm your account"
 msgstr "Account created, you'll receive an email to confirm your account"
 
+#: src/components/Modals/LoginModal.tsx
+msgid "Already have an account? <0>Login</0>"
+msgstr "Already have an account? <0>Login</0>"
+
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
 msgstr "Are you lost? No worries, here's the way home"
@@ -42,7 +46,6 @@ msgid "Confirm upload"
 msgstr "Confirm upload"
 
 #: src/components/Modals/LoginModal.tsx
-#: src/components/Modals/LoginModal.tsx
 msgid "Create account"
 msgstr "Create account"
 
@@ -55,16 +58,16 @@ msgid "Discover songs"
 msgstr "Discover songs"
 
 #: src/components/Modals/LoginModal.tsx
+msgid "Don' have an account? <0>Signup</0>"
+msgstr "Don' have an account? <0>Signup</0>"
+
+#: src/components/Modals/LoginModal.tsx
 msgid "Email"
 msgstr "Email"
 
 #: src/components/LanguageMenu.tsx
 msgid "English"
 msgstr "English"
-
-#: src/components/Modals/LoginModal.tsx
-msgid "Forgot password?"
-msgstr "Forgot password?"
 
 #: src/components/Layout/Navbar.tsx
 msgid "Get started"
@@ -113,10 +116,6 @@ msgstr "Liked"
 #: src/components/Song/SongCard.tsx
 msgid "Listen on Spotify"
 msgstr "Listen on Spotify"
-
-#: src/components/Modals/LoginModal.tsx
-msgid "Log in"
-msgstr "Log in"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Login"

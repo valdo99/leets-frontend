@@ -17,7 +17,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
   const { i18n } = useLingui();
   const apiClient = useApiClient();
   const [, setUser] = useAtom(userAtom);
-  const [isRegister, setIsRegister] = useState(false);
+  const [isRegister, setIsRegister] = useState(true);
 
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {
@@ -121,40 +121,39 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
             </div>
           </>
         )}
-        <div className="flex justify-between">
-          <p
-            onClick={() => setIsRegister((isRegister) => !isRegister)}
-            className="cursor-pointer text-sm text-blue-300 hover:underline"
-          >
-            {!isRegister ? (
-              <Trans>Create account</Trans>
-            ) : (
-              <Trans>Log in</Trans>
-            )}
-          </p>
-          {!isRegister && (
-            <p className="cursor-pointer text-sm">
-              <Trans>Forgot password?</Trans>
-            </p>
+        <p className="text-sm">
+          {isRegister ? (
+            <Trans>
+              Already have an account?{" "}
+              <span
+                onClick={() => setIsRegister((isRegister) => !isRegister)}
+                className="cursor-pointer text-blue-300 hover:underline"
+              >
+                Login
+              </span>
+            </Trans>
+          ) : (
+            <Trans>
+              Don&apos; have an account?{" "}
+              <span
+                onClick={() => setIsRegister((isRegister) => !isRegister)}
+                className="cursor-pointer text-blue-300 hover:underline"
+              >
+                Signup
+              </span>
+            </Trans>
           )}
-        </div>
-        <div className="mt-4 flex justify-end gap-2">
-          <Button onClick={onClose} color="secondary" type="button">
-            <Trans>Close</Trans>
-          </Button>
-          <Button
-            disabled={disabled}
-            type="submit"
-            color="primary"
-            loading={disabled}
-          >
-            {isRegister ? (
-              <Trans>Create account</Trans>
-            ) : (
-              <Trans>Sign in</Trans>
-            )}
-          </Button>
-        </div>
+        </p>
+        <Button
+          block
+          disabled={disabled}
+          type="submit"
+          color="primary"
+          loading={disabled}
+          className="mt-4"
+        >
+          {isRegister ? <Trans>Create account</Trans> : <Trans>Sign in</Trans>}
+        </Button>
       </form>
     </Modal>
   );
