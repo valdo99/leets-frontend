@@ -3,12 +3,12 @@ import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaSpotify } from "react-icons/fa";
 
 import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
+import SpotifyIcon from "@icons/spotify.svg";
 import { useApiClient, useLoginModal, useUser } from "@providers/AuthProvider";
 
 import { Player } from "./Player";
@@ -86,7 +86,7 @@ export const SongCard = ({
                 rel="noopener noreferrer"
               >
                 <Button
-                  leftIcon={<FaSpotify size={18} />}
+                  leftIcon={<SpotifyIcon className="h-4 w-4" />}
                   size="xs"
                   className="mt-1 px-2"
                 >
@@ -121,7 +121,7 @@ export const SongCard = ({
             rel="noopener noreferrer"
             className="cursor-pointer"
           >
-            <FaSpotify color="#050e1d" className="h-5 w-5" />
+            <SpotifyIcon className="h-5 w-5" />
           </a>
 
           {/* Status / Likes */}
