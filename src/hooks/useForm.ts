@@ -1,5 +1,4 @@
 import React, { useCallback, useReducer } from "react";
-import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
 import {
@@ -125,7 +124,6 @@ export const useForm = <T extends FormData>(
   initialData: T,
   options: Options = {}
 ) => {
-  const { t } = useTranslation();
   const [formState, dispatch] = useReducer<FormReducer<T>>(
     createFormReducer(initialData),
     {
@@ -164,10 +162,7 @@ export const useForm = <T extends FormData>(
             payload: {
               errors: {
                 ...formState.errors,
-                [name]: t("FORMS.TOO_MANY_FILES_ERROR").replace(
-                  "{?}",
-                  event.target.max
-                ),
+                [name]: `Too many files, max is: ${event.target.max}`,
               },
             },
           });

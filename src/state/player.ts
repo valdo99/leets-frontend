@@ -1,5 +1,15 @@
-import { atom } from "jotai";
+import { atom, useAtom } from "jotai";
 
-const trackPlayingAtom = atom<string | null>(null);
+interface TrackState {
+  id: string | null;
+  isPlaying: boolean;
+}
 
-export { trackPlayingAtom };
+const trackAtom = atom<TrackState>({
+  id: null,
+  isPlaying: false,
+});
+
+export const useTrack = () => {
+  return useAtom(trackAtom);
+};

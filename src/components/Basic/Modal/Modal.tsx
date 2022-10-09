@@ -27,7 +27,7 @@ export const Modal = ({
       <Dialog
         as="div"
         className="fixed inset-0 z-20 overflow-y-auto"
-        onClose={closable ? onClose : () => undefined}
+        onClose={() => undefined}
       >
         <div className="flex min-h-screen items-center justify-center px-4">
           <Transition.Child
@@ -39,7 +39,11 @@ export const Modal = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black/25" />
+            {/* Overlay */}
+            <div
+              className="fixed inset-0 bg-black/25"
+              onClick={closable ? onClose : () => undefined}
+            />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -55,12 +59,14 @@ export const Modal = ({
                 "max-w-sm inline-block w-full py-6 px-5 sm:px-6 align-middle transition-all transform bg-base-200 shadow-xl rounded-btn mb-10"
               )}
             >
+              {/* Close Button */}
               <button
                 className="absolute top-2 right-2 rounded-lg ring-primary/50 focus-visible:outline-none focus-visible:ring-2"
                 onClick={onClose}
               >
-                <CloseIcon className="h-6 w-6 text-base-content/50" />
+                <CloseIcon className="h-6 w-6 text-base-content-neutral" />
               </button>
+              {/* Body */}
               {title && (
                 <h3 className="mb-4 text-center text-xl font-bold">{title}</h3>
               )}

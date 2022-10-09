@@ -1,3 +1,5 @@
+import { Locale } from "locales/available-locales";
+
 import { AuthService } from "./auth";
 import { ForbiddenError, UnauthorizedError, ValidationError } from "./errors";
 import { Http } from "./http";
@@ -66,5 +68,9 @@ export class ApiClient {
       default:
         throw errorRes;
     }
+  }
+
+  setLocaleHeader(locale: Locale) {
+    this.http.instance.defaults.headers.common["x-accept-language"] = locale;
   }
 }

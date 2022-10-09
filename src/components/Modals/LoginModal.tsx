@@ -1,5 +1,7 @@
+import { t, Trans } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 import { Button } from "@components/Basic/Button";
@@ -12,9 +14,10 @@ import { useApiClient } from "@providers/AuthProvider";
 import { userAtom } from "@state/user";
 
 export const LoginModal = ({ show, onClose }: BaseModalProps) => {
+  const { i18n } = useLingui();
   const apiClient = useApiClient();
   const [, setUser] = useAtom(userAtom);
-  const [isRegister, setIsRegister] = React.useState(false);
+  const [isRegister, setIsRegister] = useState(true);
 
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {
@@ -35,8 +38,11 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
     if (isRegister) {
       await apiClient.users.create(data);
       toast.success(
-        "Utente registrato, riceverai una mail per confermare il tuo profilo"
+        t(
+          i18n
+        )`Account created, you'll receive an email to confirm your account`
       );
+      onClose();
     } else {
       await apiClient.auth.login(data);
       const loggedUser = await apiClient.auth.getLoggedUser();
@@ -45,6 +51,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
         user: loggedUser,
         loading: false,
       });
+      onClose();
     }
   });
 
@@ -52,11 +59,11 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
     <Modal
       show={show}
       onClose={onClose}
-      title={isRegister ? "Get started on Leets" : "Login"}
+      title={isRegister ? t(i18n)`Get started on Leets` : t(i18n)`Login`}
     >
       <form className="flex flex-col gap-3" onSubmit={onSubmit}>
         <Input
-          placeholder="Email"
+          placeholder={t(i18n)`Email`}
           variant="bordered"
           name="email"
           onChange={handleChange}
@@ -64,7 +71,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
         />
         <Input
           type="password"
-          placeholder="Password"
+          placeholder={t(i18n)`Password`}
           variant="bordered"
           name="password"
           onChange={handleChange}
@@ -74,28 +81,28 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
           <>
             <Input
               type="password"
-              placeholder="Repeat password"
+              placeholder={t(i18n)`Repeat Password`}
               variant="bordered"
               name="repeatPassword"
               onChange={handleChange}
               error={errors.repeatPassword}
             />
             <Input
-              placeholder="Name"
+              placeholder={t(i18n)`Name`}
               variant="bordered"
               name="name"
               onChange={handleChange}
               error={errors.name}
             />
             <Input
-              placeholder="Surname"
+              placeholder={t(i18n)`Surname`}
               variant="bordered"
               name="surname"
               onChange={handleChange}
               error={errors.surname}
             />
             <Input
-              placeholder="Username"
+              placeholder={t(i18n)`Username`}
               variant="bordered"
               name="username"
               onChange={handleChange}
@@ -105,7 +112,7 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
               <Checkbox
                 id="terms"
                 name="terms"
-                label="Accept terms and conditions"
+                label={t(i18n)`Accept terms and conditions`}
                 checked={formData.terms}
                 onChange={handleChange}
                 variant="bordered"
@@ -114,30 +121,39 @@ export const LoginModal = ({ show, onClose }: BaseModalProps) => {
             </div>
           </>
         )}
-        <div className="flex justify-between">
-          <p
-            onClick={() => setIsRegister((isRegister) => !isRegister)}
-            className="cursor-pointer text-sm"
-          >
-            {!isRegister ? "Create account" : "Log in"}
-          </p>
-          {!isRegister && (
-            <p className="cursor-pointer text-sm">Forgot password?</p>
+        <p className="text-sm">
+          {isRegister ? (
+            <Trans>
+              Already have an account?{" "}
+              <span
+                onClick={() => setIsRegister((isRegister) => !isRegister)}
+                className="cursor-pointer text-blue-300 hover:underline"
+              >
+                Login
+              </span>
+            </Trans>
+          ) : (
+            <Trans>
+              Don&apos; have an account?{" "}
+              <span
+                onClick={() => setIsRegister((isRegister) => !isRegister)}
+                className="cursor-pointer text-blue-300 hover:underline"
+              >
+                Signup
+              </span>
+            </Trans>
           )}
-        </div>
-        <div className="mt-4 flex justify-end gap-2">
-          <Button onClick={onClose} color="secondary" type="button">
-            Close
-          </Button>
-          <Button
-            disabled={disabled}
-            type="submit"
-            color="primary"
-            loading={disabled}
-          >
-            {isRegister ? "Create account" : "Sign in"}
-          </Button>
-        </div>
+        </p>
+        <Button
+          block
+          disabled={disabled}
+          type="submit"
+          color="primary"
+          loading={disabled}
+          className="mt-4"
+        >
+          {isRegister ? <Trans>Create account</Trans> : <Trans>Sign in</Trans>}
+        </Button>
       </form>
     </Modal>
   );

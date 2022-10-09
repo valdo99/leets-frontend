@@ -1,63 +1,46 @@
-import { Tab } from "@headlessui/react";
-import cx from "classnames";
+import { t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Fragment, ReactNode } from "react";
+import Head from "next/head";
 
 import { ApiClient } from "@api/client";
 import { User } from "@api/users";
+import { TabItem, Tabs } from "@components/Basic/Tabs";
+import { UserHuntedSongs } from "@components/UserHuntedSongs";
 import { UserLikedSongs } from "@components/UserLikedSongs";
 import { PageWithLayout } from "@types";
 
-interface TabItem {
-  label: string;
-  content: ReactNode;
-}
-
 const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
-  const tabs: TabItem[] = [
+  const { i18n } = useLingui();
+
+  const tabItems: TabItem[] = [
     {
-      label: "Liked",
-      content: <UserLikedSongs user={user} />,
+      label: t(i18n)`Liked`,
+      content: (
+        <div className="mt-8">
+          <UserLikedSongs user={user} />
+        </div>
+      ),
     },
     {
-      label: "Hunted",
-      content: <div>Hunted songs</div>,
+      label: t(i18n)`Hunted`,
+      content: (
+        <div className="mt-8">
+          <UserHuntedSongs user={user} />
+        </div>
+      ),
     },
   ];
 
+  const title = `Leets | ${user.username}`;
+
   return (
     <>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <h3 className="mt-8 mb-6 text-2xl font-bold">{user.username}</h3>
-      <Tab.Group>
-        <Tab.List className="flex gap-2">
-          {tabs.map((tab) => (
-            <Tab key={tab.label} as={Fragment}>
-              {({ selected }) => (
-                <button
-                  className={cx(
-                    "rounded-lg",
-                    "text-sm font-medium",
-                    "py-2.5 min-w-[140px]",
-                    "focus:outline-none",
-                    "focus:ring-4",
-                    "ring-primary ring-opacity-50",
-                    selected
-                      ? "bg-secondary text-secondary-content shadow"
-                      : "bg-base-200 text-text-primary"
-                  )}
-                >
-                  {tab.label}
-                </button>
-              )}
-            </Tab>
-          ))}
-        </Tab.List>
-        <Tab.Panels className="mt-4">
-          {tabs.map((tab) => (
-            <Tab.Panel key={tab.label}>{tab.content}</Tab.Panel>
-          ))}
-        </Tab.Panels>
-      </Tab.Group>
+      <Tabs items={tabItems} />
     </>
   );
 };

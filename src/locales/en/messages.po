@@ -1,0 +1,239 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-08-29 17:56+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/pages/404.tsx
+msgid "404 - Not Found"
+msgstr "404 - Not Found"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Accept terms and conditions"
+msgstr "Accept terms and conditions"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Account created, you'll receive an email to confirm your account"
+msgstr "Account created, you'll receive an email to confirm your account"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Already have an account? <0>Login</0>"
+msgstr "Already have an account? <0>Login</0>"
+
+#: src/pages/404.tsx
+msgid "Are you lost? No worries, here's the way home"
+msgstr "Are you lost? No worries, here's the way home"
+
+#: src/pages/upload.tsx
+msgid "Be the hunter of the next hit"
+msgstr "Be the hunter of the next hit"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Close"
+msgstr "Close"
+
+#: src/pages/upload.tsx
+msgid "Confirm upload"
+msgstr "Confirm upload"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Create account"
+msgstr "Create account"
+
+#: src/pages/upload.tsx
+msgid "Desktop"
+msgstr "Desktop"
+
+#: src/components/UserLikedSongs.tsx
+msgid "Discover songs"
+msgstr "Discover songs"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Don' have an account? <0>Signup</0>"
+msgstr "Don' have an account? <0>Signup</0>"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Email"
+msgstr "Email"
+
+#: src/components/LanguageMenu.tsx
+msgid "English"
+msgstr "English"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Get started"
+msgstr "Get started"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Get started on Leets"
+msgstr "Get started on Leets"
+
+#: src/pages/404.tsx
+msgid "Go home"
+msgstr "Go home"
+
+#: src/pages/upload.tsx
+msgid "Here's a preview of the song you are uploading"
+msgstr "Here's a preview of the song you are uploading"
+
+#: src/pages/upload.tsx
+msgid "How to get song url"
+msgstr "How to get song url"
+
+#: src/pages/[username].tsx
+msgid "Hunted"
+msgstr "Hunted"
+
+#: src/components/Song/SongCard.tsx
+msgid "Hunted by"
+msgstr "Hunted by"
+
+#: src/pages/upload.tsx
+msgid "Invalid Song URL"
+msgstr "Invalid Song URL"
+
+#: src/components/LanguageMenu.tsx
+msgid "Italian"
+msgstr "Italian"
+
+#: src/components/Basic/Avatar.tsx
+msgid "Joined on {0}"
+msgstr "Joined on {0}"
+
+#: src/pages/[username].tsx
+msgid "Liked"
+msgstr "Liked"
+
+#: src/components/Song/SongCard.tsx
+msgid "Listen on Spotify"
+msgstr "Listen on Spotify"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Login"
+msgstr "Login"
+
+#: src/components/UserDropdown.tsx
+msgid "Logout"
+msgstr "Logout"
+
+#: src/components/Layout/Footer.tsx
+msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
+msgstr "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
+
+#: src/pages/upload.tsx
+msgid "Mobile"
+msgstr "Mobile"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Name"
+msgstr "Name"
+
+#: src/components/UserLikedSongs.tsx
+msgid "No liked songs"
+msgstr "No liked songs"
+
+#: src/components/UserHuntedSongs.tsx
+msgid "No uploaded songs"
+msgstr "No uploaded songs"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Password"
+msgstr "Password"
+
+#: src/components/UserDropdown.tsx
+msgid "Profile"
+msgstr "Profile"
+
+#: src/pages/upload.tsx
+msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
+msgstr "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Repeat Password"
+msgstr "Repeat Password"
+
+#: src/components/TopHuntersFeed.tsx
+msgid "Score is based on likes to hunted songs"
+msgstr "Score is based on likes to hunted songs"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Sign in"
+msgstr "Sign in"
+
+#: src/pages/upload.tsx
+msgid "Something went wrong, please retry later"
+msgstr "Something went wrong, please retry later"
+
+#: src/pages/upload.tsx
+msgid "Song uploaded! 🚀"
+msgstr "Song uploaded! 🚀"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Songs which received the most likes today"
+msgstr "Songs which received the most likes today"
+
+#: src/pages/upload.tsx
+msgid "Spotify song url"
+msgstr "Spotify song url"
+
+#: src/components/Layout/Footer.tsx
+msgid "Support"
+msgstr "Support"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Surname"
+msgstr "Surname"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Today's top songs"
+msgstr "Today's top songs"
+
+#: src/components/TopHuntersFeed.tsx
+msgid "Top Hunters"
+msgstr "Top Hunters"
+
+#: src/components/Song/SongCard.tsx
+msgid "Under review"
+msgstr "Under review"
+
+#: src/pages/upload.tsx
+msgid "Upload"
+msgstr "Upload"
+
+#: src/pages/upload.tsx
+msgid "Upload another song"
+msgstr "Upload another song"
+
+#: src/components/UserHuntedSongs.tsx
+#: src/pages/upload.tsx
+msgid "Upload new song"
+msgstr "Upload new song"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Upload song"
+msgstr "Upload song"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Username"
+msgstr "Username"
+
+#: src/components/UserLikedSongs.tsx
+msgid "You have no liked songs yet"
+msgstr "You have no liked songs yet"
+
+#: src/components/UserHuntedSongs.tsx
+msgid "You have no uploaded songs yet"
+msgstr "You have no uploaded songs yet"
+
+#: src/pages/upload.tsx
+msgid "You have succesfully uploaded"
+msgstr "You have succesfully uploaded"

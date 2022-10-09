@@ -1,21 +1,21 @@
 import { Transition } from "@headlessui/react";
+import { Trans } from "@lingui/macro";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Login } from "react-iconly";
 
 import { Button } from "@components/Basic/Button";
+import { LanguageMenu } from "@components/LanguageMenu";
 import { Container } from "@components/Layout/Container";
-import { LoginModal } from "@components/Modals/LoginModal";
 import { UserDropdown } from "@components/UserDropdown";
 import { useTransitionControl } from "@hooks/useTransitionControl";
-import { useApiClient } from "@providers/AuthProvider";
+import LoginIcon from "@icons/login.svg";
+import { useApiClient, useLoginModal } from "@providers/AuthProvider";
 import { userAtom } from "@state/user";
 
 export const Navbar = () => {
   const [{ user, loading }, setUser] = useAtom(userAtom);
-  const [visible, setVisible] = useState(false);
+  const openLoginModal = useLoginModal();
   const apiClient = useApiClient();
 
   const [show] = useTransitionControl(loading);
@@ -23,7 +23,7 @@ export const Navbar = () => {
   const onLogout = async () => {
     try {
       await apiClient.auth.logout();
-      setUser({ user: null, loading: true });
+      setUser({ user: null, loading: false });
     } catch (error) {
       console.log(error);
     }
@@ -34,12 +34,24 @@ export const Navbar = () => {
       <Container className="flex w-full items-center justify-between">
         <Link href="/">
           <a className="cursor-pointer">
-            <Image
-              src="/logo_1.png"
-              height="46px"
-              width="113px"
-              alt="Leets logo"
-            />
+            <span className="hidden sm:block">
+              <Image
+                src="/logo.png"
+                height="46px"
+                width="113px"
+                alt="Leets logo"
+                priority
+              />
+            </span>
+            <span className="sm:hidden">
+              <Image
+                src="/logo_only.png"
+                height="46px"
+                width="35.74px"
+                alt="Leets logo"
+                priority
+              />
+            </span>
           </a>
         </Link>
         <Transition
@@ -51,16 +63,28 @@ export const Navbar = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          {user ? (
-            <UserDropdown user={user} onLogout={onLogout} />
-          ) : (
-            <>
-              <Button leftIcon={<Login />} onClick={() => setVisible(true)}>
-                Get started
+          <div className="flex items-center gap-6">
+            <LanguageMenu />
+            {user ? (
+              <>
+                <Link href="/upload">
+                  <a>
+                    <Button>
+                      <Trans>Upload song</Trans>
+                    </Button>
+                  </a>
+                </Link>
+                <UserDropdown user={user} onLogout={onLogout} />
+              </>
+            ) : (
+              <Button
+                leftIcon={<LoginIcon className="h-6 w-6" />}
+                onClick={openLoginModal}
+              >
+                <Trans>Get started</Trans>
               </Button>
-              <LoginModal show={visible} onClose={() => setVisible(false)} />
-            </>
-          )}
+            )}
+          </div>
         </Transition>
       </Container>
     </header>

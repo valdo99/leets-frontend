@@ -19,7 +19,7 @@ export interface Post extends Entity {
   spotify_id: string;
   hunter: User;
   artist: Artist;
-  status: string;
+  status: "CREATED" | "UPLOADED" | "ONLINE";
   likes: number;
   isLiked: number;
   partialLikes: number;
@@ -41,6 +41,21 @@ export class PostService extends ApiService {
   async feed(params = {}) {
     return await this.http.get<Post[]>(
       `${this.baseUrl}/feed${getQueryString(params)}`
+    );
+  }
+
+  async upload(spotifyId: string) {
+    return await this.http.post<{ id: string }>(`${this.baseUrl}/upload`, {
+      id: spotifyId,
+    });
+  }
+
+  async uploadPreview(spotifyId: string) {
+    return await this.http.post<{ id: string }, Post>(
+      `${this.baseUrl}/upload/preview`,
+      {
+        id: spotifyId,
+      }
     );
   }
 }

@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# linguijs compiled translations
+src/locales/**/*.js

@@ -1,7 +1,9 @@
-export const Spinner = () => {
+import cx from "classnames";
+
+export const Spinner = ({ className }: { className?: string }) => {
   return (
     <svg
-      className="absolute w-4 animate-spin"
+      className={cx("absolute w-4 animate-spin", className)}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

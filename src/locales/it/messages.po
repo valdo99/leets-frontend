@@ -1,0 +1,244 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-08-29 17:56+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: it\n"
+"Project-Id-Version: leets\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-09-30 06:33\n"
+"Last-Translator: \n"
+"Language-Team: Italian\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: leets\n"
+"X-Crowdin-Project-ID: 540442\n"
+"X-Crowdin-Language: it\n"
+"X-Crowdin-File: /src/locales/en/messages.po\n"
+"X-Crowdin-File-ID: 10\n"
+
+#: src/pages/404.tsx
+msgid "404 - Not Found"
+msgstr "404 - Non Trovato"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Accept terms and conditions"
+msgstr "Accetto i termini e le condizioni"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Account created, you'll receive an email to confirm your account"
+msgstr "Account creato, riceverai un email per confermare il tuo account"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Already have an account? <0>Login</0>"
+msgstr "Hai già un account? <0>Accedi</0>"
+
+#: src/pages/404.tsx
+msgid "Are you lost? No worries, here's the way home"
+msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
+
+#: src/pages/upload.tsx
+msgid "Be the hunter of the next hit"
+msgstr "Sarai proprio tu a scoprire la nuova hit?"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Close"
+msgstr "Chiudi"
+
+#: src/pages/upload.tsx
+msgid "Confirm upload"
+msgstr "Conferma caricamento"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Create account"
+msgstr "Registrati"
+
+#: src/pages/upload.tsx
+msgid "Desktop"
+msgstr "Computer"
+
+#: src/components/UserLikedSongs.tsx
+msgid "Discover songs"
+msgstr "Scopri canzoni"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Don' have an account? <0>Signup</0>"
+msgstr "Non hai un account? <0>Registrati</0>"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Email"
+msgstr "Email"
+
+#: src/components/LanguageMenu.tsx
+msgid "English"
+msgstr "Inglese"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Get started"
+msgstr "Inizia ora"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Get started on Leets"
+msgstr "Registrati su Leets"
+
+#: src/pages/404.tsx
+msgid "Go home"
+msgstr "Torna in home"
+
+#: src/pages/upload.tsx
+msgid "Here's a preview of the song you are uploading"
+msgstr "Ecco un'anteprima della canzone che stai caricando"
+
+#: src/pages/upload.tsx
+msgid "How to get song url"
+msgstr "Come trovare il link della canzone"
+
+#: src/pages/[username].tsx
+msgid "Hunted"
+msgstr "Scoperte"
+
+#: src/components/Song/SongCard.tsx
+msgid "Hunted by"
+msgstr "Scoperta da"
+
+#: src/pages/upload.tsx
+msgid "Invalid Song URL"
+msgstr "Link non valido"
+
+#: src/components/LanguageMenu.tsx
+msgid "Italian"
+msgstr "Italiano"
+
+#: src/components/Basic/Avatar.tsx
+msgid "Joined on {0}"
+msgstr "Iscritto il {0}"
+
+#: src/pages/[username].tsx
+msgid "Liked"
+msgstr "Mi piace"
+
+#: src/components/Song/SongCard.tsx
+msgid "Listen on Spotify"
+msgstr "Ascolta su Spotify"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Login"
+msgstr "Accedi"
+
+#: src/components/UserDropdown.tsx
+msgid "Logout"
+msgstr "Esci"
+
+#: src/components/Layout/Footer.tsx
+msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
+msgstr "Fatto con tanto amore <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, design da <4>Guido</4>"
+
+#: src/pages/upload.tsx
+msgid "Mobile"
+msgstr "Telefono"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Name"
+msgstr "Nome"
+
+#: src/components/UserLikedSongs.tsx
+msgid "No liked songs"
+msgstr "Nessuna canzone piaciuta"
+
+#: src/components/UserHuntedSongs.tsx
+msgid "No uploaded songs"
+msgstr "Nessuna canzone caricata"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Password"
+msgstr "Password"
+
+#: src/components/UserDropdown.tsx
+msgid "Profile"
+msgstr "Profilo"
+
+#: src/pages/upload.tsx
+msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
+msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 35.000 ascolti mensili su Spotify"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Repeat Password"
+msgstr "Conferma Password"
+
+#: src/components/TopHuntersFeed.tsx
+msgid "Score is based on likes to hunted songs"
+msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Sign in"
+msgstr "Accedi"
+
+#: src/pages/upload.tsx
+msgid "Something went wrong, please retry later"
+msgstr "Qualcosa é andato storto, riprova più tardi"
+
+#: src/pages/upload.tsx
+msgid "Song uploaded! 🚀"
+msgstr "Canzone caricata! 🚀"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Songs which received the most likes today"
+msgstr "Canzoni che hanno ricevuto più like oggi"
+
+#: src/pages/upload.tsx
+msgid "Spotify song url"
+msgstr "Link spotify della canzone"
+
+#: src/components/Layout/Footer.tsx
+msgid "Support"
+msgstr "Assistenza"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Surname"
+msgstr "Cognome"
+
+#: src/components/TopSongsFeed.tsx
+msgid "Today's top songs"
+msgstr "Migliori canzoni del giorno"
+
+#: src/components/TopHuntersFeed.tsx
+msgid "Top Hunters"
+msgstr "Migliori Hunters"
+
+#: src/components/Song/SongCard.tsx
+msgid "Under review"
+msgstr "In revisione"
+
+#: src/pages/upload.tsx
+msgid "Upload"
+msgstr "Carica"
+
+#: src/pages/upload.tsx
+msgid "Upload another song"
+msgstr "Carica un'altra canzone"
+
+#: src/components/UserHuntedSongs.tsx
+#: src/pages/upload.tsx
+msgid "Upload new song"
+msgstr "Carica una nuova canzone"
+
+#: src/components/Layout/Navbar.tsx
+msgid "Upload song"
+msgstr "Carica canzone"
+
+#: src/components/Modals/LoginModal.tsx
+msgid "Username"
+msgstr "Nome utente"
+
+#: src/components/UserLikedSongs.tsx
+msgid "You have no liked songs yet"
+msgstr "Non hai ancora messo like a nessuna canonze"
+
+#: src/components/UserHuntedSongs.tsx
+msgid "You have no uploaded songs yet"
+msgstr "Non hai ancora caricato nessuna canzone"
+
+#: src/pages/upload.tsx
+msgid "You have succesfully uploaded"
+msgstr "Hai caricato con successo la canzone"
