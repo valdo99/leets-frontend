@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         position="top-right"
         closeOnClick
         pauseOnHover
-        autoClose={5000}
+        autoClose={8000}
         toastClassName={() =>
           "relative flex justify-between p-3 rounded-btn overflow-hidden bg-secondary cursor-pointer mb-2"
         }
