@@ -1,7 +1,7 @@
 import autoAnimate from "@formkit/auto-animate";
 import { Trans } from "@lingui/macro";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { Fragment, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { Spinner } from "@components/Basic/Spinner";
 import { SongCard } from "@components/Song/SongCard";
@@ -66,11 +66,11 @@ export const TopSongsFeed = () => {
         <>
           <div className="flex flex-col gap-4" ref={parentRef}>
             {songs?.pages.map((page, index) => (
-              <Fragment key={index}>
+              <div key={index} ref={parentRef} className="flex flex-col gap-4">
                 {page.data.map((song) => (
                   <SongCard key={song._id} post={song} onLikeChange={refetch} />
                 ))}
-              </Fragment>
+              </div>
             ))}
           </div>
           <div className="mt-8 flex h-10 items-center justify-center">
