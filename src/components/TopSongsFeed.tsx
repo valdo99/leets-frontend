@@ -13,7 +13,7 @@ import { InfoTooltip } from "./Basic/Tooltip";
 export const TopSongsFeed = () => {
   const { user, loading } = useUser();
   const apiClient = useApiClient();
-  const parentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const parentRef = useRef<HTMLDivElement>(null);
 
   const {
     data: songs,
@@ -64,7 +64,7 @@ export const TopSongsFeed = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-4" ref={parentRef}>
+          <div className="flex flex-col gap-4">
             {songs?.pages.map((page, index) => (
               <div key={index} ref={parentRef} className="flex flex-col gap-4">
                 {page.data.map((song) => (
