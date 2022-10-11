@@ -1,7 +1,6 @@
-import autoAnimate from "@formkit/auto-animate";
 import { Trans } from "@lingui/macro";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useEffect, useRef } from "react";
+import { Fragment } from "react";
 
 import { Spinner } from "@components/Basic/Spinner";
 import { SongCard } from "@components/Song/SongCard";
@@ -13,7 +12,6 @@ import { InfoTooltip } from "./Basic/Tooltip";
 export const TopSongsFeed = () => {
   const { user, loading } = useUser();
   const apiClient = useApiClient();
-  const parentRef = useRef<HTMLDivElement>(null);
 
   const {
     data: songs,
@@ -36,12 +34,6 @@ export const TopSongsFeed = () => {
       },
     }
   );
-
-  useEffect(() => {
-    if (parentRef.current) {
-      autoAnimate(parentRef.current);
-    }
-  }, [parentRef]);
 
   return (
     <>
@@ -66,11 +58,11 @@ export const TopSongsFeed = () => {
         <>
           <div className="flex flex-col gap-4">
             {songs?.pages.map((page, index) => (
-              <div key={index} ref={parentRef} className="flex flex-col gap-4">
+              <Fragment key={index}>
                 {page.data.map((song) => (
                   <SongCard key={song._id} post={song} onLikeChange={refetch} />
                 ))}
-              </div>
+              </Fragment>
             ))}
           </div>
           <div className="mt-8 flex h-10 items-center justify-center">
