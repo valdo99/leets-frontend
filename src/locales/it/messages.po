@@ -22,6 +22,10 @@ msgstr ""
 msgid "404 - Not Found"
 msgstr "404 - Non Trovato"
 
+#: src/components/Modals/WelcomeModal.tsx
+msgid "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
+msgstr "<0>Leets</0> è la piattaforma dove puoi <1>condividere</1> le tue scoperte musicali e <2>promuovere artisti emergenti</2>."
+
 #: src/components/Modals/LoginModal.tsx
 msgid "Accept terms and conditions"
 msgstr "Accetto i termini e le condizioni"
@@ -158,6 +162,10 @@ msgstr "Password"
 msgid "Profile"
 msgstr "Profilo"
 
+#: src/components/Modals/WelcomeModal.tsx
+msgid "Remember that we do <0>NOT</0> own any copyright of images and song/artist information. All data is provided by <1>Spotify</1>"
+msgstr "Ti ricordiamo che <0>NON</0> abbiamo alcun diritto di copyright delle immagini e delle informazioni su artisti e canzoni. Tutti i dati sono provenienti da <1>Spotify</1>"
+
 #: src/pages/upload.tsx
 msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
 msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 35.000 ascolti mensili su Spotify"
@@ -198,6 +206,10 @@ msgstr "Assistenza"
 msgid "Surname"
 msgstr "Cognome"
 
+#: src/components/Modals/WelcomeModal.tsx
+msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
+msgstr "Per iniziare, registrate e carica il <0>link di Spotify</0> della canonze che desideri condividere alla community"
+
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Migliori canzoni del giorno"
@@ -226,6 +238,10 @@ msgstr "Carica canzone"
 #: src/components/Modals/LoginModal.tsx
 msgid "Username"
 msgstr "Nome utente"
+
+#: src/components/Modals/WelcomeModal.tsx
+msgid "Welcome on Leets"
+msgstr "Benvenuto su Leets"
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"

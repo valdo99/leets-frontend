@@ -1,5 +1,6 @@
 import { NextSeo } from "next-seo";
 
+import { WelcomeModal } from "@components/Modals/WelcomeModal";
 import { TopHuntersFeed } from "@components/TopHuntersFeed";
 import { TopSongsFeed } from "@components/TopSongsFeed";
 
@@ -35,6 +36,7 @@ export default function Home() {
           <TopHuntersFeed />
         </div>
       </div>
+      <WelcomeModal />
     </>
   );
 }
