@@ -1,12 +1,12 @@
 /* eslint-disable  */
 import { ImageResponse } from "@vercel/og";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
 export const config = {
   runtime: "experimental-edge",
 };
 
-export default function ogHome(req: NextApiRequest, res: NextApiResponse) {
+export default function ogHome(req: NextRequest, res: NextResponse) {
   return new ImageResponse(
     (
       <div
@@ -21,7 +21,7 @@ export default function ogHome(req: NextApiRequest, res: NextApiResponse) {
           justifyContent: "center",
         }}
       >
-        <img src={`${process.env.NEXT_PUBLIC_APP_URL}/logo.png`} />
+        <img src={`${req.nextUrl.origin}/logo.png`} />
       </div>
     ),
     {
