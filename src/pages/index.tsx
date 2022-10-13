@@ -17,7 +17,7 @@ export default function Home() {
             "Condividi le tue scoperte musicali e promuovi artisti emergenti",
           images: [
             {
-              url: "https://beta.leets.it/logo.png",
+              url: "https://www.leets.it/api/og-home",
               width: 800,
               height: 600,
               alt: "Leets logo",
