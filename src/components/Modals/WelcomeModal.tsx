@@ -49,7 +49,7 @@ export const WelcomeModal = () => {
         </Trans>
       </p>
       <Button className="float-right mt-5" onClick={close}>
-        Get started
+        <Trans>Get started</Trans>
       </Button>
     </Modal>
   );
