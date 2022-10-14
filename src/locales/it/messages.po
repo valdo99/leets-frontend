@@ -75,6 +75,7 @@ msgid "English"
 msgstr "Inglese"
 
 #: src/components/Layout/Navbar.tsx
+#: src/components/Modals/WelcomeModal.tsx
 msgid "Get started"
 msgstr "Inizia ora"
 
@@ -208,7 +209,7 @@ msgstr "Cognome"
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
-msgstr "Per iniziare, registrate e carica il <0>link di Spotify</0> della canonze che desideri condividere alla community"
+msgstr "Per iniziare, registrati e carica il <0>link di Spotify</0> della canzone che desideri condividere alla community"
 
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
@@ -240,7 +241,7 @@ msgid "Username"
 msgstr "Nome utente"
 
 #: src/components/Modals/WelcomeModal.tsx
-msgid "Welcome on Leets"
+msgid "Welcome to Leets"
 msgstr "Benvenuto su Leets"
 
 #: src/components/UserLikedSongs.tsx

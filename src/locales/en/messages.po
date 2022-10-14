@@ -70,6 +70,7 @@ msgid "English"
 msgstr "English"
 
 #: src/components/Layout/Navbar.tsx
+#: src/components/Modals/WelcomeModal.tsx
 msgid "Get started"
 msgstr "Get started"
 
@@ -235,8 +236,8 @@ msgid "Username"
 msgstr "Username"
 
 #: src/components/Modals/WelcomeModal.tsx
-msgid "Welcome on Leets"
-msgstr "Welcome on Leets"
+msgid "Welcome to Leets"
+msgstr "Welcome to Leets"
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"

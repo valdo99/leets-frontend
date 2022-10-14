@@ -22,7 +22,7 @@ export const WelcomeModal = () => {
   }, []);
 
   return (
-    <Modal show={show} onClose={close} title={t(i18n)`Welcome on Leets`}>
+    <Modal show={show} onClose={close} title={t(i18n)`Welcome to Leets`}>
       <p>
         <Trans>
           <strong>Leets</strong> is the platform where you can{" "}
