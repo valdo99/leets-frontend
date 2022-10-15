@@ -42,6 +42,10 @@ msgstr "Hai già un account? <0>Accedi</0>"
 msgid "Are you lost? No worries, here's the way home"
 msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 
+#: src/pages/index.tsx
+msgid "Are you new here?"
+msgstr "Sei nuovo qui?"
+
 #: src/pages/upload.tsx
 msgid "Be the hunter of the next hit"
 msgstr "Sarai proprio tu a scoprire la nuova hit?"
@@ -61,6 +65,10 @@ msgstr "Computer"
 #: src/components/UserLikedSongs.tsx
 msgid "Discover songs"
 msgstr "Scopri canzoni"
+
+#: src/pages/index.tsx
+msgid "Discover what is Leets"
+msgstr "Scopri cos'é Leets"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Don' have an account? <0>Signup</0>"
