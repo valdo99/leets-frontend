@@ -35,7 +35,9 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
   return (
     <>
       <NextSeo title={`Leets | ${user.username}`} />
-      <h3 className="mt-8 mb-6 text-2xl font-bold">{user.username}</h3>
+      <h3 className="mt-8 mb-6 text-2xl font-bold md:text-3xl">
+        {user.username}
+      </h3>
       <Tabs items={tabItems} />
     </>
   );

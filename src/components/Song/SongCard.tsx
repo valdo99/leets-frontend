@@ -70,9 +70,11 @@ export const SongCard = ({
 
         {/* Song Details */}
         <div className="flex w-full min-w-0 flex-col justify-center xs:gap-1">
-          <span className="text-xs font-bold uppercase">
-            {post.artist.name}
-          </span>
+          <Link href={`/artist/${post.artist._id}`}>
+            <a className="text-xs font-bold uppercase hover:text-secondary-content/60">
+              {post.artist.name}
+            </a>
+          </Link>
           <span className="truncate text-xl font-bold">{post.title}</span>
           <div className="flex items-center gap-2">
             {post.preview_url ? (

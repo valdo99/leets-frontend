@@ -57,7 +57,7 @@ export class UserService extends ApiService {
   }
 
   async read(username: string) {
-    return await this.http.get(`${this.baseUrl}/${username}`);
+    return await this.http.get<User>(`${this.baseUrl}/${username}`);
   }
 
   async me() {

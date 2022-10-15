@@ -2,6 +2,7 @@ import { Trans } from "@lingui/macro";
 import Link from "next/link";
 
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
+import { TopArtistsFeed } from "@components/TopArtistsFeed";
 import { TopHuntersFeed } from "@components/TopHuntersFeed";
 import { TopSongsFeed } from "@components/TopSongsFeed";
 
@@ -20,8 +21,9 @@ export default function Home() {
         <div className="min-w-0 flex-1">
           <TopSongsFeed />
         </div>
-        <div className="shrink-0 lg:w-[340px]">
+        <div className="flex shrink-0 flex-col gap-14 lg:w-[340px]">
           <TopHuntersFeed />
+          <TopArtistsFeed />
         </div>
       </div>
       <WelcomeModal />

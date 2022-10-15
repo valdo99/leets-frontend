@@ -1,16 +1,9 @@
 import { getQueryString } from "../utils/getQueryString";
 
 import { ApiService } from "./apiService";
+import { Artist } from "./artists";
 import { Entity, Id } from "./types";
 import { User } from "./users";
-
-export interface Artist extends Entity {
-  name: string;
-  image: string;
-  followers: number;
-  spotify_id: string;
-  hunter: Id;
-}
 
 export interface Post extends Entity {
   title: string;

@@ -1,5 +1,6 @@
 import { Locale } from "locales/available-locales";
 
+import { ArtistService } from "./artists";
 import { AuthService } from "./auth";
 import { ForbiddenError, UnauthorizedError, ValidationError } from "./errors";
 import { Http } from "./http";
@@ -20,6 +21,7 @@ export class ApiClient {
   auth: AuthService;
   users: UserService;
   posts: PostService;
+  artists: ArtistService;
 
   constructor(options: Options = {}) {
     this.options = options;
@@ -34,6 +36,7 @@ export class ApiClient {
     this.auth = new AuthService(this, "/auth");
     this.users = new UserService(this, "/users");
     this.posts = new PostService(this, "/posts");
+    this.artists = new ArtistService(this, "/artists");
   }
 
   handleResponseError(errorRes: ApiErrorResponse) {

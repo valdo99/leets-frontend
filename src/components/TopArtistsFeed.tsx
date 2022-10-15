@@ -5,20 +5,20 @@ import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
 
 import { InfoTooltip } from "./Basic/Tooltip";
-import { TopHunterCard } from "./TopHunterCard";
+import { TopArtistCard } from "./TopArtistCard";
 
-export const TopHuntersFeed = () => {
+export const TopArtistsFeed = () => {
   const apiClient = useApiClient();
 
-  const { data: hunters, isLoading } = useQuery(["top-hunters"], () =>
-    apiClient.users.topHunters().then((data) => data.data)
+  const { data: artists, isLoading } = useQuery(["top-artists"], () =>
+    apiClient.artists.topArtists().then((data) => data.data)
   );
 
   return (
     <div>
       <div className="mb-8 flex items-center gap-3">
         <h2 className="text-2xl font-bold leading-tight">
-          <Trans>Top Hunters</Trans>
+          <Trans>Top Artists</Trans>
         </h2>
         <InfoTooltip
           color="secondary"
@@ -35,8 +35,8 @@ export const TopHuntersFeed = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-4">
-          {hunters?.map((hunter) => (
-            <TopHunterCard key={hunter.username} hunter={hunter} />
+          {artists?.map((artist) => (
+            <TopArtistCard key={artist._id} artist={artist} />
           ))}
         </div>
       )}

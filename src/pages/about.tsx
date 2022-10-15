@@ -25,7 +25,7 @@ export default function AboutPage() {
 
         <div>
           <h3 className="mb-1 text-xl font-bold">
-            <Trans>Leets for Hunters</Trans>
+            <Trans>Leets for hunters</Trans>
           </h3>
           <p className="text-lg text-base-content-neutral">
             <Trans>
