@@ -87,6 +87,10 @@ msgstr "Registrati su Leets"
 msgid "Go home"
 msgstr "Torna in home"
 
+#: src/pages/about.tsx
+msgid "Has it ever happened to you to discover a little-known artist, who, however, in your opinion deserves much more following? And maybe after a few years all your friends listen to him/her and he/she's even on the radio. We call <0>hunters</0> those people who discover artists before anyone else. If you are a hunter, with Leets you can share your musical discoveries, and one day if the artist is famous you will even have proof that you discovered him/her well in advance!<1/>But keep in mind, only one user can be the hunter of a song. So as soon as you have a new discovery, hurry up and upload it!"
+msgstr "Ti é mai successo di scoprire un artista poco conosciuto, che però secondo te si meriterebbe molto più seguito? E magari dopo alcuni anni tutti i tuoi amici lo ascoltano e lo passano pure in radio. Ecco, noi chiamiamo <0>hunter</0> quelle persone che scoprono gli artisti prima di tutti. Se sei un hunter, con Leets puoi condividere le tue scoperte musicali, e un giorno se l’artista sarà famoso potrai anche avere la prova di averlo scoperto con largo anticipo. Ma tieni a mente, solo un utente può essere l’hunter di un canzone. Quindi appena hai una nuova scoperta, affrettati a caricarla!"
+
 #: src/pages/upload.tsx
 msgid "Here's a preview of the song you are uploading"
 msgstr "Ecco un'anteprima della canzone che stai caricando"
@@ -114,6 +118,26 @@ msgstr "Italiano"
 #: src/components/Basic/Avatar.tsx
 msgid "Joined on {0}"
 msgstr "Iscritto il {0}"
+
+#: src/pages/about.tsx
+msgid "Leets also aims to promote <0>emerging artists</0>. In fact, only songs by artists who have less than 35000 monthly listeners on Spotify can be uploaded. In this way we want to give visibility to those artists who are talented but do not yet have the following they deserve."
+msgstr "Leets ha anche lo scopo di promuovere gli <0>artisti emergenti</0>. Possono infatti essere caricate solo canzoni di artisti che hanno meno di 35000 ascoltatori mensili su Spotify. In questo modo vogliamo dare visibilità a quegli artisti che hanno talento, ma che non hanno ancora il seguito che si meritano."
+
+#: src/pages/about.tsx
+msgid "Leets for Hunters"
+msgstr "Leets per Hunters"
+
+#: src/pages/about.tsx
+msgid "Leets for artists"
+msgstr "Leets per artisti"
+
+#: src/pages/about.tsx
+msgid "Leets for discovering new music"
+msgstr "Leets per scoprire nuova musica"
+
+#: src/pages/about.tsx
+msgid "Leets is the platform where you can <0>share your musical discoveries </0>and <1>promote emerging artists</1>. Anyone can upload a song and share it, helping the artist to gain exposure."
+msgstr "Leets é la piattaforma dove puoi <0>condividere le tue scoperte musicali </0>e <1>promuovere artisti emergenti</1>. Chiunque può caricare una canzone e condividerla, aiutando anche l’artista ad ottenere visibilità."
 
 #: src/pages/[username].tsx
 msgid "Liked"
@@ -243,6 +267,14 @@ msgstr "Nome utente"
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Welcome to Leets"
 msgstr "Benvenuto su Leets"
+
+#: src/pages/about.tsx
+msgid "What is Leets"
+msgstr "Cos'é Leets"
+
+#: src/pages/about.tsx
+msgid "With Leets you can <0>discover new music daily</0> by up-and-coming artists, which may be harder to find on other platforms like Spotify. Every day you will be able to see a ranking of the songs that received the most \"likes\" from users during the day."
+msgstr "Con Leets poi <0>scoprire quotidianamente nuova musica</0> di artisti emergenti, che possono essere più difficili da trovare su altre piattaforme come Spotify. Ogni giorno potrai vedere una classifica delle canzoni che hanno ricevuto più \"mi piace\" dagli utenti durante la giornata."
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"

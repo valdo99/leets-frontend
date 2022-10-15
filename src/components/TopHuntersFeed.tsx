@@ -16,7 +16,7 @@ export const TopHuntersFeed = () => {
 
   return (
     <>
-      <div className="mb-8 mt-10 flex items-center gap-3">
+      <div className="mb-8 flex items-center gap-3">
         <h2 className="text-2xl font-bold leading-tight">
           <Trans>Top Hunters</Trans>
         </h2>

@@ -37,7 +37,7 @@ export const TopSongsFeed = () => {
 
   return (
     <>
-      <div className="mb-8 mt-10 flex items-center gap-3">
+      <div className="mb-8 flex items-center gap-3">
         <h2 className="text-2xl font-bold leading-tight">
           <Trans>Today&apos;s top songs</Trans>
         </h2>

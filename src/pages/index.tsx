@@ -28,7 +28,7 @@ export default function Home() {
           site_name: "Leets",
         }}
       />
-      <div className="flex flex-col gap-14 lg:flex-row">
+      <div className="mt-10 flex flex-col gap-14 lg:flex-row">
         <div className="min-w-0 flex-1">
           <TopSongsFeed />
         </div>
