@@ -1,7 +1,7 @@
 import { t, Trans } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useMutation } from "@tanstack/react-query";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -44,9 +44,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
 
   return (
     <>
-      <Head>
-        <title>Leets | Upload song</title>
-      </Head>
+      <NextSeo title={`Leets | Carica una canzone`} />
       <p className="mb-6 text-center text-base-content-neutral">
         <Trans>
           Remember, songs should be by artists who have less than 35.000 monthly

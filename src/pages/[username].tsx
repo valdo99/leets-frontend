@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 import { ApiClient } from "@api/client";
 import { User } from "@api/users";
@@ -32,13 +32,9 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
     },
   ];
 
-  const title = `Leets | ${user.username}`;
-
   return (
     <>
-      <Head>
-        <title>{title}</title>
-      </Head>
+      <NextSeo title={`Leets | ${user.username}`} />
       <h3 className="mt-8 mb-6 text-2xl font-bold">{user.username}</h3>
       <Tabs items={tabItems} />
     </>
