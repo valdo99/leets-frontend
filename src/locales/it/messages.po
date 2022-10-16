@@ -112,8 +112,13 @@ msgid "Hunted"
 msgstr "Scoperte"
 
 #: src/components/Song/SongCard.tsx
+#: src/pages/artist/[id].tsx
 msgid "Hunted by"
 msgstr "Scoperta da"
+
+#: src/components/TopArtistCard.tsx
+msgid "Hunted on {0}"
+msgstr "Scoperta il {0}"
 
 #: src/pages/upload.tsx
 msgid "Invalid Song URL"
@@ -132,16 +137,16 @@ msgid "Leets also aims to promote <0>emerging artists</0>. In fact, only songs b
 msgstr "Leets ha anche lo scopo di promuovere gli <0>artisti emergenti</0>. Possono infatti essere caricate solo canzoni di artisti che hanno meno di 35000 ascoltatori mensili su Spotify. In questo modo vogliamo dare visibilità a quegli artisti che hanno talento, ma che non hanno ancora il seguito che si meritano."
 
 #: src/pages/about.tsx
-msgid "Leets for Hunters"
-msgstr "Leets per Hunters"
-
-#: src/pages/about.tsx
 msgid "Leets for artists"
 msgstr "Leets per artisti"
 
 #: src/pages/about.tsx
 msgid "Leets for discovering new music"
 msgstr "Leets per scoprire nuova musica"
+
+#: src/pages/about.tsx
+msgid "Leets for hunters"
+msgstr "Leets per hunters"
 
 #: src/pages/about.tsx
 msgid "Leets is the platform where you can <0>share your musical discoveries </0>and <1>promote emerging artists</1>. Anyone can upload a song and share it, helping the artist to gain exposure."
@@ -175,6 +180,14 @@ msgstr "Creato con <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, des
 msgid "Mobile"
 msgstr "Telefono"
 
+#: src/pages/artist/[id].tsx
+msgid "Monthly listeners"
+msgstr "Ascoltatori mensili"
+
+#: src/pages/artist/[id].tsx
+msgid "Monthly listeners the artist had when hunted"
+msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
+
 #: src/components/Modals/LoginModal.tsx
 msgid "Name"
 msgstr "Nome"
@@ -207,8 +220,9 @@ msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 35.000 as
 msgid "Repeat Password"
 msgstr "Conferma Password"
 
+#: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx
-msgid "Score is based on likes to hunted songs"
+msgid "Score is based on number of likes to hunted songs"
 msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
 
 #: src/components/Modals/LoginModal.tsx
@@ -239,6 +253,10 @@ msgstr "Assistenza"
 msgid "Surname"
 msgstr "Cognome"
 
+#: src/components/ArtistHuntedSongs.tsx
+msgid "There are no hunted songs by this artist yet"
+msgstr "Non sono ancora state scoperte canzoni di questo artista"
+
 #: src/components/Modals/WelcomeModal.tsx
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
 msgstr "Per iniziare, registrati e carica il <0>link di Spotify</0> della canzone che desideri condividere alla community"
@@ -247,9 +265,17 @@ msgstr "Per iniziare, registrati e carica il <0>link di Spotify</0> della canzon
 msgid "Today's top songs"
 msgstr "Migliori canzoni del giorno"
 
+#: src/components/TopArtistsFeed.tsx
+msgid "Top Artists"
+msgstr "Migliori Artisti"
+
 #: src/components/TopHuntersFeed.tsx
 msgid "Top Hunters"
 msgstr "Migliori Hunters"
+
+#: src/pages/artist/[id].tsx
+msgid "Total likes"
+msgstr "Mi piace totali"
 
 #: src/pages/upload.tsx
 msgid "Upload"
@@ -295,3 +321,7 @@ msgstr "Non hai ancora caricato nessuna canzone"
 #: src/pages/upload.tsx
 msgid "You have succesfully uploaded"
 msgstr "Hai caricato con successo la canzone"
+
+#: src/pages/artist/[id].tsx
+msgid "on {0}"
+msgstr "il {0}"

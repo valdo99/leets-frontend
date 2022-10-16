@@ -4,16 +4,18 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { Artist } from "@api/artists";
 import { ApiClient } from "@api/client";
+import { ArtistHuntedSongs } from "@components/ArtistHuntedSongs";
+import { Spinner } from "@components/Basic/Spinner";
 import { InfoTooltip } from "@components/Basic/Tooltip";
-import { SongCard } from "@components/Song/SongCard";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 import { formatDate } from "@utils/dates";
 
-const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
+const ArtistPageInner = ({ artist }: { artist: Artist }) => {
   const apiClient = useApiClient();
 
   const { data: totalLikes } = useQuery(
@@ -22,14 +24,10 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
       apiClient.artists.totalLikes(artist._id).then((data) => data.data.likes)
   );
 
-  const { data: songs, refetch } = useQuery(["artist-songs", artist._id], () =>
-    apiClient.artists.songs(artist._id).then((data) => data.data)
-  );
-
   return (
     <>
-      <NextSeo title={`Leets | ${artist.name}`} />
       <div className="mt-10 flex flex-col justify-between gap-y-6 md:flex-row md:items-center">
+        {/* Header */}
         <div className="flex min-w-0 items-center gap-4">
           <span className="relative h-16 w-16 shrink-0 md:h-24 md:w-24">
             <Image
@@ -58,14 +56,10 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
         </div>
       </div>
 
-      <div className="mt-8 flex gap-4">
-        <div className="rounded-btn bg-base-200 py-2 px-4">
-          <span className="font-bold">
-            <Trans>Total likes</Trans>
-          </span>
-          : {totalLikes}
-        </div>
-        <div className="rounded-btn flex bg-base-200 py-2 px-4">
+      {/* Stats */}
+      <div className="mt-8 flex flex-wrap gap-4">
+        {/* Monthly Listeners */}
+        <div className="rounded-btn flex bg-base-200 py-2 px-4 text-sm sm:text-base">
           <span className="font-bold">
             <Trans>Monthly listeners</Trans>
           </span>
@@ -81,17 +75,40 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
             />
           </span>
         </div>
+
+        {/* Total Likes */}
+        <div className="rounded-btn bg-base-200 py-2 px-4 text-sm sm:text-base">
+          <span className="font-bold">
+            <Trans>Total likes</Trans>
+          </span>
+          : {totalLikes}
+        </div>
       </div>
 
       {/* Hunted Songs */}
       <div className="mt-10">
         <h4 className="mb-4 text-xl font-bold">Hunted songs</h4>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {songs?.map((song) => (
-            <SongCard key={song._id} post={song} onLikeChange={refetch} />
-          ))}
-        </div>
+        <ArtistHuntedSongs artist={artist} />
       </div>
+    </>
+  );
+};
+
+const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return (
+      <div className="flex justify-center py-20">
+        <Spinner className="h-20 w-20" />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <NextSeo title={`Leets | ${artist.name}`} />
+      <ArtistPageInner artist={artist} />
     </>
   );
 };
@@ -99,28 +116,21 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
 export default ArtistPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const id = params?.id?.toString() || "";
+  const id = params?.id?.toString() || "";
 
-    const apiClient = new ApiClient();
-    const { data: artist } = await apiClient.artists.read(id);
+  const apiClient = new ApiClient();
+  const { data: artist } = await apiClient.artists.read(id);
 
-    return {
-      props: {
-        artist,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: {
+      artist,
+    },
+  };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: true,
   };
 };
