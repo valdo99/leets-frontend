@@ -2,15 +2,17 @@ import { t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
 
 import { ApiClient } from "@api/client";
 import { User } from "@api/users";
+import { Spinner } from "@components/Basic/Spinner";
 import { TabItem, Tabs } from "@components/Basic/Tabs";
 import { UserHuntedSongs } from "@components/UserHuntedSongs";
 import { UserLikedSongs } from "@components/UserLikedSongs";
 import { PageWithLayout } from "@types";
 
-const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
+const UserPageInner = ({ user }: { user: User }) => {
   const { i18n } = useLingui();
 
   const tabItems: TabItem[] = [
@@ -43,31 +45,38 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
   );
 };
 
+const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return (
+      <div className="flex justify-center py-20">
+        <Spinner className="h-20 w-20" />
+      </div>
+    );
+  }
+
+  return <UserPageInner user={user} />;
+};
+
 export default UserPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const username = params?.username?.toString() || "";
+  const username = params?.username?.toString() || "";
 
-    const apiClient = new ApiClient();
-    const { data: user } = await apiClient.users.read(username);
+  const apiClient = new ApiClient();
+  const { data: user } = await apiClient.users.read(username);
 
-    return {
-      props: {
-        user,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: {
+      user,
+    },
+  };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: true,
   };
 };
