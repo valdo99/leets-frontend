@@ -16,7 +16,7 @@ const SEO = {
     images: [
       {
         url: image,
-        alt: "Mattia Pomelli",
+        alt: "Leets",
         type: "image/png",
       },
     ],

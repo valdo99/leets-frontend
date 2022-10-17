@@ -108,7 +108,18 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
 
   return (
     <>
-      <NextSeo title={`Leets | ${artist.name}`} />
+      <NextSeo
+        title={`Leets | ${artist.name}`}
+        openGraph={{
+          images: [
+            {
+              url: "image",
+              alt: "Leets",
+              type: `https://leets.it/api/og-artist?artistImage=${artist.image}&username=${artist.hunter.username}&name=${artist.name}&createdAt=${artist.createdAt}&monthlyListeners=${artist.monthly_listeners}`,
+            },
+          ],
+        }}
+      />
       <ArtistPageInner artist={artist} />
     </>
   );
