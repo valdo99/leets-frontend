@@ -12,6 +12,8 @@ import { UserHuntedSongs } from "@components/UserHuntedSongs";
 import { UserLikedSongs } from "@components/UserLikedSongs";
 import { PageWithLayout } from "@types";
 
+import SEO from "../../next-seo.config";
+
 const UserPageInner = ({ user }: { user: User }) => {
   const { i18n } = useLingui();
 
@@ -36,7 +38,7 @@ const UserPageInner = ({ user }: { user: User }) => {
 
   return (
     <>
-      <NextSeo title={`Leets | ${user.username}`} />
+      <NextSeo {...SEO} title={`Leets | ${user.username}`} />
       <h3 className="mt-8 mb-6 text-2xl font-bold md:text-3xl">
         {user.username}
       </h3>

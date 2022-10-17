@@ -1,10 +1,12 @@
 import { Trans } from "@lingui/macro";
 import { NextSeo } from "next-seo";
 
+import SEO from "../../next-seo.config";
+
 export default function AboutPage() {
   return (
     <>
-      <NextSeo title={`Leets | About`} />
+      <NextSeo {...SEO} title={`Leets | About`} />
       <div className="mt-10 flex flex-col gap-6">
         <div>
           <h1 className="mb-4 text-3xl font-bold leading-tight">

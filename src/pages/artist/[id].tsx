@@ -16,6 +16,8 @@ import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 import { formatDate } from "@utils/dates";
 
+import SEO from "../../../next-seo.config";
+
 const ArtistPageInner = ({ artist }: { artist: Artist }) => {
   const apiClient = useApiClient();
 
@@ -121,6 +123,7 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
         />
       </Head>
       <NextSeo
+        {...SEO}
         description={`Leets | ${artist.name}, hunted by ${artist.hunter.username} `}
         openGraph={{
           type: "website",
