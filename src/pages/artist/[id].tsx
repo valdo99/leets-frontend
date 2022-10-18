@@ -2,7 +2,6 @@ import { Trans } from "@lingui/macro";
 import { useQuery } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -15,8 +14,6 @@ import { InfoTooltip } from "@components/Basic/Tooltip";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 import { formatDate } from "@utils/dates";
-
-import SEO from "../../../next-seo.config";
 
 const ArtistPageInner = ({ artist }: { artist: Artist }) => {
   const apiClient = useApiClient();
@@ -111,19 +108,7 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
 
   return (
     <>
-      <Head>
-        <title>Leets | {artist.name}</title>
-        <meta
-          name="description"
-          content={`Leets | ${artist.name}, hunted by ${artist.hunter.username} `}
-        />
-        <meta
-          name="image"
-          content={`https://leets.it/api/og-artist?artistImage=${artist.image}&username=${artist.hunter.username}&name=${artist.name}&createdAt=${artist.createdAt}&monthlyListeners=${artist.monthly_listeners}`}
-        />
-      </Head>
       <NextSeo
-        {...SEO}
         description={`Leets | ${artist.name}, hunted by ${artist.hunter.username} `}
         openGraph={{
           type: "website",
@@ -163,6 +148,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: true,
+    fallback: "blocking",
   };
 };

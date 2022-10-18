@@ -7,12 +7,10 @@ import { TopArtistsFeed } from "@components/TopArtistsFeed";
 import { TopHuntersFeed } from "@components/TopHuntersFeed";
 import { TopSongsFeed } from "@components/TopSongsFeed";
 
-import SEO from "../../next-seo.config";
-
 export default function Home() {
   return (
     <>
-      <NextSeo {...SEO} />
+      <NextSeo />
       <div className="rounded-btn bg-primary/40 p-4 text-center text-white">
         <Trans>Are you new here?</Trans>{" "}
         <Link href="/about">
