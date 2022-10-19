@@ -37,7 +37,10 @@ msgstr "Already have an account? <0>Login</0>"
 msgid "Are you lost? No worries, here's the way home"
 msgstr "Are you lost? No worries, here's the way home"
 
+#: src/pages/artists.tsx
+#: src/pages/hunters.tsx
 #: src/pages/index.tsx
+#: src/pages/songs.tsx
 msgid "Are you new here?"
 msgstr "Are you new here?"
 
@@ -61,7 +64,10 @@ msgstr "Desktop"
 msgid "Discover songs"
 msgstr "Discover songs"
 
+#: src/pages/artists.tsx
+#: src/pages/hunters.tsx
 #: src/pages/index.tsx
+#: src/pages/songs.tsx
 msgid "Discover what is Leets"
 msgstr "Discover what is Leets"
 
@@ -155,7 +161,9 @@ msgstr "Liked"
 msgid "Listen on Spotify"
 msgstr "Listen on Spotify"
 
-#: src/components/TopSongsFeed.tsx
+#: src/components/ArtistFeed.tsx
+#: src/components/HuntersFeed.tsx
+#: src/components/SongsFeed.tsx
 msgid "Load more"
 msgstr "Load more"
 
@@ -215,10 +223,18 @@ msgstr "Remember, songs should be by artists who have less than 35.000 monthly l
 msgid "Repeat Password"
 msgstr "Repeat Password"
 
+#: src/components/ArtistFeed.tsx
+#: src/components/HuntersFeed.tsx
 #: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx
 msgid "Score is based on number of likes to hunted songs"
 msgstr "Score is based on number of likes to hunted songs"
+
+#: src/components/TopArtistsFeed.tsx
+#: src/components/TopHuntersFeed.tsx
+#: src/components/TopSongsFeed.tsx
+msgid "See all"
+msgstr "See all"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
@@ -232,6 +248,7 @@ msgstr "Something went wrong, please retry later"
 msgid "Song uploaded! 🚀"
 msgstr "Song uploaded! 🚀"
 
+#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Songs which received the most likes today"
 msgstr "Songs which received the most likes today"
@@ -256,14 +273,17 @@ msgstr "There are no hunted songs by this artist"
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
 msgstr "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
 
+#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Today's top songs"
 
+#: src/components/ArtistFeed.tsx
 #: src/components/TopArtistsFeed.tsx
 msgid "Top Artists"
 msgstr "Top Artists"
 
+#: src/components/HuntersFeed.tsx
 #: src/components/TopHuntersFeed.tsx
 msgid "Top Hunters"
 msgstr "Top Hunters"

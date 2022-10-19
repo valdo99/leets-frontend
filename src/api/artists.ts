@@ -40,7 +40,7 @@ export class ArtistService extends ApiService {
     );
   }
 
-  async topArtists(params: PaginationQueryParams) {
+  async topArtists(params?: PaginationQueryParams) {
     return await this.http.getPaginated<TopArtist[]>(
       `${this.baseUrl}/feed/top-artists${getQueryString(params)}`
     );

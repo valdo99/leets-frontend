@@ -42,7 +42,10 @@ msgstr "Hai già un account? <0>Accedi</0>"
 msgid "Are you lost? No worries, here's the way home"
 msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 
+#: src/pages/artists.tsx
+#: src/pages/hunters.tsx
 #: src/pages/index.tsx
+#: src/pages/songs.tsx
 msgid "Are you new here?"
 msgstr "Sei nuovo qui?"
 
@@ -66,7 +69,10 @@ msgstr "Computer"
 msgid "Discover songs"
 msgstr "Scopri canzoni"
 
+#: src/pages/artists.tsx
+#: src/pages/hunters.tsx
 #: src/pages/index.tsx
+#: src/pages/songs.tsx
 msgid "Discover what is Leets"
 msgstr "Scopri cos'é Leets"
 
@@ -160,7 +166,9 @@ msgstr "Mi piace"
 msgid "Listen on Spotify"
 msgstr "Ascolta su Spotify"
 
-#: src/components/TopSongsFeed.tsx
+#: src/components/ArtistFeed.tsx
+#: src/components/HuntersFeed.tsx
+#: src/components/SongsFeed.tsx
 msgid "Load more"
 msgstr "Carica di più"
 
@@ -220,10 +228,18 @@ msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 35.000 as
 msgid "Repeat Password"
 msgstr "Conferma Password"
 
+#: src/components/ArtistFeed.tsx
+#: src/components/HuntersFeed.tsx
 #: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx
 msgid "Score is based on number of likes to hunted songs"
 msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
+
+#: src/components/TopArtistsFeed.tsx
+#: src/components/TopHuntersFeed.tsx
+#: src/components/TopSongsFeed.tsx
+msgid "See all"
+msgstr "Vedi tutto"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
@@ -237,6 +253,7 @@ msgstr "Qualcosa é andato storto, riprova più tardi"
 msgid "Song uploaded! 🚀"
 msgstr "Canzone caricata! 🚀"
 
+#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Songs which received the most likes today"
 msgstr "Canzoni che hanno ricevuto più like oggi"
@@ -254,21 +271,24 @@ msgid "Surname"
 msgstr "Cognome"
 
 #: src/components/ArtistHuntedSongs.tsx
-msgid "There are no hunted songs by this artist yet"
-msgstr "Non sono ancora state scoperte canzoni di questo artista"
+msgid "There are no hunted songs by this artist"
+msgstr "Non ci sono canzoni scoperte per questo artista"
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
 msgstr "Per iniziare, registrati e carica il <0>link di Spotify</0> della canzone che desideri condividere alla community"
 
+#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Migliori canzoni del giorno"
 
+#: src/components/ArtistFeed.tsx
 #: src/components/TopArtistsFeed.tsx
 msgid "Top Artists"
 msgstr "Migliori Artisti"
 
+#: src/components/HuntersFeed.tsx
 #: src/components/TopHuntersFeed.tsx
 msgid "Top Hunters"
 msgstr "Migliori Hunters"
