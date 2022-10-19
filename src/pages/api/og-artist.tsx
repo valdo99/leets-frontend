@@ -19,69 +19,52 @@ export default function ogHome(req: NextRequest, res: NextResponse) {
 
   return new ImageResponse(
     (
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "#050e1f",
-          rowGap: "1.5rem",
-          color: "white",
-          paddingLeft: "1.5rem",
-        }}
-      >
-        <div style={{ width: "35%", display: "flex" }}>
-          <img height="80px" src="https://www.leets.it/logo.png" />
-        </div>
-        <div
-          style={{ width: "100%", display: "flex", flexDirection: "column" }}
-        >
-          <span style={{ alignItems: "center" }}>
-            {artistImage && (
+      <div tw="h-full w-full flex items-start justify-start">
+        <div tw="flex items-start justify-start h-full">
+          <div
+            tw="flex w-2/5 flex-col justify-between h-full pl-12 py-12"
+            style={{ backgroundColor: "#050e1f" }}
+          >
+            <div tw="flex flex-col">
+              <p tw="text-2xl mb-0 text-green-400 my-1">
+                Scoperto da {username}
+              </p>
+              {createdAt && (
+                <p tw="text-1xl mt-0 text-green-400">
+                  Il {new Date(createdAt).toLocaleDateString()}
+                </p>
+              )}
+              <h1 tw="text-5xl font-bold text-white text-left mt-0">{name}</h1>
+            </div>
+            <div tw="flex flex-col">
               <img
-                height="150px"
-                style={{ borderRadius: "100%", paddingRight: "12px" }}
+                tw="h-22"
+                style={{ objectFit: "cover" }}
+                src={`${req.nextUrl.origin}/logo.png`}
+              />
+            </div>
+            <div tw="flex flex-col">
+              <p tw="text-green-400 mb-1">Ascolti mensili</p>
+              <p tw="text-3xl mt-0 font-bold bg-green-800 text-green-100 py-4 px-12 rounded-lg">
+                {monthlyListeners}
+              </p>
+            </div>
+          </div>
+          {artistImage ? (
+            <div tw="flex w-3/5 h-full">
+              <img
+                tw="w-full h-full"
+                style={{ objectFit: "cover" }}
                 src={artistImage}
               />
-            )}
-
-            <span
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "baseline",
-              }}
-            >
-              <span style={{ fontWeight: 700, fontSize: 28 }}>{name}</span>
-              <span style={{ fontSize: "14px" }}>
-                Hunted by{" "}
-                <span style={{ paddingLeft: "4px", fontWeight: 700 }}>
-                  {username}
-                </span>
-              </span>
-              <span style={{ fontSize: "14px" }}>
-                Monthly listeners:{" "}
-                <span style={{ paddingLeft: "4px", fontWeight: 700 }}>
-                  {monthlyListeners}
-                </span>
-              </span>
-              <span style={{ fontSize: "14px" }}>
-                Hunted at{" "}
-                <span style={{ paddingLeft: "4px", fontWeight: 700 }}>
-                  {createdAt}
-                </span>
-              </span>
-            </span>
-          </span>
+            </div>
+          ) : null}
         </div>
       </div>
     ),
     {
-      width: 800,
-      height: 400,
+      width: 1200,
+      height: 627,
     }
   );
 }
