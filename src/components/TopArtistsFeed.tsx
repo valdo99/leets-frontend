@@ -1,9 +1,11 @@
 import { Trans } from "@lingui/macro";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
 
+import { Button } from "./Basic/Button";
 import { InfoTooltip } from "./Basic/Tooltip";
 import { TopArtistCard } from "./TopArtistCard";
 
@@ -35,9 +37,14 @@ export const TopArtistsFeed = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-4">
-          {artists?.map((artist) => (
+          {artists?.slice(0, 5)?.map((artist) => (
             <TopArtistCard key={artist._id} artist={artist} />
           ))}
+          <Link href="/artists">
+            <Button size="lg">
+              <Trans>See all</Trans>
+            </Button>
+          </Link>
         </div>
       )}
     </div>

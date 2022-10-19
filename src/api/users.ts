@@ -1,3 +1,5 @@
+import { getQueryString } from "@utils/getQueryString";
+
 import { ApiService } from "./apiService";
 import { Post } from "./posts";
 import { Entity } from "./types";
@@ -28,6 +30,11 @@ export interface TopHunter
   extends Pick<User, "name" | "surname" | "username" | "createdAt"> {
   points: number;
 }
+
+type PaginationQueryParams = {
+  page?: number;
+  limit?: number;
+};
 
 const nonUpdatableFields = [
   "_id",
@@ -83,7 +90,9 @@ export class UserService extends ApiService {
     return await this.http.post(`${this.baseUrl}/change-password`, data);
   }
 
-  async topHunters() {
-    return await this.http.get<TopHunter[]>(`${this.baseUrl}/feed/top-hunters`);
+  async topHunters(params: PaginationQueryParams) {
+    return await this.http.getPaginated<TopHunter[]>(
+      `${this.baseUrl}/feed/top-hunters${getQueryString(params)}`
+    );
   }
 }

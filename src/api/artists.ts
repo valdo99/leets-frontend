@@ -1,3 +1,5 @@
+import { getQueryString } from "@utils/getQueryString";
+
 import { ApiService } from "./apiService";
 import { Post } from "./posts";
 import { Entity, Id } from "./types";
@@ -18,6 +20,11 @@ export interface TopArtist
   points: number;
 }
 
+type PaginationQueryParams = {
+  page?: number;
+  limit?: number;
+};
+
 export class ArtistService extends ApiService {
   async read(id: Id) {
     return await this.http.get<Artist>(`${this.baseUrl}/${id}`);
@@ -33,7 +40,9 @@ export class ArtistService extends ApiService {
     );
   }
 
-  async topArtists() {
-    return await this.http.get<TopArtist[]>(`${this.baseUrl}/feed/top-artists`);
+  async topArtists(params: PaginationQueryParams) {
+    return await this.http.getPaginated<TopArtist[]>(
+      `${this.baseUrl}/feed/top-artists${getQueryString(params)}`
+    );
   }
 }
