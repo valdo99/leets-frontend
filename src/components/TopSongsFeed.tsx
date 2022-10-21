@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/macro";
-import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { Fragment } from "react";
 
 import { Button } from "@components/Basic/Button/Button";
 import { Spinner } from "@components/Basic/Spinner";
@@ -10,15 +10,29 @@ import { useApiClient, useUser } from "@providers/AuthProvider";
 import { InfoTooltip } from "./Basic/Tooltip";
 
 export const TopSongsFeed = () => {
-  const { user } = useUser();
+  const { user, loading } = useUser();
   const apiClient = useApiClient();
 
   const {
     data: songs,
     isLoading,
     refetch,
-  } = useQuery(["top-songs", user?._id], () =>
-    apiClient.posts.feed().then((data) => data.data)
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery(
+    ["feed", user?._id],
+    ({ pageParam }) => apiClient.posts.feed({ page: pageParam }),
+    {
+      enabled: !loading,
+      getNextPageParam: ({ pagination }) => {
+        const { page, perPage, total } = pagination;
+        if ((page + 1) * perPage < total) {
+          return page + 1;
+        }
+        return undefined;
+      },
+    }
   );
 
   return (
@@ -44,20 +58,27 @@ export const TopSongsFeed = () => {
       ) : (
         <>
           <div className="flex flex-col gap-4">
-            {songs &&
-              songs
-                .slice(0, 7)
-                .map((song) => (
+            {songs?.pages.map((page, index) => (
+              <Fragment key={index}>
+                {page.data.map((song) => (
                   <SongCard key={song._id} post={song} onLikeChange={refetch} />
                 ))}
-            <Link href="/songs">
-              <Button size="lg">
-                <Trans>See all</Trans>
-              </Button>
-            </Link>
+              </Fragment>
+            ))}
           </div>
-
-          <div className="mt-8 flex h-10 items-center justify-center"></div>
+          <div className="mt-8 flex h-10 items-center justify-center">
+            {isFetchingNextPage ? (
+              <Spinner className="h-10 w-10" />
+            ) : (
+              <>
+                {hasNextPage && (
+                  <Button onClick={() => fetchNextPage()} block>
+                    <Trans>Load more</Trans>
+                  </Button>
+                )}
+              </>
+            )}
+          </div>
         </>
       )}
     </>
