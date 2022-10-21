@@ -242,7 +242,7 @@ msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
 #: src/components/TopHuntersFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "See all"
-msgstr "Vedi tutto"
+msgstr "Vedi tutti"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Sign in"
