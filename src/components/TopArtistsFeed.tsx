@@ -12,6 +12,7 @@ import { TopArtistCard } from "./TopArtistCard";
 export const TopArtistsFeed = () => {
   const apiClient = useApiClient();
 
+  // TODO: use limit instead of limiting in the frontend
   const { data: artists, isLoading } = useQuery(["top-artists"], () =>
     apiClient.artists.topArtists().then((data) => data.data)
   );
@@ -36,16 +37,20 @@ export const TopArtistsFeed = () => {
           <Spinner className="h-10 w-10" />
         </div>
       ) : (
-        <div className="flex flex-col gap-4">
-          {artists?.slice(0, 5)?.map((artist) => (
-            <TopArtistCard key={artist._id} artist={artist} />
-          ))}
+        <>
+          <div className="flex flex-col gap-4">
+            {artists?.slice(0, 5)?.map((artist) => (
+              <TopArtistCard key={artist._id} artist={artist} />
+            ))}
+          </div>
           <Link href="/artists">
-            <Button size="lg">
-              <Trans>See all</Trans>
-            </Button>
+            <a className="mt-8 block">
+              <Button block>
+                <Trans>See all</Trans>
+              </Button>
+            </a>
           </Link>
-        </div>
+        </>
       )}
     </div>
   );
