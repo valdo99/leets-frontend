@@ -118,9 +118,12 @@ msgid "Hunted"
 msgstr "Scoperte"
 
 #: src/components/Song/SongCard.tsx
-#: src/pages/artist/[id].tsx
 msgid "Hunted by"
 msgstr "Scoperta da"
+
+#: src/pages/artist/[id].tsx
+msgid "Hunted by (masculine)"
+msgstr "Scoperto da"
 
 #: src/components/TopArtistCard.tsx
 msgid "Hunted on {0}"
@@ -272,7 +275,7 @@ msgstr "Cognome"
 
 #: src/components/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"
-msgstr "Non ci sono canzoni scoperte per questo artista"
+msgstr ""
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"

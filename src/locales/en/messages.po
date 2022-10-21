@@ -113,8 +113,11 @@ msgid "Hunted"
 msgstr "Hunted"
 
 #: src/components/Song/SongCard.tsx
-#: src/pages/artist/[id].tsx
 msgid "Hunted by"
+msgstr "Hunted by"
+
+#: src/pages/artist/[id].tsx
+msgid "Hunted by (masculine)"
 msgstr "Hunted by"
 
 #: src/components/TopArtistCard.tsx

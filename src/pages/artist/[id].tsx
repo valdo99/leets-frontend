@@ -44,7 +44,7 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
         </div>
         <div className="md:text-right">
           <p className="text-sm text-base-content-neutral">
-            <Trans>Hunted by</Trans>
+            <Trans id="Hunted by (masculine)">Hunted by</Trans>
           </p>
           <Link href={`/${artist.hunter.username}`}>
             <a className="text-lg font-bold hover:text-base-content/60">
