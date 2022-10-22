@@ -167,6 +167,7 @@ msgstr "Listen on Spotify"
 #: src/components/ArtistFeed.tsx
 #: src/components/HuntersFeed.tsx
 #: src/components/SongsFeed.tsx
+#: src/components/TopSongsFeed.tsx
 msgid "Load more"
 msgstr "Load more"
 
@@ -235,7 +236,6 @@ msgstr "Score is based on number of likes to hunted songs"
 
 #: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx
-#: src/components/TopSongsFeed.tsx
 msgid "See all"
 msgstr "See all"
 

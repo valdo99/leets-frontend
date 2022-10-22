@@ -172,6 +172,7 @@ msgstr "Ascolta su Spotify"
 #: src/components/ArtistFeed.tsx
 #: src/components/HuntersFeed.tsx
 #: src/components/SongsFeed.tsx
+#: src/components/TopSongsFeed.tsx
 msgid "Load more"
 msgstr "Carica di più"
 
@@ -240,7 +241,6 @@ msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
 
 #: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx
-#: src/components/TopSongsFeed.tsx
 msgid "See all"
 msgstr "Vedi tutti"
 
@@ -275,7 +275,7 @@ msgstr "Cognome"
 
 #: src/components/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"
-msgstr ""
+msgstr "Non ci sono canzoni huntate"
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
