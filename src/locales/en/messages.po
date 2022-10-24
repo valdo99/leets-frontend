@@ -167,6 +167,7 @@ msgstr "Listen on Spotify"
 #: src/components/ArtistFeed.tsx
 #: src/components/HuntersFeed.tsx
 #: src/components/SongsFeed.tsx
+#: src/components/TopSongsFeed.tsx
 msgid "Load more"
 msgstr "Load more"
 
@@ -235,7 +236,6 @@ msgstr "Score is based on number of likes to hunted songs"
 
 #: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx
-#: src/components/TopSongsFeed.tsx
 msgid "See all"
 msgstr "See all"
 
@@ -295,6 +295,14 @@ msgstr "Top Hunters"
 msgid "Total likes"
 msgstr "Total likes"
 
+#: src/components/Modals/EditUsernameModal.tsx
+msgid "Update"
+msgstr "Update"
+
+#: src/components/Modals/EditUsernameModal.tsx
+msgid "Update your username"
+msgstr "Update your username"
+
 #: src/pages/upload.tsx
 msgid "Upload"
 msgstr "Upload"
@@ -312,6 +320,7 @@ msgstr "Upload new song"
 msgid "Upload song"
 msgstr "Upload song"
 
+#: src/components/Modals/EditUsernameModal.tsx
 #: src/components/Modals/LoginModal.tsx
 msgid "Username"
 msgstr "Username"
