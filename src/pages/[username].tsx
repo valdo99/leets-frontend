@@ -3,19 +3,23 @@ import { useLingui } from "@lingui/react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 import { ApiClient } from "@api/client";
 import { User } from "@api/users";
 import { Spinner } from "@components/Basic/Spinner";
 import { TabItem, Tabs } from "@components/Basic/Tabs";
+import { EditUsernameModal } from "@components/Modals/EditUsernameModal";
 import { UserHuntedSongs } from "@components/UserHuntedSongs";
 import { UserLikedSongs } from "@components/UserLikedSongs";
+import EditIcon from "@icons/edit.svg";
 import { PageWithLayout } from "@types";
 
 import SEO from "../../next-seo.config";
 
 const UserPageInner = ({ user }: { user: User }) => {
   const { i18n } = useLingui();
+  const [showUpdateModal, setShowUpdateModal] = useState<boolean>(false);
 
   const tabItems: TabItem[] = [
     {
@@ -39,10 +43,18 @@ const UserPageInner = ({ user }: { user: User }) => {
   return (
     <>
       <NextSeo {...SEO} title={`Leets | ${user.username}`} />
-      <h3 className="mt-8 mb-6 text-2xl font-bold md:text-3xl">
-        {user.username}
-      </h3>
+      <div className="mt-8 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-bold md:text-3xl">{user.username}</h3>
+        <button onClick={() => setShowUpdateModal(true)}>
+          <EditIcon className="h-6 w-6" />
+        </button>
+      </div>
+
       <Tabs items={tabItems} />
+      <EditUsernameModal
+        show={showUpdateModal}
+        onClose={() => setShowUpdateModal(false)}
+      />
     </>
   );
 };

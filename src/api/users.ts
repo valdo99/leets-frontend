@@ -44,7 +44,7 @@ const nonUpdatableFields = [
   "email",
 ] as const;
 
-type UserUpdateBody = Omit<User, typeof nonUpdatableFields[number]>;
+type UserUpdateBody = Partial<Omit<User, typeof nonUpdatableFields[number]>>;
 
 export const getUpdatableFields = (user: User) => {
   const updatableUser = { ...user };
