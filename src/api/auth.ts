@@ -45,6 +45,13 @@ export class AuthService extends ApiService {
     return await this.client.users.me();
   }
 
+  async googleLogin() {
+    const res = await this.http.get(`${this.baseUrl}/login/google`);
+    if (res.data) {
+      window.location.href = res.data;
+    }
+  }
+
   /**
    * @returns the user that is currently logged in, based on the token stored in lcaolstorage.
    *          null if no user is currently logged in

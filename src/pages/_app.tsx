@@ -7,6 +7,7 @@ import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
 
+import { ErrorState } from "@components/Modals/ErrorState";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AuthProvider } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
@@ -36,10 +37,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           "flex items-center p-2 text-sm font-medium text-secondary-content"
         }
       />
+
       <QueryClientProvider client={queryClient}>
         <Provider>
           <LocaleProvider>
             <AuthProvider>
+              <ErrorState />
               <DefaultSeo {...SEO} />
               <AuthGuard auth={(Component as PageWithLayout).auth}>
                 {getLayout(<Component {...pageProps} />)}
