@@ -212,6 +212,10 @@ msgstr "Nessuna canzone piaciuta"
 msgid "No uploaded songs"
 msgstr "Nessuna canzone caricata"
 
+#: src/components/PlaylistiFrame.tsx
+msgid "Our playlist"
+msgstr "La nostra playlist"
+
 #: src/components/Modals/LoginModal.tsx
 msgid "Password"
 msgstr "Password"

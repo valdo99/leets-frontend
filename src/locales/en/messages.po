@@ -207,6 +207,10 @@ msgstr "No liked songs"
 msgid "No uploaded songs"
 msgstr "No uploaded songs"
 
+#: src/components/PlaylistiFrame.tsx
+msgid "Our playlist"
+msgstr "Our playlist"
+
 #: src/components/Modals/LoginModal.tsx
 msgid "Password"
 msgstr "Password"

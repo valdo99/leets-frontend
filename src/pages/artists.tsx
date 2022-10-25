@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { ArtistsFeed } from "@components/ArtistFeed";
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
-import { PlaylistiFrame } from "@components/PlayListiFrame";
+import { PlaylistiFrame } from "@components/PlaylistiFrame";
 
 export default function Artists() {
   return (

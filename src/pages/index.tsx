@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
-import { PlaylistiFrame } from "@components/PlayListiFrame";
+import { PlaylistiFrame } from "@components/PlaylistiFrame";
 import { TopArtistsFeed } from "@components/TopArtistsFeed";
 import { TopHuntersFeed } from "@components/TopHuntersFeed";
 import { TopSongsFeed } from "@components/TopSongsFeed";
