@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
+import { PlaylistiFrame } from "@components/PlayListiFrame";
 import { TopArtistsFeed } from "@components/TopArtistsFeed";
 import { TopHuntersFeed } from "@components/TopHuntersFeed";
 import { TopSongsFeed } from "@components/TopSongsFeed";
@@ -26,9 +27,10 @@ export default function Home() {
         <div className="flex shrink-0 flex-col gap-14 lg:w-[340px]">
           <TopHuntersFeed />
           <TopArtistsFeed />
+          <PlaylistiFrame />
         </div>
       </div>
-      <WelcomeModal />
+      <WelcomeModal />x
     </>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { HuntersFeed } from "@components/HuntersFeed";
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
+import { PlaylistiFrame } from "@components/PlayListiFrame";
 
 export default function Hunters() {
   return (
@@ -21,7 +22,9 @@ export default function Hunters() {
         <div className="min-w-0 flex-1">
           <HuntersFeed />
         </div>
-        <div className="flex shrink-0 flex-col gap-14 lg:w-[340px]"></div>
+        <div className="flex shrink-0 flex-col gap-14 lg:w-[340px]">
+          <PlaylistiFrame />
+        </div>
       </div>
       <WelcomeModal />
     </>
