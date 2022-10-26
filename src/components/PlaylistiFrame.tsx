@@ -5,7 +5,7 @@ export const PlaylistiFrame = () => {
     <div>
       <div className="mb-8 flex items-center gap-3">
         <h2 className="text-2xl font-bold leading-tight">
-          <Trans>Our playlist</Trans>
+          <Trans>Leets playlist</Trans>
         </h2>
       </div>
       <div className="flex flex-col gap-4">

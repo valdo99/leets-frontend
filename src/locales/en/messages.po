@@ -156,6 +156,10 @@ msgstr "Leets for hunters"
 msgid "Leets is the platform where you can <0>share your musical discoveries </0>and <1>promote emerging artists</1>. Anyone can upload a song and share it, helping the artist to gain exposure."
 msgstr "Leets is the platform where you can <0>share your musical discoveries </0>and <1>promote emerging artists</1>. Anyone can upload a song and share it, helping the artist to gain exposure."
 
+#: src/components/PlaylistiFrame.tsx
+msgid "Leets playlist"
+msgstr "Leets playlist"
+
 #: src/pages/[username].tsx
 msgid "Liked"
 msgstr "Liked"
@@ -206,10 +210,6 @@ msgstr "No liked songs"
 #: src/components/UserHuntedSongs.tsx
 msgid "No uploaded songs"
 msgstr "No uploaded songs"
-
-#: src/components/PlaylistiFrame.tsx
-msgid "Our playlist"
-msgstr "Our playlist"
 
 #: src/components/Modals/LoginModal.tsx
 msgid "Password"
