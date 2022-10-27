@@ -10,12 +10,14 @@ interface AvatarProps {
   user: Pick<User, "name" | "surname" | "username" | "createdAt">;
   className?: string;
   onlyAvatar?: boolean;
+  joinDate?: boolean;
 }
 
 export const Avatar = ({
   user,
   className,
   onlyAvatar = false,
+  joinDate = true,
 }: AvatarProps) => {
   const color = stringToColour(user.username);
 
@@ -37,9 +39,11 @@ export const Avatar = ({
               {user.username}
             </a>
           </Link>
-          <p className="text-sm">
-            <Trans>Joined on {formatDate(user.createdAt)}</Trans>
-          </p>
+          {joinDate && (
+            <p className="text-sm">
+              <Trans>Joined on {formatDate(user.createdAt)}</Trans>
+            </p>
+          )}
         </div>
       )}
     </div>

@@ -164,12 +164,17 @@ msgstr "Leets playlist"
 msgid "Liked"
 msgstr "Liked"
 
+#: src/components/Modals/PostUserLikes.tsx
+msgid "Likes"
+msgstr "Likes"
+
 #: src/components/Song/SongCard.tsx
 msgid "Listen on Spotify"
 msgstr "Listen on Spotify"
 
 #: src/components/ArtistFeed.tsx
 #: src/components/HuntersFeed.tsx
+#: src/components/Modals/PostUserLikes.tsx
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Load more"

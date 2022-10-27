@@ -3,10 +3,11 @@ import { useMutation } from "@tanstack/react-query";
 import cx from "classnames";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
+import { PostUserLikes } from "@components/Modals/PostUserLikes";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
 import SpotifyIcon from "@icons/spotify.svg";
@@ -28,6 +29,7 @@ export const SongCard = ({
   const openLoginModal = useLoginModal();
   const apiClient = useApiClient();
   const { user } = useUser();
+  const [showUserLikesModal, setShowUserLikesModal] = useState(false);
 
   const { mutate: likeSong } = useMutation(
     () => apiClient.posts.like(post._id),
@@ -151,11 +153,23 @@ export const SongCard = ({
                   <HeartOutline className="text-2xl" />
                 )}
               </button>
-              <span className="text-lg">{post.likes}</span>
+              <span
+                onClick={() => setShowUserLikesModal(true)}
+                className="text-lg"
+              >
+                {post.likes}
+              </span>
             </div>
           )}
         </div>
       </div>
+      {showUserLikesModal && (
+        <PostUserLikes
+          show={showUserLikesModal}
+          onClose={() => setShowUserLikesModal(false)}
+          postId={post._id}
+        />
+      )}
     </div>
   );
 };

@@ -2,8 +2,8 @@ import { getQueryString } from "../utils/getQueryString";
 
 import { ApiService } from "./apiService";
 import { Artist } from "./artists";
-import { Entity, Id } from "./types";
-import { User } from "./users";
+import { Entity, Id, QueryParams } from "./types";
+import { TopHunter, User } from "./users";
 
 export interface Post extends Entity {
   title: string;
@@ -24,6 +24,10 @@ type FeedQueryParams = {
   limit?: number;
 };
 
+interface UserLike extends Entity {
+  user: TopHunter;
+}
+
 export class PostService extends ApiService {
   async list() {
     return await this.http.get<Post[]>(this.baseUrl);
@@ -31,6 +35,12 @@ export class PostService extends ApiService {
 
   async like(postId: Id) {
     return await this.http.post(`${this.baseUrl}/${postId}/like`);
+  }
+
+  async getLikes(postId: Id, params: QueryParams = {}) {
+    return await this.http.getPaginated<UserLike[]>(
+      `${this.baseUrl}/${postId}/likes${getQueryString(params)}`
+    );
   }
 
   async unlike(postId: Id) {
