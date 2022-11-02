@@ -1,5 +1,6 @@
 import cx from "classnames";
 import { ButtonHTMLAttributes, forwardRef, ReactNode, Ref } from "react";
+import { twMerge } from "tailwind-merge";
 
 const colorClassName = {
   primary: "btn-primary",
@@ -85,27 +86,29 @@ export const Button = forwardRef(
         {...props}
         ref={ref}
         disabled={disabled}
-        className={cx(
-          "btn min-h-0 animate-none",
-          // Solid and outline variants can affect background, text and border color
-          {
-            [colorClassName[color]]:
-              variant === "solid" || variant === "outline",
-          },
-          // Ghost and link variants only affect text color
-          {
-            [textColorClassName[color]]:
-              (variant === "ghost" || variant === "link") && !disabled,
-          },
-          variantClassName[variant],
-          ringClassName[color],
-          sizeClassname[size],
-          { "w-full": block },
-          "disabled:cursor-not-allowed disabled:pointer-events-auto disabled:active:transform-none",
-          { "loading cursor-not-allowed pointer-events-auto": loading },
-          { "gap-2": leftIcon || rightIcon },
-          "focus:outline-none focus-visible:ring-4 focus:ring-opacity-50",
-          className
+        className={twMerge(
+          cx(
+            "btn min-h-0 animate-none",
+            // Solid and outline variants can affect background, text and border color
+            {
+              [colorClassName[color]]:
+                variant === "solid" || variant === "outline",
+            },
+            // Ghost and link variants only affect text color
+            {
+              [textColorClassName[color]]:
+                (variant === "ghost" || variant === "link") && !disabled,
+            },
+            variantClassName[variant],
+            ringClassName[color],
+            sizeClassname[size],
+            { "w-full": block },
+            "disabled:cursor-not-allowed disabled:pointer-events-auto disabled:active:transform-none",
+            { "loading cursor-not-allowed pointer-events-auto": loading },
+            { "gap-2": leftIcon || rightIcon },
+            "focus:outline-none focus-visible:ring-4 focus:ring-opacity-50",
+            className
+          )
         )}
       >
         {leftIcon}

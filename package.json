@@ -26,7 +26,8 @@
     "next-seo": "^5.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-toastify": "^9.0.7"
+    "react-toastify": "^9.0.7",
+    "tailwind-merge": "^1.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
