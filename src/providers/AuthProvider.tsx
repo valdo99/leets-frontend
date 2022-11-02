@@ -4,8 +4,6 @@ import { createContext, ReactNode, useContext, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
 import { ForbiddenError } from "@api/errors";
-import { LoginModal } from "@components/Modals/LoginModal";
-import { loginModalAtom } from "@state/loginModal";
 import { userAtom } from "@state/user";
 import { Locale } from "locales/available-locales";
 
@@ -15,7 +13,6 @@ const ApiClientContext = createContext<ApiClient | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [, setUserState] = useAtom(userAtom);
-  const [showLoginModal, setShowLoginModal] = useAtom(loginModalAtom);
 
   const { i18n } = useLingui();
 
@@ -64,12 +61,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ApiClientContext.Provider value={apiClientRef.current}>
       {children}
-      {showLoginModal && (
-        <LoginModal
-          show={showLoginModal}
-          onClose={() => setShowLoginModal(false)}
-        />
-      )}
     </ApiClientContext.Provider>
   );
 };
@@ -85,11 +76,6 @@ export const useApiClient = () => {
 };
 
 export const useUser = () => {
-  const [user] = useAtom(userAtom);
-  return user;
-};
-
-export const useLoginModal = () => {
-  const [, setShowLoginModal] = useAtom(loginModalAtom);
-  return () => setShowLoginModal(true);
+  const [user, setUser] = useAtom(userAtom);
+  return { ...user, setUser };
 };

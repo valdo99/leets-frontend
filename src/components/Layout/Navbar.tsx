@@ -10,12 +10,11 @@ import { Container } from "@components/Layout/Container";
 import { UserDropdown } from "@components/UserDropdown";
 import { useTransitionControl } from "@hooks/useTransitionControl";
 import LoginIcon from "@icons/login.svg";
-import { useApiClient, useLoginModal } from "@providers/AuthProvider";
+import { useApiClient } from "@providers/AuthProvider";
 import { userAtom } from "@state/user";
 
 export const Navbar = () => {
   const [{ user, loading }, setUser] = useAtom(userAtom);
-  const openLoginModal = useLoginModal();
   const apiClient = useApiClient();
 
   const [show] = useTransitionControl(loading);
@@ -63,7 +62,7 @@ export const Navbar = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 sm:gap-6">
             <LanguageMenu />
             {user ? (
               <>
@@ -77,12 +76,30 @@ export const Navbar = () => {
                 <UserDropdown user={user} onLogout={onLogout} />
               </>
             ) : (
-              <Button
-                leftIcon={<LoginIcon className="h-6 w-6" />}
-                onClick={openLoginModal}
-              >
-                <Trans>Get started</Trans>
-              </Button>
+              <div className="flex gap-1 sm:gap-2">
+                <Link href="/login">
+                  <a>
+                    <Button
+                      color="secondary"
+                      variant="ghost"
+                      className="min-w-0"
+                    >
+                      <Trans>Login</Trans>
+                    </Button>
+                  </a>
+                </Link>
+                <Link href="/signup">
+                  <a>
+                    <Button
+                      leftIcon={
+                        <LoginIcon className="hidden h-6 w-6 sm:block" />
+                      }
+                    >
+                      <Trans>Get started</Trans>
+                    </Button>
+                  </a>
+                </Link>
+              </div>
             )}
           </div>
         </Transition>

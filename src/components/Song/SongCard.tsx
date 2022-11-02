@@ -11,7 +11,7 @@ import { PostUserLikes } from "@components/Modals/PostUserLikes";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
 import SpotifyIcon from "@icons/spotify.svg";
-import { useApiClient, useLoginModal, useUser } from "@providers/AuthProvider";
+import { useApiClient, useUser } from "@providers/AuthProvider";
 
 import { Player } from "./Player";
 
@@ -26,7 +26,6 @@ export const SongCard = ({
   onLikeChange,
   showHunter = true,
 }: SongCardProps) => {
-  const openLoginModal = useLoginModal();
   const apiClient = useApiClient();
   const { user } = useUser();
   const [showUserLikesModal, setShowUserLikesModal] = useState(false);
@@ -46,11 +45,7 @@ export const SongCard = ({
   );
 
   const toggleLike = () => {
-    if (!user) {
-      openLoginModal();
-    } else {
-      post.isLiked ? unlikeSong() : likeSong();
-    }
+    post.isLiked ? unlikeSong() : likeSong();
   };
 
   const isPreview = post.status !== "ONLINE";
@@ -146,13 +141,20 @@ export const SongCard = ({
           )} */}
           {post.status === "ONLINE" && (
             <div className="flex cursor-pointer items-center gap-1">
-              <button onClick={toggleLike} className="cursor-pointer">
-                {post.isLiked ? (
-                  <HeartSolid className="text-2xl" />
-                ) : (
+              {user ? (
+                <button onClick={toggleLike} className="cursor-pointer">
+                  {post.isLiked ? (
+                    <HeartSolid className="text-2xl" />
+                  ) : (
+                    <HeartOutline className="text-2xl" />
+                  )}
+                </button>
+              ) : (
+                <Link href="/signup">
                   <HeartOutline className="text-2xl" />
-                )}
-              </button>
+                </Link>
+              )}
+
               <span
                 onClick={() => setShowUserLikesModal(true)}
                 className="text-lg"
