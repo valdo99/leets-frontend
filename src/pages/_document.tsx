@@ -15,6 +15,11 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="icon" href="/logo_only.png" />
+        <script
+          defer
+          data-domain="leets.it"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </Head>
       <body>
         <Main />
