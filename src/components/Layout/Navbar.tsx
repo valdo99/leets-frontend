@@ -29,7 +29,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="flex items-center py-6">
+    <header className="flex items-center py-6 z-10">
       <Container className="flex w-full items-center justify-between">
         <Link href="/">
           <a className="cursor-pointer">

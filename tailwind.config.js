@@ -19,9 +19,9 @@ module.exports = {
         "base-content-neutral": "hsl(var(--bc) / 0.6)",
       },
       keyframes: {
-        'chaos-opacity': {
-          '0%': { opacity: 1 },
-          '100%': { opacity: 0.5 },
+        chaos: {
+          '0%, 100%': { transform: 'rotate(0deg)', opacity: 1 },
+          '50%': { transform: 'rotate(0deg)', opacity: 0.0 }
         },
         'chaos-rotate': {
           '0%, 100%': { transform: 'rotate(-3deg)' },
@@ -32,16 +32,13 @@ module.exports = {
           'to': { transform: 'rotate(3deg)' },
         },
         // spin: {
-        //   'from': { transform: 'rotate(0deg)', opacity: 1 },
-        //   'to': { transform: 'rotate(0deg)', opacity: 0.5 }
-        // }
-        spin: {
-          '0%, 100%': { transform: 'rotate(0deg)', opacity: 1 },
-          '50%': { transform: 'rotate(0deg)', opacity: 0.0 }
-        },
+        //   '0%, 100%': { transform: 'rotate(0deg)', opacity: 1 },
+        //   '50%': { transform: 'rotate(0deg)', opacity: 0.0 }
+        // },
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
+        'chaos': 'chaos 2s linear infinite'
       }
     },
   },
