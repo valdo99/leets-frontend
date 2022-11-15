@@ -21,17 +21,17 @@ msgstr "404 - Not Found"
 msgid "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
 msgstr "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Accept terms and conditions"
 msgstr "Accept terms and conditions"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Account created, you'll receive an email to confirm your account"
 msgstr "Account created, you'll receive an email to confirm your account"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Already have an account? <0>Login</0>"
-msgstr "Already have an account? <0>Login</0>"
+#: src/pages/signup.tsx
+msgid "Already have an account?"
+msgstr "Already have an account?"
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
@@ -52,7 +52,7 @@ msgstr "Be the hunter of the next hit"
 msgid "Confirm upload"
 msgstr "Confirm upload"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Create account"
 msgstr "Create account"
 
@@ -71,11 +71,12 @@ msgstr "Discover songs"
 msgid "Discover what is Leets"
 msgstr "Discover what is Leets"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Don' have an account? <0>Signup</0>"
-msgstr "Don' have an account? <0>Signup</0>"
+#: src/pages/login.tsx
+msgid "Don' have an account?"
+msgstr "Don' have an account?"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Email"
 msgstr "Email"
 
@@ -88,7 +89,7 @@ msgstr "English"
 msgid "Get started"
 msgstr "Get started"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Get started on Leets"
 msgstr "Get started on Leets"
 
@@ -180,7 +181,10 @@ msgstr "Listen on Spotify"
 msgid "Load more"
 msgstr "Load more"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/components/Layout/Navbar.tsx
+#: src/pages/login.tsx
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Login"
 msgstr "Login"
 
@@ -204,7 +208,7 @@ msgstr "Monthly listeners"
 msgid "Monthly listeners the artist had when hunted"
 msgstr "Monthly listeners the artist had when hunted"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Name"
 msgstr "Name"
 
@@ -216,7 +220,8 @@ msgstr "No liked songs"
 msgid "No uploaded songs"
 msgstr "No uploaded songs"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Password"
 msgstr "Password"
 
@@ -232,7 +237,7 @@ msgstr "Remember that we do <0>NOT</0> own any copyright of images and song/arti
 msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
 msgstr "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Repeat Password"
 msgstr "Repeat Password"
 
@@ -247,10 +252,6 @@ msgstr "Score is based on number of likes to hunted songs"
 #: src/components/TopHuntersFeed.tsx
 msgid "See all"
 msgstr "See all"
-
-#: src/components/Modals/LoginModal.tsx
-msgid "Sign in"
-msgstr "Sign in"
 
 #: src/pages/upload.tsx
 msgid "Something went wrong, please retry later"
@@ -273,7 +274,7 @@ msgstr "Spotify song url"
 msgid "Support"
 msgstr "Support"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Surname"
 msgstr "Surname"
 
@@ -330,7 +331,7 @@ msgid "Upload song"
 msgstr "Upload song"
 
 #: src/components/Modals/EditUsernameModal.tsx
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Username"
 msgstr "Username"
 
