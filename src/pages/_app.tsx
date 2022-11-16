@@ -2,6 +2,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/globals.css";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Analytics } from "@vercel/analytics/react";
 import { Provider } from "jotai";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
@@ -51,6 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </LocaleProvider>
         </Provider>
       </QueryClientProvider>
+      <Analytics />
     </>
   );
 }
