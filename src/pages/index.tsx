@@ -1,34 +1,13 @@
-import { Trans } from "@lingui/macro";
-import Link from "next/link";
-
-import { WelcomeModal } from "@components/Modals/WelcomeModal";
-import { PlaylistiFrame } from "@components/PlaylistiFrame";
-import { TopArtistsFeed } from "@components/TopArtistsFeed";
-import { TopHuntersFeed } from "@components/TopHuntersFeed";
-import { TopSongsFeed } from "@components/TopSongsFeed";
+import { DiscoverSection } from "@components/Landing/DiscoverSection";
+import { Hero } from "@components/Landing/Hero";
+import { HunterFeatures } from "@components/Landing/HuntersSection";
 
 export default function Home() {
   return (
     <>
-      <div className="rounded-btn bg-primary/40 p-4 text-center text-white">
-        <Trans>Are you new here?</Trans>{" "}
-        <Link href="/about">
-          <a className="cursor-pointer font-medium underline">
-            <Trans>Discover what is Leets</Trans>
-          </a>
-        </Link>
-      </div>
-      <div className="mt-10 flex flex-col gap-14 lg:flex-row">
-        <div className="min-w-0 flex-1">
-          <TopSongsFeed />
-        </div>
-        <div className="flex shrink-0 flex-col gap-14 lg:w-[340px]">
-          <TopHuntersFeed />
-          <TopArtistsFeed />
-          <PlaylistiFrame />
-        </div>
-      </div>
-      <WelcomeModal />
+      <Hero />
+      <HunterFeatures />
+      <DiscoverSection />
     </>
   );
 }
