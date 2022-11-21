@@ -97,10 +97,10 @@ const WavesAnimation = ({ className }: { className?: string }) => {
 
 export const Hero = () => {
   return (
-    <div className="relative flex h-[80vh] items-center justify-center">
+    <div className="relative flex h-[60vh] items-center justify-center md:h-[80vh]">
       <WavesAnimation className="absolute top-1/2 -translate-y-1/2" />
       <div className="relative z-10 text-center">
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-4xl font-bold md:text-5xl">
           <Trans>Share your music discoveries</Trans>
         </h1>
         <p className="mx-auto max-w-[38rem] py-6 text-lg text-base-content-neutral">

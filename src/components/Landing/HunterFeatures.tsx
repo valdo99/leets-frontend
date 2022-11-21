@@ -1,0 +1,67 @@
+import { t, Trans } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
+import { ReactNode } from "react";
+
+import DocumentIcon from "@icons/document.svg";
+import ShareIcon from "@icons/share.svg";
+import TrophyIcon from "@icons/trophy.svg";
+
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  icon: ReactNode;
+}
+
+const FeatureCard = ({ title, description, icon }: FeatureCardProps) => {
+  return (
+    <div className="rounded-btn flex flex-1 flex-col items-center bg-secondary p-8">
+      <div className="mb-4 text-4xl text-primary">{icon}</div>
+      <h4 className="text-center text-xl font-bold text-secondary-content">
+        {title}
+      </h4>
+      <p className="text-center text-secondary-content">{description}</p>
+    </div>
+  );
+};
+
+export const HunterFeatures = () => {
+  const { i18n } = useLingui();
+
+  return (
+    <section className="mt-8 text-center">
+      <h3 className="text-2xl font-bold">
+        <Trans>Are you a song hunter?</Trans>
+      </h3>
+      <p className="mx-auto mt-4 max-w-[40rem] text-base-content-neutral">
+        <Trans>
+          Do you often discover songs and artists earlier than everyone else?
+          With Leets you can share them with everyone and have a proof of your
+          discoveries
+        </Trans>
+      </p>
+      <div className="mt-10 flex flex-col gap-8 md:flex-row">
+        <FeatureCard
+          title={t(i18n)`Share`}
+          description={t(
+            i18n
+          )`Share your new musical discoveries with everyone`}
+          icon={<ShareIcon />}
+        />
+        <FeatureCard
+          title={t(i18n)`Promote`}
+          description={t(
+            i18n
+          )`Promote the emergent artists you love and help them grow`}
+          icon={<TrophyIcon />}
+        />
+        <FeatureCard
+          title={t(i18n)`Proof`}
+          description={t(
+            i18n
+          )`Proof that you have discovered an artist at a certain time`}
+          icon={<DocumentIcon />}
+        />
+      </div>
+    </section>
+  );
+};
