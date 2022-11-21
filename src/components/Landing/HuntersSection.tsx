@@ -1,11 +1,13 @@
 import { t, Trans } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 import { Button } from "@components/Basic/Button";
 import DocumentIcon from "@icons/document.svg";
 import ShareIcon from "@icons/share.svg";
 import TrophyIcon from "@icons/trophy.svg";
+import { useUser } from "@providers/AuthProvider";
 
 interface FeatureCardProps {
   title: string;
@@ -27,6 +29,7 @@ const FeatureCard = ({ title, description, icon }: FeatureCardProps) => {
 
 export const HunterFeatures = () => {
   const { i18n } = useLingui();
+  const { user } = useUser();
 
   return (
     <section className="mt-8 text-center">
@@ -65,9 +68,11 @@ export const HunterFeatures = () => {
           icon={<DocumentIcon />}
         />
       </div>
-      <Button size="lg" className="mt-10">
-        <Trans>Hunt the next hit</Trans>
-      </Button>
+      <Link href={user ? "/upload" : "/signup"}>
+        <Button size="lg" className="mt-10">
+          <Trans>Hunt the next hit</Trans>
+        </Button>
+      </Link>
     </section>
   );
 };

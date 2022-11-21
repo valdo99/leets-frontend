@@ -1,5 +1,6 @@
 import { Trans } from "@lingui/macro";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Button } from "@components/Basic/Button";
 
@@ -21,9 +22,11 @@ export const DiscoverSection = ({}: DiscoverSectionProps) => {
             daily, by up-and-coming artists.
           </Trans>
         </p>
-        <Button size="lg" className="mt-10">
-          <Trans>Discover new music</Trans>
-        </Button>
+        <Link href="/feed">
+          <Button size="lg" className="mt-10">
+            <Trans>Discover new music</Trans>
+          </Button>
+        </Link>
       </div>
       <div className="flex flex-1 items-center justify-center">
         <Image

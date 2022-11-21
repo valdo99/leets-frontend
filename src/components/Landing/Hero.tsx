@@ -109,7 +109,7 @@ export const Hero = () => {
             new music.
           </Trans>
         </p>
-        <Link href="/songs">
+        <Link href="/feed">
           <a>
             <Button size="lg">
               <Trans>Explore songs</Trans>
