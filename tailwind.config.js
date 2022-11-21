@@ -18,6 +18,15 @@ module.exports = {
       colors: {
         "base-content-neutral": "hsl(var(--bc) / 0.6)",
       },
+      keyframes: {
+        flash: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0.0 },
+        },
+      },
+      animation: {
+        flash: "flash 2s linear infinite",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("daisyui")],
