@@ -101,11 +101,13 @@ export const Hero = () => {
       <WavesAnimation className="absolute top-1/2 -translate-y-1/2" />
       <div className="relative z-10 text-center">
         <h1 className="text-4xl font-bold md:text-5xl">
-          <Trans>Share your music discoveries</Trans>
+          <Trans>The hub for music lovers</Trans>
         </h1>
-        <p className="mx-auto max-w-[38rem] py-6 text-lg text-base-content-neutral">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-          excepturi exercitationem quasi. In deleniti eaque aut repudiandae.
+        <p className="mx-auto max-w-[34rem] py-6 text-lg text-base-content-neutral">
+          <Trans>
+            Share your musical discoveries. Promote emergent artists. Discover
+            new music.
+          </Trans>
         </p>
         <Link href="/songs">
           <a>

@@ -14,7 +14,7 @@ export const DiscoverSection = ({}: DiscoverSectionProps) => {
             Looking for new <span className="text-primary">songs</span>?
           </Trans>
         </h3>
-        <p className="mx-auto mt-4 max-w-[40rem] text-base-content-neutral">
+        <p className="mx-auto mt-4 max-w-[40rem] text-lg text-base-content-neutral">
           <Trans>
             Are you bored of the same old music? If you want to give a twist to
             your playlists, Leets is the perfect place to discover new music

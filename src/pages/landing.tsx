@@ -1,6 +1,6 @@
 import { DiscoverSection } from "@components/Landing/DiscoverSection";
 import { Hero } from "@components/Landing/Hero";
-import { HunterFeatures } from "@components/Landing/HunterFeatures";
+import { HunterFeatures } from "@components/Landing/HuntersSection";
 
 export default function Home() {
   return (

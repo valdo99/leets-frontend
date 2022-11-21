@@ -35,11 +35,11 @@ export const HunterFeatures = () => {
           Are you a song <span className="text-primary">hunter</span>?
         </Trans>
       </h3>
-      <p className="mx-auto mt-4 max-w-[40rem] text-base-content-neutral">
+      <p className="mx-auto mt-4 max-w-[40rem] text-lg text-base-content-neutral">
         <Trans>
-          Do you often discover songs and artists before everyone else? Then
-          Leets is the place for you to share your musical discoveries with
-          other people like you.
+          Do you often discover songs and artists before everyone else? Leets is
+          the place for you to share your musical discoveries with other people
+          like you.
         </Trans>
       </p>
       <div className="mt-10 flex flex-col gap-8 md:flex-row">
@@ -61,7 +61,7 @@ export const HunterFeatures = () => {
           title={t(i18n)`Proof`}
           description={t(
             i18n
-          )`Proof that you have discovered an artist at a certain time`}
+          )`Proof that you have discovered an artist at a certain date`}
           icon={<DocumentIcon />}
         />
       </div>
