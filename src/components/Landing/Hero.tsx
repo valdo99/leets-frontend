@@ -97,7 +97,7 @@ const WavesAnimation = ({ className }: { className?: string }) => {
 
 export const Hero = () => {
   return (
-    <div className="relative flex h-[60vh] items-center justify-center md:h-[80vh]">
+    <section className="relative flex h-[60vh] items-center justify-center md:h-[80vh]">
       <WavesAnimation className="absolute top-1/2 -translate-y-1/2" />
       <div className="relative z-10 text-center">
         <h1 className="text-4xl font-bold md:text-5xl">
@@ -115,6 +115,6 @@ export const Hero = () => {
           </a>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
