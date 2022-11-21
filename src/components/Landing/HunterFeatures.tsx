@@ -2,6 +2,7 @@ import { t, Trans } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { ReactNode } from "react";
 
+import { Button } from "@components/Basic/Button";
 import DocumentIcon from "@icons/document.svg";
 import ShareIcon from "@icons/share.svg";
 import TrophyIcon from "@icons/trophy.svg";
@@ -30,13 +31,15 @@ export const HunterFeatures = () => {
   return (
     <section className="mt-8 text-center">
       <h3 className="text-2xl font-bold">
-        <Trans>Are you a song hunter?</Trans>
+        <Trans>
+          Are you a song <span className="text-primary">hunter</span>?
+        </Trans>
       </h3>
       <p className="mx-auto mt-4 max-w-[40rem] text-base-content-neutral">
         <Trans>
-          Do you often discover songs and artists earlier than everyone else?
-          With Leets you can share them with everyone and have a proof of your
-          discoveries
+          Do you often discover songs and artists before everyone else? Then
+          Leets is the place for you to share your musical discoveries with
+          other people like you.
         </Trans>
       </p>
       <div className="mt-10 flex flex-col gap-8 md:flex-row">
@@ -62,6 +65,9 @@ export const HunterFeatures = () => {
           icon={<DocumentIcon />}
         />
       </div>
+      <Button size="lg" className="mt-10">
+        <Trans>Hunt the next hit</Trans>
+      </Button>
     </section>
   );
 };
