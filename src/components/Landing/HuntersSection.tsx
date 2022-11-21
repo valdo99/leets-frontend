@@ -41,7 +41,7 @@ export const HunterFeatures = () => {
       <p className="mx-auto mt-4 max-w-[40rem] text-lg text-base-content-neutral">
         <Trans>
           Do you often discover songs and artists before everyone else? Leets is
-          the place for you to share your musical discoveries with other people
+          the perfect place to share your musical discoveries with other people
           like you.
         </Trans>
       </p>
