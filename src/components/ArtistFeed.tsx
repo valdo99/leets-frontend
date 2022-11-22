@@ -68,7 +68,7 @@ export const ArtistsFeed = () => {
             ) : (
               <>
                 {hasNextPage && (
-                  <Button onClick={() => fetchNextPage()}>
+                  <Button block onClick={() => fetchNextPage()}>
                     <Trans>Load more</Trans>
                   </Button>
                 )}
