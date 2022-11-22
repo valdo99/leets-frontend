@@ -21,28 +21,40 @@ msgstr "404 - Not Found"
 msgid "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
 msgstr "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Accept terms and conditions"
 msgstr "Accept terms and conditions"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Account created, you'll receive an email to confirm your account"
 msgstr "Account created, you'll receive an email to confirm your account"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Already have an account? <0>Login</0>"
-msgstr "Already have an account? <0>Login</0>"
+#: src/pages/signup.tsx
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Are you a song <0>hunter</0>?"
+msgstr "Are you a song <0>hunter</0>?"
+
+#: src/components/Landing/DiscoverSection.tsx
+msgid "Are you bored of the same old music? If you want to give a twist to your playlists, Leets is the perfect place to discover new music daily, by up-and-coming artists."
+msgstr "Are you bored of the same old music? If you want to give a twist to your playlists, Leets is the perfect place to discover new music daily, by up-and-coming artists."
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
 msgstr "Are you lost? No worries, here's the way home"
 
 #: src/pages/artists.tsx
+#: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/index.tsx
 #: src/pages/songs.tsx
 msgid "Are you new here?"
 msgstr "Are you new here?"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+msgid "Artists"
+msgstr "Artists"
 
 #: src/pages/upload.tsx
 msgid "Be the hunter of the next hit"
@@ -52,7 +64,7 @@ msgstr "Be the hunter of the next hit"
 msgid "Confirm upload"
 msgstr "Confirm upload"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Create account"
 msgstr "Create account"
 
@@ -60,35 +72,53 @@ msgstr "Create account"
 msgid "Desktop"
 msgstr "Desktop"
 
+#: src/components/Landing/DiscoverSection.tsx
+msgid "Discover new music"
+msgstr "Discover new music"
+
 #: src/components/UserLikedSongs.tsx
 msgid "Discover songs"
 msgstr "Discover songs"
 
 #: src/pages/artists.tsx
+#: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/index.tsx
 #: src/pages/songs.tsx
 msgid "Discover what is Leets"
 msgstr "Discover what is Leets"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Don' have an account? <0>Signup</0>"
-msgstr "Don' have an account? <0>Signup</0>"
+#: src/components/Landing/HuntersSection.tsx
+msgid "Do you often discover songs and artists before everyone else? Leets is the perfect place to share your musical discoveries with other people like you."
+msgstr "Do you often discover songs and artists before everyone else? Leets is the perfect place to share your musical discoveries with other people like you."
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/login.tsx
+msgid "Don' have an account?"
+msgstr "Don' have an account?"
+
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Email"
 msgstr "Email"
 
-#: src/components/LanguageMenu.tsx
+#: src/components/Layout/Navbar/LanguageMenu.tsx
 msgid "English"
 msgstr "English"
 
-#: src/components/Layout/Navbar.tsx
+#: src/components/Landing/Hero.tsx
+msgid "Explore songs"
+msgstr "Explore songs"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+msgid "Feed"
+msgstr "Feed"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Get started"
 msgstr "Get started"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Get started on Leets"
 msgstr "Get started on Leets"
 
@@ -108,6 +138,10 @@ msgstr "Here's a preview of the song you are uploading"
 msgid "How to get song url"
 msgstr "How to get song url"
 
+#: src/components/Landing/HuntersSection.tsx
+msgid "Hunt the next hit"
+msgstr "Hunt the next hit"
+
 #: src/pages/[username].tsx
 msgid "Hunted"
 msgstr "Hunted"
@@ -124,11 +158,15 @@ msgstr "Hunted by"
 msgid "Hunted on {0}"
 msgstr "Hunted on {0}"
 
+#: src/components/Layout/Navbar/MobileMenu.tsx
+msgid "Hunters"
+msgstr "Hunters"
+
 #: src/pages/upload.tsx
 msgid "Invalid Song URL"
 msgstr "Invalid Song URL"
 
-#: src/components/LanguageMenu.tsx
+#: src/components/Layout/Navbar/LanguageMenu.tsx
 msgid "Italian"
 msgstr "Italian"
 
@@ -180,13 +218,21 @@ msgstr "Listen on Spotify"
 msgid "Load more"
 msgstr "Load more"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
+#: src/pages/login.tsx
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Login"
 msgstr "Login"
 
-#: src/components/UserDropdown.tsx
+#: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Logout"
 msgstr "Logout"
+
+#: src/components/Landing/DiscoverSection.tsx
+msgid "Looking for new <0>songs</0>?"
+msgstr "Looking for new <0>songs</0>?"
 
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
@@ -204,7 +250,7 @@ msgstr "Monthly listeners"
 msgid "Monthly listeners the artist had when hunted"
 msgstr "Monthly listeners the artist had when hunted"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Name"
 msgstr "Name"
 
@@ -216,13 +262,30 @@ msgstr "No liked songs"
 msgid "No uploaded songs"
 msgstr "No uploaded songs"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Password"
 msgstr "Password"
 
-#: src/components/UserDropdown.tsx
+#: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Profile"
 msgstr "Profile"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Promote"
+msgstr "Promote"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Promote the emergent artists you love and help them grow"
+msgstr "Promote the emergent artists you love and help them grow"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Proof"
+msgstr "Proof"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Proof that you have discovered an artist at a certain date"
+msgstr "Proof that you have discovered an artist at a certain date"
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Remember that we do <0>NOT</0> own any copyright of images and song/artist information. All data is provided by <1>Spotify</1>"
@@ -232,7 +295,7 @@ msgstr "Remember that we do <0>NOT</0> own any copyright of images and song/arti
 msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
 msgstr "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Repeat Password"
 msgstr "Repeat Password"
 
@@ -248,9 +311,17 @@ msgstr "Score is based on number of likes to hunted songs"
 msgid "See all"
 msgstr "See all"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Sign in"
-msgstr "Sign in"
+#: src/components/Landing/HuntersSection.tsx
+msgid "Share"
+msgstr "Share"
+
+#: src/components/Landing/Hero.tsx
+msgid "Share your musical discoveries. Promote emergent artists. Discover new music."
+msgstr "Share your musical discoveries. Promote emergent artists. Discover new music."
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Share your new musical discoveries with everyone"
+msgstr "Share your new musical discoveries with everyone"
 
 #: src/pages/upload.tsx
 msgid "Something went wrong, please retry later"
@@ -273,9 +344,13 @@ msgstr "Spotify song url"
 msgid "Support"
 msgstr "Support"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Surname"
 msgstr "Surname"
+
+#: src/components/Landing/Hero.tsx
+msgid "The hub for music lovers"
+msgstr "The hub for music lovers"
 
 #: src/components/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"
@@ -325,12 +400,13 @@ msgstr "Upload another song"
 msgid "Upload new song"
 msgstr "Upload new song"
 
-#: src/components/Layout/Navbar.tsx
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
 msgid "Upload song"
 msgstr "Upload song"
 
 #: src/components/Modals/EditUsernameModal.tsx
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Username"
 msgstr "Username"
 

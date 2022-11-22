@@ -26,28 +26,40 @@ msgstr "404 - Non Trovato"
 msgid "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
 msgstr "<0>Leets</0> è la piattaforma dove puoi <1>condividere</1> le tue scoperte musicali e <2>promuovere artisti emergenti</2>."
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Accept terms and conditions"
 msgstr "Accetto i termini e le condizioni"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Account created, you'll receive an email to confirm your account"
 msgstr "Account creato, riceverai un email per confermare il tuo account"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Already have an account? <0>Login</0>"
-msgstr "Hai già un account? <0>Accedi</0>"
+#: src/pages/signup.tsx
+msgid "Already have an account?"
+msgstr "Hai già un account?"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Are you a song <0>hunter</0>?"
+msgstr "Sei un <0>hunter</0> di canzoni?"
+
+#: src/components/Landing/DiscoverSection.tsx
+msgid "Are you bored of the same old music? If you want to give a twist to your playlists, Leets is the perfect place to discover new music daily, by up-and-coming artists."
+msgstr "Sei stanco della solita musica? Se vuoi dare una svolta alle tue playlist, Leets é il posto perfetto per scoprire nuova musica  quotidianamente"
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
 msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 
 #: src/pages/artists.tsx
+#: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/index.tsx
 #: src/pages/songs.tsx
 msgid "Are you new here?"
 msgstr "Sei nuovo qui?"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+msgid "Artists"
+msgstr "Artisti"
 
 #: src/pages/upload.tsx
 msgid "Be the hunter of the next hit"
@@ -57,7 +69,7 @@ msgstr "Sarai proprio tu a scoprire la nuova hit?"
 msgid "Confirm upload"
 msgstr "Conferma caricamento"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Create account"
 msgstr "Registrati"
 
@@ -65,35 +77,53 @@ msgstr "Registrati"
 msgid "Desktop"
 msgstr "Computer"
 
+#: src/components/Landing/DiscoverSection.tsx
+msgid "Discover new music"
+msgstr "Scopri nuova musica"
+
 #: src/components/UserLikedSongs.tsx
 msgid "Discover songs"
 msgstr "Scopri canzoni"
 
 #: src/pages/artists.tsx
+#: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/index.tsx
 #: src/pages/songs.tsx
 msgid "Discover what is Leets"
 msgstr "Scopri cos'é Leets"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Don' have an account? <0>Signup</0>"
-msgstr "Non hai un account? <0>Registrati</0>"
+#: src/components/Landing/HuntersSection.tsx
+msgid "Do you often discover songs and artists before everyone else? Leets is the perfect place to share your musical discoveries with other people like you."
+msgstr "Ti capita spesso di scoprire artisti e canzoni prima di chiunque altro? Leets é il posto perfetto per condividere le tue scoperte musicali con altre persone come te."
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/login.tsx
+msgid "Don' have an account?"
+msgstr "Non hai un account?"
+
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Email"
 msgstr "Email"
 
-#: src/components/LanguageMenu.tsx
+#: src/components/Layout/Navbar/LanguageMenu.tsx
 msgid "English"
 msgstr "Inglese"
 
-#: src/components/Layout/Navbar.tsx
+#: src/components/Landing/Hero.tsx
+msgid "Explore songs"
+msgstr "Esplora canzoni"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+msgid "Feed"
+msgstr "Feed"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Get started"
 msgstr "Inizia ora"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Get started on Leets"
 msgstr "Registrati su Leets"
 
@@ -113,6 +143,10 @@ msgstr "Ecco un'anteprima della canzone che stai caricando"
 msgid "How to get song url"
 msgstr "Come trovare il link della canzone"
 
+#: src/components/Landing/HuntersSection.tsx
+msgid "Hunt the next hit"
+msgstr "Scopri la nuova hit"
+
 #: src/pages/[username].tsx
 msgid "Hunted"
 msgstr "Scoperte"
@@ -129,11 +163,15 @@ msgstr "Scoperto da"
 msgid "Hunted on {0}"
 msgstr "Scoperta il {0}"
 
+#: src/components/Layout/Navbar/MobileMenu.tsx
+msgid "Hunters"
+msgstr "Hunter"
+
 #: src/pages/upload.tsx
 msgid "Invalid Song URL"
 msgstr "Link non valido"
 
-#: src/components/LanguageMenu.tsx
+#: src/components/Layout/Navbar/LanguageMenu.tsx
 msgid "Italian"
 msgstr "Italiano"
 
@@ -185,13 +223,21 @@ msgstr "Ascolta su Spotify"
 msgid "Load more"
 msgstr "Carica di più"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
+#: src/pages/login.tsx
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Login"
 msgstr "Accedi"
 
-#: src/components/UserDropdown.tsx
+#: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Logout"
 msgstr "Esci"
+
+#: src/components/Landing/DiscoverSection.tsx
+msgid "Looking for new <0>songs</0>?"
+msgstr "In cerca di nuove <0>canzoni</0>?"
 
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
@@ -209,7 +255,7 @@ msgstr "Ascoltatori mensili"
 msgid "Monthly listeners the artist had when hunted"
 msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Name"
 msgstr "Nome"
 
@@ -221,13 +267,30 @@ msgstr "Nessuna canzone piaciuta"
 msgid "No uploaded songs"
 msgstr "Nessuna canzone caricata"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/login.tsx
+#: src/pages/signup.tsx
 msgid "Password"
 msgstr "Password"
 
-#: src/components/UserDropdown.tsx
+#: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Profile"
 msgstr "Profilo"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Promote"
+msgstr "Supporta"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Promote the emergent artists you love and help them grow"
+msgstr "Supporta gli artisti emergenti che ami e aiutali a crescere"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Proof"
+msgstr "Prova"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Proof that you have discovered an artist at a certain date"
+msgstr "Prova che hai scoperto un artista ad una certa data"
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Remember that we do <0>NOT</0> own any copyright of images and song/artist information. All data is provided by <1>Spotify</1>"
@@ -237,7 +300,7 @@ msgstr "Ti ricordiamo che <0>NON</0> abbiamo alcun diritto di copyright delle im
 msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
 msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 35.000 ascolti mensili su Spotify"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Repeat Password"
 msgstr "Conferma Password"
 
@@ -253,9 +316,17 @@ msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
 msgid "See all"
 msgstr "Vedi tutti"
 
-#: src/components/Modals/LoginModal.tsx
-msgid "Sign in"
-msgstr "Accedi"
+#: src/components/Landing/HuntersSection.tsx
+msgid "Share"
+msgstr "Condividi"
+
+#: src/components/Landing/Hero.tsx
+msgid "Share your musical discoveries. Promote emergent artists. Discover new music."
+msgstr "Condividi le tue scoperte musicali. Promuovi artisti emergenti. Scopri nuova musica"
+
+#: src/components/Landing/HuntersSection.tsx
+msgid "Share your new musical discoveries with everyone"
+msgstr "Condivi le tue scoperti musicali con chiunque"
 
 #: src/pages/upload.tsx
 msgid "Something went wrong, please retry later"
@@ -278,9 +349,13 @@ msgstr "Link spotify della canzone"
 msgid "Support"
 msgstr "Assistenza"
 
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Surname"
 msgstr "Cognome"
+
+#: src/components/Landing/Hero.tsx
+msgid "The hub for music lovers"
+msgstr "La piattaforma per gli amanti della musica"
 
 #: src/components/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"
@@ -330,12 +405,13 @@ msgstr "Carica un'altra canzone"
 msgid "Upload new song"
 msgstr "Carica una nuova canzone"
 
-#: src/components/Layout/Navbar.tsx
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
 msgid "Upload song"
 msgstr "Carica canzone"
 
 #: src/components/Modals/EditUsernameModal.tsx
-#: src/components/Modals/LoginModal.tsx
+#: src/pages/signup.tsx
 msgid "Username"
 msgstr "Nome utente"
 
