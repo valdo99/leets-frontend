@@ -45,18 +45,10 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
   return (
     <>
       <NextSeo title={`Leets | Carica una canzone`} />
-      <p className="mb-6 text-center text-base-content-neutral">
-        <Trans>
-          Remember, songs should be by artists who have less than 35.000 monthly
-          listeners on Spotify
-        </Trans>
-      </p>
-
       <form className="flex w-full gap-2" onSubmit={onSubmit}>
         <Input
           placeholder={t(i18n)`Spotify song url`}
           block
-          variant="bordered"
           name="spotifyUrl"
           value={formData.spotifyUrl}
           onChange={handleChange}
@@ -68,7 +60,12 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
         </Button>
       </form>
 
-      <hr className="my-12 h-px border-0 bg-base-content-neutral" />
+      <p className="mt-6 mb-12 text-center text-sm text-base-content-neutral">
+        <Trans>
+          Remember, songs should be by artists who have less than 35.000 monthly
+          listeners on Spotify
+        </Trans>
+      </p>
 
       <h5 className="mb-4 text-center font-bold">
         <Trans>How to get song url</Trans>
