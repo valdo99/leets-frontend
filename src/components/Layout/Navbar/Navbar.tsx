@@ -6,9 +6,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { Button } from "@components/Basic/Button";
-import { LanguageMenu } from "@components/LanguageMenu";
 import { Container } from "@components/Layout/Container";
-import { UserDropdown } from "@components/UserDropdown";
+import { LanguageMenu } from "@components/Layout/Navbar/LanguageMenu";
+import { ProfileMenu } from "@components/Layout/Navbar/ProfileMenu";
 import { useTransitionControl } from "@hooks/useTransitionControl";
 import CloseIcon from "@icons/close.svg";
 import HamburgerIcon from "@icons/hamburger.svg";
@@ -97,7 +97,7 @@ export const Navbar = () => {
                         </Button>
                       </a>
                     </Link>
-                    <UserDropdown
+                    <ProfileMenu
                       onClick={() => setShowMenu(false)}
                       user={user}
                       onLogout={onLogout}

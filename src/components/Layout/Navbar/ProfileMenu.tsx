@@ -13,7 +13,7 @@ import {
 
 import { User } from "@api/users";
 
-import { Avatar } from "./Basic/Avatar";
+import { Avatar } from "../../Basic/Avatar";
 
 interface WrappedLinkProps {
   href: string;
@@ -65,17 +65,13 @@ const DropdownItem = ({
   );
 };
 
-interface UserDropdownProps {
+interface ProfileMenuProps {
   user: User;
   onLogout: () => void;
   onClick?: () => void;
 }
 
-export const UserDropdown = ({
-  user,
-  onLogout,
-  onClick,
-}: UserDropdownProps) => {
+export const ProfileMenu = ({ user, onLogout, onClick }: ProfileMenuProps) => {
   const { i18n } = useLingui();
 
   return (

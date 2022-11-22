@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { Container } from "@components/Layout/Container";
 import { Footer } from "@components/Layout/Footer";
-import { Navbar } from "@components/Layout/Navbar";
+import { Navbar } from "@components/Layout/Navbar/Navbar";
 
 export const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
