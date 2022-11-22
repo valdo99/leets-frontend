@@ -5,8 +5,8 @@ const iconClass =
   "absolute top-1/2 transform -translate-y-1/2 [&>svg]:max-w-min";
 
 const variantClassName = {
-  solid: "border-base-300 bg-base-300",
-  bordered: "border-base-300 bg-transparent",
+  solid: "border-base-200 bg-base-200",
+  bordered: "border-base-200 bg-transparent",
   ghost: "input-ghost disabled:bg-transparent",
 };
 
@@ -117,7 +117,7 @@ export const Input = forwardRef(
             "border-2",
             "text-base-content",
             "placeholder:text-base-content-neutral",
-            "focus:outline-none focus:border-primary focus:ring-0",
+            "focus:outline-none focus:border-primary/50 focus:ring-0",
             "w-full",
             variantClassName[variant],
             sizeClassName[size],

@@ -18,7 +18,7 @@ export const EditUsernameModal = ({ show, onClose }: BaseModalProps) => {
   const [, setUser] = useAtom(userAtom);
   const router = useRouter();
 
-  const { handleChange, handleSubmit, errors, disabled } = useForm(
+  const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {
       username: "",
     },
@@ -41,22 +41,20 @@ export const EditUsernameModal = ({ show, onClose }: BaseModalProps) => {
 
   return (
     <Modal show={show} onClose={onClose} title={t(i18n)`Update your username`}>
-      <form className="flex flex-col gap-3" onSubmit={onSubmit}>
+      <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <Input
-          placeholder={t(i18n)`Username`}
-          variant="bordered"
+          label={t(i18n)`New Username`}
           name="username"
           onChange={handleChange}
           error={errors.username}
+          value={formData.username}
         />
-
         <Button
           block
           disabled={disabled}
           type="submit"
           color="primary"
           loading={disabled}
-          className="mt-4"
         >
           <Trans>Update</Trans>
         </Button>

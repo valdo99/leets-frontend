@@ -2,9 +2,9 @@ import cx from "classnames";
 import { forwardRef, InputHTMLAttributes, Ref, useId } from "react";
 
 const variantClassName = {
-  solid: "border-base-300 bg-base-300",
+  solid: "border-base-200 bg-base-200",
   bordered:
-    "border-base-300 bg-transparent hover:bg-base-300/40 disabled:bg-transparent",
+    "border-base-200 bg-transparent hover:bg-base-200/40 disabled:bg-transparent",
 };
 
 const colorClassName = {

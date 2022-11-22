@@ -38,13 +38,12 @@ const LoginPage = () => {
   });
 
   return (
-    <div className="mx-auto max-w-sm">
+    <div className="mx-auto max-w-sm pt-10">
       <h1 className="mb-8 text-center text-2xl font-bold">
         <Trans>Get started on Leets</Trans>
       </h1>
       <form className="flex flex-col" onSubmit={onSubmit}>
         <Input
-          variant="bordered"
           label={t(i18n)`Email`}
           name="email"
           onChange={handleChange}
@@ -54,7 +53,6 @@ const LoginPage = () => {
         <Input
           type="password"
           label={t(i18n)`Password`}
-          variant="bordered"
           name="password"
           onChange={handleChange}
           value={formData.password}
@@ -63,7 +61,6 @@ const LoginPage = () => {
         <Input
           type="password"
           label={t(i18n)`Repeat Password`}
-          variant="bordered"
           name="repeatPassword"
           onChange={handleChange}
           value={formData.repeatPassword}
@@ -71,7 +68,6 @@ const LoginPage = () => {
         />
         <Input
           label={t(i18n)`Name`}
-          variant="bordered"
           name="name"
           onChange={handleChange}
           value={formData.name}
@@ -79,7 +75,6 @@ const LoginPage = () => {
         />
         <Input
           label={t(i18n)`Surname`}
-          variant="bordered"
           name="surname"
           onChange={handleChange}
           value={formData.surname}
@@ -87,7 +82,6 @@ const LoginPage = () => {
         />
         <Input
           label={t(i18n)`Username`}
-          variant="bordered"
           name="username"
           onChange={handleChange}
           value={formData.username}
@@ -100,7 +94,6 @@ const LoginPage = () => {
             label={t(i18n)`Accept terms and conditions`}
             checked={formData.terms}
             onChange={handleChange}
-            variant="bordered"
           />
           {errors.terms && (
             <p className="mt-2 text-xs text-error">{errors.terms}</p>
