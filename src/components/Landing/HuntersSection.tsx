@@ -27,7 +27,7 @@ const FeatureCard = ({ title, description, icon }: FeatureCardProps) => {
   );
 };
 
-export const HunterFeatures = () => {
+export const HuntersSection = () => {
   const { i18n } = useLingui();
   const { user } = useUser();
 

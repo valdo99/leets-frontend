@@ -44,7 +44,7 @@ msgstr "Sei un <0>hunter</0> di canzoni?"
 
 #: src/components/Landing/DiscoverSection.tsx
 msgid "Are you bored of the same old music? If you want to give a twist to your playlists, Leets is the perfect place to discover new music daily, by up-and-coming artists."
-msgstr "Sei stanco della solita musica? Se vuoi dare una svolta alle tue playlist, Leets é il posto perfetto per scoprire nuova musica  quotidianamente"
+msgstr "Sei stanco della solita musica? Se vuoi dare una svolta alle tue playlist, Leets é il posto perfetto per scoprire nuova musica di artisti emergenti quotidianamente."
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
@@ -68,6 +68,10 @@ msgstr "Sarai proprio tu a scoprire la nuova hit?"
 #: src/pages/upload.tsx
 msgid "Confirm upload"
 msgstr "Conferma caricamento"
+
+#: src/components/Landing/ContactSection.tsx
+msgid "Contact us"
+msgstr "Contattaci"
 
 #: src/pages/signup.tsx
 msgid "Create account"
@@ -117,6 +121,10 @@ msgstr "Esplora canzoni"
 msgid "Feed"
 msgstr "Feed"
 
+#: src/components/Landing/ContactSection.tsx
+msgid "Get in <0>touch</0>"
+msgstr "Parla con <0>noi</0>"
+
 #: src/components/Layout/Navbar/MobileMenu.tsx
 #: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Modals/WelcomeModal.tsx
@@ -134,6 +142,10 @@ msgstr "Torna in home"
 #: src/pages/about.tsx
 msgid "Has it ever happened to you to discover a little-known artist, who, however, in your opinion deserves much more following? And maybe after a few years all your friends listen to him/her and he/she's even on the radio. We call <0>hunters</0> those people who discover artists before anyone else. If you are a hunter, with Leets you can share your musical discoveries, and one day if the artist is famous you will even have proof that you discovered him/her well in advance!<1/>But keep in mind, only one user can be the hunter of a song. So as soon as you have a new discovery, hurry up and upload it!"
 msgstr "Ti é mai successo di scoprire un artista poco conosciuto, che però secondo te si meriterebbe molto più seguito? E magari dopo alcuni anni tutti i tuoi amici lo ascoltano e lo passano pure in radio. Ecco, noi chiamiamo <0>hunter</0> quelle persone che scoprono gli artisti prima di tutti. Se sei un hunter, con Leets puoi condividere le tue scoperte musicali, e un giorno se l’artista sarà famoso potrai anche avere la prova di averlo scoperto con largo anticipo. Ma tieni a mente, solo un utente può essere l’hunter di un canzone. Quindi appena hai una nuova scoperta, affrettati a caricarla!"
+
+#: src/components/Landing/ContactSection.tsx
+msgid "Have any feedback? Want to collaborate? Or just want to say hi and talk about music? We look forward to hearing from you!"
+msgstr "Hai qualche suggerimento? Ti interessa una collaborazione? O vuoi solo fare due chiacchiere e parlare di musica? Non vediamo l'ora di ascoltarti!"
 
 #: src/pages/upload.tsx
 msgid "Here's a preview of the song you are uploading"
@@ -259,6 +271,10 @@ msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
 msgid "Name"
 msgstr "Nome"
 
+#: src/components/Modals/EditUsernameModal.tsx
+msgid "New Username"
+msgstr "Nuovo nome utente"
+
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
 msgstr "Nessuna canzone piaciuta"
@@ -322,7 +338,7 @@ msgstr "Condividi"
 
 #: src/components/Landing/Hero.tsx
 msgid "Share your musical discoveries. Promote emergent artists. Discover new music."
-msgstr "Condividi le tue scoperte musicali. Promuovi artisti emergenti. Scopri nuova musica"
+msgstr "Condividi le tue scoperte musicali. Promuovi artisti emergenti. Scopri nuova musica."
 
 #: src/components/Landing/HuntersSection.tsx
 msgid "Share your new musical discoveries with everyone"
@@ -410,7 +426,6 @@ msgstr "Carica una nuova canzone"
 msgid "Upload song"
 msgstr "Carica canzone"
 
-#: src/components/Modals/EditUsernameModal.tsx
 #: src/pages/signup.tsx
 msgid "Username"
 msgstr "Nome utente"

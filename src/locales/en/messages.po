@@ -64,6 +64,10 @@ msgstr "Be the hunter of the next hit"
 msgid "Confirm upload"
 msgstr "Confirm upload"
 
+#: src/components/Landing/ContactSection.tsx
+msgid "Contact us"
+msgstr "Contact us"
+
 #: src/pages/signup.tsx
 msgid "Create account"
 msgstr "Create account"
@@ -112,6 +116,10 @@ msgstr "Explore songs"
 msgid "Feed"
 msgstr "Feed"
 
+#: src/components/Landing/ContactSection.tsx
+msgid "Get in <0>touch</0>"
+msgstr "Get in <0>touch</0>"
+
 #: src/components/Layout/Navbar/MobileMenu.tsx
 #: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Modals/WelcomeModal.tsx
@@ -129,6 +137,10 @@ msgstr "Go home"
 #: src/pages/about.tsx
 msgid "Has it ever happened to you to discover a little-known artist, who, however, in your opinion deserves much more following? And maybe after a few years all your friends listen to him/her and he/she's even on the radio. We call <0>hunters</0> those people who discover artists before anyone else. If you are a hunter, with Leets you can share your musical discoveries, and one day if the artist is famous you will even have proof that you discovered him/her well in advance!<1/>But keep in mind, only one user can be the hunter of a song. So as soon as you have a new discovery, hurry up and upload it!"
 msgstr "Has it ever happened to you to discover a little-known artist, who, however, in your opinion deserves much more following? And maybe after a few years all your friends listen to him/her and he/she's even on the radio. We call <0>hunters</0> those people who discover artists before anyone else. If you are a hunter, with Leets you can share your musical discoveries, and one day if the artist is famous you will even have proof that you discovered him/her well in advance!<1/>But keep in mind, only one user can be the hunter of a song. So as soon as you have a new discovery, hurry up and upload it!"
+
+#: src/components/Landing/ContactSection.tsx
+msgid "Have any feedback? Want to collaborate? Or just want to say hi and talk about music? We look forward to hearing from you!"
+msgstr "Have any feedback? Want to collaborate? Or just want to say hi and talk about music? We look forward to hearing from you!"
 
 #: src/pages/upload.tsx
 msgid "Here's a preview of the song you are uploading"
@@ -253,6 +265,10 @@ msgstr "Monthly listeners the artist had when hunted"
 #: src/pages/signup.tsx
 msgid "Name"
 msgstr "Name"
+
+#: src/components/Modals/EditUsernameModal.tsx
+msgid "New Username"
+msgstr "New Username"
 
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
@@ -405,7 +421,6 @@ msgstr "Upload new song"
 msgid "Upload song"
 msgstr "Upload song"
 
-#: src/components/Modals/EditUsernameModal.tsx
 #: src/pages/signup.tsx
 msgid "Username"
 msgstr "Username"
