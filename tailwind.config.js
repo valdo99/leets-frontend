@@ -13,6 +13,7 @@ module.exports = {
         main: ["Manrope", ...fontFamily.sans],
       },
       screens: {
+        xxs: "380px",
         xs: "520px",
       },
       colors: {
@@ -46,6 +47,7 @@ module.exports = {
           neutral: "#777777",
           "--btn-text-case": "none",
           "--rounded-btn": "0.75rem",
+          "--rounded-box": "1rem",
         },
       },
     ],

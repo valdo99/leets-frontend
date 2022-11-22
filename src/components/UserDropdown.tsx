@@ -68,14 +68,19 @@ const DropdownItem = ({
 interface UserDropdownProps {
   user: User;
   onLogout: () => void;
+  onClick?: () => void;
 }
 
-export const UserDropdown = ({ user, onLogout }: UserDropdownProps) => {
+export const UserDropdown = ({
+  user,
+  onLogout,
+  onClick,
+}: UserDropdownProps) => {
   const { i18n } = useLingui();
 
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="flex items-center gap-2">
+      <Menu.Button className="flex items-center gap-2" onClick={onClick}>
         <Avatar user={user} onlyAvatar />
         <span className="hidden font-bold xs:block">{user.username}</span>
       </Menu.Button>

@@ -11,16 +11,17 @@ import { dynamicActivateLanguage } from "locales/locale-provider";
 
 interface LanguageMenuProps {
   className?: string;
+  onClick?: () => void;
 }
 
-export const LanguageMenu = ({ className }: LanguageMenuProps) => {
+export const LanguageMenu = ({ onClick, className }: LanguageMenuProps) => {
   const changeLanguage = (lng: Locale) => {
     dynamicActivateLanguage(lng);
   };
 
   return (
     <Menu as="div" className={cx("relative", className)}>
-      <Menu.Button className="block">
+      <Menu.Button className="block" onClick={onClick}>
         <GlobeIcon className="h-6 w-6" />
       </Menu.Button>
       <Transition
@@ -34,7 +35,7 @@ export const LanguageMenu = ({ className }: LanguageMenuProps) => {
       >
         <Menu.Items
           className={cx(
-            "absolute -left-2 sm:-right-2 sm:left-auto z-20 mt-4",
+            "absolute -right-2 z-20 mt-4",
             "flex flex-col gap-1",
             "p-2",
             "rounded-btn",
