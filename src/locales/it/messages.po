@@ -58,6 +58,7 @@ msgid "Are you new here?"
 msgstr "Sei nuovo qui?"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/Navbar.tsx
 msgid "Artists"
 msgstr "Artisti"
 
@@ -118,6 +119,7 @@ msgid "Explore songs"
 msgstr "Esplora canzoni"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/Navbar.tsx
 msgid "Feed"
 msgstr "Feed"
 
@@ -176,6 +178,7 @@ msgid "Hunted on {0}"
 msgstr "Scoperta il {0}"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/Navbar.tsx
 msgid "Hunters"
 msgstr "Hunter"
 
