@@ -305,11 +305,11 @@ msgstr "Supporta gli artisti emergenti che ami e aiutali a crescere"
 
 #: src/components/Landing/HuntersSection.tsx
 msgid "Proof"
-msgstr "Prova"
+msgstr "Dimostra"
 
 #: src/components/Landing/HuntersSection.tsx
 msgid "Proof that you have discovered an artist at a certain date"
-msgstr "Prova che hai scoperto un artista ad una certa data"
+msgstr "Dimostra che hai scoperto un artista ad una certa data"
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Remember that we do <0>NOT</0> own any copyright of images and song/artist information. All data is provided by <1>Spotify</1>"
