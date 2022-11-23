@@ -1,5 +1,9 @@
+import { t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
+import cx from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 import { Container } from "@components/Layout/Container";
@@ -7,7 +11,29 @@ import { Container } from "@components/Layout/Container";
 import { MobileMenu } from "./MobileMenu";
 import { RightMenu } from "./RightMenu";
 
+interface NavItemProps {
+  text: string;
+  href: string;
+}
+
+const NavItem = ({ text, href }: NavItemProps) => {
+  const router = useRouter();
+
+  return (
+    <Link href={href}>
+      <a
+        className={cx("rounded-btn py-2 px-4 font-medium hover:bg-base-200", {
+          "bg-base-200": router.pathname === href,
+        })}
+      >
+        {text}
+      </a>
+    </Link>
+  );
+};
+
 export const Navbar = () => {
+  const { i18n } = useLingui();
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -42,21 +68,9 @@ export const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="hidden gap-2 md:flex">
-            <Link href={"/feed"}>
-              <a className="rounded-btn py-2 px-4 font-medium hover:bg-base-200">
-                Feed
-              </a>
-            </Link>
-            <Link href={"/hunters"}>
-              <a className="rounded-btn py-2 px-4 font-medium hover:bg-base-200">
-                Hunters
-              </a>
-            </Link>
-            <Link href={"/artists"}>
-              <a className="rounded-btn py-2 px-4 font-medium hover:bg-base-200">
-                Artists
-              </a>
-            </Link>
+            <NavItem text={t(i18n)`Feed`} href="/feed" />
+            <NavItem text={t(i18n)`Hunters`} href="/hunters" />
+            <NavItem text={t(i18n)`Artists`} href="/artists" />
           </div>
 
           {/* Right Menu */}

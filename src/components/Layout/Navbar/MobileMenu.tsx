@@ -1,11 +1,40 @@
 import { Transition } from "@headlessui/react";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
+import cx from "classnames";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 
 import { Button } from "@components/Basic/Button";
 import { Container } from "@components/Layout/Container";
 import { useUser } from "@providers/AuthProvider";
+
+interface NavItemProps {
+  text: string;
+  href: string;
+  onClick?: () => void;
+}
+
+const NavItem = ({ text, href, onClick }: NavItemProps) => {
+  const router = useRouter();
+
+  return (
+    <Link href={href}>
+      <a
+        onClick={onClick}
+        className={cx(
+          "rounded-btn flex items-center py-2 px-4 font-medium hover:bg-base-200",
+          {
+            "bg-base-200": router.pathname === href,
+          }
+        )}
+      >
+        {text}
+      </a>
+    </Link>
+  );
+};
 
 interface MobileMenuProps {
   showMenu: boolean;
@@ -13,6 +42,7 @@ interface MobileMenuProps {
 }
 
 export const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
+  const { i18n } = useLingui();
   const { user } = useUser();
 
   const closeMenu = () => setShowMenu(false);
@@ -35,33 +65,17 @@ export const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
       <div className="rounded-b-box absolute top-full z-30 w-full bg-base-100 pb-6 md:hidden">
         <Container>
           <nav className="flex flex-col gap-y-2">
-            <Link href="/feed">
-              <a
-                role="none"
-                onClick={closeMenu}
-                className="rounded-btn flex items-center py-2 px-4 font-medium hover:bg-base-200"
-              >
-                <Trans>Feed</Trans>
-              </a>
-            </Link>
-            <Link href="/hunters">
-              <a
-                role="none"
-                onClick={closeMenu}
-                className="rounded-btn flex items-center py-2 px-4 font-medium hover:bg-base-200"
-              >
-                <Trans>Hunters</Trans>
-              </a>
-            </Link>
-            <Link href="/artists">
-              <a
-                role="none"
-                onClick={closeMenu}
-                className="rounded-btn flex items-center py-2 px-4 font-medium hover:bg-base-200"
-              >
-                <Trans>Artists</Trans>
-              </a>
-            </Link>
+            <NavItem text={t(i18n)`Feed`} href="/feed" onClick={closeMenu} />
+            <NavItem
+              text={t(i18n)`Hunters`}
+              href="/hunters"
+              onClick={closeMenu}
+            />
+            <NavItem
+              text={t(i18n)`Artists`}
+              href="/artists"
+              onClick={closeMenu}
+            />
           </nav>
           <hr className="my-4 border-t border-t-base-200 xxs:hidden" />
           <div className="flex gap-2 xxs:hidden">
