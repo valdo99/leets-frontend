@@ -151,7 +151,9 @@ export const SongCard = ({
                 </button>
               ) : (
                 <Link href="/signup">
-                  <HeartOutline className="text-2xl" />
+                  <a>
+                    <HeartOutline className="text-2xl" />
+                  </a>
                 </Link>
               )}
 
