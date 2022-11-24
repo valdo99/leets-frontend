@@ -61,10 +61,10 @@ export const HuntersSection = () => {
           icon={<TrophyIcon />}
         />
         <FeatureCard
-          title={t(i18n)`Proof`}
+          title={t(i18n)`Prove`}
           description={t(
             i18n
-          )`Proof that you have discovered an artist at a certain date`}
+          )`Prove that you have discovered an artist at a certain date`}
           icon={<DocumentIcon />}
         />
       </div>

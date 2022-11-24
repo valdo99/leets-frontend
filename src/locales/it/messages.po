@@ -313,11 +313,11 @@ msgid "Promote the emergent artists you love and help them grow"
 msgstr "Supporta gli artisti emergenti che ami e aiutali a crescere"
 
 #: src/components/Landing/HuntersSection.tsx
-msgid "Proof"
+msgid "Prove"
 msgstr "Dimostra"
 
 #: src/components/Landing/HuntersSection.tsx
-msgid "Proof that you have discovered an artist at a certain date"
+msgid "Prove that you have discovered an artist at a certain date"
 msgstr "Dimostra che hai scoperto un artista ad una certa data"
 
 #: src/components/Modals/WelcomeModal.tsx

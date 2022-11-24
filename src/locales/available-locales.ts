@@ -7,7 +7,7 @@ const isAvailableLocale = (locale: string): locale is Locale => {
   return found !== undefined;
 };
 
-const DEFAULT_LOCALE: Locale = "en";
+const DEFAULT_LOCALE: Locale = "it";
 
 export { availableLocales, DEFAULT_LOCALE, isAvailableLocale };
 export type { Locale };
