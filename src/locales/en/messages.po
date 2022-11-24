@@ -161,6 +161,8 @@ msgid "Hunted"
 msgstr "Hunted"
 
 #: src/components/Song/SongCard.tsx
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
 msgid "Hunted by"
 msgstr "Hunted by"
 
@@ -218,6 +220,7 @@ msgid "Liked"
 msgstr "Liked"
 
 #: src/components/Modals/PostUserLikes.tsx
+#: src/pages/song/[song].tsx
 msgid "Likes"
 msgstr "Likes"
 
@@ -230,6 +233,7 @@ msgstr "Listen on Spotify"
 #: src/components/Modals/PostUserLikes.tsx
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
+#: src/pages/song/[song].tsx
 msgid "Load more"
 msgstr "Load more"
 
@@ -285,6 +289,11 @@ msgstr "No uploaded songs"
 #: src/pages/signup.tsx
 msgid "Password"
 msgstr "Password"
+
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
+msgid "Play count"
+msgstr "Play count"
 
 #: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Profile"
@@ -397,6 +406,11 @@ msgstr "Top Hunters"
 #: src/pages/artist/[id].tsx
 msgid "Total likes"
 msgstr "Total likes"
+
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
+msgid "Total times the song was played when hunted"
+msgstr "Total times the song was played when hunted"
 
 #: src/components/Modals/EditUsernameModal.tsx
 msgid "Update"
