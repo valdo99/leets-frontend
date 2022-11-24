@@ -19,6 +19,10 @@ export interface Post extends Entity {
   playcount?: number;
 }
 
+interface isPostLiked {
+  isLiked: boolean;
+}
+
 type FeedQueryParams = {
   date?: string;
   page?: number;
@@ -70,6 +74,11 @@ export class PostService extends ApiService {
       {
         id: spotifyId,
       }
+    );
+  }
+  async isPostLiked(postId: Id) {
+    return await this.http.get<isPostLiked>(
+      `${this.baseUrl}/post/is-liked/${postId}`
     );
   }
 }

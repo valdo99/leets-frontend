@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Trans } from "@lingui/macro";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useMutation, useQuery } from "@tanstack/react-query";
 import cx from "classnames";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
@@ -15,11 +15,19 @@ import { Button } from "@components/Basic/Button";
 import { Spinner } from "@components/Basic/Spinner";
 import { InfoTooltip } from "@components/Basic/Tooltip";
 import { Player } from "@components/Song/Player";
-import { useApiClient } from "@providers/AuthProvider";
+import HeartOutline from "@icons/heart-outline.svg";
+import HeartSolid from "@icons/heart-solid.svg";
+import { useApiClient, useUser } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 
 const SongPageInner = ({ post }: { post: Post }) => {
   const apiClient = useApiClient();
+  const { user } = useUser();
+
+  const { data: postLike, refetch: likeRefetch } = useQuery(
+    ["isSongLikes", post._id],
+    () => apiClient.posts.isPostLiked(post._id).then((data) => data.data)
+  );
 
   const {
     data: likes,
@@ -27,6 +35,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
+    refetch,
   } = useInfiniteQuery(
     ["post-likes-list", post._id],
     ({ pageParam }) => apiClient.posts.getLikes(post._id, { page: pageParam }),
@@ -40,6 +49,30 @@ const SongPageInner = ({ post }: { post: Post }) => {
       },
     }
   );
+
+  const { mutate: likeSong } = useMutation(
+    () => apiClient.posts.like(post._id),
+    {
+      onSuccess: () => {
+        refetch();
+        likeRefetch();
+      },
+    }
+  );
+
+  const { mutate: unlikeSong } = useMutation(
+    () => apiClient.posts.unlike(post._id),
+    {
+      onSuccess: () => {
+        refetch();
+        likeRefetch();
+      },
+    }
+  );
+
+  const toggleLike = () => {
+    postLike?.isLiked ? unlikeSong() : likeSong();
+  };
 
   return (
     <>
@@ -84,12 +117,31 @@ const SongPageInner = ({ post }: { post: Post }) => {
                 </Link>
               </div>
             </div>
-            <Player
-              id={post._id}
-              previewTrackUrl={post.preview_url}
-              className="-ml-1 mt-4 "
-              playerClassName="w-12 h-12 xs:w-15 xs:h-15"
-            />
+            <div className="flex items-center">
+              <Player
+                id={post._id}
+                previewTrackUrl={post.preview_url}
+                className="-ml-1 mt-4 "
+                playerClassName="w-12 h-12 xs:w-15 xs:h-15"
+              />
+              <div className="ml-2 mt-4">
+                {user ? (
+                  <button onClick={toggleLike} className="cursor-pointer">
+                    {postLike?.isLiked ? (
+                      <HeartSolid className="text-4xl" />
+                    ) : (
+                      <HeartOutline className="text-4xl" />
+                    )}
+                  </button>
+                ) : (
+                  <Link href="/signup">
+                    <a>
+                      <HeartOutline className="text-2xl" />
+                    </a>
+                  </Link>
+                )}
+              </div>
+            </div>
             {/* Play count*/}
             <div className="rounded-btn mt-4 hidden w-fit bg-base-200 py-2 px-4 text-sm sm:text-base md:flex">
               <span className="font-bold">
