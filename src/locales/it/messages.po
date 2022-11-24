@@ -166,6 +166,8 @@ msgid "Hunted"
 msgstr "Scoperte"
 
 #: src/components/Song/SongCard.tsx
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
 msgid "Hunted by"
 msgstr "Scoperta da"
 
@@ -223,6 +225,7 @@ msgid "Liked"
 msgstr "Mi piace"
 
 #: src/components/Modals/PostUserLikes.tsx
+#: src/pages/song/[song].tsx
 msgid "Likes"
 msgstr "Mi piace"
 
@@ -235,6 +238,7 @@ msgstr "Ascolta su Spotify"
 #: src/components/Modals/PostUserLikes.tsx
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
+#: src/pages/song/[song].tsx
 msgid "Load more"
 msgstr "Carica di più"
 
@@ -290,6 +294,11 @@ msgstr "Nessuna canzone caricata"
 #: src/pages/signup.tsx
 msgid "Password"
 msgstr "Password"
+
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
+msgid "Play count"
+msgstr "Riproduzioni"
 
 #: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Profile"
@@ -402,6 +411,11 @@ msgstr "Migliori Hunters"
 #: src/pages/artist/[id].tsx
 msgid "Total likes"
 msgstr "Mi piace totali"
+
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
+msgid "Total times the song was played when hunted"
+msgstr "Numero di riproduzioni totali al momento del caricamento su leets"
 
 #: src/components/Modals/EditUsernameModal.tsx
 msgid "Update"

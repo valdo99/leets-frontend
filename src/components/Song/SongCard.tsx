@@ -72,7 +72,11 @@ export const SongCard = ({
               {post.artist.name}
             </a>
           </Link>
-          <span className="truncate text-xl font-bold">{post.title}</span>
+          <Link href={`/song/${post._id}`}>
+            <a className="truncate text-xl font-bold hover:text-secondary-content/60">
+              {post.title}
+            </a>
+          </Link>{" "}
           <div className="flex items-center gap-2">
             {post.preview_url ? (
               <Player

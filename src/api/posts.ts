@@ -16,6 +16,7 @@ export interface Post extends Entity {
   likes: number;
   isLiked: number;
   partialLikes: number;
+  playcount?: number;
 }
 
 type FeedQueryParams = {
@@ -29,6 +30,10 @@ interface UserLike extends Entity {
 }
 
 export class PostService extends ApiService {
+  async read(id: Id) {
+    return await this.http.get<Post>(`${this.baseUrl}/post/${id}`);
+  }
+
   async list() {
     return await this.http.get<Post[]>(this.baseUrl);
   }
