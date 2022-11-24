@@ -144,7 +144,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
         </div>
       ) : (
         <>
-          <h3 className="mt-4 mb-3 text-2xl font-bold">
+          <h3 className="mt-4 mb-3 text-lg font-bold">
             {" "}
             <Trans>Likes</Trans> {` (${likes?.pages[0].pagination.total})`}
           </h3>
