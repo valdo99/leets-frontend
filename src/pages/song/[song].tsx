@@ -136,7 +136,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
                 ) : (
                   <Link href="/signup">
                     <a>
-                      <HeartOutline className="text-2xl" />
+                      <HeartOutline className="text-4xl" />
                     </a>
                   </Link>
                 )}
