@@ -234,7 +234,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
                   onChange={handleChange}
                   error={errors.comment}
                   className="flex-1"
-                  label={t(i18n)`Comment this post`}
+                  label={t(i18n)`Comment this song`}
                   rows={4}
                 />
                 <Button disabled={disabled} loading={disabled} className="mt-4">
