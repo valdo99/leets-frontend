@@ -7,7 +7,7 @@ import { formatDate } from "@utils/dates";
 import { stringToColour } from "@utils/stringToColor";
 
 interface AvatarProps {
-  user: Pick<User, "name" | "surname" | "username" | "createdAt">;
+  user: Pick<User, "username" | "createdAt">;
   className?: string;
   onlyAvatar?: boolean;
   joinDate?: boolean;
