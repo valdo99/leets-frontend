@@ -2,6 +2,7 @@ import { Locale } from "locales/available-locales";
 
 import { ArtistService } from "./artists";
 import { AuthService } from "./auth";
+import { CommentService } from "./comments";
 import { ForbiddenError, UnauthorizedError, ValidationError } from "./errors";
 import { Http } from "./http";
 import { PostService } from "./posts";
@@ -22,6 +23,7 @@ export class ApiClient {
   users: UserService;
   posts: PostService;
   artists: ArtistService;
+  comments: CommentService;
 
   constructor(options: Options = {}) {
     this.options = options;
@@ -37,6 +39,7 @@ export class ApiClient {
     this.users = new UserService(this, "/users");
     this.posts = new PostService(this, "/posts");
     this.artists = new ArtistService(this, "/artists");
+    this.comments = new CommentService(this, "/comments");
   }
 
   handleResponseError(errorRes: ApiErrorResponse) {
