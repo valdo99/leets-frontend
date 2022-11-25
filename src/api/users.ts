@@ -5,8 +5,6 @@ import { Post } from "./posts";
 import { Entity } from "./types";
 
 export interface User extends Entity {
-  name: string;
-  surname: string;
   email: string;
   username: string;
   isAdmin: boolean;
@@ -19,15 +17,13 @@ interface ChangePasswordBody {
   repeatPassword: string;
 }
 
-interface UserCreateBody
-  extends Pick<User, "name" | "surname" | "email" | "username"> {
+interface UserCreateBody extends Pick<User, "email" | "username"> {
   terms: boolean;
   password: string;
   repeatPassword: string;
 }
 
-export interface TopHunter
-  extends Pick<User, "name" | "surname" | "username" | "createdAt"> {
+export interface TopHunter extends Pick<User, "username" | "createdAt"> {
   points: number;
 }
 
