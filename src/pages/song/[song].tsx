@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useInfiniteQuery, useMutation, useQuery } from "@tanstack/react-query";
 import cx from "classnames";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -7,20 +8,27 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
+import { toast } from "react-toastify";
 
 import { ApiClient } from "@api/client";
 import { Post } from "@api/posts";
 import { Avatar } from "@components/Basic/Avatar";
 import { Button } from "@components/Basic/Button";
 import { Spinner } from "@components/Basic/Spinner";
+import { TabItem, Tabs } from "@components/Basic/Tabs";
+import { Textarea } from "@components/Basic/Textarea";
 import { InfoTooltip } from "@components/Basic/Tooltip";
 import { Player } from "@components/Song/Player";
+import { useForm } from "@hooks/useForm";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 
 const SongPageInner = ({ post }: { post: Post }) => {
+  const { i18n } = useLingui();
+  const router = useRouter();
+
   const apiClient = useApiClient();
   const { user } = useUser();
 
@@ -50,6 +58,46 @@ const SongPageInner = ({ post }: { post: Post }) => {
     }
   );
 
+  const {
+    data: comments,
+    isLoading: areCommentsLoading,
+    fetchNextPage: fetchNextCommentPage,
+    hasNextPage: hasNextCommentPage,
+    isFetchingNextPage: isFetchingNextCommentPage,
+    refetch: refetchComments,
+  } = useInfiniteQuery(
+    ["song-comments-list", post._id],
+    ({ pageParam }) => apiClient.comments.list(post._id, { page: pageParam }),
+    {
+      getNextPageParam: ({ pagination }) => {
+        const { page, perPage, total } = pagination;
+        if ((page + 1) * perPage < total) {
+          return page + 1;
+        }
+        return undefined;
+      },
+    }
+  );
+
+  const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
+    {
+      comment: "",
+    },
+    {
+      resetOnSuccess: true,
+    }
+  );
+
+  const onSubmit = handleSubmit(async (data) => {
+    if (user) {
+      await apiClient.comments.save(post._id, data);
+      refetchComments();
+      toast.success(t(i18n)`Comment posted successfully`);
+    } else {
+      router.push("/login");
+    }
+  });
+
   const { mutate: likeSong } = useMutation(
     () => apiClient.posts.like(post._id),
     {
@@ -73,6 +121,132 @@ const SongPageInner = ({ post }: { post: Post }) => {
   const toggleLike = () => {
     postLike?.isLiked ? unlikeSong() : likeSong();
   };
+
+  const tabItems: TabItem[] = [
+    {
+      label: t(i18n)`Likes`,
+      content: (
+        <>
+          {isLoading ? (
+            <div className="flex justify-center py-32">
+              <Spinner className="h-10 w-10" />
+            </div>
+          ) : (
+            <>
+              <h3 className="mt-4 mb-3 text-lg font-bold">
+                {" "}
+                <Trans>Likes</Trans> {` (${likes?.pages[0].pagination.total})`}
+              </h3>
+              <div className="flex w-full flex-wrap  gap-3">
+                {likes?.pages.map((page, index) => (
+                  <Fragment key={index}>
+                    {page.data.map((like) => (
+                      <div
+                        key={like._id}
+                        className="rounded-btn flex w-full items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content md:w-fit md:min-w-[32%] xs:gap-4 xs:px-3"
+                      >
+                        <Avatar user={like.user} joinDate={false} />
+                      </div>
+                    ))}
+                  </Fragment>
+                ))}
+              </div>
+              <div
+                className={cx(" flex  items-center justify-center", {
+                  "mt-8 h-10": hasNextPage,
+                })}
+              >
+                {isFetchingNextPage ? (
+                  <Spinner className="h-10 w-10" />
+                ) : (
+                  <>
+                    {hasNextPage && (
+                      <Button onClick={() => fetchNextPage()}>
+                        <Trans>Load more</Trans>
+                      </Button>
+                    )}
+                  </>
+                )}
+              </div>
+            </>
+          )}
+        </>
+      ),
+    },
+    {
+      label: t(i18n)`Comments`,
+      content: (
+        <div className="">
+          {areCommentsLoading ? (
+            <div className="flex justify-center py-32">
+              <Spinner className="h-10 w-10" />
+            </div>
+          ) : (
+            <>
+              <h3 className="mt-4 mb-3 text-lg font-bold">
+                {" "}
+                <Trans>Comments</Trans>{" "}
+                {` (${comments?.pages[0].pagination.total})`}
+              </h3>
+
+              <div className="flex w-full flex-wrap  gap-3">
+                {comments?.pages.map((page, index) => (
+                  <Fragment key={index}>
+                    {page.data.map((comment) => (
+                      <div
+                        key={comment._id}
+                        className="rounded-btn w-full flex-col items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content  xs:gap-4 xs:px-3"
+                      >
+                        <Avatar user={comment.user} joinDate={false} />
+                        <p className="pl-12">{comment.comment}</p>
+                      </div>
+                    ))}
+                  </Fragment>
+                ))}
+              </div>
+
+              {/* Load more button */}
+              <div
+                className={cx(" flex  items-center justify-center", {
+                  "mt-8 h-10": hasNextCommentPage,
+                })}
+              >
+                {isFetchingNextCommentPage ? (
+                  <Spinner className="h-10 w-10" />
+                ) : (
+                  <>
+                    {hasNextCommentPage && (
+                      <Button onClick={() => fetchNextCommentPage()}>
+                        <Trans>Load more</Trans>
+                      </Button>
+                    )}
+                  </>
+                )}
+              </div>
+
+              {/* New Comment form */}
+              <form className="mt-4" onSubmit={onSubmit}>
+                <Textarea
+                  placeholder={t(i18n)`Comment`}
+                  block
+                  name="comment"
+                  value={formData.comment}
+                  onChange={handleChange}
+                  error={errors.comment}
+                  className="flex-1"
+                  label={t(i18n)`Comment this song`}
+                  rows={4}
+                />
+                <Button disabled={disabled} loading={disabled} className="mt-4">
+                  <Trans>Comment</Trans>
+                </Button>
+              </form>
+            </>
+          )}
+        </div>
+      ),
+    },
+  ];
 
   return (
     <>
@@ -190,49 +364,9 @@ const SongPageInner = ({ post }: { post: Post }) => {
           />
         </span>
       </div>
-      {isLoading ? (
-        <div className="flex justify-center py-32">
-          <Spinner className="h-10 w-10" />
-        </div>
-      ) : (
-        <>
-          <h3 className="mt-4 mb-3 text-lg font-bold">
-            {" "}
-            <Trans>Likes</Trans> {` (${likes?.pages[0].pagination.total})`}
-          </h3>
-          <div className="flex w-full flex-wrap  gap-3">
-            {likes?.pages.map((page, index) => (
-              <Fragment key={index}>
-                {page.data.map((like) => (
-                  <div
-                    key={like._id}
-                    className="rounded-btn flex w-full items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content md:w-fit md:min-w-[32%] xs:gap-4 xs:px-3"
-                  >
-                    <Avatar user={like.user} joinDate={false} />
-                  </div>
-                ))}
-              </Fragment>
-            ))}
-          </div>
-          <div
-            className={cx(" flex  items-center justify-center", {
-              "mt-8 h-10": hasNextPage,
-            })}
-          >
-            {isFetchingNextPage ? (
-              <Spinner className="h-10 w-10" />
-            ) : (
-              <>
-                {hasNextPage && (
-                  <Button onClick={() => fetchNextPage()}>
-                    <Trans>Load more</Trans>
-                  </Button>
-                )}
-              </>
-            )}
-          </div>
-        </>
-      )}
+      <div className="mt-8">
+        <Tabs items={tabItems} />
+      </div>
     </>
   );
 };

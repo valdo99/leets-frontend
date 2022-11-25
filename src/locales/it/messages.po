@@ -66,6 +66,24 @@ msgstr "Artisti"
 msgid "Be the hunter of the next hit"
 msgstr "Sarai proprio tu a scoprire la nuova hit?"
 
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
+msgid "Comment"
+msgstr "Commenta"
+
+#: src/pages/song/[song].tsx
+msgid "Comment posted successfully"
+msgstr "Commentato"
+
+#: src/pages/song/[song].tsx
+msgid "Comment this song"
+msgstr "Commenta questa canzone"
+
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
+msgid "Comments"
+msgstr "Commenti"
+
 #: src/pages/upload.tsx
 msgid "Confirm upload"
 msgstr "Conferma caricamento"
@@ -226,6 +244,7 @@ msgstr "Mi piace"
 
 #: src/components/Modals/PostUserLikes.tsx
 #: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
 msgid "Likes"
 msgstr "Mi piace"
 
@@ -238,6 +257,7 @@ msgstr "Ascolta su Spotify"
 #: src/components/Modals/PostUserLikes.tsx
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
+#: src/pages/song/[song].tsx
 #: src/pages/song/[song].tsx
 msgid "Load more"
 msgstr "Carica di più"
@@ -273,10 +293,6 @@ msgstr "Ascoltatori mensili"
 #: src/pages/artist/[id].tsx
 msgid "Monthly listeners the artist had when hunted"
 msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
-
-#: src/pages/signup.tsx
-msgid "Name"
-msgstr "Nome"
 
 #: src/components/Modals/EditUsernameModal.tsx
 msgid "New Username"
@@ -376,10 +392,6 @@ msgstr "Link spotify della canzone"
 #: src/components/Layout/Footer.tsx
 msgid "Support"
 msgstr "Assistenza"
-
-#: src/pages/signup.tsx
-msgid "Surname"
-msgstr "Cognome"
 
 #: src/components/Landing/Hero.tsx
 msgid "The hub for music lovers"

@@ -20,8 +20,6 @@ const LoginPage = () => {
       email: "",
       password: "",
       repeatPassword: "",
-      name: "",
-      surname: "",
       username: "",
       terms: false,
     },
@@ -51,6 +49,13 @@ const LoginPage = () => {
           error={errors.email}
         />
         <Input
+          label={t(i18n)`Username`}
+          name="username"
+          onChange={handleChange}
+          value={formData.username}
+          error={errors.username}
+        />
+        <Input
           type="password"
           label={t(i18n)`Password`}
           name="password"
@@ -65,27 +70,6 @@ const LoginPage = () => {
           onChange={handleChange}
           value={formData.repeatPassword}
           error={errors.repeatPassword}
-        />
-        <Input
-          label={t(i18n)`Name`}
-          name="name"
-          onChange={handleChange}
-          value={formData.name}
-          error={errors.name}
-        />
-        <Input
-          label={t(i18n)`Surname`}
-          name="surname"
-          onChange={handleChange}
-          value={formData.surname}
-          error={errors.surname}
-        />
-        <Input
-          label={t(i18n)`Username`}
-          name="username"
-          onChange={handleChange}
-          value={formData.username}
-          error={errors.username}
         />
         <div className="mt-4 flex flex-col">
           <Checkbox
