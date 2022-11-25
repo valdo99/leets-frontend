@@ -8,6 +8,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
+import { toast } from "react-toastify";
 
 import { ApiClient } from "@api/client";
 import { Post } from "@api/posts";
@@ -23,7 +24,6 @@ import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
-import { toast } from "react-toastify";
 
 const SongPageInner = ({ post }: { post: Post }) => {
   const { i18n } = useLingui();
