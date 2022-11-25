@@ -124,7 +124,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
 
   const tabItems: TabItem[] = [
     {
-      label: t(i18n)`Likes`,
+      label: t(i18n)`Likes` + ` (${likes?.pages[0].pagination.total})`,
       content: (
         <>
           {isLoading ? (
@@ -174,7 +174,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
       ),
     },
     {
-      label: t(i18n)`Comments`,
+      label: t(i18n)`Comments` + ` (${comments?.pages[0].pagination.total})`,
       content: (
         <div className="">
           {areCommentsLoading ? (
