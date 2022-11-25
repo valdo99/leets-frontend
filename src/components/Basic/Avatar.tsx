@@ -27,9 +27,8 @@ export const Avatar = ({
         style={{ backgroundColor: color }}
         className="inline-flex h-10 w-10 items-center justify-center rounded-full text-lg text-primary-content"
       >
-        <span className="uppercase">
-          {user.name.charAt(0)}
-          {user.surname.charAt(0)}
+        <span className="font-semibold uppercase">
+          {user.username.charAt(0)}
         </span>
       </div>
       {!onlyAvatar && (
