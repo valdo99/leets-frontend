@@ -195,7 +195,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
                     {page.data.map((comment) => (
                       <div
                         key={comment._id}
-                        className="rounded-btn w-full flex-col items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content md:w-fit md:min-w-[32%] xs:gap-4 xs:px-3"
+                        className="rounded-btn w-full flex-col items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content  xs:gap-4 xs:px-3"
                       >
                         <Avatar user={comment.user} joinDate={false} />
                         <p className="pl-12">{comment.comment}</p>
