@@ -29,7 +29,7 @@ type FeedQueryParams = {
   limit?: number;
 };
 
-interface UserLike extends Entity {
+export interface UserLike extends Entity {
   user: TopHunter;
 }
 
