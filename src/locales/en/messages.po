@@ -269,10 +269,6 @@ msgstr "Monthly listeners"
 msgid "Monthly listeners the artist had when hunted"
 msgstr "Monthly listeners the artist had when hunted"
 
-#: src/pages/signup.tsx
-msgid "Name"
-msgstr "Name"
-
 #: src/components/Modals/EditUsernameModal.tsx
 msgid "New Username"
 msgstr "New Username"
@@ -371,10 +367,6 @@ msgstr "Spotify song url"
 #: src/components/Layout/Footer.tsx
 msgid "Support"
 msgstr "Support"
-
-#: src/pages/signup.tsx
-msgid "Surname"
-msgstr "Surname"
 
 #: src/components/Landing/Hero.tsx
 msgid "The hub for music lovers"
