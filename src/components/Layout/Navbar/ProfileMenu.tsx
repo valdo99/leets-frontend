@@ -1,6 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import { t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
+import { useQuery } from "@tanstack/react-query";
 import cx from "classnames";
 import Link from "next/link";
 import {
@@ -12,6 +13,7 @@ import {
 } from "react";
 
 import { User } from "@api/users";
+import { useApiClient } from "@providers/AuthProvider";
 
 import { Avatar } from "../../Basic/Avatar";
 
@@ -41,11 +43,13 @@ interface DropdownItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   as?: ElementType;
   text: string;
   onClick?: () => void;
+  notifications?: number;
 }
 
 const DropdownItem = ({
   as: Tag = "button",
   text,
+  notifications,
   ...rest
 }: DropdownItemProps) => {
   return (
@@ -59,6 +63,11 @@ const DropdownItem = ({
           {...rest}
         >
           {text}
+          {notifications && notifications > 0 && (
+            <span className="absolute right-4 mr-2 inline-flex items-center justify-center rounded-full bg-red-600 px-2 py-1 text-xs font-bold leading-none text-red-100">
+              {notifications}
+            </span>
+          )}
         </Tag>
       )}
     </Menu.Item>
@@ -73,11 +82,17 @@ interface ProfileMenuProps {
 
 export const ProfileMenu = ({ user, onLogout, onClick }: ProfileMenuProps) => {
   const { i18n } = useLingui();
+  const apiClient = useApiClient();
+
+  const { data: notifications, refetch: refetchNotifications } = useQuery(
+    ["user-notifications-count", user._id],
+    () => apiClient.notifications.hasNotifications().then((data) => data.data)
+  );
 
   return (
     <Menu as="div" className="relative">
       <Menu.Button className="flex items-center gap-2" onClick={onClick}>
-        <Avatar user={user} onlyAvatar />
+        <Avatar user={user} onlyAvatar notifications={notifications} />
         <span className="hidden font-bold xs:block">{user.username}</span>
       </Menu.Button>
       <Transition
@@ -99,6 +114,13 @@ export const ProfileMenu = ({ user, onLogout, onClick }: ProfileMenuProps) => {
             "shadow-lg drop-shadow-white ring-1 ring-white/10 shadow-white/10 focus:outline-none"
           )}
         >
+          <DropdownItem
+            text={t(i18n)`Notifications`}
+            href={`/notifications`}
+            as={WrappedLink}
+            notifications={notifications}
+            onClick={() => refetchNotifications()}
+          />
           <DropdownItem
             text={t(i18n)`Profile`}
             href={`/${user.username}`}

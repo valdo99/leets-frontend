@@ -61,21 +61,21 @@ msgstr "Artists"
 msgid "Be the hunter of the next hit"
 msgstr "Be the hunter of the next hit"
 
-#: src/pages/song/[song].tsx
-#: src/pages/song/[song].tsx
+#: src/components/Song/PostTabs.tsx
+#: src/components/Song/PostTabs.tsx
 msgid "Comment"
 msgstr "Comment"
 
-#: src/pages/song/[song].tsx
+#: src/components/Song/PostTabs.tsx
 msgid "Comment posted successfully"
 msgstr "Comment posted successfully"
 
-#: src/pages/song/[song].tsx
+#: src/components/Song/PostTabs.tsx
 msgid "Comment this song"
 msgstr "Comment this song"
 
-#: src/pages/song/[song].tsx
-#: src/pages/song/[song].tsx
+#: src/components/Song/PostTabs.tsx
+#: src/components/Song/PostTabs.tsx
 msgid "Comments"
 msgstr "Comments"
 
@@ -238,8 +238,8 @@ msgid "Liked"
 msgstr "Liked"
 
 #: src/components/Modals/PostUserLikes.tsx
-#: src/pages/song/[song].tsx
-#: src/pages/song/[song].tsx
+#: src/components/Song/PostTabs.tsx
+#: src/components/Song/PostTabs.tsx
 msgid "Likes"
 msgstr "Likes"
 
@@ -250,10 +250,11 @@ msgstr "Listen on Spotify"
 #: src/components/ArtistFeed.tsx
 #: src/components/HuntersFeed.tsx
 #: src/components/Modals/PostUserLikes.tsx
+#: src/components/Song/PostTabs.tsx
+#: src/components/Song/PostTabs.tsx
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
-#: src/pages/song/[song].tsx
-#: src/pages/song/[song].tsx
+#: src/pages/notifications.tsx
 msgid "Load more"
 msgstr "Load more"
 
@@ -300,6 +301,11 @@ msgstr "No liked songs"
 #: src/components/UserHuntedSongs.tsx
 msgid "No uploaded songs"
 msgstr "No uploaded songs"
+
+#: src/components/Layout/Navbar/ProfileMenu.tsx
+#: src/pages/notifications.tsx
+msgid "Notifications"
+msgstr "Notifications"
 
 #: src/pages/login.tsx
 #: src/pages/signup.tsx
@@ -478,6 +484,22 @@ msgstr "You have no uploaded songs yet"
 msgid "You have succesfully uploaded"
 msgstr "You have succesfully uploaded"
 
+#: src/pages/notifications.tsx
+msgid "ago"
+msgstr "ago"
+
+#: src/pages/notifications.tsx
+msgid "commented your song"
+msgstr "commented your song"
+
+#: src/pages/notifications.tsx
+msgid "liked your song"
+msgstr "liked your song"
+
 #: src/pages/artist/[id].tsx
 msgid "on {0}"
 msgstr "on {0}"
+
+#: src/pages/notifications.tsx
+msgid "with:"
+msgstr "with:"

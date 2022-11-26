@@ -5,6 +5,7 @@ import { AuthService } from "./auth";
 import { CommentService } from "./comments";
 import { ForbiddenError, UnauthorizedError, ValidationError } from "./errors";
 import { Http } from "./http";
+import { NotificationsServies } from "./notifications";
 import { PostService } from "./posts";
 import { ApiErrorResponse } from "./types";
 import { UserService } from "./users";
@@ -24,6 +25,7 @@ export class ApiClient {
   posts: PostService;
   artists: ArtistService;
   comments: CommentService;
+  notifications: NotificationsServies;
 
   constructor(options: Options = {}) {
     this.options = options;
@@ -40,6 +42,7 @@ export class ApiClient {
     this.posts = new PostService(this, "/posts");
     this.artists = new ArtistService(this, "/artists");
     this.comments = new CommentService(this, "/comments");
+    this.notifications = new NotificationsServies(this, "");
   }
 
   handleResponseError(errorRes: ApiErrorResponse) {

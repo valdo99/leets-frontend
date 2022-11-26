@@ -11,6 +11,7 @@ interface AvatarProps {
   className?: string;
   onlyAvatar?: boolean;
   joinDate?: boolean;
+  notifications?: number;
 }
 
 export const Avatar = ({
@@ -18,8 +19,10 @@ export const Avatar = ({
   className,
   onlyAvatar = false,
   joinDate = true,
+  notifications,
 }: AvatarProps) => {
   const color = stringToColour(user.username);
+  console.log(notifications);
 
   return (
     <div className={cx("flex items-center gap-2 text-left", className)}>
@@ -28,6 +31,11 @@ export const Avatar = ({
         className="inline-flex h-10 w-10 items-center justify-center rounded-full text-lg text-primary-content"
       >
         <span className="font-semibold uppercase">
+          {notifications && notifications > 0 && (
+            <span className=" absolute top-[-6px] left-6 mr-2 inline-flex items-center justify-center rounded-full bg-red-600 px-2 py-1 text-xs font-bold leading-none text-red-100">
+              {notifications}
+            </span>
+          )}
           {user.username.charAt(0)}
         </span>
       </div>
