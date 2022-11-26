@@ -46,7 +46,7 @@ const UserPageInner = ({ user }: { user: User }) => {
   return (
     <>
       <NextSeo {...SEO} title={`Leets | ${user.username}`} />
-      <div className="mt-8 mb-6 flex items-center gap-2">
+      <div className="mt-8 mb-6 flex items-center space-x-2">
         <h3 className="text-2xl font-bold md:text-3xl">{user.username}</h3>
         {user.username === loggedUser?.username && (
           <button onClick={() => setShowUpdateModal(true)}>

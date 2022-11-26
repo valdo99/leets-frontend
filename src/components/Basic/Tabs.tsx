@@ -15,7 +15,7 @@ interface TabsProps {
 export const Tabs = ({ items, className }: TabsProps) => {
   return (
     <Tab.Group>
-      <Tab.List className={cx("flex gap-2", className)}>
+      <Tab.List className={cx("flex space-x-2", className)}>
         {items.map((item) => (
           <Tab key={item.label?.toString()} as={Fragment}>
             {({ selected }) => (

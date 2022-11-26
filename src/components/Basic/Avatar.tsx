@@ -22,7 +22,7 @@ export const Avatar = ({
   const color = stringToColour(user.username);
 
   return (
-    <div className={cx("flex items-center gap-2 text-left", className)}>
+    <div className={cx("flex items-center space-x-2 text-left", className)}>
       <div
         style={{ backgroundColor: color }}
         className="inline-flex h-10 w-10 items-center justify-center rounded-full text-lg text-primary-content"

@@ -36,7 +36,7 @@ export const LanguageMenu = ({ onClick, className }: LanguageMenuProps) => {
         <Menu.Items
           className={cx(
             "absolute -right-2 z-20 mt-4",
-            "flex flex-col gap-1",
+            "flex flex-col space-y-1",
             "p-2",
             "rounded-btn",
             "bg-base-200",

@@ -50,13 +50,13 @@ export const PostUserLikes = ({
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col space-y-3">
             {likes?.pages.map((page, index) => (
               <Fragment key={index}>
                 {page.data.map((like) => (
                   <div
                     key={like._id}
-                    className="rounded-btn flex w-full items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content xs:gap-4 xs:px-3"
+                    className="rounded-btn flex w-full items-center justify-between space-x-3 bg-secondary px-2.5 py-4 text-secondary-content xs:space-x-4 xs:px-3"
                   >
                     <Avatar user={like.user} joinDate={false} />
                   </div>

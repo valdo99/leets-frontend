@@ -17,11 +17,11 @@ export default function Songs() {
           </a>
         </Link>
       </div>
-      <div className="mt-10 flex flex-col gap-14 lg:flex-row">
+      <div className="mt-10 flex flex-col space-x-14 space-y-14 lg:flex-row">
         <div className="min-w-0 flex-1">
           <SongsFeed />
         </div>
-        <div className="flex shrink-0 flex-col gap-14 lg:w-[340px]">
+        <div className="flex shrink-0 flex-col space-y-14 lg:w-[340px]">
           {/* <TopHuntersFeed />
           <TopArtistsFeed /> */}
         </div>

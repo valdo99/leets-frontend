@@ -45,7 +45,7 @@ export const HuntersSection = () => {
           like you.
         </Trans>
       </p>
-      <div className="mt-10 flex flex-col gap-8 md:flex-row">
+      <div className="mt-10 flex flex-col space-y-8 md:flex-row md:space-y-0 md:space-x-8">
         <FeatureCard
           title={t(i18n)`Share`}
           description={t(

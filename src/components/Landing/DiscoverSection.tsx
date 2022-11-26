@@ -8,7 +8,7 @@ interface DiscoverSectionProps {}
 
 export const DiscoverSection = ({}: DiscoverSectionProps) => {
   return (
-    <section className="mt-36 flex flex-col items-center gap-8 md:flex-row">
+    <section className="mt-36 flex flex-col items-center space-x-8 space-y-8 md:flex-row">
       <div className="flex-1 text-center md:text-left">
         <h3 className="text-2xl font-bold">
           <Trans>

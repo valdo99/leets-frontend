@@ -137,13 +137,13 @@ const SongPageInner = ({ post }: { post: Post }) => {
                 {" "}
                 <Trans>Likes</Trans> {` (${likes?.pages[0].pagination.total})`}
               </h3>
-              <div className="flex w-full flex-wrap  gap-3">
+              <div className="flex w-full flex-wrap space-x-3">
                 {likes?.pages.map((page, index) => (
                   <Fragment key={index}>
                     {page.data.map((like) => (
                       <div
                         key={like._id}
-                        className="rounded-btn flex w-full items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content md:w-fit md:min-w-[32%] xs:gap-4 xs:px-3"
+                        className="rounded-btn flex w-full items-center justify-between bg-secondary px-2.5 py-4 text-secondary-content md:w-fit md:min-w-[32%] xs:px-3"
                       >
                         <Avatar user={like.user} joinDate={false} />
                       </div>
@@ -189,13 +189,13 @@ const SongPageInner = ({ post }: { post: Post }) => {
                 {` (${comments?.pages[0].pagination.total})`}
               </h3>
 
-              <div className="flex w-full flex-wrap  gap-3">
+              <div className="flex w-full flex-wrap space-y-3">
                 {comments?.pages.map((page, index) => (
                   <Fragment key={index}>
                     {page.data.map((comment) => (
                       <div
                         key={comment._id}
-                        className="rounded-btn w-full flex-col items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content  xs:gap-4 xs:px-3"
+                        className="rounded-btn w-full flex-col items-center justify-between space-y-3 bg-secondary px-2.5 py-4 text-secondary-content xs:space-y-4 xs:px-3"
                       >
                         <Avatar user={comment.user} joinDate={false} />
                         <p className="pl-12">{comment.comment}</p>
@@ -321,7 +321,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
               <span className="font-bold">
                 <Trans>Play count</Trans>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center space-x-2">
                 <span>: {post.playcount} </span>
                 <InfoTooltip
                   content={
@@ -352,7 +352,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
         <span className="font-bold">
           <Trans>Play count</Trans>
         </span>
-        <span className="flex items-center gap-2">
+        <span className="flex items-center space-x-2">
           <span>: {post.playcount} </span>
           <InfoTooltip
             content={

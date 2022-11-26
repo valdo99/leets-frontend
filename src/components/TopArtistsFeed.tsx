@@ -19,7 +19,7 @@ export const TopArtistsFeed = () => {
 
   return (
     <div>
-      <div className="mb-8 flex items-center gap-3">
+      <div className="mb-8 flex items-center space-x-3">
         <h2 className="text-2xl font-bold leading-tight">
           <Trans>Top Artists</Trans>
         </h2>
@@ -38,7 +38,7 @@ export const TopArtistsFeed = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col space-y-4">
             {artists?.slice(0, 5)?.map((artist) => (
               <TopArtistCard key={artist._id} artist={artist} />
             ))}

@@ -38,7 +38,7 @@ export const HuntersFeed = () => {
 
   return (
     <div>
-      <div className="mb-8 flex items-center gap-3">
+      <div className="mb-8 flex items-center space-x-3">
         <h2 className="text-2xl font-bold leading-tight">
           <Trans>Top Hunters</Trans>
         </h2>
@@ -57,7 +57,7 @@ export const HuntersFeed = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col space-y-4">
             {hunters?.pages.map((page, index) => (
               <Fragment key={index}>
                 {page.data.map((hunter) => (

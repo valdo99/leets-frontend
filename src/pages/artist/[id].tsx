@@ -26,9 +26,9 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
 
   return (
     <>
-      <div className="mt-10 flex flex-col justify-between gap-y-6 md:flex-row md:items-center">
+      <div className="mt-10 flex flex-col justify-between space-y-6 md:flex-row md:items-center">
         {/* Header */}
-        <div className="flex min-w-0 items-center gap-4">
+        <div className="flex min-w-0 items-center space-x-4">
           <span className="relative h-16 w-16 shrink-0 md:h-24 md:w-24">
             <Image
               src={artist.image}
@@ -58,13 +58,13 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
       </div>
 
       {/* Stats */}
-      <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 flex flex-wrap space-x-4">
         {/* Monthly Listeners */}
         <div className="rounded-btn flex bg-base-200 py-2 px-4 text-sm sm:text-base">
           <span className="font-bold">
             <Trans>Monthly listeners</Trans>
           </span>
-          <span className="flex items-center gap-2">
+          <span className="flex items-center space-x-2">
             <span>: {artist.monthly_listeners} </span>
             <InfoTooltip
               content={

@@ -45,7 +45,7 @@ export const RightMenu = ({ showMenu, setShowMenu }: RightMenuProps) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="flex items-center gap-4 xxs:gap-2 xs:gap-4">
+        <div className="flex items-center space-x-4 xxs:space-x-2 xs:space-x-4">
           {user ? (
             <>
               <Link href="/upload">
@@ -62,7 +62,7 @@ export const RightMenu = ({ showMenu, setShowMenu }: RightMenuProps) => {
               />
             </>
           ) : (
-            <div className="hidden gap-2 xxs:flex">
+            <div className="hidden space-x-2 xxs:flex">
               <Link href="/login">
                 <a>
                   <Button color="secondary" className="min-w-0">

@@ -37,7 +37,7 @@ export const SongsFeed = () => {
 
   return (
     <>
-      <div className="mb-8 flex items-center gap-3">
+      <div className="mb-8 flex items-center space-x-3">
         <h2 className="text-2xl font-bold leading-tight">
           <Trans>Today&apos;s top songs</Trans>
         </h2>
@@ -56,7 +56,7 @@ export const SongsFeed = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col space-y-4">
             {songs?.pages.map((page, index) => (
               <Fragment key={index}>
                 {page.data.map((song) => (
