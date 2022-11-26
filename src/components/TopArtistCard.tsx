@@ -11,8 +11,8 @@ interface TopArtistCardProps {
 
 export const TopArtistCard = ({ artist }: TopArtistCardProps) => {
   return (
-    <div className="rounded-btn flex w-full items-center justify-between gap-3 bg-secondary px-2.5 py-4 text-secondary-content xs:gap-4 xs:px-3">
-      <div className="flex items-center gap-2 text-left">
+    <div className="rounded-btn flex w-full items-center justify-between space-x-3 bg-secondary px-2.5 py-4 text-secondary-content xs:space-x-4 xs:px-3">
+      <div className="flex items-center space-x-2 text-left">
         <span className="relative h-10 w-10 shrink-0">
           <Image
             src={artist.image}

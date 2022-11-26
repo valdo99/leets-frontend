@@ -125,7 +125,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
               <span className="font-bold">
                 <Trans>Play count</Trans>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center space-x-2">
                 <span>: {post.playcount} </span>
                 <InfoTooltip
                   content={
@@ -156,7 +156,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
         <span className="font-bold">
           <Trans>Play count</Trans>
         </span>
-        <span className="flex items-center gap-2">
+        <span className="flex items-center space-x-2">
           <span>: {post.playcount} </span>
           <InfoTooltip
             content={

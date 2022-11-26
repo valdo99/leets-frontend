@@ -37,7 +37,7 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
 
   if (likedPosts?.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 py-14">
+      <div className="flex flex-col items-center justify-center space-y-4 py-14">
         {isLoggedUser ? (
           <>
             <p className="text-lg">

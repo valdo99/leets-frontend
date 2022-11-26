@@ -41,7 +41,7 @@ export const EditUsernameModal = ({ show, onClose }: BaseModalProps) => {
 
   return (
     <Modal show={show} onClose={onClose} title={t(i18n)`Update your username`}>
-      <form className="flex flex-col gap-4" onSubmit={onSubmit}>
+      <form className="flex flex-col space-y-4" onSubmit={onSubmit}>
         <Input
           label={t(i18n)`New Username`}
           name="username"

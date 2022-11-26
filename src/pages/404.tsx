@@ -5,7 +5,7 @@ import { Button } from "@components/Basic/Button";
 
 export default function NotFoundPage() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-14">
+    <div className="flex flex-col items-center justify-center space-y-4 py-14">
       <h3 className="text-3xl font-bold">
         <Trans>404 - Not Found</Trans>
       </h3>

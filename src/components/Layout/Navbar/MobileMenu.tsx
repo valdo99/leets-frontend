@@ -64,7 +64,7 @@ export const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
       />
       <div className="rounded-b-box absolute top-full z-30 w-full bg-base-100 pb-6 md:hidden">
         <Container>
-          <nav className="flex flex-col gap-y-2">
+          <nav className="flex flex-col space-y-2">
             <NavItem text={t(i18n)`Feed`} href="/feed" onClick={closeMenu} />
             <NavItem
               text={t(i18n)`Hunters`}
@@ -78,7 +78,7 @@ export const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
             />
           </nav>
           <hr className="my-4 border-t border-t-base-200 xxs:hidden" />
-          <div className="flex gap-2 xxs:hidden">
+          <div className="flex space-x-2 xxs:hidden">
             {user ? (
               <Link href="/upload">
                 <a className="flex-1">

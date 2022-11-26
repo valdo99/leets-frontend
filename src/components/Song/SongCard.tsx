@@ -51,8 +51,8 @@ export const SongCard = ({
   const isPreview = post.status !== "ONLINE";
 
   return (
-    <div className="rounded-btn relative flex w-full flex-col justify-between gap-3 bg-secondary p-2.5 text-secondary-content sm:flex-row xs:gap-4 xs:p-3">
-      <div className="flex min-w-0 gap-3">
+    <div className="rounded-btn relative flex w-full flex-col justify-between space-x-3 space-y-3 bg-secondary p-2.5 text-secondary-content sm:flex-row xs:space-x-4 xs:space-y-4 xs:p-3">
+      <div className="flex min-w-0 space-x-3">
         {/* Song Image */}
         {post.image && (
           <div className="relative hidden h-24 w-24 shrink-0 xs:block xs:h-28 xs:w-28 [@media(min-width:320px)]:block">
@@ -66,7 +66,7 @@ export const SongCard = ({
         )}
 
         {/* Song Details */}
-        <div className="flex w-full min-w-0 flex-col justify-center xs:gap-1">
+        <div className="flex w-full min-w-0 flex-col justify-center xs:space-y-1">
           <Link href={`/artist/${post.artist._id}`}>
             <a className="text-xs font-bold uppercase hover:text-secondary-content/60">
               {post.artist.name}
@@ -77,7 +77,7 @@ export const SongCard = ({
               {post.title}
             </a>
           </Link>{" "}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center space-x-2">
             {post.preview_url ? (
               <Player
                 id={post.spotify_id}
@@ -126,7 +126,7 @@ export const SongCard = ({
           </div>
         )}
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center space-x-4">
           {/* Spotify Icon */}
           <a
             href={`https://open.spotify.com/track/${post.spotify_id}`}
@@ -144,7 +144,7 @@ export const SongCard = ({
             </span>
           )} */}
           {post.status === "ONLINE" && (
-            <div className="flex cursor-pointer items-center gap-1">
+            <div className="flex cursor-pointer items-center space-x-1">
               {user ? (
                 <button onClick={toggleLike} className="cursor-pointer">
                   {post.isLiked ? (

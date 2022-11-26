@@ -91,7 +91,7 @@ export const ProfileMenu = ({ user, onLogout, onClick }: ProfileMenuProps) => {
 
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="flex items-center gap-2" onClick={onClick}>
+      <Menu.Button className="flex items-center space-x-2" onClick={onClick}>
         <Avatar user={user} onlyAvatar notifications={notifications} />
         <span className="hidden font-bold xs:block">{user.username}</span>
       </Menu.Button>
@@ -107,7 +107,7 @@ export const ProfileMenu = ({ user, onLogout, onClick }: ProfileMenuProps) => {
         <Menu.Items
           className={cx(
             "absolute -right-2 z-20 mt-4",
-            "flex flex-col gap-1",
+            "flex flex-col space-y-1",
             "min-w-[220px] p-2",
             "rounded-btn",
             "bg-base-200",

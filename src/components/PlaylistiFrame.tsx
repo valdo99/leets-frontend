@@ -3,12 +3,12 @@ import { Trans } from "@lingui/macro";
 export const PlaylistiFrame = () => {
   return (
     <div>
-      <div className="mb-8 flex items-center gap-3">
+      <div className="mb-8 flex items-center">
         <h2 className="text-2xl font-bold leading-tight">
           <Trans>Leets playlist</Trans>
         </h2>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col">
         <iframe
           className="rounded-xl"
           src="https://open.spotify.com/embed/playlist/2AhYizKYg7kmhbb7MtgmQk?utm_source=generator&theme=0"

@@ -39,7 +39,7 @@ export const Navbar = () => {
   return (
     <header className="relative z-20">
       <Container>
-        <div className="flex flex-wrap items-center justify-between gap-4 py-6">
+        <div className="flex flex-wrap items-center justify-between space-x-4 py-6">
           {/* Logo */}
           <div className="shrink-0 md:flex-1">
             <Link href="/">
@@ -67,7 +67,7 @@ export const Navbar = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden gap-2 md:flex">
+          <div className="hidden space-x-2 md:flex">
             <NavItem text={t(i18n)`Feed`} href="/feed" />
             <NavItem text={t(i18n)`Hunters`} href="/hunters" />
             <NavItem text={t(i18n)`Artists`} href="/artists" />

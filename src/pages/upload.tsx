@@ -45,7 +45,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
   return (
     <>
       <NextSeo title={`Leets | Carica una canzone`} />
-      <form className="flex w-full gap-2" onSubmit={onSubmit}>
+      <form className="flex w-full space-x-2" onSubmit={onSubmit}>
         <Input
           placeholder={t(i18n)`Spotify song url`}
           block

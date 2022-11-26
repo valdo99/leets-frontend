@@ -33,7 +33,7 @@ export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
 
   if (songs?.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 py-14">
+      <div className="flex flex-col items-center justify-center py-14">
         <p className="text-lg">
           <Trans>There are no hunted songs by this artist</Trans>
         </p>
