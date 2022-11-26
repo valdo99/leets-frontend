@@ -50,6 +50,7 @@ const LoginPage = () => {
           onChange={handleChange}
           error={errors.email}
           value={formData.email}
+          type="email"
         />
         <Input
           type="password"
