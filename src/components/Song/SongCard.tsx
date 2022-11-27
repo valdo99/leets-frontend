@@ -56,12 +56,16 @@ export const SongCard = ({
         {/* Song Image */}
         {post.image && (
           <div className="relative hidden h-24 w-24 shrink-0 xs:block xs:h-28 xs:w-28 [@media(min-width:320px)]:block">
-            <Image
-              className="rounded-btn h-full object-cover"
-              src={post.image}
-              alt="song"
-              layout="fill"
-            />
+            <Link href={`/song/${post._id}`}>
+              <a>
+                <Image
+                  className="rounded-btn h-full object-cover"
+                  src={post.image}
+                  alt="song"
+                  layout="fill"
+                />
+              </a>
+            </Link>
           </div>
         )}
 
