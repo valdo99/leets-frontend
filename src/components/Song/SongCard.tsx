@@ -51,7 +51,15 @@ export const SongCard = ({
   const isPreview = post.status !== "ONLINE";
 
   return (
-    <div className="rounded-btn relative flex w-full flex-col justify-between space-x-3 space-y-3 bg-secondary p-2.5 text-secondary-content sm:flex-row xs:space-x-4 xs:space-y-4 xs:p-3">
+    <div
+      className={cx(
+        "rounded-btn relative w-full",
+        "bg-secondary text-secondary-content",
+        "p-2.5 xs:p-3",
+        "flex justify-between flex-col sm:flex-row",
+        "space-x-4 space-y-3 sm:space-y-0"
+      )}
+    >
       <div className="flex min-w-0 space-x-3">
         {/* Song Image */}
         {post.image && (
