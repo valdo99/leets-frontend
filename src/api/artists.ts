@@ -2,7 +2,7 @@ import { getQueryString } from "@utils/getQueryString";
 
 import { ApiService } from "./apiService";
 import { Post } from "./posts";
-import { Entity, Id } from "./types";
+import { Entity, Id, PaginationQueryParams } from "./types";
 import { User } from "./users";
 
 export interface Artist extends Entity {
@@ -19,11 +19,6 @@ export interface TopArtist
   extends Pick<Artist, "name" | "_id" | "createdAt" | "image"> {
   points: number;
 }
-
-type PaginationQueryParams = {
-  page?: number;
-  limit?: number;
-};
 
 export class ArtistService extends ApiService {
   async read(id: Id) {

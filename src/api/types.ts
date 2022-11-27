@@ -29,3 +29,8 @@ export interface Entity {
 }
 
 export type Id = Entity["_id"];
+
+export type PaginationQueryParams = {
+  page?: number;
+  limit?: number;
+};
