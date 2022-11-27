@@ -85,7 +85,7 @@ export const RightMenu = ({ showMenu, setShowMenu }: RightMenuProps) => {
           {/* Hamburger Icon  / Close Icon */}
           <button
             onClick={() => setShowMenu((show) => !show)}
-            className="rounded-btn p-1.5 text-2xl hover:bg-base-200 md:hidden"
+            className="rounded-btn p-1.5 text-2xl hover:bg-base-200 lg:hidden"
             aria-expanded="false"
           >
             <span className="sr-only">
