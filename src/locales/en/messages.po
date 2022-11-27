@@ -255,6 +255,7 @@ msgstr "Listen on Spotify"
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 #: src/pages/notifications.tsx
+#: src/pages/search.tsx
 msgid "Load more"
 msgstr "Load more"
 
@@ -297,6 +298,10 @@ msgstr "New Username"
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
 msgstr "No liked songs"
+
+#: src/pages/search.tsx
+msgid "No results found"
+msgstr "No results found"
 
 #: src/components/UserHuntedSongs.tsx
 msgid "No uploaded songs"
@@ -355,6 +360,15 @@ msgstr "Repeat Password"
 #: src/components/TopHuntersFeed.tsx
 msgid "Score is based on number of likes to hunted songs"
 msgstr "Score is based on number of likes to hunted songs"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/Navbar.tsx
+msgid "Search"
+msgstr "Search"
+
+#: src/pages/search.tsx
+msgid "Search for songs"
+msgstr "Search for songs"
 
 #: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx

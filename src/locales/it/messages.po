@@ -260,6 +260,7 @@ msgstr "Ascolta su Spotify"
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 #: src/pages/notifications.tsx
+#: src/pages/search.tsx
 msgid "Load more"
 msgstr "Carica di più"
 
@@ -302,6 +303,10 @@ msgstr "Nuovo nome utente"
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
 msgstr "Nessuna canzone piaciuta"
+
+#: src/pages/search.tsx
+msgid "No results found"
+msgstr "Nessun risultato"
 
 #: src/components/UserHuntedSongs.tsx
 msgid "No uploaded songs"
@@ -360,6 +365,15 @@ msgstr "Conferma Password"
 #: src/components/TopHuntersFeed.tsx
 msgid "Score is based on number of likes to hunted songs"
 msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
+
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/Navbar.tsx
+msgid "Search"
+msgstr "Cerca"
+
+#: src/pages/search.tsx
+msgid "Search for songs"
+msgstr "Cerca canzoni"
 
 #: src/components/TopArtistsFeed.tsx
 #: src/components/TopHuntersFeed.tsx
