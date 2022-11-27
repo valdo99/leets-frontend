@@ -2,7 +2,7 @@ import { getQueryString } from "../utils/getQueryString";
 
 import { ApiService } from "./apiService";
 import { Artist } from "./artists";
-import { Entity, Id, QueryParams } from "./types";
+import { Entity, Id, PaginationQueryParams, QueryParams } from "./types";
 import { TopHunter, User } from "./users";
 
 export interface Post extends Entity {
@@ -23,10 +23,12 @@ interface isPostLiked {
   isLiked: boolean;
 }
 
-type FeedQueryParams = {
+type FeedQueryParams = PaginationQueryParams & {
   date?: string;
-  page?: number;
-  limit?: number;
+};
+
+type SearchParams = PaginationQueryParams & {
+  query: string;
 };
 
 export interface UserLike extends Entity {
@@ -76,9 +78,16 @@ export class PostService extends ApiService {
       }
     );
   }
+
   async isPostLiked(postId: Id) {
     return await this.http.get<isPostLiked>(
       `${this.baseUrl}/post/is-liked/${postId}`
+    );
+  }
+
+  async search(params: SearchParams) {
+    return await this.http.getPaginated<Post[]>(
+      `${this.baseUrl}/search${getQueryString(params)}`
     );
   }
 }

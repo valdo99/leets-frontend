@@ -2,7 +2,7 @@ import { getQueryString } from "@utils/getQueryString";
 
 import { ApiService } from "./apiService";
 import { Post } from "./posts";
-import { Entity } from "./types";
+import { Entity, PaginationQueryParams } from "./types";
 
 export interface User extends Entity {
   email: string;
@@ -26,11 +26,6 @@ interface UserCreateBody extends Pick<User, "email" | "username"> {
 export interface TopHunter extends Pick<User, "username" | "createdAt"> {
   points: number;
 }
-
-type PaginationQueryParams = {
-  page?: number;
-  limit?: number;
-};
 
 const nonUpdatableFields = [
   "_id",

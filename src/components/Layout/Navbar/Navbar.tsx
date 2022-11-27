@@ -67,7 +67,8 @@ export const Navbar = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden space-x-2 md:flex">
+          <div className="hidden space-x-2 lg:flex">
+            <NavItem text={t(i18n)`Search`} href="/search" />
             <NavItem text={t(i18n)`Feed`} href="/feed" />
             <NavItem text={t(i18n)`Hunters`} href="/hunters" />
             <NavItem text={t(i18n)`Artists`} href="/artists" />
