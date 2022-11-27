@@ -52,11 +52,11 @@ const NotificationCard = ({
           ) : (
             <Trans>liked your song</Trans>
           )}
-          {` `}(
+          {` `}
           <Link href={`/song/${post._id}`}>
             <a className="font-bold ">{post.title}</a>
           </Link>
-          ){` `}
+          {` `}
           {comment && (
             <>
               <Trans>with:</Trans>
