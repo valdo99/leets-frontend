@@ -76,14 +76,16 @@ const SongPageInner = ({ post }: { post: Post }) => {
           <img
             alt="test"
             src={post.image}
-            className="w-44 rounded-lg md:w-52"
+            className="m-auto w-44 rounded-lg object-contain md:w-52"
           />
           <div className="ml-4 flex flex-col">
-            <h3 className="text-2xl font-bold md:text-3xl">
-              {post.artist.name}
-            </h3>
-            <h3 className="mt-2 text-xl font-bold md:text-3xl">{post.title}</h3>
-            <div className="mt-3 flex flex-col md:hidden">
+            <Link href={`/artist/${post.artist._id}`}>
+              <a>
+                <h3 className="text-lg">{post.artist.name}</h3>
+              </a>
+            </Link>
+            <h3 className=" text-xl font-bold md:text-3xl">{post.title}</h3>
+            <div className="mt-2 flex flex-col md:hidden">
               <div className="sm:text-right">
                 <p className="text-xs leading-3">
                   <Trans>Hunted by</Trans>
