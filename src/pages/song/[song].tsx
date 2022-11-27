@@ -9,12 +9,14 @@ import { useState } from "react";
 
 import { ApiClient } from "@api/client";
 import { Post } from "@api/posts";
+import { Button } from "@components/Basic/Button";
 import { Spinner } from "@components/Basic/Spinner";
 import { InfoTooltip } from "@components/Basic/Tooltip";
 import { Player } from "@components/Song/Player";
 import { PostTabs } from "@components/Song/PostTabs";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
+import SpotifyIcon from "@icons/spotify.svg";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 
@@ -98,12 +100,29 @@ const SongPageInner = ({ post }: { post: Post }) => {
               </div>
             </div>
             <div className="flex items-center">
-              <Player
-                id={post._id}
-                previewTrackUrl={post.preview_url}
-                className="-ml-1 mt-4 "
-                playerClassName="w-12 h-12 xs:w-15 xs:h-15"
-              />
+              {post.preview_url ? (
+                <Player
+                  id={post._id}
+                  previewTrackUrl={post.preview_url}
+                  className="-ml-1 mt-4 "
+                  playerClassName="w-12 h-12 xs:w-15 xs:h-15"
+                />
+              ) : (
+                <a
+                  href={`https://open.spotify.com/track/${post.spotify_id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    leftIcon={<SpotifyIcon className="h-4 w-4" />}
+                    size="xs"
+                    className="mt-1 px-2"
+                  >
+                    <Trans>Listen on Spotify</Trans>
+                  </Button>
+                </a>
+              )}
+
               <div className="ml-2 mt-4">
                 {user ? (
                   <button onClick={toggleLike} className="cursor-pointer">
@@ -170,7 +189,22 @@ const SongPageInner = ({ post }: { post: Post }) => {
           />
         </span>
       </div>
-      <div className="mt-8">
+      {post.preview_url && (
+        <a
+          href={`https://open.spotify.com/track/${post.spotify_id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            leftIcon={<SpotifyIcon className="h-4 w-4" />}
+            size="xs"
+            className="mt-4 mb-0 rounded-lg px-3"
+          >
+            <Trans>Listen on Spotify</Trans>
+          </Button>
+        </a>
+      )}
+      <div className="mt-4">
         <PostTabs post={post._id} refetchLikes={refetchLikes} />
       </div>
     </>
