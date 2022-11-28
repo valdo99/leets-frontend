@@ -83,7 +83,9 @@ const SongPageInner = ({ post }: { post: Post }) => {
           <div className="ml-4 flex flex-col">
             <Link href={`/artist/${post.artist._id}`}>
               <a>
-                <h3 className="text-lg">{post.artist.name}</h3>
+                <h3 className="text font-medium uppercase">
+                  {post.artist.name}
+                </h3>
               </a>
             </Link>
             <h3 className=" text-xl font-bold md:text-3xl">{post.title}</h3>
@@ -93,7 +95,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
                   <Trans>Hunted by</Trans>
                 </p>
                 <Link href={`/${post.hunter.username}`}>
-                  <a className="font-bold hover:text-slate-100">
+                  <a className="text-lg font-bold hover:text-base-content/60">
                     {post.hunter.username}
                   </a>
                 </Link>
@@ -165,7 +167,7 @@ const SongPageInner = ({ post }: { post: Post }) => {
             <Trans>Hunted by</Trans>
           </p>
           <Link href={`/${post.hunter.username}`}>
-            <a className="font-bold hover:text-slate-100">
+            <a className="font-bold hover:text-base-content/60">
               {post.hunter.username}
             </a>
           </Link>
