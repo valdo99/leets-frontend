@@ -22,7 +22,6 @@ export const Avatar = ({
   notifications,
 }: AvatarProps) => {
   const color = stringToColour(user.username);
-  console.log(notifications);
 
   return (
     <div className={cx("flex items-center space-x-2 text-left", className)}>
