@@ -65,11 +65,6 @@ export const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
       <div className="rounded-b-box absolute top-full z-30 w-full bg-base-100 pb-6 lg:hidden">
         <Container>
           <nav className="flex flex-col space-y-2">
-            <NavItem
-              text={t(i18n)`Search`}
-              href="/search"
-              onClick={closeMenu}
-            />
             <NavItem text={t(i18n)`Feed`} href="/feed" onClick={closeMenu} />
             <NavItem
               text={t(i18n)`Hunters`}
@@ -79,6 +74,11 @@ export const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
             <NavItem
               text={t(i18n)`Artists`}
               href="/artists"
+              onClick={closeMenu}
+            />
+            <NavItem
+              text={t(i18n)`Search`}
+              href="/search"
               onClick={closeMenu}
             />
           </nav>
