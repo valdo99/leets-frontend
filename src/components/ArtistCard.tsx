@@ -5,11 +5,13 @@ import Link from "next/link";
 import { TopArtist } from "@api/artists";
 import { formatDate } from "@utils/dates";
 
-interface TopArtistCardProps {
-  artist: TopArtist;
+interface ArtistCardProps {
+  artist: Omit<TopArtist, "points"> & {
+    points?: number;
+  };
 }
 
-export const TopArtistCard = ({ artist }: TopArtistCardProps) => {
+export const ArtistCard = ({ artist }: ArtistCardProps) => {
   return (
     <div className="rounded-btn flex w-full items-center justify-between space-x-3 bg-secondary px-2.5 py-4 text-secondary-content xs:space-x-4 xs:px-3">
       <div className="flex items-center space-x-2 text-left">
@@ -32,7 +34,9 @@ export const TopArtistCard = ({ artist }: TopArtistCardProps) => {
           </p>
         </div>
       </div>
-      <div className="text-lg font-bold">{artist.points}</div>
+      {artist.points && (
+        <div className="text-lg font-bold">{artist.points}</div>
+      )}
     </div>
   );
 };

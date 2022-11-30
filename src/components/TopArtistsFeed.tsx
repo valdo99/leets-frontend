@@ -5,9 +5,9 @@ import Link from "next/link";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
 
+import { ArtistCard } from "./ArtistCard";
 import { Button } from "./Basic/Button";
 import { InfoTooltip } from "./Basic/Tooltip";
-import { TopArtistCard } from "./TopArtistCard";
 
 export const TopArtistsFeed = () => {
   const apiClient = useApiClient();
@@ -40,7 +40,7 @@ export const TopArtistsFeed = () => {
         <>
           <div className="flex flex-col space-y-4">
             {artists?.slice(0, 5)?.map((artist) => (
-              <TopArtistCard key={artist._id} artist={artist} />
+              <ArtistCard key={artist._id} artist={artist} />
             ))}
           </div>
           <Link href="/artists">

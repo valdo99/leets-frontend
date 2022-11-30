@@ -1,6 +1,7 @@
 import { getQueryString } from "@utils/getQueryString";
 
 import { ApiService } from "./apiService";
+import { Artist } from "./artists";
 import { Post } from "./posts";
 import { Entity, PaginationQueryParams } from "./types";
 
@@ -64,6 +65,12 @@ export class UserService extends ApiService {
 
   async uploads(username: string) {
     return await this.http.get<Post[]>(`${this.baseUrl}/${username}/uploads`);
+  }
+
+  async huntedArtists(username: string) {
+    return await this.http.get<Artist[]>(
+      `${this.baseUrl}/${username}/hunted-artists`
+    );
   }
 
   async likes(username: string) {

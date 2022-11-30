@@ -5,9 +5,9 @@ import { Fragment } from "react";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
 
+import { ArtistCard } from "./ArtistCard";
 import { Button } from "./Basic/Button";
 import { InfoTooltip } from "./Basic/Tooltip";
-import { TopArtistCard } from "./TopArtistCard";
 
 export const ArtistsFeed = () => {
   const apiClient = useApiClient();
@@ -57,7 +57,7 @@ export const ArtistsFeed = () => {
             {artists?.pages.map((page, index) => (
               <Fragment key={index}>
                 {page.data.map((artist) => (
-                  <TopArtistCard key={artist._id} artist={artist} />
+                  <ArtistCard key={artist._id} artist={artist} />
                 ))}
               </Fragment>
             ))}

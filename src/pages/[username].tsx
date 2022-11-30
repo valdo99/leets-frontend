@@ -11,6 +11,7 @@ import { User } from "@api/users";
 import { Spinner } from "@components/Basic/Spinner";
 import { TabItem, Tabs } from "@components/Basic/Tabs";
 import { EditUsernameModal } from "@components/Modals/EditUsernameModal";
+import { UserHuntedArtists } from "@components/UserHuntedArtists";
 import { UserHuntedSongs } from "@components/UserHuntedSongs";
 import { UserLikedSongs } from "@components/UserLikedSongs";
 import EditIcon from "@icons/edit.svg";
@@ -26,7 +27,7 @@ const UserPageInner = ({ user }: { user: User }) => {
 
   const tabItems: TabItem[] = [
     {
-      label: t(i18n)`Hunted`,
+      label: t(i18n)`Hunted songs`,
       content: (
         <div className="mt-8">
           <UserHuntedSongs user={user} />
@@ -34,7 +35,15 @@ const UserPageInner = ({ user }: { user: User }) => {
       ),
     },
     {
-      label: t(i18n)`Liked`,
+      label: t(i18n)`Hunted artists`,
+      content: (
+        <div className="mt-8">
+          <UserHuntedArtists user={user} />
+        </div>
+      ),
+    },
+    {
+      label: t(i18n)`Liked songs`,
       content: (
         <div className="mt-8">
           <UserLikedSongs user={user} />

@@ -15,7 +15,12 @@ interface TabsProps {
 export const Tabs = ({ items, className }: TabsProps) => {
   return (
     <Tab.Group>
-      <Tab.List className={cx("flex space-x-2", className)}>
+      <Tab.List
+        className={cx(
+          "grid grid-cols-[repeat(auto-fill,_minmax(8.75rem,_1fr))] gap-2",
+          className
+        )}
+      >
         {items.map((item) => (
           <Tab key={item.label?.toString()} as={Fragment}>
             {({ selected }) => (
@@ -23,7 +28,7 @@ export const Tabs = ({ items, className }: TabsProps) => {
                 className={cx(
                   "rounded-btn",
                   "text-sm font-medium",
-                  "py-2.5 min-w-[140px]",
+                  "py-2.5",
                   "focus:outline-none",
                   "focus-visible:ring-4",
                   "focus:ring-primary focus:ring-opacity-50",
