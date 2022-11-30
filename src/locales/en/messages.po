@@ -115,8 +115,12 @@ msgid "Do you often discover songs and artists before everyone else? Leets is th
 msgstr "Do you often discover songs and artists before everyone else? Leets is the perfect place to share your musical discoveries with other people like you."
 
 #: src/pages/login.tsx
-msgid "Don' have an account?"
-msgstr "Don' have an account?"
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: src/pages/login.tsx
+msgid "Don't remember your password?"
+msgstr "Don't remember your password?"
 
 #: src/pages/login.tsx
 #: src/pages/signup.tsx
@@ -244,6 +248,8 @@ msgid "Likes"
 msgstr "Likes"
 
 #: src/components/Song/SongCard.tsx
+#: src/pages/song/[song].tsx
+#: src/pages/song/[song].tsx
 msgid "Listen on Spotify"
 msgstr "Listen on Spotify"
 

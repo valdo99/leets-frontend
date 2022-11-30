@@ -1,25 +1,22 @@
-import { t, Trans } from "@lingui/macro";
-import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
 
 import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
 import { useForm } from "@hooks/useForm";
-import GoogleIcon from "@icons/google.svg";
-import { useApiClient, useUser } from "@providers/AuthProvider";
+import { useApiClient } from "@providers/AuthProvider";
 
-const LoginPage = () => {
-  const { i18n } = useLingui();
+const RecoverPassowrdPage = () => {
   const apiClient = useApiClient();
-  const { setUser } = useUser();
   const router = useRouter();
+  const urlSerch = new URLSearchParams(router.asPath.split("?")[1]);
 
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
     {
-      email: "",
+      email: urlSerch.get("email") || "",
+      otp: urlSerch.get("OTP") || "",
       password: "",
+      repeatPassword: "",
     },
     {
       resetOnSuccess: true,
@@ -27,55 +24,51 @@ const LoginPage = () => {
   );
 
   const onSubmit = handleSubmit(async (data) => {
-    await apiClient.auth.login(data);
-    const loggedUser = await apiClient.auth.getLoggedUser();
-
-    setUser({
-      user: loggedUser,
-      loading: false,
-    });
-
-    router.push(`/${loggedUser?.username}`);
+    await apiClient.auth.resetPassword(data);
+    router.push(`/login?success=Password reset successfully, please login`);
   });
 
   return (
     <div className="mx-auto max-w-sm pt-10">
       <h1 className="mb-8 text-center text-2xl font-bold">
-        <Trans>Login</Trans>
+        Recover your password
       </h1>
       <form className="flex flex-col" onSubmit={onSubmit}>
         <Input
-          label={t(i18n)`Email`}
+          variant="bordered"
+          label={`Email`}
           name="email"
           onChange={handleChange}
           error={errors.email}
           value={formData.email}
-          type="email"
+        />
+        <Input
+          variant="bordered"
+          label={`OTP`}
+          name="otp"
+          onChange={handleChange}
+          error={errors.otp}
+          value={formData.otp}
         />
         <Input
           type="password"
-          label={t(i18n)`Password`}
+          variant="bordered"
+          label={`New passowrd`}
           name="password"
           onChange={handleChange}
           error={errors.password}
           value={formData.password}
         />
-        <p className="mt-4 text-sm">
-          <Trans>Don&apos;t have an account?</Trans>{" "}
-          <Link href="/signup">
-            <a className="cursor-pointer text-blue-300 hover:underline">
-              Signup
-            </a>
-          </Link>
-        </p>
-        <p className="mt-4 text-sm">
-          <Trans>Don&apos;t remember your password?</Trans>{" "}
-          <Link href="/recover-password">
-            <a className="cursor-pointer text-blue-300 hover:underline">
-              Recover password
-            </a>
-          </Link>
-        </p>
+        <Input
+          type="password"
+          variant="bordered"
+          label={`Repeat new password`}
+          name="repeatPassword"
+          onChange={handleChange}
+          error={errors.repeatPassword}
+          value={formData.repeatPassword}
+        />
+
         <Button
           block
           disabled={disabled}
@@ -84,23 +77,27 @@ const LoginPage = () => {
           loading={disabled}
           className="mt-4"
         >
-          <Trans>Login</Trans>
+          Recover now!
         </Button>
+        <p className="mt-4 text-sm">
+          Don&apos;t have an account?{" "}
+          <Link href="/signup">
+            <a className="cursor-pointer text-blue-300 hover:underline">
+              Signup
+            </a>
+          </Link>
+        </p>
+        <p className="mt-4 text-sm">
+          Remember your password?{" "}
+          <Link href="/login">
+            <a className="cursor-pointer text-blue-300 hover:underline">
+              Login
+            </a>
+          </Link>
+        </p>
       </form>
-
-      <Button
-        block
-        onClick={async () => {
-          await apiClient.auth.googleLogin();
-        }}
-        color="secondary"
-        className="mt-4"
-        leftIcon={<GoogleIcon />}
-      >
-        Signin with Google
-      </Button>
     </div>
   );
 };
 
-export default LoginPage;
+export default RecoverPassowrdPage;

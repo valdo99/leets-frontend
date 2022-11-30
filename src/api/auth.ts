@@ -1,5 +1,9 @@
 import { ApiService } from "./apiService";
 
+interface ForgotPasswordResponse {
+  duration: number;
+}
+
 interface Credentials {
   email: string;
   password: string;
@@ -84,7 +88,10 @@ export class AuthService extends ApiService {
   }
 
   async forgotPassword(data: EmailBody) {
-    return await this.http.post(`${this.baseUrl}/forgot-password`, data);
+    return await this.http.post<EmailBody, ForgotPasswordResponse>(
+      `${this.baseUrl}/forgot-password`,
+      data
+    );
   }
 
   async resetPassword(data: ResetPasswordBody) {
