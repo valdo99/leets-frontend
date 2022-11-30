@@ -57,7 +57,7 @@ export const SongCard = ({
         "bg-secondary text-secondary-content",
         "p-2.5 xs:p-3",
         "flex justify-between flex-col sm:flex-row",
-        "space-x-4 space-y-3 sm:space-y-0"
+        "space-x-0 space-y-3 sm:space-y-0 sm:space-x-4"
       )}
     >
       <div className="flex min-w-0 space-x-3">
