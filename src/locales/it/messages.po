@@ -184,8 +184,8 @@ msgid "Hunt the next hit"
 msgstr "Scopri la nuova hit"
 
 #: src/pages/[username].tsx
-msgid "Hunted"
-msgstr "Scoperte"
+msgid "Hunted artists"
+msgstr "Artisti huntati"
 
 #: src/components/Song/SongCard.tsx
 #: src/pages/song/[song].tsx
@@ -197,9 +197,13 @@ msgstr "Scoperta da"
 msgid "Hunted by (masculine)"
 msgstr "Scoperto da"
 
-#: src/components/TopArtistCard.tsx
+#: src/components/ArtistCard.tsx
 msgid "Hunted on {0}"
 msgstr "Scoperta il {0}"
+
+#: src/pages/[username].tsx
+msgid "Hunted songs"
+msgstr "Canzoni scoperte"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
 #: src/components/Layout/Navbar/Navbar.tsx
@@ -243,8 +247,8 @@ msgid "Leets playlist"
 msgstr "Leets playlist"
 
 #: src/pages/[username].tsx
-msgid "Liked"
-msgstr "Mi piace"
+msgid "Liked songs"
+msgstr "Canzoni piaciute"
 
 #: src/components/Modals/PostUserLikes.tsx
 #: src/components/Song/PostTabs.tsx
@@ -305,6 +309,10 @@ msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
 #: src/components/Modals/EditUsernameModal.tsx
 msgid "New Username"
 msgstr "Nuovo nome utente"
+
+#: src/components/UserHuntedArtists.tsx
+msgid "No hunted artists songs"
+msgstr "Nessuna canzone huntata"
 
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
@@ -471,6 +479,7 @@ msgstr "Carica"
 msgid "Upload another song"
 msgstr "Carica un'altra canzone"
 
+#: src/components/UserHuntedArtists.tsx
 #: src/components/UserHuntedSongs.tsx
 #: src/pages/upload.tsx
 msgid "Upload new song"
@@ -496,6 +505,10 @@ msgstr "Cos'é Leets"
 #: src/pages/about.tsx
 msgid "With Leets you can <0>discover new music daily</0> by up-and-coming artists, which may be harder to find on other platforms like Spotify. Every day you will be able to see a ranking of the songs that received the most \"likes\" from users during the day."
 msgstr "Con Leets poi <0>scoprire quotidianamente nuova musica</0> di artisti emergenti, che possono essere più difficili da trovare su altre piattaforme come Spotify. Ogni giorno potrai vedere una classifica delle canzoni che hanno ricevuto più \"mi piace\" dagli utenti durante la giornata."
+
+#: src/components/UserHuntedArtists.tsx
+msgid "You have no hunted artists yet"
+msgstr "Non hai ancora nessun artista huntato"
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"

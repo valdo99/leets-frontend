@@ -179,8 +179,8 @@ msgid "Hunt the next hit"
 msgstr "Hunt the next hit"
 
 #: src/pages/[username].tsx
-msgid "Hunted"
-msgstr "Hunted"
+msgid "Hunted artists"
+msgstr "Hunted artists"
 
 #: src/components/Song/SongCard.tsx
 #: src/pages/song/[song].tsx
@@ -192,9 +192,13 @@ msgstr "Hunted by"
 msgid "Hunted by (masculine)"
 msgstr "Hunted by"
 
-#: src/components/TopArtistCard.tsx
+#: src/components/ArtistCard.tsx
 msgid "Hunted on {0}"
 msgstr "Hunted on {0}"
+
+#: src/pages/[username].tsx
+msgid "Hunted songs"
+msgstr "Hunted songs"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
 #: src/components/Layout/Navbar/Navbar.tsx
@@ -238,8 +242,8 @@ msgid "Leets playlist"
 msgstr "Leets playlist"
 
 #: src/pages/[username].tsx
-msgid "Liked"
-msgstr "Liked"
+msgid "Liked songs"
+msgstr "Liked songs"
 
 #: src/components/Modals/PostUserLikes.tsx
 #: src/components/Song/PostTabs.tsx
@@ -300,6 +304,10 @@ msgstr "Monthly listeners the artist had when hunted"
 #: src/components/Modals/EditUsernameModal.tsx
 msgid "New Username"
 msgstr "New Username"
+
+#: src/components/UserHuntedArtists.tsx
+msgid "No hunted artists songs"
+msgstr "No hunted artists songs"
 
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
@@ -466,6 +474,7 @@ msgstr "Upload"
 msgid "Upload another song"
 msgstr "Upload another song"
 
+#: src/components/UserHuntedArtists.tsx
 #: src/components/UserHuntedSongs.tsx
 #: src/pages/upload.tsx
 msgid "Upload new song"
@@ -491,6 +500,10 @@ msgstr "What is Leets"
 #: src/pages/about.tsx
 msgid "With Leets you can <0>discover new music daily</0> by up-and-coming artists, which may be harder to find on other platforms like Spotify. Every day you will be able to see a ranking of the songs that received the most \"likes\" from users during the day."
 msgstr "With Leets you can <0>discover new music daily</0> by up-and-coming artists, which may be harder to find on other platforms like Spotify. Every day you will be able to see a ranking of the songs that received the most \"likes\" from users during the day."
+
+#: src/components/UserHuntedArtists.tsx
+msgid "You have no hunted artists yet"
+msgstr "You have no hunted artists yet"
 
 #: src/components/UserLikedSongs.tsx
 msgid "You have no liked songs yet"

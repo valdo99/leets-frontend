@@ -22,7 +22,6 @@ const LoginPage = () => {
       repeatPassword: "",
       username: "",
       terms: false,
-      referral: window.localStorage.getItem("referral") || "",
     },
     {
       resetOnSuccess: true,
@@ -30,7 +29,10 @@ const LoginPage = () => {
   );
 
   const onSubmit = handleSubmit(async (data) => {
-    await apiClient.users.create(data);
+    await apiClient.users.create({
+      ...data,
+      referral: window?.localStorage?.getItem("referral") || "",
+    });
     toast.success(
       t(i18n)`Account created, you'll receive an email to confirm your account`
     );
