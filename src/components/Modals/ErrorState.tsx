@@ -9,11 +9,16 @@ export const ErrorState = () => {
       const urlSearchParams = new URLSearchParams(window.location.search);
       const error = urlSearchParams.get("error");
       const success = urlSearchParams.get("success");
+      const referral = urlSearchParams.get("referral");
 
       if (error) {
         toast.error(error);
       } else if (success) {
         toast.success(success);
+      }
+
+      if (referral) {
+        window.localStorage.setItem("referral", referral);
       }
     }
   }, [router.asPath]);

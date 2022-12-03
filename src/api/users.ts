@@ -22,6 +22,7 @@ interface UserCreateBody extends Pick<User, "email" | "username"> {
   terms: boolean;
   password: string;
   repeatPassword: string;
+  referral?: string;
 }
 
 export interface TopHunter extends Pick<User, "username" | "createdAt"> {

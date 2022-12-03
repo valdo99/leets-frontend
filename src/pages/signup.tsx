@@ -22,6 +22,7 @@ const LoginPage = () => {
       repeatPassword: "",
       username: "",
       terms: false,
+      referral: window.localStorage.getItem("referral") || "",
     },
     {
       resetOnSuccess: true,
