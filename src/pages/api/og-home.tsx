@@ -21,7 +21,7 @@ export default function ogHome(req: NextRequest, res: NextResponse) {
           justifyContent: "center",
         }}
       >
-        <img src={`${req.nextUrl.origin}/logo.png`} />
+        <img src={`${req.nextUrl.origin}/logo_only.png`} />
       </div>
     ),
     {
