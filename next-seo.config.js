@@ -21,6 +21,11 @@ const SEO = {
       },
     ],
   },
+  twitter: {
+    handle: "@leetsapp",
+    site: "@leetsapp",
+    cardType: "summary_large_image",
+  },
 };
 
 export default SEO;
