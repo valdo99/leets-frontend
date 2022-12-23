@@ -1,6 +1,7 @@
 import { Trans } from "@lingui/macro";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { Fragment } from "react";
 
 import { User } from "@api/users";
 import { Spinner } from "@components/Basic/Spinner";
@@ -19,10 +20,21 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
     data: likedPosts,
     isLoading,
     refetch,
-  } = useQuery(
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery(
     ["likedPosts", user?._id, loggedUser?._id],
-    () => apiClient.users.likes(user.username).then((data) => data.data),
+    ({ pageParam }) =>
+      apiClient.users.likes(user.username, { page: pageParam }),
     {
+      getNextPageParam: ({ pagination }) => {
+        const { page, perPage, total } = pagination;
+        if ((page + 1) * perPage < total) {
+          return page + 1;
+        }
+        return undefined;
+      },
       enabled: !loading,
     }
   );
@@ -35,7 +47,7 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
     );
   }
 
-  if (likedPosts?.length === 0) {
+  if (likedPosts?.pages.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 py-14">
         {isLoggedUser ? (
@@ -61,10 +73,29 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      {likedPosts?.map((post) => (
-        <SongCard key={post._id} post={post} onLikeChange={refetch} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        {likedPosts?.pages.map((post, index) => (
+          <Fragment key={index}>
+            {post.data.map((post) => (
+              <SongCard key={post._id} post={post} onLikeChange={refetch} />
+            ))}
+          </Fragment>
+        ))}
+      </div>
+      <div className="mt-8 flex h-10 items-center justify-center">
+        {isFetchingNextPage ? (
+          <Spinner className="h-10 w-10" />
+        ) : (
+          <>
+            {hasNextPage && (
+              <Button onClick={() => fetchNextPage()}>
+                <Trans>Load more</Trans>
+              </Button>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
 };

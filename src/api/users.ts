@@ -74,8 +74,10 @@ export class UserService extends ApiService {
     );
   }
 
-  async likes(username: string) {
-    return await this.http.get<Post[]>(`${this.baseUrl}/${username}/likes`);
+  async likes(username: string, params?: PaginationQueryParams) {
+    return await this.http.getPaginated<Post[]>(
+      `${this.baseUrl}/${username}/likes${getQueryString(params)}`
+    );
   }
 
   async update(data: UserUpdateBody) {
