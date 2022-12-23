@@ -71,7 +71,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
         <Trans>How to get song url</Trans>
       </h5>
       <Tabs
-        className="flex flex-col sm:flex-row [&>*]:flex-1"
+        className="flex w-full flex-col sm:flex-row [&>*]:flex-1"
         items={[
           {
             label: t(i18n)`Desktop`,
