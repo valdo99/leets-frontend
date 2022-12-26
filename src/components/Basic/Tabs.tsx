@@ -1,6 +1,7 @@
 import { Tab } from "@headlessui/react";
 import cx from "classnames";
 import { Fragment, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 export interface TabItem {
   label: string;
@@ -16,9 +17,11 @@ export const Tabs = ({ items, className }: TabsProps) => {
   return (
     <Tab.Group>
       <Tab.List
-        className={cx(
-          "grid grid-cols-[repeat(auto-fill,_minmax(8.75rem,_1fr))] gap-2",
-          className
+        className={twMerge(
+          cx(
+            "grid grid-cols-[repeat(auto-fill,_minmax(8.75rem,_1fr))] gap-2",
+            className
+          )
         )}
       >
         {items.map((item) => (
