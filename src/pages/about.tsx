@@ -53,7 +53,7 @@ export default function AboutPage() {
             <Trans>
               Leets also aims to promote{" "}
               <span className="text-primary">emerging artists</span>. In fact,
-              only songs by artists who have less than 35000 monthly listeners
+              only songs by artists who have less than 50,000 monthly listeners
               on Spotify can be uploaded. In this way we want to give visibility
               to those artists who are talented but do not yet have the
               following they deserve.

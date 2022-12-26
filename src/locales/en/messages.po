@@ -218,8 +218,8 @@ msgid "Joined on {0}"
 msgstr "Joined on {0}"
 
 #: src/pages/about.tsx
-msgid "Leets also aims to promote <0>emerging artists</0>. In fact, only songs by artists who have less than 35000 monthly listeners on Spotify can be uploaded. In this way we want to give visibility to those artists who are talented but do not yet have the following they deserve."
-msgstr "Leets also aims to promote <0>emerging artists</0>. In fact, only songs by artists who have less than 35000 monthly listeners on Spotify can be uploaded. In this way we want to give visibility to those artists who are talented but do not yet have the following they deserve."
+msgid "Leets also aims to promote <0>emerging artists</0>. In fact, only songs by artists who have less than 50,000 monthly listeners on Spotify can be uploaded. In this way we want to give visibility to those artists who are talented but do not yet have the following they deserve."
+msgstr "Leets also aims to promote <0>emerging artists</0>. In fact, only songs by artists who have less than 50,000 monthly listeners on Spotify can be uploaded. In this way we want to give visibility to those artists who are talented but do not yet have the following they deserve."
 
 #: src/pages/about.tsx
 msgid "Leets for artists"
@@ -264,6 +264,9 @@ msgstr "Listen on Spotify"
 #: src/components/Song/PostTabs.tsx
 #: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
+#: src/components/UserHuntedArtists.tsx
+#: src/components/UserHuntedSongs.tsx
+#: src/components/UserLikedSongs.tsx
 #: src/pages/notifications.tsx
 #: src/pages/search.tsx
 msgid "Load more"
@@ -361,8 +364,8 @@ msgid "Remember that we do <0>NOT</0> own any copyright of images and song/artis
 msgstr "Remember that we do <0>NOT</0> own any copyright of images and song/artist information. All data is provided by <1>Spotify</1>"
 
 #: src/pages/upload.tsx
-msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
-msgstr "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
+msgid "Remember, songs should be by artists who have less than monthly 50,000 listeners on Spotify"
+msgstr "Remember, songs should be by artists who have less than monthly 50,000 listeners on Spotify"
 
 #: src/pages/signup.tsx
 msgid "Repeat Password"
