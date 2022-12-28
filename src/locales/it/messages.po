@@ -402,8 +402,8 @@ msgid "Share"
 msgstr "Condividi"
 
 #: src/components/Landing/Hero.tsx
-msgid "Share your musical discoveries. Promote emergent artists. Discover new music."
-msgstr "Condividi le tue scoperte musicali. Promuovi artisti emergenti. Scopri nuova musica."
+msgid "Share your musical discoveries. Promote emergent artists. Discover new music daily."
+msgstr "Condividi le tue scoperte musicali. Promuovi artisti emergenti. Scopri nuova musica ogni giorno."
 
 #: src/components/Landing/HuntersSection.tsx
 msgid "Share your new musical discoveries with everyone"

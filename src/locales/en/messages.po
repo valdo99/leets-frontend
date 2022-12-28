@@ -397,8 +397,8 @@ msgid "Share"
 msgstr "Share"
 
 #: src/components/Landing/Hero.tsx
-msgid "Share your musical discoveries. Promote emergent artists. Discover new music."
-msgstr "Share your musical discoveries. Promote emergent artists. Discover new music."
+msgid "Share your musical discoveries. Promote emergent artists. Discover new music daily."
+msgstr "Share your musical discoveries. Promote emergent artists. Discover new music daily."
 
 #: src/components/Landing/HuntersSection.tsx
 msgid "Share your new musical discoveries with everyone"
