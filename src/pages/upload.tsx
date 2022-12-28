@@ -62,7 +62,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
 
       <p className="mt-6 mb-12 text-center text-sm text-base-content-neutral">
         <Trans>
-          Remember, songs should be by artists who have less than monthly 50,000
+          Remember, songs should be by artists who have less than 50,000 monthly
           listeners on Spotify
         </Trans>
       </p>

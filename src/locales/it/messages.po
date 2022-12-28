@@ -369,8 +369,8 @@ msgid "Remember that we do <0>NOT</0> own any copyright of images and song/artis
 msgstr "Ti ricordiamo che <0>NON</0> abbiamo alcun diritto di copyright delle immagini e delle informazioni su artisti e canzoni. Tutti i dati sono provenienti da <1>Spotify</1>"
 
 #: src/pages/upload.tsx
-msgid "Remember, songs should be by artists who have less than monthly 50,000 listeners on Spotify"
-msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 50,000 ascolti mensili su Spotify"
+msgid "Remember, songs should be by artists who have less than 50,000 monthly listeners on Spotify"
+msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 50,000 ascoltatori mensili su Spotify"
 
 #: src/pages/signup.tsx
 msgid "Repeat Password"
