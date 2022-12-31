@@ -28,7 +28,7 @@ export const Footer = () => {
               </a>{" "}
               and{" "}
               <a
-                href="https://www.linkedin.com/in/mattia-pomelli-b857511b1/"
+                href="https://twitter.com/mattiapomelli"
                 className="text-blue-300 hover:underline"
               >
                 Mattia
