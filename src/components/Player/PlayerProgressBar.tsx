@@ -21,7 +21,7 @@ export const PlayerProgressBar = () => {
   }, [isPlaying, audio, song]);
 
   return (
-    <div className="h-[0.4rem] w-[10rem] rounded-full bg-secondary">
+    <div className="h-[0.4rem] w-[24rem] rounded-full bg-secondary">
       <div
         className="h-full rounded-full bg-primary"
         style={{ width: `${percentagePlayed}%` }}

@@ -15,11 +15,7 @@ export const DefaultLayout = ({ children }: { children: ReactNode }) => {
         </main>
         <Footer />
       </div>
-      <div className="flex h-[120px] items-center border-t border-base-300/50 bg-base-100">
-        <Container className="w-full">
-          <Player />
-        </Container>
-      </div>
+      <Player />
     </div>
   );
 };

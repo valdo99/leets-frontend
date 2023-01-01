@@ -6,7 +6,13 @@ import VolumeMuteIcon from "@icons/volume-mute.svg";
 import VolumeIcon from "@icons/volume.svg";
 import { usePlayer } from "@providers/PlayerProvider";
 
-export const PlayerVolumeControl = () => {
+interface PlayerVolumeControlProps {
+  className?: string;
+}
+
+export const PlayerVolumeControl = ({
+  className,
+}: PlayerVolumeControlProps) => {
   const [volume, setVolume] = useState(1);
   const previousVolume = useRef(volume);
 
@@ -25,7 +31,7 @@ export const PlayerVolumeControl = () => {
   };
 
   return (
-    <div className="flex items-center">
+    <div className={cx("flex items-center", className)}>
       {volume === 0 ? (
         <button onClick={() => onVolumeChange([previousVolume.current])}>
           <VolumeMuteIcon className="h-5 w-5" />
