@@ -25,9 +25,13 @@ export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
     }
   );
 
-  const onPlay = (index: number) => {
+  const onPlay = (songId: string) => {
     if (!songs) return;
-    setQueue(songs, index);
+
+    const songsList = songs.filter((song) => song.preview_url !== null);
+    const index = songsList.findIndex((song) => song._id === songId);
+
+    setQueue(songsList, index);
   };
 
   if (isLoading) {
@@ -50,12 +54,12 @@ export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
 
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      {songs?.map((song, index) => (
+      {songs?.map((song) => (
         <SongCard
           key={song._id}
           post={song}
           onLikeChange={refetch}
-          onPlay={() => onPlay(index)}
+          onPlay={() => onPlay(song._id)}
         />
       ))}
     </div>

@@ -37,11 +37,16 @@ export const TopSongsFeed = () => {
     }
   );
 
-  const onPlay = (pageIndex: number, indexInPage: number) => {
+  const onPlay = (songId: string) => {
     if (!songs) return;
-    const perPage = songs.pages[0].pagination.perPage;
-    const index = pageIndex * perPage + indexInPage;
-    setQueue(songs.pages.map((page) => page.data).flat(), index);
+
+    const songsList = songs.pages
+      .map((page) => page.data)
+      .flat()
+      .filter((song) => song.preview_url !== null);
+    const index = songsList.findIndex((song) => song._id === songId);
+
+    setQueue(songsList, index);
   };
 
   return (
@@ -67,14 +72,14 @@ export const TopSongsFeed = () => {
       ) : (
         <>
           <div className="flex flex-col space-y-4">
-            {songs?.pages.map((page, pageIndex) => (
-              <Fragment key={pageIndex}>
-                {page.data.map((song, index) => (
+            {songs?.pages.map((page, index) => (
+              <Fragment key={index}>
+                {page.data.map((song) => (
                   <SongCard
                     key={song._id}
                     post={song}
                     onLikeChange={refetch}
-                    onPlay={() => onPlay(pageIndex, index)}
+                    onPlay={() => onPlay(song._id)}
                   />
                 ))}
               </Fragment>

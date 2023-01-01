@@ -8,7 +8,7 @@ import { TopHunter, User } from "./users";
 export interface Post extends Entity {
   title: string;
   image: string;
-  preview_url: string;
+  preview_url?: string;
   spotify_id: string;
   hunter: User;
   artist: Artist;

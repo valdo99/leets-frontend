@@ -41,11 +41,16 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
     }
   );
 
-  const onPlay = (pageIndex: number, indexInPage: number) => {
+  const onPlay = (songId: string) => {
     if (!uploadedPosts) return;
-    const perPage = uploadedPosts.pages[0].pagination.perPage;
-    const index = pageIndex * perPage + indexInPage;
-    setQueue(uploadedPosts.pages.map((page) => page.data).flat(), index);
+
+    const songsList = uploadedPosts.pages
+      .map((page) => page.data)
+      .flat()
+      .filter((song) => song.preview_url !== null);
+    const index = songsList.findIndex((song) => song._id === songId);
+
+    setQueue(songsList, index);
   };
 
   if (isLoading) {
@@ -84,14 +89,14 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {uploadedPosts?.pages.map((post, pageIndex) => (
-          <Fragment key={pageIndex}>
-            {post.data.map((post, index) => (
+        {uploadedPosts?.pages.map((post, index) => (
+          <Fragment key={index}>
+            {post.data.map((post) => (
               <SongCard
                 key={post._id}
                 post={post}
                 onLikeChange={refetch}
-                onPlay={() => onPlay(pageIndex, index)}
+                onPlay={() => onPlay(post._id)}
               />
             ))}
           </Fragment>
