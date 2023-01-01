@@ -53,7 +53,6 @@ msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 #: src/pages/artists.tsx
 #: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/songs.tsx
 msgid "Are you new here?"
 msgstr "Sei nuovo qui?"
 
@@ -111,7 +110,6 @@ msgstr "Scopri canzoni"
 #: src/pages/artists.tsx
 #: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/songs.tsx
 msgid "Discover what is Leets"
 msgstr "Scopri cos'é Leets"
 
@@ -267,7 +265,6 @@ msgstr "Ascolta su Spotify"
 #: src/components/Modals/PostUserLikes.tsx
 #: src/components/Song/PostTabs.tsx
 #: src/components/Song/PostTabs.tsx
-#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 #: src/components/UserHuntedArtists.tsx
 #: src/components/UserHuntedSongs.tsx
@@ -417,7 +414,6 @@ msgstr "Qualcosa é andato storto, riprova più tardi"
 msgid "Song uploaded! 🚀"
 msgstr "Canzone caricata! 🚀"
 
-#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Songs which received the most likes today"
 msgstr "Canzoni che hanno ricevuto più like oggi"
@@ -442,7 +438,6 @@ msgstr "Non ci sono canzoni huntate"
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
 msgstr "Per iniziare, registrati e carica il <0>link di Spotify</0> della canzone che desideri condividere alla community"
 
-#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Migliori canzoni del giorno"
