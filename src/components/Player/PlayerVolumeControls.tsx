@@ -48,7 +48,7 @@ export const PlayerVolumeControl = ({
         defaultValue={[0]}
         max={1}
         step={0.01}
-        aria-label="value"
+        aria-label="Volume"
         className="relative ml-3 flex h-[0.4rem] w-[10rem] cursor-pointer touch-none items-center"
       >
         <SliderPrimitive.Track className="relative h-1 w-full grow rounded-full bg-secondary">

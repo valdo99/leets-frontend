@@ -19,12 +19,14 @@ interface SongCardProps {
   post: Post;
   onLikeChange?: () => void;
   showHunter?: boolean;
+  onPlay?: () => void;
 }
 
 export const SongCard = ({
   post,
   onLikeChange,
   showHunter = true,
+  onPlay,
 }: SongCardProps) => {
   const apiClient = useApiClient();
   const { user } = useUser();
@@ -95,6 +97,7 @@ export const SongCard = ({
                 post={post}
                 className="-ml-1"
                 playerClassName="w-9 h-9 xs:w-10 xs:h-10"
+                onClick={onPlay}
               />
             ) : (
               <a

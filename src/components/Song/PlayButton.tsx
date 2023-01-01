@@ -9,11 +9,13 @@ interface PlayButtonProps {
   size?: number;
   className?: string;
   playerClassName?: string;
+  onClick?: () => void;
 }
 
 export const PlayButton = ({
   post,
   size = 4,
+  onClick,
   className,
   playerClassName,
 }: PlayButtonProps) => {
@@ -27,6 +29,8 @@ export const PlayButton = ({
     } else {
       play(post);
     }
+
+    onClick?.();
   };
 
   return (
