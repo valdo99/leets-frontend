@@ -10,7 +10,10 @@ interface PlayerContextValue {
   pause: () => void;
   audio: HTMLAudioElement | undefined;
   queue: Post[];
+  queueIndex: number;
   setQueue: (queue: Post[], index: number) => void;
+  goToNextSong: () => void;
+  goToPreviousSong: () => void;
 }
 
 const PlayerContext = createContext<PlayerContextValue | undefined>(undefined);
@@ -42,13 +45,20 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [isPlaying, song, audio]);
 
-  const onAudioEnded = () => {
+  const goToNextSong = () => {
     if (queueIndex === queue.length - 1) {
       pause();
     } else {
-      setQueueIndex(queueIndex + 1);
+      setQueueIndex((index) => index + 1);
       setSong(queue[queueIndex + 1]);
     }
+  };
+
+  const goToPreviousSong = () => {
+    if (queueIndex === 0) return;
+
+    setQueueIndex((index) => index - 1);
+    setSong(queue[queueIndex - 1]);
   };
 
   const onSetQueue = (queue: Post[], index: number) => {
@@ -60,7 +70,7 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
     if (!audio) return;
 
     setAudio(audio);
-    audio.onended = onAudioEnded;
+    audio.onended = goToNextSong;
   };
 
   return (
@@ -72,7 +82,10 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
         play,
         audio,
         queue,
+        queueIndex,
         setQueue: onSetQueue,
+        goToNextSong,
+        goToPreviousSong,
       }}
     >
       {song && (
