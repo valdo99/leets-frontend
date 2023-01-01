@@ -13,18 +13,20 @@ import HeartSolid from "@icons/heart-solid.svg";
 import SpotifyIcon from "@icons/spotify.svg";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 
-import { Player } from "./Player";
+import { PlayButton } from "./PlayButton";
 
 interface SongCardProps {
   post: Post;
   onLikeChange?: () => void;
   showHunter?: boolean;
+  onPlay?: () => void;
 }
 
 export const SongCard = ({
   post,
   onLikeChange,
   showHunter = true,
+  onPlay,
 }: SongCardProps) => {
   const apiClient = useApiClient();
   const { user } = useUser();
@@ -91,11 +93,11 @@ export const SongCard = ({
           </Link>{" "}
           <div className="flex items-center space-x-2">
             {post.preview_url ? (
-              <Player
-                id={post.spotify_id}
-                previewTrackUrl={post.preview_url}
+              <PlayButton
+                post={post}
                 className="-ml-1"
                 playerClassName="w-9 h-9 xs:w-10 xs:h-10"
+                onClick={onPlay}
               />
             ) : (
               <a

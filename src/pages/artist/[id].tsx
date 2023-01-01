@@ -58,7 +58,7 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
       </div>
 
       {/* Stats */}
-      <div className="mt-8 flex flex-wrap space-x-4">
+      <div className="mt-8 flex flex-col flex-wrap space-y-2 xs:flex-row xs:space-x-4 xs:space-y-0">
         {/* Monthly Listeners */}
         <div className="rounded-btn flex bg-base-200 py-2 px-4 text-sm sm:text-base">
           <span className="font-bold">

@@ -66,19 +66,21 @@ export const HuntersFeed = () => {
               </Fragment>
             ))}
           </div>
-          <div className="mt-8 flex h-10 items-center justify-center">
-            {isFetchingNextPage ? (
-              <Spinner className="h-10 w-10" />
-            ) : (
-              <>
-                {hasNextPage && (
-                  <Button block onClick={() => fetchNextPage()}>
-                    <Trans>Load more</Trans>
-                  </Button>
-                )}
-              </>
-            )}
-          </div>
+          {(isFetchingNextPage || hasNextPage) && (
+            <div className="mt-8 flex h-10 items-center justify-center">
+              {isFetchingNextPage ? (
+                <Spinner className="h-10 w-10" />
+              ) : (
+                <>
+                  {hasNextPage && (
+                    <Button block onClick={() => fetchNextPage()}>
+                      <Trans>Load more</Trans>
+                    </Button>
+                  )}
+                </>
+              )}
+            </div>
+          )}
         </>
       )}
     </div>

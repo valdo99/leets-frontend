@@ -6,6 +6,7 @@ import { Fragment } from "react";
 import { User } from "@api/users";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient, useUser } from "@providers/AuthProvider";
+import { usePlayer } from "@providers/PlayerProvider";
 
 import { Button } from "./Basic/Button";
 import { SongCard } from "./Song/SongCard";
@@ -13,6 +14,7 @@ import { SongCard } from "./Song/SongCard";
 export const UserLikedSongs = ({ user }: { user: User }) => {
   const apiClient = useApiClient();
   const { loading, user: loggedUser } = useUser();
+  const { setQueue } = usePlayer();
 
   const isLoggedUser = user._id === loggedUser?._id;
 
@@ -38,6 +40,13 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
       enabled: !loading,
     }
   );
+
+  const onPlay = (pageIndex: number, indexInPage: number) => {
+    if (!likedPosts) return;
+    const perPage = likedPosts.pages[0].pagination.perPage;
+    const index = pageIndex * perPage + indexInPage;
+    setQueue(likedPosts.pages.map((page) => page.data).flat(), index);
+  };
 
   if (isLoading) {
     return (
@@ -75,27 +84,34 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {likedPosts?.pages.map((post, index) => (
-          <Fragment key={index}>
-            {post.data.map((post) => (
-              <SongCard key={post._id} post={post} onLikeChange={refetch} />
+        {likedPosts?.pages.map((post, pageIndex) => (
+          <Fragment key={pageIndex}>
+            {post.data.map((post, index) => (
+              <SongCard
+                key={post._id}
+                post={post}
+                onLikeChange={refetch}
+                onPlay={() => onPlay(pageIndex, index)}
+              />
             ))}
           </Fragment>
         ))}
       </div>
-      <div className="mt-8 flex h-10 items-center justify-center">
-        {isFetchingNextPage ? (
-          <Spinner className="h-10 w-10" />
-        ) : (
-          <>
-            {hasNextPage && (
-              <Button onClick={() => fetchNextPage()}>
-                <Trans>Load more</Trans>
-              </Button>
-            )}
-          </>
-        )}
-      </div>
+      {(isFetchingNextPage || hasNextPage) && (
+        <div className="mt-8 flex h-10 items-center justify-center">
+          {isFetchingNextPage ? (
+            <Spinner className="h-10 w-10" />
+          ) : (
+            <>
+              {hasNextPage && (
+                <Button onClick={() => fetchNextPage()}>
+                  <Trans>Load more</Trans>
+                </Button>
+              )}
+            </>
+          )}
+        </div>
+      )}
     </>
   );
 };

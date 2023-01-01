@@ -10,6 +10,7 @@ export const Footer = () => {
       <Container>
         <div className="flex flex-wrap items-center justify-between space-x-4 border-t border-base-300/50 py-6 text-sm">
           <div className="shrink-0 md:flex-1">© 2022, Leets</div>
+
           <p className="order-1 basis-full text-center md:order-none md:basis-auto">
             <Trans>
               Made with <HeartIcon className="inline h-6 w-6" /> by{" "}
