@@ -88,7 +88,7 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
         goToPreviousSong,
       }}
     >
-      {song && (
+      {song?.preview_url && (
         <audio className="hidden" ref={handleAudioRef} src={song.preview_url} />
       )}
       {children}
