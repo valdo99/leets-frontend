@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 
 import { PlayButton } from "@components/Song/PlayButton";
 import SpotifyIcon from "@icons/spotify.svg";
@@ -9,35 +9,14 @@ import { usePlayer } from "@state/player";
 import { PlayerProgressBar } from "./PlayerProgressBar";
 
 export const Player = () => {
-  const { song, isPlaying, pause, audioRef } = usePlayer();
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.onended = pause;
-    }
-  }, [pause, audioRef]);
-
-  /* Play/Pause audio */
-  useEffect(() => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-    }
-  }, [isPlaying, song, audioRef]);
+  const { song, audioRef, handleAudioRef } = usePlayer();
 
   if (!song) return null;
 
   return (
     <div className="flex h-full items-center justify-between">
       {song?.preview_url && (
-        <audio
-          style={{ display: "none" }}
-          ref={audioRef}
-          src={song.preview_url}
-        />
+        <audio className="hidden" ref={handleAudioRef} src={song.preview_url} />
       )}
 
       <div className="flex min-w-0 space-x-3">
