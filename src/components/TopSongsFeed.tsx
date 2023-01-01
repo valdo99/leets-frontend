@@ -80,19 +80,21 @@ export const TopSongsFeed = () => {
               </Fragment>
             ))}
           </div>
-          <div className="mt-8 flex h-10 items-center justify-center">
-            {isFetchingNextPage ? (
-              <Spinner className="h-10 w-10" />
-            ) : (
-              <>
-                {hasNextPage && (
-                  <Button onClick={() => fetchNextPage()} block>
-                    <Trans>Load more</Trans>
-                  </Button>
-                )}
-              </>
-            )}
-          </div>
+          {(isFetchingNextPage || hasNextPage) && (
+            <div className="mt-8 flex h-10 items-center justify-center">
+              {isFetchingNextPage ? (
+                <Spinner className="h-10 w-10" />
+              ) : (
+                <>
+                  {hasNextPage && (
+                    <Button onClick={() => fetchNextPage()} block>
+                      <Trans>Load more</Trans>
+                    </Button>
+                  )}
+                </>
+              )}
+            </div>
+          )}
         </>
       )}
     </>
