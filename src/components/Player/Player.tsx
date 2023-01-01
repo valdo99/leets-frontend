@@ -7,6 +7,7 @@ import SpotifyIcon from "@icons/spotify.svg";
 import { usePlayer } from "@providers/PlayerProvider";
 
 import { PlayerProgressBar } from "./PlayerProgressBar";
+import { PlayerVolumeControl } from "./PlayerVolumeControls";
 
 export const Player = () => {
   const { song } = usePlayer();
@@ -56,10 +57,12 @@ export const Player = () => {
         </div>
       </div>
 
-      <div className="flex items-center">
+      <div className="flex items-center justify-between">
         <PlayButton post={song} size={3} className="mr-4" />
         <PlayerProgressBar />
       </div>
+
+      <PlayerVolumeControl />
     </div>
   );
 };
