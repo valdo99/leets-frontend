@@ -26,18 +26,18 @@ export const PlayerControls = ({ song, className }: PlayerControlsProps) => {
           disabled={queueIndex === 0}
           className="disabled:opacity-60"
         >
-          <PreviousIcon className="h-6 w-6" />
+          <PreviousIcon className="h-6 w-6 text-base-content" />
         </button>
-        <PlayButton post={song} size={2.2} className="mx-2" />
+        <PlayButton post={song} size={2.2} className="mx-1 sm:mx-2" />
         <button
           onClick={goToNextSong}
           disabled={queueIndex === queue.length - 1}
           className="disabled:opacity-60"
         >
-          <NextIcon className="h-6 w-6" />
+          <NextIcon className="h-6 w-6 text-base-content" />
         </button>
       </div>
-      <PlayerProgressBar className="hidden md:block" />
+      <PlayerProgressBar className="hidden md:flex" />
     </div>
   );
 };

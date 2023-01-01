@@ -19,7 +19,7 @@ export const Player = () => {
         <PlayerSongInfo song={song} className="min-w-0 flex-1 justify-start" />
         <PlayerControls song={song} className="order-1 mx-4 md:order-none" />
         <PlayerVolumeControl className="hidden flex-1 justify-end sm:flex" />
-        <PlayerProgressBar className="order-1 mt-2 basis-full md:hidden" />
+        <PlayerProgressBar className="order-1 mt-2 w-full basis-full md:hidden" />
       </Container>
     </div>
   );
