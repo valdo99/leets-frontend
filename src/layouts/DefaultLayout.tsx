@@ -5,7 +5,15 @@ import { Footer } from "@components/Layout/Footer";
 import { Navbar } from "@components/Layout/Navbar/Navbar";
 import { Player } from "@components/Player/Player";
 
-export const DefaultLayout = ({ children }: { children: ReactNode }) => {
+interface DefaultLayoutProps {
+  children: ReactNode;
+  showFooter?: boolean;
+}
+
+export const DefaultLayout = ({
+  children,
+  showFooter = false,
+}: DefaultLayoutProps) => {
   return (
     <div className="relative flex h-[calc(var(--vh,1vh)*100)] flex-col">
       <div className="relative flex-1 overflow-auto">
@@ -13,7 +21,7 @@ export const DefaultLayout = ({ children }: { children: ReactNode }) => {
         <main className="flex-1 pb-20">
           <Container>{children}</Container>
         </main>
-        <Footer />
+        {showFooter && <Footer />}
       </div>
       <Player />
     </div>
