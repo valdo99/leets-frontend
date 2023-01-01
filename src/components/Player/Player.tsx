@@ -4,21 +4,17 @@ import React from "react";
 
 import { PlayButton } from "@components/Song/PlayButton";
 import SpotifyIcon from "@icons/spotify.svg";
-import { usePlayer } from "@state/player";
+import { usePlayer } from "@providers/PlayerProvider";
 
 import { PlayerProgressBar } from "./PlayerProgressBar";
 
 export const Player = () => {
-  const { song, audioRef, handleAudioRef } = usePlayer();
+  const { song } = usePlayer();
 
   if (!song) return null;
 
   return (
     <div className="flex h-full items-center justify-between">
-      {song?.preview_url && (
-        <audio className="hidden" ref={handleAudioRef} src={song.preview_url} />
-      )}
-
       <div className="flex min-w-0 space-x-3">
         {/* Song Image */}
         {song.image && (
@@ -62,7 +58,7 @@ export const Player = () => {
 
       <div className="flex items-center">
         <PlayButton post={song} size={3} className="mr-4" />
-        {audioRef.current && <PlayerProgressBar audio={audioRef.current} />}
+        <PlayerProgressBar />
       </div>
     </div>
   );
