@@ -13,7 +13,7 @@ interface PlayerSongInfoProps {
 
 export const PlayerSongInfo = ({ song, className }: PlayerSongInfoProps) => {
   return (
-    <div className={cx("flex items-center", className)}>
+    <div className={cx("flex items-center w-[200px]", className)}>
       {/* Song Image */}
       {song.image && (
         <div className="relative h-14 w-14 shrink-0">
@@ -33,7 +33,7 @@ export const PlayerSongInfo = ({ song, className }: PlayerSongInfoProps) => {
       {/* Song Details */}
       <div className="ml-3 flex min-w-0 flex-col justify-center">
         <Link href={`/artist/${song.artist._id}`}>
-          <a className="text-2xs font-bold uppercase leading-4 hover:text-base-content-neutral">
+          <a className="text-2xs truncate font-bold uppercase leading-4 hover:text-base-content-neutral">
             {song.artist.name}
           </a>
         </Link>

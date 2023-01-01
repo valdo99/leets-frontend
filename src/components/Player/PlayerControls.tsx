@@ -16,7 +16,7 @@ export const PlayerControls = ({ song, className }: PlayerControlsProps) => {
       className={cx("flex flex-col items-center justify-between", className)}
     >
       <PlayButton post={song} size={2.2} className="mb-2" />
-      <PlayerProgressBar />
+      <PlayerProgressBar className="hidden md:block" />
     </div>
   );
 };
