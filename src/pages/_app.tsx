@@ -9,6 +9,7 @@ import { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
 
 import { ErrorState } from "@components/Modals/ErrorState";
+import { useInitViewportHeight } from "@hooks/useInitViewportHeight";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AuthProvider } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
@@ -23,6 +24,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   const getLayout =
     (Component as PageWithLayout).getLayout ||
     ((page) => <DefaultLayout>{page}</DefaultLayout>);
+
+  useInitViewportHeight();
 
   return (
     <>
