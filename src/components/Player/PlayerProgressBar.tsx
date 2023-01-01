@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 
-import { usePlayer } from "@state/player";
+import { usePlayer } from "@providers/PlayerProvider";
 
-interface PlayerProgressBarProps {
-  audio: HTMLAudioElement;
-}
-
-export const PlayerProgressBar = ({ audio }: PlayerProgressBarProps) => {
-  const { isPlaying, song } = usePlayer();
+export const PlayerProgressBar = () => {
+  const { isPlaying, song, audio } = usePlayer();
   const [percentagePlayed, setPercentagePlayed] = useState(0);
 
   useEffect(() => {
     if (!isPlaying) return;
 
     const intervalId = setInterval(() => {
+      if (!audio) return;
+
       setPercentagePlayed((audio.currentTime / audio.duration) * 100);
     }, 100);
 

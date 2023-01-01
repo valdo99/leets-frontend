@@ -12,6 +12,7 @@ import { ErrorState } from "@components/Modals/ErrorState";
 import { useInitViewportHeight } from "@hooks/useInitViewportHeight";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AuthProvider } from "@providers/AuthProvider";
+import { PlayerProvider } from "@providers/PlayerProvider";
 import { PageWithLayout } from "@types";
 import { LocaleProvider } from "locales/locale-provider";
 
@@ -46,11 +47,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Provider>
           <LocaleProvider>
             <AuthProvider>
-              <ErrorState />
-              <DefaultSeo {...SEO} />
-              <AuthGuard auth={(Component as PageWithLayout).auth}>
-                {getLayout(<Component {...pageProps} />)}
-              </AuthGuard>
+              <PlayerProvider>
+                <ErrorState />
+                <DefaultSeo {...SEO} />
+                <AuthGuard auth={(Component as PageWithLayout).auth}>
+                  {getLayout(<Component {...pageProps} />)}
+                </AuthGuard>
+              </PlayerProvider>
             </AuthProvider>
           </LocaleProvider>
         </Provider>

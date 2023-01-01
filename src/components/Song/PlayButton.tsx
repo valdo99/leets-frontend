@@ -2,7 +2,7 @@ import cx from "classnames";
 import React from "react";
 
 import { Post } from "@api/posts";
-import { usePlayer } from "@state/player";
+import { usePlayer } from "@providers/PlayerProvider";
 
 interface PlayButtonProps {
   post: Post;
