@@ -1,15 +1,41 @@
 import { atom, useAtom } from "jotai";
+import { useRef } from "react";
 
-interface TrackState {
-  id: string | null;
+import { Post } from "@api/posts";
+
+interface PlayerState {
   isPlaying: boolean;
+  song: Post | null;
 }
 
-const trackAtom = atom<TrackState>({
-  id: null,
+const playerAtom = atom<PlayerState>({
+  song: null,
   isPlaying: false,
 });
 
-export const useTrack = () => {
-  return useAtom(trackAtom);
+export const usePlayer = () => {
+  const [playerState, setPlayerState] = useAtom(playerAtom);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const play = (song: Post) => {
+    setPlayerState((state) => ({
+      ...state,
+      song,
+      isPlaying: true,
+    }));
+  };
+
+  const pause = () => {
+    setPlayerState((state) => ({
+      ...state,
+      isPlaying: false,
+    }));
+  };
+
+  return {
+    ...playerState,
+    play,
+    pause,
+    audioRef,
+  };
 };
