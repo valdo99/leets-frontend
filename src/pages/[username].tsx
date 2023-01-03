@@ -90,7 +90,7 @@ const UserPage: PageWithLayout<{ user: User }> = ({ user }) => {
 export default UserPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const username = params?.username?.toString() || "";
+  const username = encodeURI(params?.username?.toString() || "");
 
   const apiClient = new ApiClient();
   const { data: user } = await apiClient.users.read(username);
