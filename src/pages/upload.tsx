@@ -62,7 +62,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
 
       <p className="mt-6 mb-12 text-center text-sm text-base-content-neutral">
         <Trans>
-          Remember, songs should be by artists who have less than 35.000 monthly
+          Remember, songs should be by artists who have less than 50,000 monthly
           listeners on Spotify
         </Trans>
       </p>
@@ -71,7 +71,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
         <Trans>How to get song url</Trans>
       </h5>
       <Tabs
-        className="flex justify-center"
+        className="flex w-full flex-col sm:flex-row [&>*]:flex-1"
         items={[
           {
             label: t(i18n)`Desktop`,
@@ -155,7 +155,7 @@ const UploadSuccess = ({ post, onSuccess }: UploadPreviewProps) => {
       <p className="text-base-content-neutral">
         <Trans>You have succesfully uploaded</Trans>
       </p>
-      <h4 className="my-4 text-3xl font-bold">{post.title}</h4>
+      <h4 className="my-4 text-center text-3xl font-bold">{post.title}</h4>
       <Button className="mt-6" onClick={onSuccess}>
         <Trans>Upload another song</Trans>
       </Button>

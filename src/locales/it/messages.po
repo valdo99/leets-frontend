@@ -53,7 +53,6 @@ msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 #: src/pages/artists.tsx
 #: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/songs.tsx
 msgid "Are you new here?"
 msgstr "Sei nuovo qui?"
 
@@ -111,7 +110,6 @@ msgstr "Scopri canzoni"
 #: src/pages/artists.tsx
 #: src/pages/feed.tsx
 #: src/pages/hunters.tsx
-#: src/pages/songs.tsx
 msgid "Discover what is Leets"
 msgstr "Scopri cos'é Leets"
 
@@ -223,8 +221,8 @@ msgid "Joined on {0}"
 msgstr "Iscritto il {0}"
 
 #: src/pages/about.tsx
-msgid "Leets also aims to promote <0>emerging artists</0>. In fact, only songs by artists who have less than 35000 monthly listeners on Spotify can be uploaded. In this way we want to give visibility to those artists who are talented but do not yet have the following they deserve."
-msgstr "Leets ha anche lo scopo di promuovere gli <0>artisti emergenti</0>. Possono infatti essere caricate solo canzoni di artisti che hanno meno di 35000 ascoltatori mensili su Spotify. In questo modo vogliamo dare visibilità a quegli artisti che hanno talento, ma che non hanno ancora il seguito che si meritano."
+msgid "Leets also aims to promote <0>emerging artists</0>. In fact, only songs by artists who have less than 50,000 monthly listeners on Spotify can be uploaded. In this way we want to give visibility to those artists who are talented but do not yet have the following they deserve."
+msgstr "Leets ha anche lo scopo di promuovere gli <0>artisti emergenti</0>. Possono infatti essere caricate solo canzoni di artisti che hanno meno di 50,000 ascoltatori mensili su Spotify. In questo modo vogliamo dare visibilità a quegli artisti che hanno talento, ma che non hanno ancora il seguito che si meritano."
 
 #: src/pages/about.tsx
 msgid "Leets for artists"
@@ -267,8 +265,10 @@ msgstr "Ascolta su Spotify"
 #: src/components/Modals/PostUserLikes.tsx
 #: src/components/Song/PostTabs.tsx
 #: src/components/Song/PostTabs.tsx
-#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
+#: src/components/UserHuntedArtists.tsx
+#: src/components/UserHuntedSongs.tsx
+#: src/components/UserLikedSongs.tsx
 #: src/pages/notifications.tsx
 #: src/pages/search.tsx
 msgid "Load more"
@@ -366,8 +366,8 @@ msgid "Remember that we do <0>NOT</0> own any copyright of images and song/artis
 msgstr "Ti ricordiamo che <0>NON</0> abbiamo alcun diritto di copyright delle immagini e delle informazioni su artisti e canzoni. Tutti i dati sono provenienti da <1>Spotify</1>"
 
 #: src/pages/upload.tsx
-msgid "Remember, songs should be by artists who have less than 35.000 monthly listeners on Spotify"
-msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 35.000 ascolti mensili su Spotify"
+msgid "Remember, songs should be by artists who have less than 50,000 monthly listeners on Spotify"
+msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 50,000 ascoltatori mensili su Spotify"
 
 #: src/pages/signup.tsx
 msgid "Repeat Password"
@@ -399,8 +399,8 @@ msgid "Share"
 msgstr "Condividi"
 
 #: src/components/Landing/Hero.tsx
-msgid "Share your musical discoveries. Promote emergent artists. Discover new music."
-msgstr "Condividi le tue scoperte musicali. Promuovi artisti emergenti. Scopri nuova musica."
+msgid "Share your musical discoveries. Promote emergent artists. Discover new music daily."
+msgstr "Condividi le tue scoperte musicali. Promuovi artisti emergenti. Scopri nuova musica ogni giorno."
 
 #: src/components/Landing/HuntersSection.tsx
 msgid "Share your new musical discoveries with everyone"
@@ -414,7 +414,6 @@ msgstr "Qualcosa é andato storto, riprova più tardi"
 msgid "Song uploaded! 🚀"
 msgstr "Canzone caricata! 🚀"
 
-#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Songs which received the most likes today"
 msgstr "Canzoni che hanno ricevuto più like oggi"
@@ -439,7 +438,6 @@ msgstr "Non ci sono canzoni huntate"
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
 msgstr "Per iniziare, registrati e carica il <0>link di Spotify</0> della canzone che desideri condividere alla community"
 
-#: src/components/SongsFeed.tsx
 #: src/components/TopSongsFeed.tsx
 msgid "Today's top songs"
 msgstr "Migliori canzoni del giorno"

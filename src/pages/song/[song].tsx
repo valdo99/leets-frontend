@@ -12,7 +12,7 @@ import { Post } from "@api/posts";
 import { Button } from "@components/Basic/Button";
 import { Spinner } from "@components/Basic/Spinner";
 import { InfoTooltip } from "@components/Basic/Tooltip";
-import { Player } from "@components/Song/Player";
+import { PlayButton } from "@components/Song/PlayButton";
 import { PostTabs } from "@components/Song/PostTabs";
 import HeartOutline from "@icons/heart-outline.svg";
 import HeartSolid from "@icons/heart-solid.svg";
@@ -83,12 +83,10 @@ const SongPageInner = ({ post }: { post: Post }) => {
           <div className="ml-4 flex flex-col">
             <Link href={`/artist/${post.artist._id}`}>
               <a>
-                <h3 className="text font-medium uppercase">
-                  {post.artist.name}
-                </h3>
+                <h3 className="font-medium uppercase">{post.artist.name}</h3>
               </a>
             </Link>
-            <h3 className=" text-xl font-bold md:text-3xl">{post.title}</h3>
+            <h3 className="text-xl font-bold md:text-3xl">{post.title}</h3>
             <div className="mt-2 flex flex-col md:hidden">
               <div className="sm:text-right">
                 <p className="text-xs leading-3">
@@ -103,9 +101,8 @@ const SongPageInner = ({ post }: { post: Post }) => {
             </div>
             <div className="flex items-center">
               {post.preview_url ? (
-                <Player
-                  id={post._id}
-                  previewTrackUrl={post.preview_url}
+                <PlayButton
+                  post={post}
                   className="-ml-1 mt-4 "
                   playerClassName="w-12 h-12 xs:w-15 xs:h-15"
                 />

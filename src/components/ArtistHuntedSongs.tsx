@@ -4,12 +4,14 @@ import { useQuery } from "@tanstack/react-query";
 import { Artist } from "@api/artists";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient, useUser } from "@providers/AuthProvider";
+import { usePlayer } from "@providers/PlayerProvider";
 
 import { SongCard } from "./Song/SongCard";
 
 export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
   const apiClient = useApiClient();
   const { loading, user } = useUser();
+  const { setQueue } = usePlayer();
 
   const {
     data: songs,
@@ -22,6 +24,15 @@ export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
       enabled: !loading,
     }
   );
+
+  const onPlay = (songId: string) => {
+    if (!songs) return;
+
+    const songsList = songs.filter((song) => song.preview_url !== null);
+    const index = songsList.findIndex((song) => song._id === songId);
+
+    setQueue(songsList, index);
+  };
 
   if (isLoading) {
     return (
@@ -44,7 +55,12 @@ export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       {songs?.map((song) => (
-        <SongCard key={song._id} post={song} onLikeChange={refetch} />
+        <SongCard
+          key={song._id}
+          post={song}
+          onLikeChange={refetch}
+          onPlay={() => onPlay(song._id)}
+        />
       ))}
     </div>
   );

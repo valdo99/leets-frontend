@@ -1,6 +1,6 @@
-const title = "Leets - Condividi le tue scoperte musicali";
+const title = "Leets - Discover new up-and-coming music daily";
 const description =
-  "Condividi le tue scoperte musicali e promuovi artisti emergenti";
+  "Share and prove your musical discoveries of up-and-coming talents, supporting their growth";
 const url = "https://leets.it";
 const image = `https://www.leets.it/api/og-home`;
 
@@ -20,6 +20,11 @@ const SEO = {
         type: "image/png",
       },
     ],
+  },
+  twitter: {
+    handle: "@leetsapp",
+    site: "@leetsapp",
+    cardType: "summary_large_image",
   },
 };
 

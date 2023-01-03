@@ -64,18 +64,22 @@ export class UserService extends ApiService {
     return await this.http.get<User>(`${this.baseUrl}/me`);
   }
 
-  async uploads(username: string) {
-    return await this.http.get<Post[]>(`${this.baseUrl}/${username}/uploads`);
-  }
-
-  async huntedArtists(username: string) {
-    return await this.http.get<Artist[]>(
-      `${this.baseUrl}/${username}/hunted-artists`
+  async uploads(username: string, params?: PaginationQueryParams) {
+    return await this.http.getPaginated<Post[]>(
+      `${this.baseUrl}/${username}/uploads${getQueryString(params)}`
     );
   }
 
-  async likes(username: string) {
-    return await this.http.get<Post[]>(`${this.baseUrl}/${username}/likes`);
+  async huntedArtists(username: string, params?: PaginationQueryParams) {
+    return await this.http.getPaginated<Artist[]>(
+      `${this.baseUrl}/${username}/hunted-artists${getQueryString(params)}`
+    );
+  }
+
+  async likes(username: string, params?: PaginationQueryParams) {
+    return await this.http.getPaginated<Post[]>(
+      `${this.baseUrl}/${username}/likes${getQueryString(params)}`
+    );
   }
 
   async update(data: UserUpdateBody) {

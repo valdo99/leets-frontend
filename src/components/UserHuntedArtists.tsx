@@ -1,6 +1,7 @@
 import { Trans } from "@lingui/macro";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { Fragment } from "react";
 
 import { User } from "@api/users";
 import { Spinner } from "@components/Basic/Spinner";
@@ -15,11 +16,24 @@ export const UserHuntedArtists = ({ user }: { user: User }) => {
 
   const isLoggedUser = user._id === loggedUser?._id;
 
-  const { data: huntedArtists, isLoading } = useQuery(
+  const {
+    data: huntedArtists,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery(
     ["huntedArtists", user?._id, loggedUser?._id],
-    () =>
-      apiClient.users.huntedArtists(user.username).then((data) => data.data),
+    ({ pageParam }) =>
+      apiClient.users.huntedArtists(user.username, { page: pageParam }),
     {
+      getNextPageParam: ({ pagination }) => {
+        const { page, perPage, total } = pagination;
+        if ((page + 1) * perPage < total) {
+          return page + 1;
+        }
+        return undefined;
+      },
       enabled: !loading,
     }
   );
@@ -32,7 +46,7 @@ export const UserHuntedArtists = ({ user }: { user: User }) => {
     );
   }
 
-  if (huntedArtists?.length === 0) {
+  if (huntedArtists?.pages.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 py-14">
         {isLoggedUser ? (
@@ -58,10 +72,29 @@ export const UserHuntedArtists = ({ user }: { user: User }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      {huntedArtists?.map((artist) => (
-        <ArtistCard key={artist._id} artist={artist} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        {huntedArtists?.pages.map((artist, index) => (
+          <Fragment key={index}>
+            {artist.data.map((artist) => (
+              <ArtistCard key={artist._id} artist={artist} />
+            ))}
+          </Fragment>
+        ))}
+      </div>
+      <div className="mt-8 flex h-10 items-center justify-center">
+        {isFetchingNextPage ? (
+          <Spinner className="h-10 w-10" />
+        ) : (
+          <>
+            {hasNextPage && (
+              <Button onClick={() => fetchNextPage()}>
+                <Trans>Load more</Trans>
+              </Button>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
 };

@@ -2,8 +2,10 @@ import { ContactSection } from "@components/Landing/ContactSection";
 import { DiscoverSection } from "@components/Landing/DiscoverSection";
 import { Hero } from "@components/Landing/Hero";
 import { HuntersSection } from "@components/Landing/HuntersSection";
+import { DefaultLayout } from "@layouts/DefaultLayout";
+import { PageWithLayout } from "@types";
 
-export default function Home() {
+const Home: PageWithLayout = () => {
   return (
     <>
       <Hero />
@@ -12,4 +14,8 @@ export default function Home() {
       <ContactSection />
     </>
   );
-}
+};
+
+export default Home;
+
+Home.getLayout = (page) => <DefaultLayout showFooter>{page}</DefaultLayout>;

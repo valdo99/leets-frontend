@@ -106,7 +106,7 @@ export const Hero = () => {
         <p className="mx-auto max-w-[34rem] py-6 text-lg text-base-content-neutral">
           <Trans>
             Share your musical discoveries. Promote emergent artists. Discover
-            new music.
+            new music daily.
           </Trans>
         </p>
         <Link href="/feed">
