@@ -7,22 +7,80 @@ import { Button } from "@components/Basic/Button/Button";
 import { Spinner } from "@components/Basic/Spinner";
 import { InfoTooltip } from "@components/Basic/Tooltip";
 
-interface PaginatedListProps<T extends Pick<Entity, "_id">> {
+type Data = Pick<Entity, "_id">;
+
+interface ListProps<T extends Data> {
   query: UseInfiniteQueryResult<PaginatedApiResponse<T[]>, unknown>;
   item: (props: T) => ReactNode;
+}
+
+const List = <T extends Data>({ query, item: getItem }: ListProps<T>) => {
+  const { isLoading, data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    query;
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-32">
+        <Spinner className="h-10 w-10" />
+      </div>
+    );
+  }
+
+  // TODO: handle custom "no results" message (ReactNode)
+  // TODO: handle case when no user is logged (allow different content, ReactNode)
+  if (data?.pages.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center space-y-4 py-14">
+        <p className="text-lg">
+          <Trans>No results</Trans>
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {/* Data */}
+      <div className="flex flex-col space-y-4">
+        {data?.pages.map((page, index) => (
+          <Fragment key={index}>
+            {page.data.map((item) => (
+              <Fragment key={item._id}>{getItem(item)}</Fragment>
+            ))}
+          </Fragment>
+        ))}
+      </div>
+      {(isFetchingNextPage || hasNextPage) && (
+        <div className="mt-8 flex h-10 items-center justify-center">
+          {isFetchingNextPage ? (
+            /* Loading more spinner */
+            <Spinner className="h-10 w-10" />
+          ) : (
+            <>
+              {/* Next page button */}
+              {hasNextPage && (
+                <Button onClick={() => fetchNextPage()} block>
+                  <Trans>Load more</Trans>
+                </Button>
+              )}
+            </>
+          )}
+        </div>
+      )}
+    </>
+  );
+};
+
+interface PaginatedListProps<T extends Data> extends ListProps<T> {
   title?: string;
   tooltip?: string;
 }
 
-export const PaginatedList = <T extends Pick<Entity, "_id">>({
-  item: getItem,
-  query,
+export const PaginatedList = <T extends Data>({
   title,
   tooltip,
+  ...rest
 }: PaginatedListProps<T>) => {
-  const { isLoading, data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    query;
-
   return (
     <>
       {/* Title */}
@@ -46,42 +104,7 @@ export const PaginatedList = <T extends Pick<Entity, "_id">>({
         </div>
       )}
 
-      {isLoading ? (
-        /* Loading Spinner */
-        <div className="flex justify-center py-32">
-          <Spinner className="h-10 w-10" />
-        </div>
-      ) : (
-        <>
-          {/* Data */}
-          <div className="flex flex-col space-y-4">
-            {data?.pages.map((page, index) => (
-              <Fragment key={index}>
-                {page.data.map((item) => (
-                  <Fragment key={item._id}>{getItem(item)}</Fragment>
-                ))}
-              </Fragment>
-            ))}
-          </div>
-          {(isFetchingNextPage || hasNextPage) && (
-            <div className="mt-8 flex h-10 items-center justify-center">
-              {isFetchingNextPage ? (
-                /* Loading more spinner */
-                <Spinner className="h-10 w-10" />
-              ) : (
-                <>
-                  {/* Next page button */}
-                  {hasNextPage && (
-                    <Button onClick={() => fetchNextPage()} block>
-                      <Trans>Load more</Trans>
-                    </Button>
-                  )}
-                </>
-              )}
-            </div>
-          )}
-        </>
-      )}
+      <List {...rest} />
     </>
   );
 };
