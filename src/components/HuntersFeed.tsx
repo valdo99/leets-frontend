@@ -1,13 +1,14 @@
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { PaginatedList } from "@components/Basic/PaginatedList";
-import { InfoTooltip } from "@components/Basic/Tooltip";
 import { TopHunterCard } from "@components/TopHunterCard";
 import { useApiClient } from "@providers/AuthProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
 export const HuntersFeed = () => {
+  const { i18n } = useLingui();
   const apiClient = useApiClient();
 
   const query = useInfiniteQuery(
@@ -19,26 +20,11 @@ export const HuntersFeed = () => {
   );
 
   return (
-    <>
-      <div className="mb-8 flex items-center space-x-3">
-        <h2 className="text-2xl font-bold leading-tight">
-          <Trans>Top Hunters</Trans>
-        </h2>
-        <InfoTooltip
-          color="secondary"
-          content={
-            <p className="max-w-[200px] text-center text-sm">
-              <Trans>Score is based on number of likes to hunted songs</Trans>
-            </p>
-          }
-        />
-      </div>
-      <PaginatedList
-        query={query}
-        item={(hunter) => (
-          <TopHunterCard key={hunter.username} hunter={hunter} />
-        )}
-      />
-    </>
+    <PaginatedList
+      title={t(i18n)`Top Hunters`}
+      tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
+      query={query}
+      item={(hunter) => <TopHunterCard key={hunter.username} hunter={hunter} />}
+    />
   );
 };

@@ -1,14 +1,15 @@
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { PaginatedList } from "@components/Basic/PaginatedList";
-import { InfoTooltip } from "@components/Basic/Tooltip";
 import { SongCard } from "@components/Song/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
 export const TopSongsFeed = () => {
+  const { i18n } = useLingui();
   const { user, loading } = useUser();
   const apiClient = useApiClient();
   const { setQueue } = usePlayer();
@@ -37,32 +38,18 @@ export const TopSongsFeed = () => {
   };
 
   return (
-    <>
-      <div className="mb-8 flex items-center space-x-3">
-        <h2 className="text-2xl font-bold leading-tight ">
-          <Trans>Today&apos;s top songs</Trans>
-        </h2>
-
-        <InfoTooltip
-          color="secondary"
-          content={
-            <p className="max-w-[200px] text-center text-sm">
-              <Trans>Songs which received the most likes today</Trans>
-            </p>
-          }
+    <PaginatedList
+      title={t(i18n)`Today's top songs`}
+      tooltip={t(i18n)`Songs which received the most likes today`}
+      query={query}
+      item={(song) => (
+        <SongCard
+          key={song._id}
+          song={song}
+          onLikeChange={refetch}
+          onPlay={() => onPlay(song._id)}
         />
-      </div>
-      <PaginatedList
-        query={query}
-        item={(song) => (
-          <SongCard
-            key={song._id}
-            song={song}
-            onLikeChange={refetch}
-            onPlay={() => onPlay(song._id)}
-          />
-        )}
-      />
-    </>
+      )}
+    />
   );
 };
