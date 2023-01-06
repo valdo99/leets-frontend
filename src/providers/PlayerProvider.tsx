@@ -1,17 +1,17 @@
 import { createContext, ReactNode, useContext } from "react";
 import { useEffect, useState } from "react";
 
-import { Post } from "@api/posts";
+import { Song } from "@api/songs";
 
 interface PlayerContextValue {
   isPlaying: boolean;
-  song: Post | null;
-  play: (song: Post) => void;
+  song: Song | null;
+  play: (song: Song) => void;
   pause: () => void;
   audio: HTMLAudioElement | undefined;
-  queue: Post[];
+  queue: Song[];
   queueIndex: number;
-  setQueue: (queue: Post[], index: number) => void;
+  setQueue: (queue: Song[], index: number) => void;
   goToNextSong: () => void;
   goToPreviousSong: () => void;
 }
@@ -19,14 +19,14 @@ interface PlayerContextValue {
 const PlayerContext = createContext<PlayerContextValue | undefined>(undefined);
 
 export const PlayerProvider = ({ children }: { children: ReactNode }) => {
-  const [song, setSong] = useState<Post | null>(null);
+  const [song, setSong] = useState<Song | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [queue, setQueue] = useState<Post[]>([]);
+  const [queue, setQueue] = useState<Song[]>([]);
   const [queueIndex, setQueueIndex] = useState(0);
 
   const [audio, setAudio] = useState<HTMLAudioElement>();
 
-  const play = (song: Post) => {
+  const play = (song: Song) => {
     setSong(song);
     setIsPlaying(true);
   };
@@ -61,7 +61,7 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
     setSong(queue[queueIndex - 1]);
   };
 
-  const onSetQueue = (queue: Post[], index: number) => {
+  const onSetQueue = (queue: Song[], index: number) => {
     setQueue(queue);
     setQueueIndex(index);
   };

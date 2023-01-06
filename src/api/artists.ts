@@ -1,7 +1,7 @@
 import { getQueryString } from "@utils/getQueryString";
 
 import { ApiService } from "./apiService";
-import { Post } from "./posts";
+import { Song } from "./songs";
 import { Entity, Id, PaginationQueryParams } from "./types";
 import { User } from "./users";
 
@@ -26,7 +26,7 @@ export class ArtistService extends ApiService {
   }
 
   async songs(id: Id) {
-    return await this.http.get<Post[]>(`${this.baseUrl}/${id}/posts`);
+    return await this.http.get<Song[]>(`${this.baseUrl}/${id}/posts`);
   }
 
   async totalLikes(id: Id) {

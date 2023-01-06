@@ -16,11 +16,11 @@ import { useForm } from "@hooks/useForm";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 
 interface LikesProps {
-  post: Id;
+  song: Id;
   refetchLikes: number;
 }
 
-export const PostTabs = ({ post, refetchLikes }: LikesProps) => {
+export const SongTabs = ({ song, refetchLikes }: LikesProps) => {
   const apiClient = useApiClient();
   const { i18n } = useLingui();
   const router = useRouter();
@@ -34,8 +34,8 @@ export const PostTabs = ({ post, refetchLikes }: LikesProps) => {
     isFetchingNextPage: isFetchingNextCommentPage,
     refetch: refetchComments,
   } = useInfiniteQuery(
-    ["song-comments-list", post],
-    ({ pageParam }) => apiClient.comments.list(post, { page: pageParam }),
+    ["song-comments-list", song],
+    ({ pageParam }) => apiClient.comments.list(song, { page: pageParam }),
     {
       getNextPageParam: ({ pagination }) => {
         const { page, perPage, total } = pagination;
@@ -54,8 +54,8 @@ export const PostTabs = ({ post, refetchLikes }: LikesProps) => {
     isFetchingNextPage,
     refetch,
   } = useInfiniteQuery(
-    ["post-likes-list", post],
-    ({ pageParam }) => apiClient.posts.getLikes(post, { page: pageParam }),
+    ["song-likes-list", song],
+    ({ pageParam }) => apiClient.songs.getLikes(song, { page: pageParam }),
     {
       getNextPageParam: ({ pagination }) => {
         const { page, perPage, total } = pagination;
@@ -78,9 +78,9 @@ export const PostTabs = ({ post, refetchLikes }: LikesProps) => {
 
   const onSubmit = handleSubmit(async (data) => {
     if (user) {
-      await apiClient.comments.save(post, data);
+      await apiClient.comments.save(song, data);
       refetchComments();
-      toast.success(t(i18n)`Comment posted successfully`);
+      toast.success(t(i18n)`Comment songed successfully`);
     } else {
       router.push("/login");
     }

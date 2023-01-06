@@ -24,7 +24,7 @@ export const TopSongsFeed = () => {
     isFetchingNextPage,
   } = useInfiniteQuery(
     ["feed", user?._id],
-    ({ pageParam }) => apiClient.posts.feed({ page: pageParam }),
+    ({ pageParam }) => apiClient.songs.feed({ page: pageParam }),
     {
       enabled: !loading,
       getNextPageParam: ({ pagination }) => {
@@ -77,7 +77,7 @@ export const TopSongsFeed = () => {
                 {page.data.map((song) => (
                   <SongCard
                     key={song._id}
-                    post={song}
+                    song={song}
                     onLikeChange={refetch}
                     onPlay={() => onPlay(song._id)}
                   />

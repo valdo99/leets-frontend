@@ -7,7 +7,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { ForbiddenError } from "@api/errors";
-import { Post } from "@api/posts";
+import { Song } from "@api/songs";
 import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
 import { Tabs } from "@components/Basic/Tabs";
@@ -16,7 +16,7 @@ import { useForm } from "@hooks/useForm";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageAuth, PageWithLayout } from "@types";
 
-const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
+const UploadForm = ({ onSuccess }: { onSuccess: (post: Song) => void }) => {
   const { i18n } = useLingui();
   const apiClient = useApiClient();
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
@@ -38,7 +38,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
       .replace("https://open.spotify.com/track/", "")
       .split("?")[0];
 
-    const { data: post } = await apiClient.posts.uploadPreview(spotifyId);
+    const { data: post } = await apiClient.songs.uploadPreview(spotifyId);
     onSuccess(post);
   });
 
@@ -104,7 +104,7 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Post) => void }) => {
 };
 
 interface UploadPreviewProps {
-  post: Post;
+  post: Song;
   onSuccess: () => void;
 }
 
@@ -114,7 +114,7 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
 
   const { mutate: confirmUpload } = useMutation(
     (spotifyId: string) =>
-      apiClient.posts.upload(spotifyId).then((data) => data.data),
+      apiClient.songs.upload(spotifyId).then((data) => data.data),
     {
       onSuccess() {
         toast.success(t(i18n)`Song uploaded! 🚀`);
@@ -145,7 +145,7 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
 };
 
 interface UploadPreviewProps {
-  post: Post;
+  post: Song;
   onSuccess: () => void;
 }
 
@@ -171,7 +171,7 @@ enum UploadStep {
 
 const UploadPage: PageWithLayout = () => {
   const [step, setStep] = useState(UploadStep.Form);
-  const [post, setPost] = useState<Post | null>(null);
+  const [post, setPost] = useState<Song | null>(null);
 
   return (
     <div className="mx-auto flex w-full max-w-[440px] flex-col items-center pt-12">

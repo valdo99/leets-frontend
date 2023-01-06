@@ -5,7 +5,7 @@ import { Artist } from "./artists";
 import { Entity, Id, PaginationQueryParams, QueryParams } from "./types";
 import { TopHunter, User } from "./users";
 
-export interface Post extends Entity {
+export interface Song extends Entity {
   title: string;
   image: string;
   preview_url: string | null;
@@ -19,7 +19,7 @@ export interface Post extends Entity {
   playcount?: number;
 }
 
-interface isPostLiked {
+interface IsSongLiked {
   isLiked: boolean;
 }
 
@@ -35,31 +35,31 @@ export interface UserLike extends Entity {
   user: TopHunter;
 }
 
-export class PostService extends ApiService {
+export class SongService extends ApiService {
   async read(id: Id) {
-    return await this.http.get<Post>(`${this.baseUrl}/post/${id}`);
+    return await this.http.get<Song>(`${this.baseUrl}/post/${id}`);
   }
 
   async list() {
-    return await this.http.get<Post[]>(this.baseUrl);
+    return await this.http.get<Song[]>(this.baseUrl);
   }
 
-  async like(postId: Id) {
-    return await this.http.post(`${this.baseUrl}/${postId}/like`);
+  async like(songId: Id) {
+    return await this.http.post(`${this.baseUrl}/${songId}/like`);
   }
 
-  async getLikes(postId: Id, params: QueryParams = {}) {
+  async getLikes(songId: Id, params: QueryParams = {}) {
     return await this.http.getPaginated<UserLike[]>(
-      `${this.baseUrl}/${postId}/likes${getQueryString(params)}`
+      `${this.baseUrl}/${songId}/likes${getQueryString(params)}`
     );
   }
 
-  async unlike(postId: Id) {
-    return await this.http.post(`${this.baseUrl}/${postId}/dislike`);
+  async unlike(songId: Id) {
+    return await this.http.post(`${this.baseUrl}/${songId}/dislike`);
   }
 
   async feed(params: FeedQueryParams = {}) {
-    return await this.http.getPaginated<Post[]>(
+    return await this.http.getPaginated<Song[]>(
       `${this.baseUrl}/feed${getQueryString(params)}`
     );
   }
@@ -71,7 +71,7 @@ export class PostService extends ApiService {
   }
 
   async uploadPreview(spotifyId: string) {
-    return await this.http.post<{ id: string }, Post>(
+    return await this.http.post<{ id: string }, Song>(
       `${this.baseUrl}/upload/preview`,
       {
         id: spotifyId,
@@ -79,14 +79,14 @@ export class PostService extends ApiService {
     );
   }
 
-  async isPostLiked(postId: Id) {
-    return await this.http.get<isPostLiked>(
-      `${this.baseUrl}/post/is-liked/${postId}`
+  async isLiked(songId: Id) {
+    return await this.http.get<IsSongLiked>(
+      `${this.baseUrl}/post/is-liked/${songId}`
     );
   }
 
   async search(params: SearchParams) {
-    return await this.http.getPaginated<Post[]>(
+    return await this.http.getPaginated<Song[]>(
       `${this.baseUrl}/search${getQueryString(params)}`
     );
   }

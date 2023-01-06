@@ -23,7 +23,7 @@ export default function SearchPage() {
   } = useInfiniteQuery(
     ["search-songs", searchValue],
     ({ pageParam }) =>
-      apiClient.posts.search({
+      apiClient.songs.search({
         page: pageParam,
         query: searchValue,
       }),
@@ -64,7 +64,7 @@ export default function SearchPage() {
         {songs?.pages.map((page, index) => (
           <Fragment key={index}>
             {page.data.map((song) => (
-              <SongCard key={song._id} post={song} onLikeChange={refetch} />
+              <SongCard key={song._id} song={song} onLikeChange={refetch} />
             ))}
           </Fragment>
         ))}

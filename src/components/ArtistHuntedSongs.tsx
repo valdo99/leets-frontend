@@ -57,7 +57,7 @@ export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
       {songs?.map((song) => (
         <SongCard
           key={song._id}
-          post={song}
+          song={song}
           onLikeChange={refetch}
           onPlay={() => onPlay(song._id)}
         />

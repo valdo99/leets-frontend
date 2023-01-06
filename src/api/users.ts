@@ -2,7 +2,7 @@ import { getQueryString } from "@utils/getQueryString";
 
 import { ApiService } from "./apiService";
 import { Artist } from "./artists";
-import { Post } from "./posts";
+import { Song } from "./songs";
 import { Entity, PaginationQueryParams } from "./types";
 
 export interface User extends Entity {
@@ -65,7 +65,7 @@ export class UserService extends ApiService {
   }
 
   async uploads(username: string, params?: PaginationQueryParams) {
-    return await this.http.getPaginated<Post[]>(
+    return await this.http.getPaginated<Song[]>(
       `${this.baseUrl}/${username}/uploads${getQueryString(params)}`
     );
   }
@@ -77,7 +77,7 @@ export class UserService extends ApiService {
   }
 
   async likes(username: string, params?: PaginationQueryParams) {
-    return await this.http.getPaginated<Post[]>(
+    return await this.http.getPaginated<Song[]>(
       `${this.baseUrl}/${username}/likes${getQueryString(params)}`
     );
   }

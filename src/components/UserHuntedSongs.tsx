@@ -19,14 +19,14 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
   const isLoggedUser = user._id === loggedUser?._id;
 
   const {
-    data: uploadedPosts,
+    data: uploadedSongs,
     isLoading,
     refetch,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery(
-    ["uploadedPosts", user?._id, loggedUser?._id],
+    ["uploaded-songs", user?._id, loggedUser?._id],
     ({ pageParam }) =>
       apiClient.users.uploads(user.username, { page: pageParam }),
     {
@@ -42,9 +42,9 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
   );
 
   const onPlay = (songId: string) => {
-    if (!uploadedPosts) return;
+    if (!uploadedSongs) return;
 
-    const songsList = uploadedPosts.pages
+    const songsList = uploadedSongs.pages
       .map((page) => page.data)
       .flat()
       .filter((song) => song.preview_url !== null);
@@ -61,7 +61,7 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
     );
   }
 
-  if (uploadedPosts?.pages.length === 0) {
+  if (uploadedSongs?.pages.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 py-14">
         {isLoggedUser ? (
@@ -89,14 +89,14 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {uploadedPosts?.pages.map((post, index) => (
+        {uploadedSongs?.pages.map((page, index) => (
           <Fragment key={index}>
-            {post.data.map((post) => (
+            {page.data.map((song) => (
               <SongCard
-                key={post._id}
-                post={post}
+                key={song._id}
+                song={song}
                 onLikeChange={refetch}
-                onPlay={() => onPlay(post._id)}
+                onPlay={() => onPlay(song._id)}
               />
             ))}
           </Fragment>

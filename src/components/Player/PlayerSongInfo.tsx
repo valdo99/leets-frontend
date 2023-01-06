@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { Post } from "@api/posts";
+import { Song } from "@api/songs";
 import SpotifyIcon from "@icons/spotify.svg";
 
 interface PlayerSongInfoProps {
-  song: Post;
+  song: Song;
   className?: string;
 }
 
