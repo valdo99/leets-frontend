@@ -1,5 +1,6 @@
 import { Trans } from "@lingui/macro";
 import { UseInfiniteQueryResult } from "@tanstack/react-query";
+import Link from "next/link";
 import { Fragment, ReactNode } from "react";
 
 import { Entity, PaginatedApiResponse } from "@api/types";
@@ -12,9 +13,19 @@ type Data = Pick<Entity, "_id">;
 interface ListProps<T extends Data> {
   query: UseInfiniteQueryResult<PaginatedApiResponse<T[]>, unknown>;
   item: (props: T) => ReactNode;
+  noResultsMessage?: string;
+  noResulstsCta?: {
+    label: string;
+    href: string;
+  };
 }
 
-const List = <T extends Data>({ query, item: getItem }: ListProps<T>) => {
+const List = <T extends Data>({
+  query,
+  item: getItem,
+  noResultsMessage,
+  noResulstsCta,
+}: ListProps<T>) => {
   const { isLoading, data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     query;
 
@@ -28,12 +39,23 @@ const List = <T extends Data>({ query, item: getItem }: ListProps<T>) => {
 
   // TODO: handle custom "no results" message (ReactNode)
   // TODO: handle case when no user is logged (allow different content, ReactNode)
-  if (data?.pages.length === 0) {
+  if (data?.pages.length === 0 && (noResultsMessage || noResulstsCta)) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 py-14">
-        <p className="text-lg">
-          <Trans>No results</Trans>
-        </p>
+        {noResultsMessage && (
+          <p className="text-lg">
+            <Trans>{noResultsMessage}</Trans>
+          </p>
+        )}
+        {noResulstsCta && (
+          <Link href={noResulstsCta.href}>
+            <a>
+              <Button>
+                <Trans>{noResulstsCta.label}</Trans>
+              </Button>
+            </a>
+          </Link>
+        )}
       </div>
     );
   }
