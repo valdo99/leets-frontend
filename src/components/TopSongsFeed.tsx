@@ -1,41 +1,28 @@
 import { Trans } from "@lingui/macro";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { Fragment } from "react";
 
-import { Button } from "@components/Basic/Button/Button";
-import { Spinner } from "@components/Basic/Spinner";
+import { PaginatedList } from "@components/Basic/PaginatedList";
+import { InfoTooltip } from "@components/Basic/Tooltip";
 import { SongCard } from "@components/Song/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
-
-import { InfoTooltip } from "./Basic/Tooltip";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 export const TopSongsFeed = () => {
   const { user, loading } = useUser();
   const apiClient = useApiClient();
   const { setQueue } = usePlayer();
 
-  const {
-    data: songs,
-    isLoading,
-    refetch,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfiniteQuery(
+  const query = useInfiniteQuery(
     ["feed", user?._id],
     ({ pageParam }) => apiClient.songs.feed({ page: pageParam }),
     {
       enabled: !loading,
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
     }
   );
+
+  const { data: songs, refetch } = query;
 
   const onPlay = (songId: string) => {
     if (!songs) return;
@@ -65,43 +52,17 @@ export const TopSongsFeed = () => {
           }
         />
       </div>
-      {isLoading ? (
-        <div className="flex justify-center py-32">
-          <Spinner className="h-10 w-10" />
-        </div>
-      ) : (
-        <>
-          <div className="flex flex-col space-y-4">
-            {songs?.pages.map((page, index) => (
-              <Fragment key={index}>
-                {page.data.map((song) => (
-                  <SongCard
-                    key={song._id}
-                    song={song}
-                    onLikeChange={refetch}
-                    onPlay={() => onPlay(song._id)}
-                  />
-                ))}
-              </Fragment>
-            ))}
-          </div>
-          {(isFetchingNextPage || hasNextPage) && (
-            <div className="mt-8 flex h-10 items-center justify-center">
-              {isFetchingNextPage ? (
-                <Spinner className="h-10 w-10" />
-              ) : (
-                <>
-                  {hasNextPage && (
-                    <Button onClick={() => fetchNextPage()} block>
-                      <Trans>Load more</Trans>
-                    </Button>
-                  )}
-                </>
-              )}
-            </div>
-          )}
-        </>
-      )}
+      <PaginatedList
+        query={query}
+        item={(song) => (
+          <SongCard
+            key={song._id}
+            song={song}
+            onLikeChange={refetch}
+            onPlay={() => onPlay(song._id)}
+          />
+        )}
+      />
     </>
   );
 };

@@ -1,34 +1,20 @@
 import { Trans } from "@lingui/macro";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { Fragment } from "react";
 
-import { Spinner } from "@components/Basic/Spinner";
+import { ArtistCard } from "@components/ArtistCard";
+import { PaginatedList } from "@components/Basic/PaginatedList";
+import { InfoTooltip } from "@components/Basic/Tooltip";
 import { useApiClient } from "@providers/AuthProvider";
-
-import { ArtistCard } from "./ArtistCard";
-import { Button } from "./Basic/Button";
-import { InfoTooltip } from "./Basic/Tooltip";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 export const ArtistsFeed = () => {
   const apiClient = useApiClient();
 
-  const {
-    data: artists,
-    isLoading,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfiniteQuery(
+  const query = useInfiniteQuery(
     ["artists-feed"],
     ({ pageParam }) => apiClient.artists.topArtists({ page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
     }
   );
 
@@ -47,38 +33,10 @@ export const ArtistsFeed = () => {
           }
         />
       </div>
-      {isLoading ? (
-        <div className="flex justify-center py-32">
-          <Spinner className="h-10 w-10" />
-        </div>
-      ) : (
-        <>
-          <div className="flex flex-col space-y-4">
-            {artists?.pages.map((page, index) => (
-              <Fragment key={index}>
-                {page.data.map((artist) => (
-                  <ArtistCard key={artist._id} artist={artist} />
-                ))}
-              </Fragment>
-            ))}
-          </div>
-          {(isFetchingNextPage || hasNextPage) && (
-            <div className="mt-8 flex h-10 items-center justify-center">
-              {isFetchingNextPage ? (
-                <Spinner className="h-10 w-10" />
-              ) : (
-                <>
-                  {hasNextPage && (
-                    <Button block onClick={() => fetchNextPage()}>
-                      <Trans>Load more</Trans>
-                    </Button>
-                  )}
-                </>
-              )}
-            </div>
-          )}
-        </>
-      )}
+      <PaginatedList
+        query={query}
+        item={(artist) => <ArtistCard key={artist._id} artist={artist} />}
+      />
     </div>
   );
 };

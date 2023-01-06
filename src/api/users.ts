@@ -25,7 +25,8 @@ interface UserCreateBody extends Pick<User, "email" | "username"> {
   referral?: string;
 }
 
-export interface TopHunter extends Pick<User, "username" | "createdAt"> {
+export interface TopHunter
+  extends Pick<User, "_id" | "username" | "createdAt"> {
   points: number;
 }
 
