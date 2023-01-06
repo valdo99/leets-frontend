@@ -7,17 +7,6 @@ import { Button } from "@components/Basic/Button/Button";
 import { Spinner } from "@components/Basic/Spinner";
 
 interface PaginatedListProps<T extends Pick<Entity, "_id">> {
-  // data:
-  //   | {
-  //       pages: {
-  //         data: T[];
-  //       }[];
-  //     }
-  //   | undefined;
-  // isLoading: boolean;
-  // fetchNextPage: () => void;
-  // hasNextPage: boolean | undefined;
-  // isFetchingNextPage: boolean;
   query: UseInfiniteQueryResult<PaginatedApiResponse<T[]>, unknown>;
   item: (props: T) => ReactNode;
 }
