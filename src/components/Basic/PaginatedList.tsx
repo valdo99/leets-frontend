@@ -1,5 +1,6 @@
 import { Trans } from "@lingui/macro";
 import { UseInfiniteQueryResult } from "@tanstack/react-query";
+import cx from "classnames";
 import Link from "next/link";
 import { Fragment, ReactNode } from "react";
 
@@ -11,6 +12,7 @@ import { InfoTooltip } from "@components/Basic/Tooltip";
 type Data = Pick<Entity, "_id">;
 
 interface ListProps<T extends Data> {
+  type?: "list" | "grid";
   query: UseInfiniteQueryResult<PaginatedApiResponse<T[]>, unknown>;
   item: (props: T) => ReactNode;
   noResultsMessage?: string;
@@ -21,6 +23,7 @@ interface ListProps<T extends Data> {
 }
 
 const List = <T extends Data>({
+  type = "list",
   query,
   item: getItem,
   noResultsMessage,
@@ -63,7 +66,13 @@ const List = <T extends Data>({
   return (
     <>
       {/* Data */}
-      <div className="flex flex-col space-y-4">
+      <div
+        className={cx(
+          type === "list"
+            ? "flex flex-col space-y-4"
+            : "grid grid-cols-1 gap-4 lg:grid-cols-2"
+        )}
+      >
         {data?.pages.map((page, index) => (
           <Fragment key={index}>
             {page.data.map((item) => (
@@ -81,7 +90,7 @@ const List = <T extends Data>({
             <>
               {/* Next page button */}
               {hasNextPage && (
-                <Button onClick={() => fetchNextPage()} block>
+                <Button onClick={() => fetchNextPage()} block={type === "grid"}>
                   <Trans>Load more</Trans>
                 </Button>
               )}
