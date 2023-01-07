@@ -8,7 +8,7 @@ import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
-export const TopSongsFeed = () => {
+export const TopSongs = () => {
   const { i18n } = useLingui();
   const { user, loading } = useUser();
   const apiClient = useApiClient();

@@ -7,25 +7,26 @@ import { Button } from "@components/Basic/Button";
 import { ItemsList } from "@components/Basic/List/ItemsList";
 import { useApiClient } from "@providers/AuthProvider";
 
-import { ArtistCard } from "./ArtistCard";
+import { TopHunterCard } from "./TopHunterCard";
 
-export const TopArtistsFeed = () => {
+export const TopHuntersPreview = () => {
   const { i18n } = useLingui();
+
   const apiClient = useApiClient();
 
   // TODO: use limit instead of limiting in the frontend
-  const query = useQuery(["top-artists"], () =>
-    apiClient.artists.topArtists().then((data) => data.data.slice(0, 5))
+  const query = useQuery(["top-hunters"], () =>
+    apiClient.users.topHunters().then((data) => data.data.slice(0, 5))
   );
 
   return (
     <ItemsList
       query={query}
-      title={t(i18n)`Top Artists`}
+      title={t(i18n)`Top Hunters`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
-      item={(artist) => <ArtistCard key={artist._id} artist={artist} />}
+      item={(hunter) => <TopHunterCard key={hunter.username} hunter={hunter} />}
       footer={
-        <Link href="/artists">
+        <Link href="/hunters">
           <a className="mt-8 block">
             <Button block>
               <Trans>See all</Trans>
