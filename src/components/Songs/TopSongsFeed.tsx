@@ -3,7 +3,7 @@ import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
-import { SongCard } from "@components/Song/SongCard";
+import { SongCard } from "@components/Songs/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";

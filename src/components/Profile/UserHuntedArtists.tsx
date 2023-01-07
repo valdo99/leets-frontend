@@ -3,11 +3,10 @@ import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { User } from "@api/users";
+import { ArtistCard } from "@components/Artists/ArtistCard";
+import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
-
-import { ArtistCard } from "./ArtistCard";
-import { PaginatedItemsList } from "./Basic/List/PaginatedItemsList";
 
 export const UserHuntedArtists = ({ user }: { user: User }) => {
   const { i18n } = useLingui();

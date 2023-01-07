@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 import { Artist } from "@api/artists";
 import { ApiClient } from "@api/client";
-import { ArtistHuntedSongs } from "@components/ArtistHuntedSongs";
+import { ArtistHuntedSongs } from "@components/Artists/ArtistHuntedSongs";
 import { Spinner } from "@components/Basic/Spinner";
 import { InfoTooltip } from "@components/Basic/Tooltip";
 import { useApiClient } from "@providers/AuthProvider";

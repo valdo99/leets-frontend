@@ -10,6 +10,7 @@ import { Button } from "@components/Basic/Button";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { PageAuth, PageWithLayout } from "@types";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 interface NotificationCardProps {
   username: string;
@@ -89,13 +90,7 @@ const Notifications: PageWithLayout = () => {
     ["user-notifications", user?._id],
     ({ pageParam }) => apiClient.notifications.list({ page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
       onSuccess: async () => {
         await queryClient.refetchQueries({
           queryKey: ["user-notifications-count", user?._id],

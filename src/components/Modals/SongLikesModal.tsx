@@ -9,6 +9,7 @@ import { Button } from "@components/Basic/Button";
 import { BaseModalProps, Modal } from "@components/Basic/Modal";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 interface SongLikesModalProps extends BaseModalProps {
   songId: string;
@@ -32,13 +33,7 @@ export const SongLikesModal = ({
     ["artists-feed", songId],
     ({ pageParam }) => apiClient.songs.getLikes(songId, { page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
     }
   );
 

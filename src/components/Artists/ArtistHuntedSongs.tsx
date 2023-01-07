@@ -3,11 +3,10 @@ import { useLingui } from "@lingui/react";
 import { useQuery } from "@tanstack/react-query";
 
 import { Artist } from "@api/artists";
+import { ItemsList } from "@components/Basic/List/ItemsList";
+import { SongCard } from "@components/Songs/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
-
-import { ItemsList } from "./Basic/List/ItemsList";
-import { SongCard } from "./Song/SongCard";
 
 export const ArtistHuntedSongs = ({ artist }: { artist: Artist }) => {
   const { i18n } = useLingui();

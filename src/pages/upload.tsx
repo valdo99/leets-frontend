@@ -11,7 +11,7 @@ import { Song } from "@api/songs";
 import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
 import { Tabs } from "@components/Basic/Tabs";
-import { SongCard } from "@components/Song/SongCard";
+import { SongCard } from "@components/Songs/SongCard";
 import { useForm } from "@hooks/useForm";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageAuth, PageWithLayout } from "@types";

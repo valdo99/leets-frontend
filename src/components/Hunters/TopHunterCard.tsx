@@ -1,6 +1,5 @@
 import { TopHunter } from "@api/users";
-
-import { Avatar } from "./Basic/Avatar";
+import { Avatar } from "@components/Basic/Avatar";
 
 interface TopHunterCardProps {
   hunter: TopHunter;

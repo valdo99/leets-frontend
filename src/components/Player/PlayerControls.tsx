@@ -1,7 +1,7 @@
 import cx from "classnames";
 
 import { Song } from "@api/songs";
-import { PlayButton } from "@components/Song/PlayButton";
+import { PlayButton } from "@components/Songs/PlayButton";
 import NextIcon from "@icons/next.svg";
 import PreviousIcon from "@icons/previous.svg";
 import { usePlayer } from "@providers/PlayerProvider";

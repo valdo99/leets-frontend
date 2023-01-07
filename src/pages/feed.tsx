@@ -1,11 +1,11 @@
 import { Trans } from "@lingui/macro";
 import Link from "next/link";
 
+import { TopArtistsFeed } from "@components/Artists/TopArtistsFeed";
+import { TopHuntersFeed } from "@components/Hunters/TopHuntersFeed";
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
 import { PlaylistiFrame } from "@components/PlaylistiFrame";
-import { TopArtistsFeed } from "@components/TopArtistsFeed";
-import { TopHuntersFeed } from "@components/TopHuntersFeed";
-import { TopSongsFeed } from "@components/TopSongsFeed";
+import { TopSongsFeed } from "@components/Songs/TopSongsFeed";
 
 export default function Home() {
   return (

@@ -2,15 +2,14 @@ import { t, Trans } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import { Fragment } from "react";
 
 import { User } from "@api/users";
+import { Button } from "@components/Basic/Button";
+import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
+import { SongCard } from "@components/Songs/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
-
-import { Button } from "./Basic/Button";
-import { PaginatedItemsList } from "./Basic/List/PaginatedItemsList";
-import { SongCard } from "./Song/SongCard";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 export const UserHuntedSongs = ({ user }: { user: User }) => {
   const { i18n } = useLingui();
@@ -25,13 +24,7 @@ export const UserHuntedSongs = ({ user }: { user: User }) => {
     ({ pageParam }) =>
       apiClient.users.uploads(user.username, { page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
       enabled: !loading,
     }
   );

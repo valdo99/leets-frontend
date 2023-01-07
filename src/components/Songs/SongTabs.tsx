@@ -14,6 +14,7 @@ import { TabItem, Tabs } from "@components/Basic/Tabs";
 import { Textarea } from "@components/Basic/Textarea";
 import { useForm } from "@hooks/useForm";
 import { useApiClient, useUser } from "@providers/AuthProvider";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 interface LikesProps {
   song: Id;
@@ -37,15 +38,10 @@ export const SongTabs = ({ song, refetchLikes }: LikesProps) => {
     ["song-comments-list", song],
     ({ pageParam }) => apiClient.comments.list(song, { page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
     }
   );
+
   const {
     data: likes,
     isLoading,
@@ -57,13 +53,7 @@ export const SongTabs = ({ song, refetchLikes }: LikesProps) => {
     ["song-likes-list", song],
     ({ pageParam }) => apiClient.songs.getLikes(song, { page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
     }
   );
 

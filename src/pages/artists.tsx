@@ -2,7 +2,7 @@ import { Trans } from "@lingui/macro";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 
-import { ArtistsFeed } from "@components/ArtistFeed";
+import { ArtistsFeed } from "@components/Artists/ArtistFeed";
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
 import { PlaylistiFrame } from "@components/PlaylistiFrame";
 

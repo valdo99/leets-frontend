@@ -3,30 +3,29 @@ import { useLingui } from "@lingui/react";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
+import { Button } from "@components/Basic/Button";
+import { ItemsList } from "@components/Basic/List/ItemsList";
 import { useApiClient } from "@providers/AuthProvider";
 
-import { Button } from "./Basic/Button";
-import { ItemsList } from "./Basic/List/ItemsList";
-import { TopHunterCard } from "./TopHunterCard";
+import { ArtistCard } from "./ArtistCard";
 
-export const TopHuntersFeed = () => {
+export const TopArtistsFeed = () => {
   const { i18n } = useLingui();
-
   const apiClient = useApiClient();
 
   // TODO: use limit instead of limiting in the frontend
-  const query = useQuery(["top-hunters"], () =>
-    apiClient.users.topHunters().then((data) => data.data.slice(0, 5))
+  const query = useQuery(["top-artists"], () =>
+    apiClient.artists.topArtists().then((data) => data.data.slice(0, 5))
   );
 
   return (
     <ItemsList
       query={query}
-      title={t(i18n)`Top Hunters`}
+      title={t(i18n)`Top Artists`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
-      item={(hunter) => <TopHunterCard key={hunter.username} hunter={hunter} />}
+      item={(artist) => <ArtistCard key={artist._id} artist={artist} />}
       footer={
-        <Link href="/hunters">
+        <Link href="/artists">
           <a className="mt-8 block">
             <Button block>
               <Trans>See all</Trans>

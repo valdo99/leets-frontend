@@ -3,11 +3,11 @@ import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { User } from "@api/users";
+import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
+import { SongCard } from "@components/Songs/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
-
-import { PaginatedItemsList } from "./Basic/List/PaginatedItemsList";
-import { SongCard } from "./Song/SongCard";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 export const UserLikedSongs = ({ user }: { user: User }) => {
   const { i18n } = useLingui();
@@ -22,13 +22,7 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
     ({ pageParam }) =>
       apiClient.users.likes(user.username, { page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
       enabled: !loading,
     }
   );

@@ -2,19 +2,18 @@ import { t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-import { ArtistCard } from "@components/ArtistCard";
+import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
+import { TopHunterCard } from "@components/Hunters/TopHunterCard";
 import { useApiClient } from "@providers/AuthProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
-import { PaginatedItemsList } from "./Basic/List/PaginatedItemsList";
-
-export const ArtistsFeed = () => {
+export const HuntersFeed = () => {
   const { i18n } = useLingui();
   const apiClient = useApiClient();
 
   const query = useInfiniteQuery(
-    ["artists-feed"],
-    ({ pageParam }) => apiClient.artists.topArtists({ page: pageParam }),
+    ["hunters-feed"],
+    ({ pageParam }) => apiClient.users.topHunters({ page: pageParam }),
     {
       getNextPageParam,
     }
@@ -22,10 +21,10 @@ export const ArtistsFeed = () => {
 
   return (
     <PaginatedItemsList
-      title={t(i18n)`Top Artists`}
+      title={t(i18n)`Top Hunters`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
       query={query}
-      item={(artist) => <ArtistCard key={artist._id} artist={artist} />}
+      item={(hunter) => <TopHunterCard key={hunter.username} hunter={hunter} />}
     />
   );
 };
