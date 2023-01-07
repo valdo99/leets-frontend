@@ -118,7 +118,7 @@ const Notifications: PageWithLayout = () => {
                     <NotificationCard
                       username={notification.user_from.username}
                       comment={notification.asset.comment}
-                      song={notification.asset.song}
+                      song={notification.asset.post}
                       createdAt={notification.createdAt}
                       status={notification.status}
                     />

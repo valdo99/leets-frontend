@@ -10,7 +10,7 @@ export interface AssetCommentSong extends Entity {
 }
 
 export interface AssetComment extends Entity {
-  song: AssetCommentSong;
+  post: AssetCommentSong;
   comment?: string;
 }
 
