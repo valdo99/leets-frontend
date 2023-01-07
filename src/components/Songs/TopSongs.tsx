@@ -8,15 +8,15 @@ import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
-export const TopSongs = () => {
+export const TopSongs = ({ genre }: { genre?: string }) => {
   const { i18n } = useLingui();
   const { user, loading } = useUser();
   const apiClient = useApiClient();
   const { setQueue } = usePlayer();
 
   const query = useInfiniteQuery(
-    ["feed", user?._id],
-    ({ pageParam }) => apiClient.songs.feed({ page: pageParam }),
+    ["feed", user?._id, genre],
+    ({ pageParam }) => apiClient.songs.feed({ page: pageParam, genres: genre }),
     {
       enabled: !loading,
       getNextPageParam,
@@ -50,6 +50,7 @@ export const TopSongs = () => {
           onPlay={() => onPlay(song._id)}
         />
       )}
+      header={<div>Genres</div>}
     />
   );
 };

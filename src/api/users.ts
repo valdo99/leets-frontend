@@ -30,6 +30,10 @@ export interface TopHunter
   points: number;
 }
 
+type TopHunterQueryParams = PaginationQueryParams & {
+  genres?: string;
+};
+
 const nonUpdatableFields = [
   "_id",
   "createdAt",
@@ -94,7 +98,7 @@ export class UserService extends ApiService {
     return await this.http.post(`${this.baseUrl}/change-password`, data);
   }
 
-  async topHunters(params?: PaginationQueryParams) {
+  async topHunters(params?: TopHunterQueryParams) {
     return await this.http.getPaginated<TopHunter[]>(
       `${this.baseUrl}/feed/top-hunters${getQueryString(params)}`
     );

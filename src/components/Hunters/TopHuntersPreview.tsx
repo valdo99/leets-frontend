@@ -9,14 +9,16 @@ import { useApiClient } from "@providers/AuthProvider";
 
 import { TopHunterCard } from "./TopHunterCard";
 
-export const TopHuntersPreview = () => {
+export const TopHuntersPreview = ({ genre }: { genre?: string }) => {
   const { i18n } = useLingui();
 
   const apiClient = useApiClient();
 
   // TODO: use limit instead of limiting in the frontend
-  const query = useQuery(["top-hunters"], () =>
-    apiClient.users.topHunters().then((data) => data.data.slice(0, 5))
+  const query = useQuery(["top-hunters", genre], () =>
+    apiClient.users
+      .topHunters({ genres: genre })
+      .then((data) => data.data.slice(0, 5))
   );
 
   return (

@@ -9,13 +9,15 @@ import { useApiClient } from "@providers/AuthProvider";
 
 import { ArtistCard } from "./ArtistCard";
 
-export const TopArtistsPreview = () => {
+export const TopArtistsPreview = ({ genre }: { genre?: string }) => {
   const { i18n } = useLingui();
   const apiClient = useApiClient();
 
   // TODO: use limit instead of limiting in the frontend
-  const query = useQuery(["top-artists"], () =>
-    apiClient.artists.topArtists().then((data) => data.data.slice(0, 5))
+  const query = useQuery(["top-artists", genre], () =>
+    apiClient.artists
+      .topArtists({ genres: genre })
+      .then((data) => data.data.slice(0, 5))
   );
 
   return (

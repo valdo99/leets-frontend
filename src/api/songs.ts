@@ -25,6 +25,7 @@ interface IsSongLiked {
 
 type FeedQueryParams = PaginationQueryParams & {
   date?: string;
+  genres?: string;
 };
 
 type SearchParams = PaginationQueryParams & {
