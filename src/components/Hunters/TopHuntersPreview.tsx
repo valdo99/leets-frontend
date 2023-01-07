@@ -26,6 +26,7 @@ export const TopHuntersPreview = ({ genre }: { genre?: string }) => {
       query={query}
       title={t(i18n)`Top Hunters`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
+      noResultsMessage={t(i18n)`No hunters found`}
       item={(hunter) => <TopHunterCard key={hunter.username} hunter={hunter} />}
       footer={
         <Link href="/hunters">

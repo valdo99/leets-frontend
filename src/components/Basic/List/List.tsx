@@ -91,7 +91,7 @@ export const List = <T extends ListItem>({
     <div>
       {/* Title */}
       {title && (
-        <div className="mb-8 flex flex-col justify-between space-y-3 sm:flex-row sm:items-center">
+        <div className="mb-6 flex min-h-[2.5rem] flex-col justify-between space-y-3 sm:flex-row sm:items-center sm:space-y-0">
           <div className="flex items-center space-x-3">
             <h2 className="text-2xl font-bold leading-tight ">{title}</h2>
             {/* Tooltip */}

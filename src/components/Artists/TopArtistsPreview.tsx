@@ -25,6 +25,7 @@ export const TopArtistsPreview = ({ genre }: { genre?: string }) => {
       query={query}
       title={t(i18n)`Top Artists`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
+      noResultsMessage={t(i18n)`No artists found`}
       item={(artist) => <ArtistCard key={artist._id} artist={artist} />}
       footer={
         <Link href="/artists">
