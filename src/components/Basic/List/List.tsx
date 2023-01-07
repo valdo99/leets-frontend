@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/macro";
 import cx from "classnames";
 import Link from "next/link";
 import { Fragment, ReactNode } from "react";
@@ -43,17 +42,11 @@ export const List = <T extends ListItem>({
   if (data?.length === 0 && (noResultsMessage || noResulstsCta)) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 py-14">
-        {noResultsMessage && (
-          <p className="text-lg">
-            <Trans>{noResultsMessage}</Trans>
-          </p>
-        )}
+        {noResultsMessage && <p className="text-lg">{noResultsMessage}</p>}
         {noResulstsCta && (
           <Link href={noResulstsCta.href}>
             <a>
-              <Button>
-                <Trans>{noResulstsCta.label}</Trans>
-              </Button>
+              <Button>{noResulstsCta.label}</Button>
             </a>
           </Link>
         )}

@@ -60,21 +60,21 @@ msgstr "Artists"
 msgid "Be the hunter of the next hit"
 msgstr "Be the hunter of the next hit"
 
-#: src/components/Song/PostTabs.tsx
-#: src/components/Song/PostTabs.tsx
+#: src/components/Song/SongTabs.tsx
+#: src/components/Song/SongTabs.tsx
 msgid "Comment"
 msgstr "Comment"
 
-#: src/components/Song/PostTabs.tsx
+#: src/components/Song/SongTabs.tsx
 msgid "Comment posted successfully"
 msgstr "Comment posted successfully"
 
-#: src/components/Song/PostTabs.tsx
+#: src/components/Song/SongTabs.tsx
 msgid "Comment this song"
 msgstr "Comment this song"
 
-#: src/components/Song/PostTabs.tsx
-#: src/components/Song/PostTabs.tsx
+#: src/components/Song/SongTabs.tsx
+#: src/components/Song/SongTabs.tsx
 msgid "Comments"
 msgstr "Comments"
 
@@ -243,9 +243,9 @@ msgstr "Leets playlist"
 msgid "Liked songs"
 msgstr "Liked songs"
 
-#: src/components/Modals/PostUserLikes.tsx
-#: src/components/Song/PostTabs.tsx
-#: src/components/Song/PostTabs.tsx
+#: src/components/Modals/SongLikesModal.tsx
+#: src/components/Song/SongTabs.tsx
+#: src/components/Song/SongTabs.tsx
 msgid "Likes"
 msgstr "Likes"
 
@@ -255,15 +255,10 @@ msgstr "Likes"
 msgid "Listen on Spotify"
 msgstr "Listen on Spotify"
 
-#: src/components/ArtistFeed.tsx
-#: src/components/HuntersFeed.tsx
-#: src/components/Modals/PostUserLikes.tsx
-#: src/components/Song/PostTabs.tsx
-#: src/components/Song/PostTabs.tsx
-#: src/components/TopSongsFeed.tsx
-#: src/components/UserHuntedArtists.tsx
-#: src/components/UserHuntedSongs.tsx
-#: src/components/UserLikedSongs.tsx
+#: src/components/Basic/List/PaginatedItemsList.tsx
+#: src/components/Modals/SongLikesModal.tsx
+#: src/components/Song/SongTabs.tsx
+#: src/components/Song/SongTabs.tsx
 #: src/pages/notifications.tsx
 #: src/pages/search.tsx
 msgid "Load more"
@@ -306,8 +301,8 @@ msgid "New Username"
 msgstr "New Username"
 
 #: src/components/UserHuntedArtists.tsx
-msgid "No hunted artists songs"
-msgstr "No hunted artists songs"
+msgid "No hunted artists songs yet"
+msgstr "No hunted artists songs yet"
 
 #: src/components/UserLikedSongs.tsx
 msgid "No liked songs"
@@ -317,6 +312,7 @@ msgstr "No liked songs"
 msgid "No results found"
 msgstr "No results found"
 
+#: src/components/UserHuntedSongs.tsx
 #: src/components/UserHuntedSongs.tsx
 msgid "No uploaded songs"
 msgstr "No uploaded songs"
@@ -474,6 +470,7 @@ msgstr "Upload another song"
 
 #: src/components/UserHuntedArtists.tsx
 #: src/components/UserHuntedSongs.tsx
+#: src/components/UserHuntedSongs.tsx
 #: src/pages/upload.tsx
 msgid "Upload new song"
 msgstr "Upload new song"
@@ -508,6 +505,7 @@ msgid "You have no liked songs yet"
 msgstr "You have no liked songs yet"
 
 #: src/components/UserHuntedSongs.tsx
+#: src/components/UserHuntedSongs.tsx
 msgid "You have no uploaded songs yet"
 msgstr "You have no uploaded songs yet"
 
@@ -534,3 +532,11 @@ msgstr "on {0}"
 #: src/pages/notifications.tsx
 msgid "with:"
 msgstr "with:"
+
+#: src/components/Basic/List/List.tsx
+msgid "{0}"
+msgstr "{0}"
+
+#: src/components/Basic/List/List.tsx
+msgid "{noResultsMessage}"
+msgstr "{noResultsMessage}"

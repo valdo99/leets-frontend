@@ -80,7 +80,7 @@ export const SongTabs = ({ song, refetchLikes }: LikesProps) => {
     if (user) {
       await apiClient.comments.save(song, data);
       refetchComments();
-      toast.success(t(i18n)`Comment songed successfully`);
+      toast.success(t(i18n)`Comment posted successfully`);
     } else {
       router.push("/login");
     }
