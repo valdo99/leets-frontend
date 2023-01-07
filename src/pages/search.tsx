@@ -5,9 +5,10 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { Button } from "@components/Basic/Button";
 import { Input } from "@components/Basic/Input";
 import { Spinner } from "@components/Basic/Spinner";
-import { SongCard } from "@components/Song/SongCard";
+import { SongCard } from "@components/Songs/SongCard";
 import SearchIcon from "@icons/search.svg";
 import { useApiClient } from "@providers/AuthProvider";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 export default function SearchPage() {
   const [searchValue, setSearchValue] = useState("");
@@ -23,19 +24,13 @@ export default function SearchPage() {
   } = useInfiniteQuery(
     ["search-songs", searchValue],
     ({ pageParam }) =>
-      apiClient.posts.search({
+      apiClient.songs.search({
         page: pageParam,
         query: searchValue,
       }),
     {
       enabled: false,
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
     }
   );
 
@@ -64,7 +59,7 @@ export default function SearchPage() {
         {songs?.pages.map((page, index) => (
           <Fragment key={index}>
             {page.data.map((song) => (
-              <SongCard key={song._id} post={song} onLikeChange={refetch} />
+              <SongCard key={song._id} song={song} onLikeChange={refetch} />
             ))}
           </Fragment>
         ))}

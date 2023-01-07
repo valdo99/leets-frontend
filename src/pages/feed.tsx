@@ -1,11 +1,11 @@
 import { Trans } from "@lingui/macro";
 import Link from "next/link";
 
+import { TopArtistsPreview } from "@components/Artists/TopArtistsPreview";
+import { TopHuntersPreview } from "@components/Hunters/TopHuntersPreview";
 import { WelcomeModal } from "@components/Modals/WelcomeModal";
 import { PlaylistiFrame } from "@components/PlaylistiFrame";
-import { TopArtistsFeed } from "@components/TopArtistsFeed";
-import { TopHuntersFeed } from "@components/TopHuntersFeed";
-import { TopSongsFeed } from "@components/TopSongsFeed";
+import { TopSongs } from "@components/Songs/TopSongs";
 
 export default function Home() {
   return (
@@ -20,11 +20,11 @@ export default function Home() {
       </div>
       <div className="mt-10 flex flex-col space-y-14 lg:flex-row lg:space-y-0 lg:space-x-14">
         <div className="min-w-0 flex-1">
-          <TopSongsFeed />
+          <TopSongs />
         </div>
         <div className="flex shrink-0 flex-col space-y-14 lg:w-[340px]">
-          <TopHuntersFeed />
-          <TopArtistsFeed />
+          <TopHuntersPreview />
+          <TopArtistsPreview />
           <PlaylistiFrame />
         </div>
       </div>

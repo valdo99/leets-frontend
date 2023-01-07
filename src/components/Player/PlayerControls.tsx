@@ -1,7 +1,7 @@
 import cx from "classnames";
 
-import { Post } from "@api/posts";
-import { PlayButton } from "@components/Song/PlayButton";
+import { Song } from "@api/songs";
+import { PlayButton } from "@components/Songs/PlayButton";
 import NextIcon from "@icons/next.svg";
 import PreviousIcon from "@icons/previous.svg";
 import { usePlayer } from "@providers/PlayerProvider";
@@ -9,7 +9,7 @@ import { usePlayer } from "@providers/PlayerProvider";
 import { PlayerProgressBar } from "./PlayerProgressBar";
 
 interface PlayerControlsProps {
-  song: Post;
+  song: Song;
   className?: string;
 }
 
@@ -28,7 +28,7 @@ export const PlayerControls = ({ song, className }: PlayerControlsProps) => {
         >
           <PreviousIcon className="h-6 w-6 text-base-content hover:text-base-content/80" />
         </button>
-        <PlayButton post={song} size={2.2} className="mx-1 sm:mx-2" />
+        <PlayButton song={song} size={2.2} className="mx-1 sm:mx-2" />
         <button
           onClick={goToNextSong}
           disabled={queueIndex === queue.length - 1}

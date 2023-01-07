@@ -14,9 +14,9 @@ export interface NewCommentBody {
 }
 
 export class CommentService extends ApiService {
-  async list(song: Id, params?: QueryParams) {
+  async list(songId: Id, params?: QueryParams) {
     return await this.http.getPaginated<Comment[]>(
-      `${this.baseUrl}/song/${song}${getQueryString(params)}`
+      `${this.baseUrl}/song/${songId}${getQueryString(params)}`
     );
   }
 

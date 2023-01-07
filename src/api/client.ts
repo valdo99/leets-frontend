@@ -6,7 +6,7 @@ import { CommentService } from "./comments";
 import { ForbiddenError, UnauthorizedError, ValidationError } from "./errors";
 import { Http } from "./http";
 import { NotificationsServies } from "./notifications";
-import { PostService } from "./posts";
+import { SongService } from "./songs";
 import { ApiErrorResponse } from "./types";
 import { UserService } from "./users";
 
@@ -22,7 +22,7 @@ export class ApiClient {
 
   auth: AuthService;
   users: UserService;
-  posts: PostService;
+  songs: SongService;
   artists: ArtistService;
   comments: CommentService;
   notifications: NotificationsServies;
@@ -39,7 +39,7 @@ export class ApiClient {
 
     this.auth = new AuthService(this, "/auth");
     this.users = new UserService(this, "/users");
-    this.posts = new PostService(this, "/posts");
+    this.songs = new SongService(this, "/posts");
     this.artists = new ArtistService(this, "/artists");
     this.comments = new CommentService(this, "/comments");
     this.notifications = new NotificationsServies(this, "");

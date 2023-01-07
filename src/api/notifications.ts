@@ -4,13 +4,13 @@ import { getQueryString } from "@utils/getQueryString";
 import { ApiService } from "./apiService";
 import { Entity, QueryParams } from "./types";
 
-export interface AssetCommentPost extends Entity {
+export interface AssetCommentSong extends Entity {
   title: string;
   image: string;
 }
 
 export interface AssetComment extends Entity {
-  post: AssetCommentPost;
+  song: AssetCommentSong;
   comment?: string;
 }
 

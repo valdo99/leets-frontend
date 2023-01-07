@@ -5,16 +5,17 @@ import { formatDistance } from "date-fns";
 import { enUS, it } from "date-fns/locale";
 import Link from "next/link";
 
-import { AssetCommentPost } from "@api/notifications";
+import { AssetCommentSong } from "@api/notifications";
 import { Button } from "@components/Basic/Button";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { PageAuth, PageWithLayout } from "@types";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
 interface NotificationCardProps {
   username: string;
   comment?: string;
-  post: AssetCommentPost;
+  song: AssetCommentSong;
   createdAt: string;
   status: number;
 }
@@ -22,7 +23,7 @@ interface NotificationCardProps {
 const NotificationCard = ({
   username,
   comment,
-  post,
+  song,
   createdAt,
   status,
 }: NotificationCardProps) => {
@@ -53,8 +54,8 @@ const NotificationCard = ({
             <Trans>liked your song</Trans>
           )}
           {` `}
-          <Link href={`/song/${post._id}`}>
-            <a className="font-bold ">{post.title}</a>
+          <Link href={`/song/${song._id}`}>
+            <a className="font-bold ">{song.title}</a>
           </Link>
           {` `}
           {comment && (
@@ -86,16 +87,10 @@ const Notifications: PageWithLayout = () => {
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery(
-    ["user_notification", user?._id],
+    ["user-notifications", user?._id],
     ({ pageParam }) => apiClient.notifications.list({ page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
       onSuccess: async () => {
         await queryClient.refetchQueries({
           queryKey: ["user-notifications-count", user?._id],
@@ -123,7 +118,7 @@ const Notifications: PageWithLayout = () => {
                     <NotificationCard
                       username={notification.user_from.username}
                       comment={notification.asset.comment}
-                      post={notification.asset.post}
+                      song={notification.asset.song}
                       createdAt={notification.createdAt}
                       status={notification.status}
                     />

@@ -9,16 +9,17 @@ import { Button } from "@components/Basic/Button";
 import { BaseModalProps, Modal } from "@components/Basic/Modal";
 import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient } from "@providers/AuthProvider";
+import { getNextPageParam } from "@utils/getNextPageParam";
 
-interface PostUserLikesModalInterface extends BaseModalProps {
-  postId: string;
+interface SongLikesModalProps extends BaseModalProps {
+  songId: string;
 }
 
-export const PostUserLikes = ({
+export const SongLikesModal = ({
   show,
   onClose,
-  postId,
-}: PostUserLikesModalInterface) => {
+  songId,
+}: SongLikesModalProps) => {
   const { i18n } = useLingui();
   const apiClient = useApiClient();
 
@@ -29,16 +30,10 @@ export const PostUserLikes = ({
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery(
-    ["artists-feed", postId],
-    ({ pageParam }) => apiClient.posts.getLikes(postId, { page: pageParam }),
+    ["artists-feed", songId],
+    ({ pageParam }) => apiClient.songs.getLikes(songId, { page: pageParam }),
     {
-      getNextPageParam: ({ pagination }) => {
-        const { page, perPage, total } = pagination;
-        if ((page + 1) * perPage < total) {
-          return page + 1;
-        }
-        return undefined;
-      },
+      getNextPageParam,
     }
   );
 

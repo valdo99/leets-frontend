@@ -1,11 +1,11 @@
 import cx from "classnames";
 import React from "react";
 
-import { Post } from "@api/posts";
+import { Song } from "@api/songs";
 import { usePlayer } from "@providers/PlayerProvider";
 
 interface PlayButtonProps {
-  post: Post;
+  song: Song;
   size?: number;
   className?: string;
   playerClassName?: string;
@@ -13,7 +13,7 @@ interface PlayButtonProps {
 }
 
 export const PlayButton = ({
-  post,
+  song,
   size = 4,
   onClick,
   className,
@@ -21,13 +21,13 @@ export const PlayButton = ({
 }: PlayButtonProps) => {
   const { song: currentSong, isPlaying, pause, play } = usePlayer();
 
-  const isSongPlaying = currentSong?._id === post._id && isPlaying;
+  const isSongPlaying = currentSong?._id === song._id && isPlaying;
 
   const togglePlay = () => {
     if (isSongPlaying) {
       pause();
     } else {
-      play(post);
+      play(song);
     }
 
     onClick?.();
