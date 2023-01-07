@@ -13,6 +13,7 @@ export interface Artist extends Entity {
   hunter: User;
   monthly_listeners: number;
   biography?: string;
+  genres?: string[];
 }
 
 export interface TopArtist
