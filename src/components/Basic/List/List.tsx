@@ -6,9 +6,11 @@ import { Entity } from "@api/types";
 import { Button } from "@components/Basic/Button/Button";
 import { Spinner } from "@components/Basic/Spinner";
 
+import { InfoTooltip } from "../Tooltip";
+
 export type ListItem = Pick<Entity, "_id">;
 
-export interface ListProps<T extends ListItem> {
+export interface ListInnerProps<T extends ListItem> {
   type?: "list" | "grid";
   isLoading: boolean;
   data: T[] | undefined;
@@ -21,7 +23,7 @@ export interface ListProps<T extends ListItem> {
   footer?: ReactNode;
 }
 
-export const List = <T extends ListItem>({
+export const ListInner = <T extends ListItem>({
   type = "list",
   isLoading,
   data,
@@ -29,7 +31,7 @@ export const List = <T extends ListItem>({
   noResultsMessage,
   noResulstsCta,
   footer,
-}: ListProps<T>) => {
+}: ListInnerProps<T>) => {
   if (isLoading) {
     return (
       <div className="flex justify-center py-32">
@@ -70,5 +72,38 @@ export const List = <T extends ListItem>({
       </div>
       {footer}
     </>
+  );
+};
+
+export interface ListProps<T extends ListItem> extends ListInnerProps<T> {
+  title?: string;
+  tooltip?: string;
+}
+
+export const List = <T extends ListItem>({
+  title,
+  tooltip,
+  ...rest
+}: ListProps<T>) => {
+  return (
+    <div>
+      {/* Title */}
+      {title && (
+        <div className="mb-8 flex items-center space-x-3">
+          <h2 className="text-2xl font-bold leading-tight ">{title}</h2>
+
+          {/* Tooltip */}
+          {tooltip && (
+            <InfoTooltip
+              color="secondary"
+              content={
+                <p className="max-w-[200px] text-center text-sm">{tooltip}</p>
+              }
+            />
+          )}
+        </div>
+      )}
+      <ListInner {...rest} />
+    </div>
   );
 };

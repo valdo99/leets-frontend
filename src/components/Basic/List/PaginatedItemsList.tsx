@@ -5,14 +5,13 @@ import { PaginatedApiResponse } from "@api/types";
 import { Button } from "@components/Basic/Button/Button";
 import { List, ListProps, ListItem } from "@components/Basic/List/List";
 import { Spinner } from "@components/Basic/Spinner";
-import { InfoTooltip } from "@components/Basic/Tooltip";
 
 interface PaginatedListProps<T extends ListItem>
   extends Omit<ListProps<T>, "data" | "isLoading"> {
   query: UseInfiniteQueryResult<PaginatedApiResponse<T[]>, unknown>;
 }
 
-const PaginatedList = <T extends ListItem>({
+export const PaginatedItemsList = <T extends ListItem>({
   query,
   type = "list",
   ...rest
@@ -52,40 +51,5 @@ const PaginatedList = <T extends ListItem>({
       isLoading={isLoading}
       footer={<LoadMoreButton />}
     />
-  );
-};
-
-interface PaginatedItemsListProps<T extends ListItem>
-  extends PaginatedListProps<T> {
-  title?: string;
-  tooltip?: string;
-}
-
-export const PaginatedItemsList = <T extends ListItem>({
-  title,
-  tooltip,
-  ...rest
-}: PaginatedItemsListProps<T>) => {
-  return (
-    <>
-      {/* Title */}
-      {title && (
-        <div className="mb-8 flex items-center space-x-3">
-          <h2 className="text-2xl font-bold leading-tight ">{title}</h2>
-
-          {/* Tooltip */}
-          {tooltip && (
-            <InfoTooltip
-              color="secondary"
-              content={
-                <p className="max-w-[200px] text-center text-sm">{tooltip}</p>
-              }
-            />
-          )}
-        </div>
-      )}
-
-      <PaginatedList {...rest} />
-    </>
   );
 };
