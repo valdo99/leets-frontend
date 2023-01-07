@@ -78,29 +78,33 @@ export const ListInner = <T extends ListItem>({
 export interface ListProps<T extends ListItem> extends ListInnerProps<T> {
   title?: string;
   tooltip?: string;
+  header?: ReactNode;
 }
 
 export const List = <T extends ListItem>({
   title,
   tooltip,
+  header,
   ...rest
 }: ListProps<T>) => {
   return (
     <div>
       {/* Title */}
       {title && (
-        <div className="mb-8 flex items-center space-x-3">
-          <h2 className="text-2xl font-bold leading-tight ">{title}</h2>
-
-          {/* Tooltip */}
-          {tooltip && (
-            <InfoTooltip
-              color="secondary"
-              content={
-                <p className="max-w-[200px] text-center text-sm">{tooltip}</p>
-              }
-            />
-          )}
+        <div className="mb-8 flex flex-col justify-between space-y-3 sm:flex-row sm:items-center">
+          <div className="flex items-center space-x-3">
+            <h2 className="text-2xl font-bold leading-tight ">{title}</h2>
+            {/* Tooltip */}
+            {tooltip && (
+              <InfoTooltip
+                color="secondary"
+                content={
+                  <p className="max-w-[200px] text-center text-sm">{tooltip}</p>
+                }
+              />
+            )}
+          </div>
+          {header && <div>{header}</div>}
         </div>
       )}
       <ListInner {...rest} />

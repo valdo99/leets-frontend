@@ -8,6 +8,8 @@ import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
+import { GenresSelect } from "./GenresSelect";
+
 export const TopSongs = ({ genre }: { genre?: string }) => {
   const { i18n } = useLingui();
   const { user, loading } = useUser();
@@ -50,7 +52,7 @@ export const TopSongs = ({ genre }: { genre?: string }) => {
           onPlay={() => onPlay(song._id)}
         />
       )}
-      header={<div>Genres</div>}
+      header={<GenresSelect selected={genre} />}
     />
   );
 };
