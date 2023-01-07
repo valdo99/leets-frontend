@@ -71,18 +71,14 @@ export const PaginatedItemsList = <T extends ListItem>({
       {/* Title */}
       {title && (
         <div className="mb-8 flex items-center space-x-3">
-          <h2 className="text-2xl font-bold leading-tight ">
-            <Trans>{title}</Trans>
-          </h2>
+          <h2 className="text-2xl font-bold leading-tight ">{title}</h2>
 
           {/* Tooltip */}
           {tooltip && (
             <InfoTooltip
               color="secondary"
               content={
-                <p className="max-w-[200px] text-center text-sm">
-                  <Trans>{tooltip}</Trans>
-                </p>
+                <p className="max-w-[200px] text-center text-sm">{tooltip}</p>
               }
             />
           )}

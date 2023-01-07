@@ -1,31 +1,23 @@
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { Fragment } from "react";
 
 import { User } from "@api/users";
-import { Spinner } from "@components/Basic/Spinner";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
 
-import { Button } from "./Basic/Button";
+import { PaginatedItemsList } from "./Basic/List/PaginatedItemsList";
 import { SongCard } from "./Song/SongCard";
 
 export const UserLikedSongs = ({ user }: { user: User }) => {
+  const { i18n } = useLingui();
   const apiClient = useApiClient();
   const { loading, user: loggedUser } = useUser();
   const { setQueue } = usePlayer();
 
   const isLoggedUser = user._id === loggedUser?._id;
 
-  const {
-    data: likedSongs,
-    isLoading,
-    refetch,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfiniteQuery(
+  const query = useInfiniteQuery(
     ["liked-songs", user?._id, loggedUser?._id],
     ({ pageParam }) =>
       apiClient.users.likes(user.username, { page: pageParam }),
@@ -41,6 +33,8 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
     }
   );
 
+  const { data: likedSongs, refetch } = query;
+
   const onPlay = (songId: string) => {
     if (!likedSongs) return;
 
@@ -53,70 +47,28 @@ export const UserLikedSongs = ({ user }: { user: User }) => {
     setQueue(songsList, index);
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center py-14">
-        <Spinner className="h-10 w-10" />
-      </div>
-    );
-  }
-
-  if (likedSongs?.pages.length === 0) {
-    return (
-      <div className="flex flex-col items-center justify-center space-y-4 py-14">
-        {isLoggedUser ? (
-          <>
-            <p className="text-lg">
-              <Trans>You have no liked songs yet</Trans>
-            </p>
-            <Link href="/">
-              <a>
-                <Button>
-                  <Trans>Discover songs</Trans>
-                </Button>
-              </a>
-            </Link>
-          </>
-        ) : (
-          <p className="text-lg">
-            <Trans>No liked songs</Trans>
-          </p>
-        )}
-      </div>
-    );
-  }
-
   return (
-    <>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {likedSongs?.pages.map((page, index) => (
-          <Fragment key={index}>
-            {page.data.map((song) => (
-              <SongCard
-                key={song._id}
-                song={song}
-                onLikeChange={refetch}
-                onPlay={() => onPlay(song._id)}
-              />
-            ))}
-          </Fragment>
-        ))}
-      </div>
-      {(isFetchingNextPage || hasNextPage) && (
-        <div className="mt-8 flex h-10 items-center justify-center">
-          {isFetchingNextPage ? (
-            <Spinner className="h-10 w-10" />
-          ) : (
-            <>
-              {hasNextPage && (
-                <Button onClick={() => fetchNextPage()}>
-                  <Trans>Load more</Trans>
-                </Button>
-              )}
-            </>
-          )}
-        </div>
+    <PaginatedItemsList
+      type="grid"
+      query={query}
+      noResultsMessage={
+        isLoggedUser
+          ? t(i18n)`You have no liked songs yet`
+          : t(i18n)`No liked songs`
+      }
+      noResulstsCta={
+        isLoggedUser
+          ? { label: t(i18n)`Discover songs`, href: "/feed" }
+          : undefined
+      }
+      item={(song) => (
+        <SongCard
+          key={song._id}
+          song={song}
+          onLikeChange={refetch}
+          onPlay={() => onPlay(song._id)}
+        />
       )}
-    </>
+    />
   );
 };
