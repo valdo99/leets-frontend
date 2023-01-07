@@ -16,7 +16,7 @@ import { useForm } from "@hooks/useForm";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageAuth, PageWithLayout } from "@types";
 
-const UploadForm = ({ onSuccess }: { onSuccess: (post: Song) => void }) => {
+const UploadForm = ({ onSuccess }: { onSuccess: (song: Song) => void }) => {
   const { i18n } = useLingui();
   const apiClient = useApiClient();
   const { formData, handleChange, handleSubmit, errors, disabled } = useForm(
@@ -38,8 +38,8 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Song) => void }) => {
       .replace("https://open.spotify.com/track/", "")
       .split("?")[0];
 
-    const { data: post } = await apiClient.songs.uploadPreview(spotifyId);
-    onSuccess(post);
+    const { data: song } = await apiClient.songs.uploadPreview(spotifyId);
+    onSuccess(song);
   });
 
   return (
@@ -104,11 +104,11 @@ const UploadForm = ({ onSuccess }: { onSuccess: (post: Song) => void }) => {
 };
 
 interface UploadPreviewProps {
-  post: Song;
+  song: Song;
   onSuccess: () => void;
 }
 
-const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
+const UploadPreview = ({ song, onSuccess }: UploadPreviewProps) => {
   const { i18n } = useLingui();
   const apiClient = useApiClient();
 
@@ -128,7 +128,7 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
   );
 
   const onConfirmUpload = () => {
-    confirmUpload(post.spotify_id);
+    confirmUpload(song.spotify_id);
   };
 
   return (
@@ -136,7 +136,7 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
       <p className="mb-6 text-center text-base-content-neutral">
         <Trans>Here&apos;s a preview of the song you are uploading</Trans>
       </p>
-      <SongCard post={post} showHunter={false} />
+      <SongCard song={song} showHunter={false} />
       <Button className="mt-6" onClick={onConfirmUpload}>
         <Trans>Confirm upload</Trans>
       </Button>
@@ -145,17 +145,17 @@ const UploadPreview = ({ post, onSuccess }: UploadPreviewProps) => {
 };
 
 interface UploadPreviewProps {
-  post: Song;
+  song: Song;
   onSuccess: () => void;
 }
 
-const UploadSuccess = ({ post, onSuccess }: UploadPreviewProps) => {
+const UploadSuccess = ({ song, onSuccess }: UploadPreviewProps) => {
   return (
     <>
       <p className="text-base-content-neutral">
         <Trans>You have succesfully uploaded</Trans>
       </p>
-      <h4 className="my-4 text-center text-3xl font-bold">{post.title}</h4>
+      <h4 className="my-4 text-center text-3xl font-bold">{song.title}</h4>
       <Button className="mt-6" onClick={onSuccess}>
         <Trans>Upload another song</Trans>
       </Button>
@@ -171,7 +171,7 @@ enum UploadStep {
 
 const UploadPage: PageWithLayout = () => {
   const [step, setStep] = useState(UploadStep.Form);
-  const [post, setPost] = useState<Song | null>(null);
+  const [song, setSong] = useState<Song | null>(null);
 
   return (
     <div className="mx-auto flex w-full max-w-[440px] flex-col items-center pt-12">
@@ -183,19 +183,19 @@ const UploadPage: PageWithLayout = () => {
       </p>
       {step === UploadStep.Form && (
         <UploadForm
-          onSuccess={(post) => {
-            setPost(post), setStep(UploadStep.Preview);
+          onSuccess={(song) => {
+            setSong(song), setStep(UploadStep.Preview);
           }}
         />
       )}
-      {step === UploadStep.Preview && post && (
+      {step === UploadStep.Preview && song && (
         <UploadPreview
-          post={post}
+          song={song}
           onSuccess={() => setStep(UploadStep.Success)}
         />
       )}
-      {step === UploadStep.Success && post && (
-        <UploadSuccess post={post} onSuccess={() => setStep(UploadStep.Form)} />
+      {step === UploadStep.Success && song && (
+        <UploadSuccess song={song} onSuccess={() => setStep(UploadStep.Form)} />
       )}
     </div>
   );
