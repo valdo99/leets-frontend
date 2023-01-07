@@ -3,9 +3,10 @@ import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { ArtistCard } from "@components/ArtistCard";
-import { PaginatedList } from "@components/Basic/PaginatedList";
 import { useApiClient } from "@providers/AuthProvider";
 import { getNextPageParam } from "@utils/getNextPageParam";
+
+import { PaginatedItemsList } from "./Basic/List/PaginatedItemsList";
 
 export const ArtistsFeed = () => {
   const { i18n } = useLingui();
@@ -20,7 +21,7 @@ export const ArtistsFeed = () => {
   );
 
   return (
-    <PaginatedList
+    <PaginatedItemsList
       title={t(i18n)`Top Artists`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
       query={query}

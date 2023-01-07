@@ -2,7 +2,7 @@ import { t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-import { PaginatedList } from "@components/Basic/PaginatedList";
+import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
 import { SongCard } from "@components/Song/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
@@ -38,7 +38,7 @@ export const TopSongsFeed = () => {
   };
 
   return (
-    <PaginatedList
+    <PaginatedItemsList
       title={t(i18n)`Today's top songs`}
       tooltip={t(i18n)`Songs which received the most likes today`}
       query={query}
