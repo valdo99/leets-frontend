@@ -28,7 +28,7 @@ export const ProfileMenu = ({ user, onLogout, onClick }: ProfileMenuProps) => {
   );
 
   return (
-    <Dropdown className="inline-flex">
+    <Dropdown>
       <DropdownTrigger
         onClick={onClick}
         className="flex items-center space-x-2"
