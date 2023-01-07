@@ -41,7 +41,7 @@ export const TopSongs = ({ genre }: { genre?: string }) => {
 
   return (
     <PaginatedItemsList
-      title={t(i18n)`Today's top songs`}
+      title={t(i18n)`Today's top ${genre} songs`}
       tooltip={t(i18n)`Songs which received the most likes today`}
       noResultsMessage={t(i18n)`No songs found`}
       query={query}
