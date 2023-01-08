@@ -50,9 +50,7 @@ msgstr "Sei stanco della solita musica? Se vuoi dare una svolta alle tue playlis
 msgid "Are you lost? No worries, here's the way home"
 msgstr "Ti sei perso? Non preoccuparti, ecco la via per casa"
 
-#: src/pages/artists.tsx
-#: src/pages/feed.tsx
-#: src/pages/hunters.tsx
+#: src/components/AboutBanner.tsx
 msgid "Are you new here?"
 msgstr "Sei nuovo qui?"
 
@@ -65,21 +63,21 @@ msgstr "Artisti"
 msgid "Be the hunter of the next hit"
 msgstr "Sarai proprio tu a scoprire la nuova hit?"
 
-#: src/components/Song/SongTabs.tsx
-#: src/components/Song/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
 msgid "Comment"
 msgstr "Commenta"
 
-#: src/components/Song/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
 msgid "Comment posted successfully"
-msgstr ""
+msgstr "Commento postato con successo"
 
-#: src/components/Song/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
 msgid "Comment this song"
 msgstr "Commenta questa canzone"
 
-#: src/components/Song/SongTabs.tsx
-#: src/components/Song/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
 msgid "Comments"
 msgstr "Commenti"
 
@@ -103,13 +101,11 @@ msgstr "Computer"
 msgid "Discover new music"
 msgstr "Scopri nuova musica"
 
-#: src/components/UserLikedSongs.tsx
+#: src/components/Profile/UserLikedSongs.tsx
 msgid "Discover songs"
 msgstr "Scopri canzoni"
 
-#: src/pages/artists.tsx
-#: src/pages/feed.tsx
-#: src/pages/hunters.tsx
+#: src/components/AboutBanner.tsx
 msgid "Discover what is Leets"
 msgstr "Scopri cos'é Leets"
 
@@ -185,8 +181,7 @@ msgstr "Scopri la nuova hit"
 msgid "Hunted artists"
 msgstr "Artisti huntati"
 
-#: src/components/Song/SongCard.tsx
-#: src/pages/song/[song].tsx
+#: src/components/Songs/SongCard.tsx
 #: src/pages/song/[song].tsx
 msgid "Hunted by"
 msgstr "Scoperta da"
@@ -195,7 +190,7 @@ msgstr "Scoperta da"
 msgid "Hunted by (masculine)"
 msgstr "Scoperto da"
 
-#: src/components/ArtistCard.tsx
+#: src/components/Artists/ArtistCard.tsx
 msgid "Hunted on {0}"
 msgstr "Scoperta il {0}"
 
@@ -249,21 +244,20 @@ msgid "Liked songs"
 msgstr "Canzoni piaciute"
 
 #: src/components/Modals/SongLikesModal.tsx
-#: src/components/Song/SongTabs.tsx
-#: src/components/Song/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
 msgid "Likes"
 msgstr "Mi piace"
 
-#: src/components/Song/SongCard.tsx
-#: src/pages/song/[song].tsx
+#: src/components/Songs/SongCard.tsx
 #: src/pages/song/[song].tsx
 msgid "Listen on Spotify"
 msgstr "Ascolta su Spotify"
 
 #: src/components/Basic/List/PaginatedItemsList.tsx
 #: src/components/Modals/SongLikesModal.tsx
-#: src/components/Song/SongTabs.tsx
-#: src/components/Song/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
+#: src/components/Songs/SongTabs.tsx
 #: src/pages/notifications.tsx
 #: src/pages/search.tsx
 msgid "Load more"
@@ -305,11 +299,19 @@ msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
 msgid "New Username"
 msgstr "Nuovo nome utente"
 
-#: src/components/UserHuntedArtists.tsx
-msgid "No hunted artists songs yet"
-msgstr ""
+#: src/components/Artists/TopArtistsPreview.tsx
+msgid "No artists found"
+msgstr "Nessun artista trovato"
 
-#: src/components/UserLikedSongs.tsx
+#: src/components/Profile/UserHuntedArtists.tsx
+msgid "No hunted artists songs yet"
+msgstr "Ancora nessun canzone scoperta"
+
+#: src/components/Hunters/TopHuntersPreview.tsx
+msgid "No hunters found"
+msgstr "Nessun hunter trovato"
+
+#: src/components/Profile/UserLikedSongs.tsx
 msgid "No liked songs"
 msgstr "Nessuna canzone piaciuta"
 
@@ -317,8 +319,12 @@ msgstr "Nessuna canzone piaciuta"
 msgid "No results found"
 msgstr "Nessun risultato"
 
-#: src/components/UserHuntedSongs.tsx
-#: src/components/UserHuntedSongs.tsx
+#: src/components/Songs/TopSongs.tsx
+msgid "No songs found"
+msgstr "Nessuna canzone trovata"
+
+#: src/components/Profile/UserHuntedSongs.tsx
+#: src/components/Profile/UserHuntedSongs.tsx
 msgid "No uploaded songs"
 msgstr "Nessuna canzone caricata"
 
@@ -334,8 +340,8 @@ msgstr "Password"
 
 #: src/pages/song/[song].tsx
 #: src/pages/song/[song].tsx
-msgid "Play count"
-msgstr "Riproduzioni"
+msgid "Play count:"
+msgstr "Riproduzioni:"
 
 #: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Profile"
@@ -369,10 +375,10 @@ msgstr "Ricorda, le canzoni devono essere di artisti che hanno meno di 50,000 as
 msgid "Repeat Password"
 msgstr "Conferma Password"
 
-#: src/components/ArtistFeed.tsx
-#: src/components/HuntersFeed.tsx
-#: src/components/TopArtistsFeed.tsx
-#: src/components/TopHuntersFeed.tsx
+#: src/components/Artists/TopArtists.tsx
+#: src/components/Artists/TopArtistsPreview.tsx
+#: src/components/Hunters/TopHunters.tsx
+#: src/components/Hunters/TopHuntersPreview.tsx
 msgid "Score is based on number of likes to hunted songs"
 msgstr "Il punteggio é basato sul numero di like alle canzoni scoperte"
 
@@ -385,8 +391,8 @@ msgstr "Cerca"
 msgid "Search for songs"
 msgstr "Cerca canzoni"
 
-#: src/components/TopArtistsFeed.tsx
-#: src/components/TopHuntersFeed.tsx
+#: src/components/Artists/TopArtistsPreview.tsx
+#: src/components/Hunters/TopHuntersPreview.tsx
 msgid "See all"
 msgstr "Vedi tutti"
 
@@ -410,7 +416,7 @@ msgstr "Qualcosa é andato storto, riprova più tardi"
 msgid "Song uploaded! 🚀"
 msgstr "Canzone caricata! 🚀"
 
-#: src/components/TopSongsFeed.tsx
+#: src/components/Songs/TopSongs.tsx
 msgid "Songs which received the most likes today"
 msgstr "Canzoni che hanno ricevuto più like oggi"
 
@@ -426,7 +432,7 @@ msgstr "Assistenza"
 msgid "The hub for music lovers"
 msgstr "La piattaforma per gli amanti della musica"
 
-#: src/components/ArtistHuntedSongs.tsx
+#: src/components/Artists/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"
 msgstr "Non ci sono canzoni huntate"
 
@@ -434,17 +440,17 @@ msgstr "Non ci sono canzoni huntate"
 msgid "To get started, sign up and upload the <0>Spotify link</0> of the song you wish to share with the community"
 msgstr "Per iniziare, registrati e carica il <0>link di Spotify</0> della canzone che desideri condividere alla community"
 
-#: src/components/TopSongsFeed.tsx
-msgid "Today's top songs"
-msgstr "Migliori canzoni del giorno"
+#: src/components/Songs/TopSongs.tsx
+msgid "Today's top {0} songs"
+msgstr "Migliori canzoni {0} del giorno"
 
-#: src/components/ArtistFeed.tsx
-#: src/components/TopArtistsFeed.tsx
+#: src/components/Artists/TopArtists.tsx
+#: src/components/Artists/TopArtistsPreview.tsx
 msgid "Top Artists"
 msgstr "Migliori Artisti"
 
-#: src/components/HuntersFeed.tsx
-#: src/components/TopHuntersFeed.tsx
+#: src/components/Hunters/TopHunters.tsx
+#: src/components/Hunters/TopHuntersPreview.tsx
 msgid "Top Hunters"
 msgstr "Migliori Hunters"
 
@@ -473,9 +479,9 @@ msgstr "Carica"
 msgid "Upload another song"
 msgstr "Carica un'altra canzone"
 
-#: src/components/UserHuntedArtists.tsx
-#: src/components/UserHuntedSongs.tsx
-#: src/components/UserHuntedSongs.tsx
+#: src/components/Profile/UserHuntedArtists.tsx
+#: src/components/Profile/UserHuntedSongs.tsx
+#: src/components/Profile/UserHuntedSongs.tsx
 #: src/pages/upload.tsx
 msgid "Upload new song"
 msgstr "Carica una nuova canzone"
@@ -501,16 +507,16 @@ msgstr "Cos'é Leets"
 msgid "With Leets you can <0>discover new music daily</0> by up-and-coming artists, which may be harder to find on other platforms like Spotify. Every day you will be able to see a ranking of the songs that received the most \"likes\" from users during the day."
 msgstr "Con Leets poi <0>scoprire quotidianamente nuova musica</0> di artisti emergenti, che possono essere più difficili da trovare su altre piattaforme come Spotify. Ogni giorno potrai vedere una classifica delle canzoni che hanno ricevuto più \"mi piace\" dagli utenti durante la giornata."
 
-#: src/components/UserHuntedArtists.tsx
+#: src/components/Profile/UserHuntedArtists.tsx
 msgid "You have no hunted artists yet"
 msgstr "Non hai ancora nessun artista huntato"
 
-#: src/components/UserLikedSongs.tsx
+#: src/components/Profile/UserLikedSongs.tsx
 msgid "You have no liked songs yet"
 msgstr "Non hai ancora messo like a nessuna canonze"
 
-#: src/components/UserHuntedSongs.tsx
-#: src/components/UserHuntedSongs.tsx
+#: src/components/Profile/UserHuntedSongs.tsx
+#: src/components/Profile/UserHuntedSongs.tsx
 msgid "You have no uploaded songs yet"
 msgstr "Non hai ancora caricato nessuna canzone"
 
@@ -537,11 +543,3 @@ msgstr "il {0}"
 #: src/pages/notifications.tsx
 msgid "with:"
 msgstr "con:"
-
-#: src/components/Basic/List/List.tsx
-msgid "{0}"
-msgstr ""
-
-#: src/components/Basic/List/List.tsx
-msgid "{noResultsMessage}"
-msgstr ""
