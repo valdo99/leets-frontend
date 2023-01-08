@@ -92,6 +92,7 @@ export const DropdownContent = ({ children, className }: CommonProps) => {
             "rounded-btn",
             "bg-base-200",
             "shadow-lg drop-shadow-white ring-1 ring-white/10 shadow-white/10 focus:outline-none",
+            "overflow-y-auto",
             className
           )
         )}
