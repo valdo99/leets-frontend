@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { AboutBanner } from "@components/AboutBanner";
 import { TopArtistsPreview } from "@components/Artists/TopArtistsPreview";
 import { TopHuntersPreview } from "@components/Hunters/TopHuntersPreview";
+import { PlaylistiFrame } from "@components/PlaylistiFrame";
 import { TopSongs } from "@components/Songs/TopSongs";
 
 const GenrePageInner = ({ genre }: { genre: string }) => {
@@ -16,6 +17,7 @@ const GenrePageInner = ({ genre }: { genre: string }) => {
         <div className="flex shrink-0 flex-col space-y-14 lg:w-[340px]">
           <TopHuntersPreview genre={genre} />
           <TopArtistsPreview genre={genre} />
+          <PlaylistiFrame />
         </div>
       </div>
     </>
