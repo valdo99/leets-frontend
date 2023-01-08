@@ -14,6 +14,7 @@ import { InfoTooltip } from "@components/Basic/Tooltip";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 import { formatDate } from "@utils/dates";
+import { fromSlug } from "@utils/genres";
 
 const ArtistPageInner = ({ artist }: { artist: Artist }) => {
   const apiClient = useApiClient();
@@ -58,7 +59,7 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
       </div>
 
       {/* Stats */}
-      <div className="mt-8 flex flex-col flex-wrap space-y-2 xs:flex-row xs:space-x-4 xs:space-y-0">
+      <div className="mt-8 flex flex-col flex-wrap space-y-2 xs:flex-row xs:space-x-3 xs:space-y-0">
         {/* Monthly Listeners */}
         <div className="rounded-btn flex bg-base-200 py-2 px-4 text-sm sm:text-base">
           <span className="font-bold">
@@ -84,6 +85,15 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
           </span>
           : {totalLikes}
         </div>
+
+        {artist.genres?.map((genre) => (
+          <div
+            key={genre}
+            className="rounded-btn bg-base-200 py-2 px-4 text-sm sm:text-base"
+          >
+            {fromSlug(genre)}
+          </div>
+        ))}
       </div>
 
       {/* Hunted Songs */}
