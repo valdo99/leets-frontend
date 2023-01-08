@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@components/Basic/Button";
 import { ItemsList } from "@components/Basic/List/ItemsList";
 import { useApiClient } from "@providers/AuthProvider";
-import { fromSlug } from "@utils/genres";
+import { fromSlug, toSlug } from "@utils/genres";
 
 import { ArtistCard } from "./ArtistCard";
 
@@ -29,7 +29,7 @@ export const TopArtistsPreview = ({ genre }: { genre?: string }) => {
       noResultsMessage={t(i18n)`No artists found`}
       item={(artist) => <ArtistCard key={artist._id} artist={artist} />}
       footer={
-        <Link href="/artists">
+        <Link href={genre ? `/artists/${toSlug(genre)}` : "/artists"}>
           <a className="mt-8 block">
             <Button block>
               <Trans>See all</Trans>

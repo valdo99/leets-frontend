@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@components/Basic/Button";
 import { ItemsList } from "@components/Basic/List/ItemsList";
 import { useApiClient } from "@providers/AuthProvider";
-import { fromSlug } from "@utils/genres";
+import { fromSlug, toSlug } from "@utils/genres";
 
 import { TopHunterCard } from "./TopHunterCard";
 
@@ -30,7 +30,7 @@ export const TopHuntersPreview = ({ genre }: { genre?: string }) => {
       noResultsMessage={t(i18n)`No hunters found`}
       item={(hunter) => <TopHunterCard key={hunter.username} hunter={hunter} />}
       footer={
-        <Link href="/hunters">
+        <Link href={genre ? `/hunters/${toSlug(genre)}` : "/hunters"}>
           <a className="mt-8 block">
             <Button block>
               <Trans>See all</Trans>
