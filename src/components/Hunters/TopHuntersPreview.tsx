@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@components/Basic/Button";
 import { ItemsList } from "@components/Basic/List/ItemsList";
 import { useApiClient } from "@providers/AuthProvider";
+import { fromSlug } from "@utils/genres";
 
 import { TopHunterCard } from "./TopHunterCard";
 
@@ -24,7 +25,7 @@ export const TopHuntersPreview = ({ genre }: { genre?: string }) => {
   return (
     <ItemsList
       query={query}
-      title={t(i18n)`Top Hunters`}
+      title={t(i18n)`Top ${genre ? fromSlug(genre) : ""} Hunters`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
       noResultsMessage={t(i18n)`No hunters found`}
       item={(hunter) => <TopHunterCard key={hunter.username} hunter={hunter} />}

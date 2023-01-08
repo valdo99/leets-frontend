@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { useQuery } from "@tanstack/react-query";
 import cx from "classnames";
 
@@ -13,10 +14,18 @@ import { useApiClient, useUser } from "@providers/AuthProvider";
 import { fromSlug, toSlug } from "@utils/genres";
 
 interface GenresSelectProps {
+  defaultLabel?: string;
+  allItemsLabel?: string;
+  baseUrl: string;
   selected: string | undefined;
 }
 
-export const GenresSelect = ({ selected }: GenresSelectProps) => {
+export const GenresSelect = ({
+  defaultLabel,
+  allItemsLabel,
+  baseUrl,
+  selected,
+}: GenresSelectProps) => {
   const { loading } = useUser();
 
   const apiClient = useApiClient();
@@ -35,19 +44,23 @@ export const GenresSelect = ({ selected }: GenresSelectProps) => {
           "flex items-center justify-between space-x-2 rounded-btn py-2 px-4 font-medium hover:bg-base-200 bg-base-200 w-full"
         )}
       >
-        <span>{selected ? fromSlug(selected) : "Select genre"}</span>
+        <span>
+          {selected
+            ? fromSlug(selected)
+            : defaultLabel || <Trans>Select genre</Trans>}
+        </span>
         <ChevronDownIcon />
       </DropdownTrigger>
       <DropdownContent className="mt-4 max-h-[18rem]">
         {selected && (
-          <DropdownItem href="/feed" as={WrappedLink}>
-            All genres
+          <DropdownItem href={baseUrl} as={WrappedLink}>
+            {allItemsLabel || <Trans>All genres</Trans>}
           </DropdownItem>
         )}
         {genres?.map((genre) => (
           <DropdownItem
             key={genre}
-            href={`/genre/${toSlug(genre)}`}
+            href={`${baseUrl}/${toSlug(genre)}`}
             as={WrappedLink}
           >
             {fromSlug(genre)}

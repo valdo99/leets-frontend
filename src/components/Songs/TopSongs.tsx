@@ -54,7 +54,7 @@ export const TopSongs = ({ genre }: { genre?: string }) => {
           onPlay={() => onPlay(song._id)}
         />
       )}
-      header={<GenresSelect selected={genre} />}
+      header={<GenresSelect baseUrl="/feed" selected={genre} />}
     />
   );
 };

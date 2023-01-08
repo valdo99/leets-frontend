@@ -6,7 +6,7 @@ import { TopHuntersPreview } from "@components/Hunters/TopHuntersPreview";
 import { PlaylistiFrame } from "@components/PlaylistiFrame";
 import { TopSongs } from "@components/Songs/TopSongs";
 
-const GenrePageInner = ({ genre }: { genre: string }) => {
+const FeedGenrePageInner = ({ genre }: { genre: string }) => {
   return (
     <>
       <AboutBanner />
@@ -24,7 +24,7 @@ const GenrePageInner = ({ genre }: { genre: string }) => {
   );
 };
 
-const GenrePage = () => {
+const FeedGenrePage = () => {
   const router = useRouter();
   const genre = router.query.genre?.toString().replace("-", "/");
 
@@ -32,7 +32,7 @@ const GenrePage = () => {
     return null;
   }
 
-  return <GenrePageInner genre={genre} />;
+  return <FeedGenrePageInner genre={genre} />;
 };
 
-export default GenrePage;
+export default FeedGenrePage;
