@@ -8,6 +8,7 @@ const capitalizeWords = (sentence: string, separator: string) => {
 };
 
 export const fromSlug = (slug: string) => {
+  // return slugToName[slug];
   const replaced = slug.replace("-", "/");
   const separators = [" ", "/", "&"];
 
@@ -15,3 +16,21 @@ export const fromSlug = (slug: string) => {
     return capitalizeWords(acc, separator);
   }, replaced);
 };
+
+// const slugToName: Record<string, string> = {
+//   "dance-electronic": "Dance/Electronic",
+//   "folk-acoustic": "Folk/Acoustic",
+//   "r-b": "R&B",
+//   "world-traditional": "World/Traditional",
+//   blues: "blues",
+//   classical: "classical",
+//   country: "country",
+//   "easy-listening": "easy listening",
+//   "hip-hop": "hip hop",
+//   jazz: "jazz",
+//   latin: "latin",
+//   metal: "metal",
+//   "new-age": "new age",
+//   pop: "pop",
+//   rock: "rock",
+// };

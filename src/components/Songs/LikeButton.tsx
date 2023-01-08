@@ -45,21 +45,19 @@ export const LikeButton = ({
   };
 
   return (
-    <div
-      className={cx("flex cursor-pointer items-center space-x-1", className)}
-    >
+    <div className={cx("flex cursor-pointer space-x-1 w-8 h-8", className)}>
       {user ? (
         <button onClick={toggleLike} className="cursor-pointer">
           {song.isLiked ? (
-            <HeartSolid className="text-2xl" />
+            <HeartSolid className="h-full w-full" />
           ) : (
-            <HeartOutline className="text-2xl" />
+            <HeartOutline className="h-full w-full" />
           )}
         </button>
       ) : (
         <Link href="/signup">
           <a>
-            <HeartOutline className="text-2xl" />
+            <HeartOutline className="h-full w-full" />
           </a>
         </Link>
       )}
