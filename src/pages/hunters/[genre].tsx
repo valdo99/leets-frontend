@@ -24,7 +24,7 @@ const HuntersGenrePageInner = ({ genre }: { genre: string }) => {
 
 const HuntersGenrePage = () => {
   const router = useRouter();
-  const genre = router.query.genre?.toString().replace("-", "/");
+  const genre = router.query.genre?.toString();
 
   if (!genre) {
     return null;

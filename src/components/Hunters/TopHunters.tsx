@@ -6,7 +6,7 @@ import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
 import { TopHunterCard } from "@components/Hunters/TopHunterCard";
 import { GenresSelect } from "@components/Songs/GenresSelect";
 import { useApiClient } from "@providers/AuthProvider";
-import { fromSlug } from "@utils/genres";
+import { slugToName } from "@utils/genres";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
 export const TopHunters = ({ genre }: { genre?: string }) => {
@@ -24,7 +24,7 @@ export const TopHunters = ({ genre }: { genre?: string }) => {
 
   return (
     <PaginatedItemsList
-      title={t(i18n)`Top ${genre ? fromSlug(genre) : ""} Hunters`}
+      title={t(i18n)`Top ${genre ? slugToName(genre) : ""} Hunters`}
       tooltip={t(i18n)`Score is based on number of likes to hunted songs`}
       noResultsMessage={t(i18n)`No hunters found`}
       query={query}

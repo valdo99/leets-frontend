@@ -91,8 +91,4 @@ export class SongService extends ApiService {
       `${this.baseUrl}/search${getQueryString(params)}`
     );
   }
-
-  async genres() {
-    return await this.http.get<string[]>(`${this.baseUrl}/genres`);
-  }
 }

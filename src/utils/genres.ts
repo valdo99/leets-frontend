@@ -1,36 +1,21 @@
-export const toSlug = (genre: string) => genre.replace("/", "-").toLowerCase();
-
-const capitalizeWords = (sentence: string, separator: string) => {
-  return sentence
-    .split(separator)
-    .map((word) => word[0].toUpperCase() + word.substring(1))
-    .join(separator);
+const genreMapping: Record<string, string> = {
+  "dance-electronic": "Dance/Electronic",
+  "folk-acoustic": "Folk/Acoustic",
+  "r&b": "R&B",
+  "world-traditional": "World/Traditional",
+  blues: "Blues",
+  classical: "Classical",
+  country: "Country",
+  "easy-listening": "Easy Listening",
+  "hip-hop": "Hip Hop",
+  jazz: "Jazz",
+  latin: "Latin",
+  metal: "Metal",
+  "new-age": "New Age",
+  pop: "Pop",
+  rock: "Rock",
 };
 
-export const fromSlug = (slug: string) => {
-  // return slugToName[slug];
-  const replaced = slug.replace("-", "/");
-  const separators = [" ", "/", "&"];
-
-  return separators.reduce((acc, separator) => {
-    return capitalizeWords(acc, separator);
-  }, replaced);
+export const slugToName = (genre: string) => {
+  return genreMapping[genre];
 };
-
-// const slugToName: Record<string, string> = {
-//   "dance-electronic": "Dance/Electronic",
-//   "folk-acoustic": "Folk/Acoustic",
-//   "r-b": "R&B",
-//   "world-traditional": "World/Traditional",
-//   blues: "blues",
-//   classical: "classical",
-//   country: "country",
-//   "easy-listening": "easy listening",
-//   "hip-hop": "hip hop",
-//   jazz: "jazz",
-//   latin: "latin",
-//   metal: "metal",
-//   "new-age": "new age",
-//   pop: "pop",
-//   rock: "rock",
-// };

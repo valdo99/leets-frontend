@@ -26,7 +26,7 @@ const FeedGenrePageInner = ({ genre }: { genre: string }) => {
 
 const FeedGenrePage = () => {
   const router = useRouter();
-  const genre = router.query.genre?.toString().replace("-", "/");
+  const genre = router.query.genre?.toString();
 
   if (!genre) {
     return null;

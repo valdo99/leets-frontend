@@ -6,7 +6,7 @@ import { PaginatedItemsList } from "@components/Basic/List/PaginatedItemsList";
 import { SongCard } from "@components/Songs/SongCard";
 import { useApiClient, useUser } from "@providers/AuthProvider";
 import { usePlayer } from "@providers/PlayerProvider";
-import { fromSlug } from "@utils/genres";
+import { slugToName } from "@utils/genres";
 import { getNextPageParam } from "@utils/getNextPageParam";
 
 import { GenresSelect } from "./GenresSelect";
@@ -42,7 +42,7 @@ export const TopSongs = ({ genre }: { genre?: string }) => {
 
   return (
     <PaginatedItemsList
-      title={t(i18n)`Today's top ${genre ? fromSlug(genre) : ""} songs`}
+      title={t(i18n)`Today's top ${genre ? slugToName(genre) : ""} songs`}
       tooltip={t(i18n)`Songs which received the most likes today`}
       noResultsMessage={t(i18n)`No songs found`}
       query={query}

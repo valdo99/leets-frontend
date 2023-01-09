@@ -21,7 +21,7 @@ export interface Notification extends Entity {
   status: number;
 }
 
-export class NotificationsServies extends ApiService {
+export class NotificationService extends ApiService {
   async list(params?: QueryParams) {
     return await this.http.getPaginated<Notification[]>(
       `${this.baseUrl}/users/me/notifications${getQueryString(params)}`

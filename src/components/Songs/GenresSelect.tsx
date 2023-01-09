@@ -10,8 +10,8 @@ import {
   WrappedLink,
 } from "@components/Basic/Dropdown";
 import ChevronDownIcon from "@icons/chevron-down.svg";
-import { useApiClient, useUser } from "@providers/AuthProvider";
-import { fromSlug, toSlug } from "@utils/genres";
+import { useApiClient } from "@providers/AuthProvider";
+import { slugToName } from "@utils/genres";
 
 interface GenresSelectProps {
   defaultLabel?: string;
@@ -26,16 +26,12 @@ export const GenresSelect = ({
   baseUrl,
   selected,
 }: GenresSelectProps) => {
-  const { loading } = useUser();
-
   const apiClient = useApiClient();
-  const { data: genres } = useQuery(
-    ["genres"],
-    () => apiClient.songs.genres().then((data) => data.data),
-    {
-      enabled: !loading,
-    }
+  const { data: genres } = useQuery(["genres"], () =>
+    apiClient.genres.list().then((data) => data.data)
   );
+
+  console.log("Selected genre: ", selected);
 
   return (
     <Dropdown className="w-full">
@@ -46,7 +42,7 @@ export const GenresSelect = ({
       >
         <span>
           {selected
-            ? fromSlug(selected)
+            ? slugToName(selected)
             : defaultLabel || <Trans>Select genre</Trans>}
         </span>
         <ChevronDownIcon />
@@ -59,11 +55,11 @@ export const GenresSelect = ({
         )}
         {genres?.map((genre) => (
           <DropdownItem
-            key={genre}
-            href={`${baseUrl}/${toSlug(genre)}`}
+            key={genre.slug}
+            href={`${baseUrl}/${genre.slug}`}
             as={WrappedLink}
           >
-            {fromSlug(genre)}
+            {genre.name}
           </DropdownItem>
         ))}
       </DropdownContent>

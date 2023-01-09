@@ -4,8 +4,9 @@ import { ArtistService } from "./artists";
 import { AuthService } from "./auth";
 import { CommentService } from "./comments";
 import { ForbiddenError, UnauthorizedError, ValidationError } from "./errors";
+import { GenreService } from "./genres";
 import { Http } from "./http";
-import { NotificationsServies } from "./notifications";
+import { NotificationService } from "./notifications";
 import { SongService } from "./songs";
 import { ApiErrorResponse } from "./types";
 import { UserService } from "./users";
@@ -25,7 +26,8 @@ export class ApiClient {
   songs: SongService;
   artists: ArtistService;
   comments: CommentService;
-  notifications: NotificationsServies;
+  notifications: NotificationService;
+  genres: GenreService;
 
   constructor(options: Options = {}) {
     this.options = options;
@@ -42,7 +44,8 @@ export class ApiClient {
     this.songs = new SongService(this, "/posts");
     this.artists = new ArtistService(this, "/artists");
     this.comments = new CommentService(this, "/comments");
-    this.notifications = new NotificationsServies(this, "");
+    this.notifications = new NotificationService(this, "");
+    this.genres = new GenreService(this, "/genres");
   }
 
   handleResponseError(errorRes: ApiErrorResponse) {
