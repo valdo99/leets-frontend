@@ -128,7 +128,8 @@ export const SongTabs = ({ song, refetchLikes }: LikesProps) => {
       ),
     },
     {
-      label: t(i18n)`Comments` + ` (${comments?.pages[0].pagination.total})`,
+      label:
+        t(i18n)`Comments` + ` (${comments?.pages[0].pagination.total ?? ""})`,
       content: (
         <div className="">
           {areCommentsLoading ? (

@@ -18,7 +18,7 @@ import { SongTabs } from "@components/Songs/SongTabs";
 import SpotifyIcon from "@icons/spotify.svg";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
-import { fromSlug } from "@utils/genres";
+import { slugToName } from "@utils/genres";
 
 const SongPageInner = ({ song }: { song: Song }) => {
   const apiClient = useApiClient();
@@ -91,6 +91,18 @@ const SongPageInner = ({ song }: { song: Song }) => {
                 </a>
               )}
 
+              {/* Spotify Icon */}
+              {song.preview_url && (
+                <a
+                  href={`https://open.spotify.com/track/${song.spotify_id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 cursor-pointer"
+                >
+                  <SpotifyIcon className="h-6 w-6" />
+                </a>
+              )}
+
               <LikeButton
                 onSuccess={() => {
                   likeRefetch();
@@ -100,7 +112,7 @@ const SongPageInner = ({ song }: { song: Song }) => {
                   ...song,
                   isLiked: songLike?.isLiked ? 1 : 0,
                 }}
-                className="ml-1 h-10 w-10"
+                className="ml-2 h-10 w-10"
               />
             </div>
 
@@ -108,10 +120,10 @@ const SongPageInner = ({ song }: { song: Song }) => {
             <div className="mt-2 hidden flex-wrap space-x-2 sm:flex">
               <div className="rounded-btn flex bg-base-200 py-2 px-4 text-sm sm:text-base">
                 <div className="font-bold">
-                  <Trans>Play count: </Trans>
+                  <Trans>Play count</Trans>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div>{song.playcount}</div>
+                  <div>: {song.playcount}</div>
                   <InfoTooltip
                     content={
                       <p className="max-w-[200px] text-center text-sm">
@@ -129,7 +141,7 @@ const SongPageInner = ({ song }: { song: Song }) => {
                   key={genre}
                   className="rounded-btn w-fit bg-base-200 py-2 px-4 text-sm sm:flex sm:text-base"
                 >
-                  {fromSlug(genre)}
+                  {slugToName(genre)}
                 </div>
               ))}
             </div>
@@ -159,7 +171,7 @@ const SongPageInner = ({ song }: { song: Song }) => {
               key={genre}
               className="rounded-btn bg-base-200 py-2 px-4 text-sm sm:flex sm:text-base"
             >
-              {fromSlug(genre)}
+              {slugToName(genre)}
             </div>
           ))}
         </div>
@@ -227,6 +239,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const apiClient = new ApiClient();
   const { data: song } = await apiClient.songs.read(songId);
+
+  console.log("Song: ", song);
 
   return {
     props: {

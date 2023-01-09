@@ -55,11 +55,11 @@ export const GenresSelect = ({
         )}
         {genres?.map((genre) => (
           <DropdownItem
-            key={genre.slug}
-            href={`${baseUrl}/${genre.slug}`}
+            key={genre}
+            href={`${baseUrl}/${genre}`}
             as={WrappedLink}
           >
-            {genre.name}
+            {slugToName(genre)}
           </DropdownItem>
         ))}
       </DropdownContent>

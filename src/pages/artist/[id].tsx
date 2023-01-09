@@ -14,7 +14,7 @@ import { InfoTooltip } from "@components/Basic/Tooltip";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 import { formatDate } from "@utils/dates";
-import { fromSlug } from "@utils/genres";
+import { slugToName } from "@utils/genres";
 
 const ArtistPageInner = ({ artist }: { artist: Artist }) => {
   const apiClient = useApiClient();
@@ -91,7 +91,7 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
             key={genre}
             className="rounded-btn bg-base-200 py-2 px-4 text-sm sm:text-base"
           >
-            {fromSlug(genre)}
+            {slugToName(genre)}
           </div>
         ))}
       </div>
