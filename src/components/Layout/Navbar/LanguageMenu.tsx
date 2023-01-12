@@ -31,7 +31,7 @@ export const LanguageMenu = ({ onClick, className }: LanguageMenuProps) => {
       </DropdownTrigger>
       <DropdownContent className="mt-6 min-w-0">
         <Menu.Item>
-          <DropdownItem onClick={() => changeLanguage("en")}>
+          <DropdownItem onClick={() => changeLanguage("it")}>
             <ItalianIcon className="text-xl" />
             <p className="ml-4 text-sm font-medium">
               <Trans>Italian</Trans>
