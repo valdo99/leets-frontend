@@ -34,6 +34,10 @@ msgstr "Accetto i termini e le condizioni"
 msgid "Account created, you'll receive an email to confirm your account"
 msgstr "Account creato, riceverai un email per confermare il tuo account"
 
+#: src/components/Songs/GenresSelect.tsx
+msgid "All genres"
+msgstr "Tutti i generi"
+
 #: src/pages/signup.tsx
 msgid "Already have an account?"
 msgstr "Hai già un account?"
@@ -299,6 +303,7 @@ msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
 msgid "New Username"
 msgstr "Nuovo nome utente"
 
+#: src/components/Artists/TopArtists.tsx
 #: src/components/Artists/TopArtistsPreview.tsx
 msgid "No artists found"
 msgstr "Nessun artista trovato"
@@ -307,6 +312,7 @@ msgstr "Nessun artista trovato"
 msgid "No hunted artists songs yet"
 msgstr "Ancora nessun canzone scoperta"
 
+#: src/components/Hunters/TopHunters.tsx
 #: src/components/Hunters/TopHuntersPreview.tsx
 msgid "No hunters found"
 msgstr "Nessun hunter trovato"
@@ -339,6 +345,9 @@ msgid "Password"
 msgstr "Password"
 
 #: src/pages/song/[song].tsx
+msgid "Play count"
+msgstr "Riproduzioni"
+
 #: src/pages/song/[song].tsx
 msgid "Play count:"
 msgstr "Riproduzioni:"
@@ -396,6 +405,10 @@ msgstr "Cerca canzoni"
 msgid "See all"
 msgstr "Vedi tutti"
 
+#: src/components/Songs/GenresSelect.tsx
+msgid "Select genre"
+msgstr "Seleziona genere"
+
 #: src/components/Landing/HuntersSection.tsx
 msgid "Share"
 msgstr "Condividi"
@@ -446,13 +459,13 @@ msgstr "Migliori canzoni {0} del giorno"
 
 #: src/components/Artists/TopArtists.tsx
 #: src/components/Artists/TopArtistsPreview.tsx
-msgid "Top Artists"
-msgstr "Migliori Artisti"
+msgid "Top {0} Artists"
+msgstr "Top Artisti {0}"
 
 #: src/components/Hunters/TopHunters.tsx
 #: src/components/Hunters/TopHuntersPreview.tsx
-msgid "Top Hunters"
-msgstr "Migliori Hunters"
+msgid "Top {0} Hunters"
+msgstr "Top Hunters {0}"
 
 #: src/pages/artist/[id].tsx
 msgid "Total likes"

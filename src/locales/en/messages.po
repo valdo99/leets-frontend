@@ -29,6 +29,10 @@ msgstr "Accept terms and conditions"
 msgid "Account created, you'll receive an email to confirm your account"
 msgstr "Account created, you'll receive an email to confirm your account"
 
+#: src/components/Songs/GenresSelect.tsx
+msgid "All genres"
+msgstr "All genres"
+
 #: src/pages/signup.tsx
 msgid "Already have an account?"
 msgstr "Already have an account?"
@@ -294,6 +298,7 @@ msgstr "Monthly listeners the artist had when hunted"
 msgid "New Username"
 msgstr "New Username"
 
+#: src/components/Artists/TopArtists.tsx
 #: src/components/Artists/TopArtistsPreview.tsx
 msgid "No artists found"
 msgstr "No artists found"
@@ -302,6 +307,7 @@ msgstr "No artists found"
 msgid "No hunted artists songs yet"
 msgstr "No hunted artists songs yet"
 
+#: src/components/Hunters/TopHunters.tsx
 #: src/components/Hunters/TopHuntersPreview.tsx
 msgid "No hunters found"
 msgstr "No hunters found"
@@ -334,6 +340,9 @@ msgid "Password"
 msgstr "Password"
 
 #: src/pages/song/[song].tsx
+msgid "Play count"
+msgstr "Play count"
+
 #: src/pages/song/[song].tsx
 msgid "Play count:"
 msgstr "Play count:"
@@ -391,6 +400,10 @@ msgstr "Search for songs"
 msgid "See all"
 msgstr "See all"
 
+#: src/components/Songs/GenresSelect.tsx
+msgid "Select genre"
+msgstr "Select genre"
+
 #: src/components/Landing/HuntersSection.tsx
 msgid "Share"
 msgstr "Share"
@@ -441,13 +454,13 @@ msgstr "Today's top {0} songs"
 
 #: src/components/Artists/TopArtists.tsx
 #: src/components/Artists/TopArtistsPreview.tsx
-msgid "Top Artists"
-msgstr "Top Artists"
+msgid "Top {0} Artists"
+msgstr "Top {0} Artists"
 
 #: src/components/Hunters/TopHunters.tsx
 #: src/components/Hunters/TopHuntersPreview.tsx
-msgid "Top Hunters"
-msgstr "Top Hunters"
+msgid "Top {0} Hunters"
+msgstr "Top {0} Hunters"
 
 #: src/pages/artist/[id].tsx
 msgid "Total likes"
