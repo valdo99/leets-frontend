@@ -17,7 +17,7 @@ export const TopHuntersPreview = ({ genre }: { genre?: string }) => {
   // TODO: use limit instead of limiting in the frontend
   const query = useQuery(["top-hunters", genre], () =>
     apiClient.users
-      .topHunters({ genres: genre })
+      .topHunters({ genres: encodeURIComponent(genre || "") })
       .then((data) => data.data.slice(0, 5))
   );
 

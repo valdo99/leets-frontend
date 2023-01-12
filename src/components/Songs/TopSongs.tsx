@@ -19,7 +19,11 @@ export const TopSongs = ({ genre }: { genre?: string }) => {
 
   const query = useInfiniteQuery(
     ["feed", user?._id, genre],
-    ({ pageParam }) => apiClient.songs.feed({ page: pageParam, genres: genre }),
+    ({ pageParam }) =>
+      apiClient.songs.feed({
+        page: pageParam,
+        genres: encodeURIComponent(genre || ""),
+      }),
     {
       enabled: !loading,
       getNextPageParam,
