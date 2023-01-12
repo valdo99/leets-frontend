@@ -240,8 +240,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const apiClient = new ApiClient();
   const { data: song } = await apiClient.songs.read(songId);
 
-  console.log("Song: ", song);
-
   return {
     props: {
       song,

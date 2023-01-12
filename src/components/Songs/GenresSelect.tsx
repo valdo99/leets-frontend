@@ -31,8 +31,6 @@ export const GenresSelect = ({
     apiClient.genres.list().then((data) => data.data)
   );
 
-  console.log("Selected genre: ", selected);
-
   return (
     <Dropdown className="w-full">
       <DropdownTrigger
