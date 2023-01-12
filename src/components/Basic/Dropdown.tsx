@@ -41,29 +41,28 @@ interface DropdownItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   onClick?: () => void;
 }
 
-export const DropdownItem = ({
-  as: Tag = "button",
-  children,
-  className,
-  ...rest
-}: DropdownItemProps) => {
-  return (
-    <Menu.Item>
-      {({ active }) => (
-        <Tag
-          className={cx(
-            "rounded-btn flex cursor-pointer items-center py-2 px-4 font-medium hover:bg-secondary hover:text-secondary-content",
-            { "bg-secondary text-secondary-content": active },
-            className
-          )}
-          {...rest}
-        >
-          {children}
-        </Tag>
-      )}
-    </Menu.Item>
-  );
-};
+export const DropdownItem = forwardRef(
+  ({ as: Tag = "button", children, className, ...rest }: DropdownItemProps) => {
+    return (
+      <Menu.Item>
+        {({ active }) => (
+          <Tag
+            className={cx(
+              "rounded-btn flex cursor-pointer items-center py-2 px-4 font-medium hover:bg-secondary hover:text-secondary-content",
+              { "bg-secondary text-secondary-content": active },
+              className
+            )}
+            {...rest}
+          >
+            {children}
+          </Tag>
+        )}
+      </Menu.Item>
+    );
+  }
+);
+
+DropdownItem.displayName = "DropdownItem";
 
 export const DropdownTrigger = ({
   children,
