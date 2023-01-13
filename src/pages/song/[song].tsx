@@ -15,6 +15,7 @@ import { InfoTooltip } from "@components/Basic/Tooltip";
 import { LikeButton } from "@components/Songs/LikeButton";
 import { PlayButton } from "@components/Songs/PlayButton";
 import { SongTabs } from "@components/Songs/SongTabs";
+import { useFormatNumber } from "@hooks/useFormatNumber";
 import SpotifyIcon from "@icons/spotify.svg";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
@@ -23,6 +24,7 @@ import { slugToName } from "@utils/genres";
 const SongPageInner = ({ song }: { song: Song }) => {
   const apiClient = useApiClient();
   const [refetchLikes, setRefetchLikes] = useState(0);
+  const { format } = useFormatNumber();
 
   const { data: songLike, refetch: likeRefetch } = useQuery(
     ["isSongLikes", song._id],
@@ -123,7 +125,7 @@ const SongPageInner = ({ song }: { song: Song }) => {
                   <Trans>Play count</Trans>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div>: {song.playcount}</div>
+                  <div>: {format(song.playcount || 0)}</div>
                   <InfoTooltip
                     content={
                       <p className="max-w-[200px] text-center text-sm">

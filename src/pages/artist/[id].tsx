@@ -11,6 +11,7 @@ import { ApiClient } from "@api/client";
 import { ArtistHuntedSongs } from "@components/Artists/ArtistHuntedSongs";
 import { Spinner } from "@components/Basic/Spinner";
 import { InfoTooltip } from "@components/Basic/Tooltip";
+import { useFormatNumber } from "@hooks/useFormatNumber";
 import { useApiClient } from "@providers/AuthProvider";
 import { PageWithLayout } from "@types";
 import { formatDate } from "@utils/dates";
@@ -18,6 +19,7 @@ import { slugToName } from "@utils/genres";
 
 const ArtistPageInner = ({ artist }: { artist: Artist }) => {
   const apiClient = useApiClient();
+  const { format } = useFormatNumber();
 
   const { data: totalLikes } = useQuery(
     ["artist-total-likes", artist._id],
@@ -66,7 +68,7 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
             <Trans>Monthly listeners</Trans>
           </span>
           <span className="flex items-center space-x-2">
-            <span>: {artist.monthly_listeners} </span>
+            <span>: {format(artist.monthly_listeners || 0)} </span>
             <InfoTooltip
               content={
                 <p className="max-w-[200px] text-center text-sm">
