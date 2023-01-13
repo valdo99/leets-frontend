@@ -100,19 +100,19 @@ export const Hero = () => {
     <section className="relative flex h-[60vh] items-center justify-center md:h-[80vh]">
       <WavesAnimation className="absolute top-1/2 -translate-y-1/2" />
       <div className="relative z-10 text-center">
-        <h1 className="text-4xl font-bold md:text-5xl">
-          <Trans>The hub for music lovers</Trans>
+        <h1 className="max-w-[48rem] text-4xl font-bold md:text-5xl">
+          <Trans>Discover the best new emerging music daily</Trans>
         </h1>
         <p className="mx-auto max-w-[34rem] py-6 text-lg text-base-content-neutral">
           <Trans>
-            Share your musical discoveries. Promote emergent artists. Discover
-            new music daily.
+            The place where everyone can share and discover new music by
+            up-and-coming artists.
           </Trans>
         </p>
         <Link href="/feed">
           <a>
             <Button size="lg">
-              <Trans>Explore songs</Trans>
+              <Trans>Discover songs</Trans>
             </Button>
           </a>
         </Link>

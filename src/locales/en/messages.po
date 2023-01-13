@@ -100,9 +100,14 @@ msgstr "Desktop"
 msgid "Discover new music"
 msgstr "Discover new music"
 
+#: src/components/Landing/Hero.tsx
 #: src/components/Profile/UserLikedSongs.tsx
 msgid "Discover songs"
 msgstr "Discover songs"
+
+#: src/components/Landing/Hero.tsx
+msgid "Discover the best new emerging music daily"
+msgstr "Discover the best new emerging music daily"
 
 #: src/components/AboutBanner.tsx
 msgid "Discover what is Leets"
@@ -128,10 +133,6 @@ msgstr "Email"
 #: src/components/Layout/Navbar/LanguageMenu.tsx
 msgid "English"
 msgstr "English"
-
-#: src/components/Landing/Hero.tsx
-msgid "Explore songs"
-msgstr "Explore songs"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
 #: src/components/Layout/Navbar/Navbar.tsx
@@ -408,10 +409,6 @@ msgstr "Select genre"
 msgid "Share"
 msgstr "Share"
 
-#: src/components/Landing/Hero.tsx
-msgid "Share your musical discoveries. Promote emergent artists. Discover new music daily."
-msgstr "Share your musical discoveries. Promote emergent artists. Discover new music daily."
-
 #: src/components/Landing/HuntersSection.tsx
 msgid "Share your new musical discoveries with everyone"
 msgstr "Share your new musical discoveries with everyone"
@@ -437,8 +434,8 @@ msgid "Support"
 msgstr "Support"
 
 #: src/components/Landing/Hero.tsx
-msgid "The hub for music lovers"
-msgstr "The hub for music lovers"
+msgid "The place where everyone can share and discover new music by up-and-coming artists."
+msgstr "The place where everyone can share and discover new music by up-and-coming artists."
 
 #: src/components/Artists/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"
