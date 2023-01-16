@@ -145,7 +145,7 @@ const ArtistPage: PageWithLayout<{ artist: Artist }> = ({ artist }) => {
 export default ArtistPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const id = params?.id?.toString() || "";
+  const id = params?.artist?.toString() || "";
 
   const apiClient = new ApiClient();
   const { data: artist } = await apiClient.artists.read(id);
