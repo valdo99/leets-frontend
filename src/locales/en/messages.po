@@ -42,8 +42,8 @@ msgid "Are you a song <0>hunter</0>?"
 msgstr "Are you a song <0>hunter</0>?"
 
 #: src/components/Landing/DiscoverSection.tsx
-msgid "Are you bored of the same old music? If you want to give a twist to your playlists, Leets is the perfect place to discover new music daily, by up-and-coming artists."
-msgstr "Are you bored of the same old music? If you want to give a twist to your playlists, Leets is the perfect place to discover new music daily, by up-and-coming artists."
+msgid "Are you bored of the same old music? Leets is a curation of the best new emerging music, where every day you can find new hits to make your playlists shine."
+msgstr "Are you bored of the same old music? Leets is a curation of the best new emerging music, where every day you can find new hits to make your playlists shine."
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
@@ -114,8 +114,8 @@ msgid "Discover what is Leets"
 msgstr "Discover what is Leets"
 
 #: src/components/Landing/HuntersSection.tsx
-msgid "Do you often discover songs and artists before everyone else? Leets is the perfect place to share your musical discoveries with other people like you."
-msgstr "Do you often discover songs and artists before everyone else? Leets is the perfect place to share your musical discoveries with other people like you."
+msgid "Do you often discover talented artists when they are not yet popular? Leets is the perfect place to share your musical discoveries with other people like you."
+msgstr "Do you often discover talented artists when they are not yet popular? Leets is the perfect place to share your musical discoveries with other people like you."
 
 #: src/pages/login.tsx
 msgid "Don't have an account?"
@@ -353,14 +353,6 @@ msgid "Profile"
 msgstr "Profile"
 
 #: src/components/Landing/HuntersSection.tsx
-msgid "Promote"
-msgstr "Promote"
-
-#: src/components/Landing/HuntersSection.tsx
-msgid "Promote the emergent artists you love and help them grow"
-msgstr "Promote the emergent artists you love and help them grow"
-
-#: src/components/Landing/HuntersSection.tsx
 msgid "Prove"
 msgstr "Prove"
 
@@ -429,13 +421,18 @@ msgstr "Songs which received the most likes today"
 msgid "Spotify song url"
 msgstr "Spotify song url"
 
+#: src/components/Landing/HuntersSection.tsx
 #: src/components/Layout/Footer.tsx
 msgid "Support"
 msgstr "Support"
 
+#: src/components/Landing/HuntersSection.tsx
+msgid "Support the emergent artists you love and help them to grow"
+msgstr "Support the emergent artists you love and help them to grow"
+
 #: src/components/Landing/Hero.tsx
-msgid "The place where everyone can share and discover new music by up-and-coming artists."
-msgstr "The place where everyone can share and discover new music by up-and-coming artists."
+msgid "The place where anyone can share their discoveries of new hits, support emerging artists and discover new cool music daily."
+msgstr "The place where anyone can share their discoveries of new hits, support emerging artists and discover new cool music daily."
 
 #: src/components/Artists/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"

@@ -40,9 +40,9 @@ export const HuntersSection = () => {
       </h3>
       <p className="mx-auto mt-4 max-w-[40rem] text-lg text-base-content-neutral">
         <Trans>
-          Do you often discover songs and artists before everyone else? Leets is
-          the perfect place to share your musical discoveries with other people
-          like you.
+          Do you often discover talented artists when they are not yet popular?
+          Leets is the perfect place to share your musical discoveries with
+          other people like you.
         </Trans>
       </p>
       <div className="mt-10 flex flex-col space-y-8 md:flex-row md:space-y-0 md:space-x-8">
@@ -54,10 +54,10 @@ export const HuntersSection = () => {
           icon={<ShareIcon />}
         />
         <FeatureCard
-          title={t(i18n)`Promote`}
+          title={t(i18n)`Support`}
           description={t(
             i18n
-          )`Promote the emergent artists you love and help them grow`}
+          )`Support the emergent artists you love and help them to grow`}
           icon={<TrophyIcon />}
         />
         <FeatureCard

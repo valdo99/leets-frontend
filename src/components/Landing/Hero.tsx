@@ -105,8 +105,8 @@ export const Hero = () => {
         </h1>
         <p className="mx-auto max-w-[34rem] py-6 text-lg text-base-content-neutral">
           <Trans>
-            The place where everyone can share and discover new music by
-            up-and-coming artists.
+            The place where anyone can share their discoveries of new hits,
+            support emerging artists and discover new cool music daily.
           </Trans>
         </p>
         <Link href="/feed">

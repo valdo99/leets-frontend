@@ -17,9 +17,9 @@ export const DiscoverSection = ({}: DiscoverSectionProps) => {
         </h3>
         <p className="mx-auto mt-4 max-w-[40rem] text-lg text-base-content-neutral">
           <Trans>
-            Are you bored of the same old music? If you want to give a twist to
-            your playlists, Leets is the perfect place to discover new music
-            daily, by up-and-coming artists.
+            Are you bored of the same old music? Leets is a curation of the best
+            new emerging music, where every day you can find new hits to make
+            your playlists shine.
           </Trans>
         </p>
         <Link href="/feed">
