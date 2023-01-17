@@ -191,7 +191,7 @@ msgstr "Artisti huntati"
 msgid "Hunted by"
 msgstr "Scoperta da"
 
-#: src/pages/artist/[id].tsx
+#: src/pages/artist/[artist].tsx
 msgid "Hunted by (masculine)"
 msgstr "Scoperto da"
 
@@ -292,13 +292,9 @@ msgstr "Creato con <0/> da <1>Federica</1> , <2>Edvaldo</2> e <3>Mattia</3>, des
 msgid "Mobile"
 msgstr "Telefono"
 
-#: src/pages/artist/[id].tsx
+#: src/pages/artist/[artist].tsx
 msgid "Monthly listeners"
 msgstr "Ascoltatori mensili"
-
-#: src/pages/artist/[id].tsx
-msgid "Monthly listeners the artist had when hunted"
-msgstr "Ascoltatori mensili che l'artista aveva al momento della scoperta"
 
 #: src/components/Modals/EditUsernameModal.tsx
 msgid "New Username"
@@ -461,7 +457,7 @@ msgstr "Top Artisti {0}"
 msgid "Top {0} Hunters"
 msgstr "Top Hunters {0}"
 
-#: src/pages/artist/[id].tsx
+#: src/pages/artist/[artist].tsx
 msgid "Total likes"
 msgstr "Mi piace totali"
 
@@ -501,6 +497,10 @@ msgstr "Carica canzone"
 #: src/pages/signup.tsx
 msgid "Username"
 msgstr "Nome utente"
+
+#: src/pages/artist/[artist].tsx
+msgid "Variation of monthly listeners between the time the artist was hunted and now."
+msgstr "Variazione di ascoltatori mensili dal momento in cui l'artista é stato scoperto ad ora."
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Welcome to Leets"
@@ -543,7 +543,7 @@ msgstr "ha commentato"
 msgid "liked your song"
 msgstr "ha messo mi piace a"
 
-#: src/pages/artist/[id].tsx
+#: src/pages/artist/[artist].tsx
 msgid "on {0}"
 msgstr "il {0}"
 

@@ -68,11 +68,27 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
             <Trans>Monthly listeners</Trans>
           </span>
           <span className="flex items-center space-x-2">
-            <span>: {format(artist.monthly_listeners || 0)} </span>
+            <span>
+              : {format(artist.monthly_listeners_at_created_time)} -&gt;{" "}
+              {format(artist.monthly_listeners)} (
+              {artist.monthly_listeners_variation >= 0 ? (
+                <span className="text-success">
+                  +{format(artist.monthly_listeners_variation)}%
+                </span>
+              ) : (
+                <span className="text-error">
+                  -{format(artist.monthly_listeners_variation)}%
+                </span>
+              )}
+              )
+            </span>
             <InfoTooltip
               content={
                 <p className="max-w-[200px] text-center text-sm">
-                  <Trans>Monthly listeners the artist had when hunted</Trans>
+                  <Trans>
+                    Variation of monthly listeners between the time the artist
+                    was hunted and now.
+                  </Trans>
                 </p>
               }
               color="secondary"

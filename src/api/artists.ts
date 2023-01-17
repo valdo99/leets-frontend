@@ -12,6 +12,8 @@ export interface Artist extends Entity {
   spotify_id: string;
   hunter: User;
   monthly_listeners: number;
+  monthly_listeners_at_created_time: number;
+  monthly_listeners_variation: number;
   biography?: string;
   genres?: string[];
 }
