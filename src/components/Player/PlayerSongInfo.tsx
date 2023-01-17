@@ -33,12 +33,12 @@ export const PlayerSongInfo = ({ song, className }: PlayerSongInfoProps) => {
       {/* Song Details */}
       <div className="ml-3 flex min-w-0 flex-col justify-center">
         <Link href={`/artist/${song.artist._id}`}>
-          <a className="text-2xs truncate font-bold uppercase leading-4 hover:text-base-content-neutral">
+          <a className="text-2xs -mb-0.5 mt-0.5 truncate font-bold uppercase hover:text-base-content-neutral">
             {song.artist.name}
           </a>
         </Link>
         <Link href={`/song/${song._id}`}>
-          <a className="mt-1 truncate text-lg font-bold leading-4 hover:text-base-content-neutral">
+          <a className="truncate text-lg font-bold hover:text-base-content-neutral">
             {song.title}
           </a>
         </Link>
