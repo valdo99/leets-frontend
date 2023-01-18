@@ -4,6 +4,7 @@ import { Container } from "@components/Layout/Container";
 import { Footer } from "@components/Layout/Footer";
 import { Navbar } from "@components/Layout/Navbar/Navbar";
 import { Player } from "@components/Player/Player";
+import { ProductHuntButton } from "@components/ProductHuntButton";
 
 interface DefaultLayoutProps {
   children: ReactNode;
@@ -22,6 +23,9 @@ export const DefaultLayout = ({
           <Container>{children}</Container>
         </main>
         {showFooter && <Footer />}
+      </div>
+      <div className="rounded-r-box absolute bottom-4 left-4 bg-base-100 p-2 sm:hidden">
+        <ProductHuntButton />
       </div>
       <Player />
     </div>

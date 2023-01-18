@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import { Container } from "@components/Layout/Container";
+import { ProductHuntButton } from "@components/ProductHuntButton";
 
 import { MobileMenu } from "./MobileMenu";
 import { RightMenu } from "./RightMenu";
@@ -41,10 +42,10 @@ export const Navbar = () => {
       <Container>
         <div className="flex flex-wrap items-center justify-between space-x-4 py-6">
           {/* Logo */}
-          <div className="shrink-0 md:flex-1">
+          <div className="flex shrink-0 items-center md:flex-1">
             <Link href="/">
               <a className="cursor-pointer" onClick={() => setShowMenu(false)}>
-                <span className="hidden sm:block">
+                <span className="hidden md:block">
                   <Image
                     src="/logo.png"
                     height="46px"
@@ -53,7 +54,7 @@ export const Navbar = () => {
                     priority
                   />
                 </span>
-                <span className="sm:hidden">
+                <span className="md:hidden">
                   <Image
                     src="/logo_only.png"
                     height="46px"
@@ -64,6 +65,7 @@ export const Navbar = () => {
                 </span>
               </a>
             </Link>
+            <ProductHuntButton className="ml-4 hidden sm:block" />
           </div>
 
           {/* Navigation Links */}
