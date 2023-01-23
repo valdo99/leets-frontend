@@ -170,6 +170,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       artist,
     },
+    revalidate: 3600 * 24, // 1 day
   };
 };
 
