@@ -43,7 +43,7 @@ msgid "Already have an account?"
 msgstr "Hai già un account?"
 
 #: src/components/Landing/HuntersSection.tsx
-msgid "Are you a song <0>hunter</0>?"
+msgid "Are you a music <0>hunter</0>?"
 msgstr "Sei un <0>hunter</0> di canzoni?"
 
 #: src/components/Landing/DiscoverSection.tsx
@@ -281,8 +281,8 @@ msgid "Logout"
 msgstr "Esci"
 
 #: src/components/Landing/DiscoverSection.tsx
-msgid "Looking for new <0>songs</0>?"
-msgstr "In cerca di nuove <0>canzoni</0>?"
+msgid "Looking for <0>new songs</0>?"
+msgstr "In cerca di <0>nuove canzoni</0>?"
 
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
@@ -432,8 +432,8 @@ msgid "Support the emergent artists you love and help them to grow"
 msgstr "Supporta gli artisti emergenti che ami e aiutali a crescere"
 
 #: src/components/Landing/Hero.tsx
-msgid "The place where anyone can share their discoveries of new hits, support emerging artists and discover new cool music daily."
-msgstr "Il posto dove tutti possono condividere le proprie scoperte di nuove hit, supportare artisti emergenti e scoprire nuova musica ogni giorno."
+msgid "The place to find new cool music daily, share your discoveries of new hits and support talented emerging artists."
+msgstr "Il posto per scoprire nuova musica ogni giorno, condividere le tue scoperte di nuove hit e supportare artisti emergenti."
 
 #: src/components/Artists/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"

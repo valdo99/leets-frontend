@@ -38,8 +38,8 @@ msgid "Already have an account?"
 msgstr "Already have an account?"
 
 #: src/components/Landing/HuntersSection.tsx
-msgid "Are you a song <0>hunter</0>?"
-msgstr "Are you a song <0>hunter</0>?"
+msgid "Are you a music <0>hunter</0>?"
+msgstr "Are you a music <0>hunter</0>?"
 
 #: src/components/Landing/DiscoverSection.tsx
 msgid "Are you bored of the same old music? Leets is a curation of the best new emerging music, where every day you can find new hits to make your playlists shine."
@@ -276,8 +276,8 @@ msgid "Logout"
 msgstr "Logout"
 
 #: src/components/Landing/DiscoverSection.tsx
-msgid "Looking for new <0>songs</0>?"
-msgstr "Looking for new <0>songs</0>?"
+msgid "Looking for <0>new songs</0>?"
+msgstr "Looking for <0>new songs</0>?"
 
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
@@ -427,8 +427,8 @@ msgid "Support the emergent artists you love and help them to grow"
 msgstr "Support the emergent artists you love and help them to grow"
 
 #: src/components/Landing/Hero.tsx
-msgid "The place where anyone can share their discoveries of new hits, support emerging artists and discover new cool music daily."
-msgstr "The place where anyone can share their discoveries of new hits, support emerging artists and discover new cool music daily."
+msgid "The place to find new cool music daily, share your discoveries of new hits and support talented emerging artists."
+msgstr "The place to find new cool music daily, share your discoveries of new hits and support talented emerging artists."
 
 #: src/components/Artists/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"

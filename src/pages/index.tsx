@@ -9,8 +9,8 @@ const Home: PageWithLayout = () => {
   return (
     <>
       <Hero />
-      <HuntersSection />
       <DiscoverSection />
+      <HuntersSection />
       <ContactSection />
     </>
   );

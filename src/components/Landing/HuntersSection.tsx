@@ -32,10 +32,10 @@ export const HuntersSection = () => {
   const { user } = useUser();
 
   return (
-    <section className="mt-8 text-center">
-      <h3 className="text-2xl font-bold">
+    <section className="mt-28 text-center">
+      <h3 className="text-2xl font-bold sm:text-3xl">
         <Trans>
-          Are you a song <span className="text-primary">hunter</span>?
+          Are you a music <span className="text-primary">hunter</span>?
         </Trans>
       </h3>
       <p className="mx-auto mt-4 max-w-[40rem] text-lg text-base-content-neutral">
