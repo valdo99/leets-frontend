@@ -48,7 +48,7 @@ msgstr "Sei un <0>hunter</0> di canzoni?"
 
 #: src/components/Landing/DiscoverSection.tsx
 msgid "Are you bored of the same old music? Leets is a curation of the best new emerging music, where every day you can find new hits to make your playlists shine."
-msgstr "Sei stanco della solita musica? Leets é una collezione della migliore nuova musica emergente, dove ogni giorno puoi scoprire nuove hit per dare una svolta alle tue playlist"
+msgstr "Sei stanco della solita musica? Leets é una collezione della migliore nuova musica emergente, dove ogni giorno puoi scoprire nuove hit per dare una svolta alle tue playlist."
 
 #: src/pages/404.tsx
 msgid "Are you lost? No worries, here's the way home"
