@@ -149,7 +149,6 @@ msgid "Get in <0>touch</0>"
 msgstr "Parla con <0>noi</0>"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
-#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Get started"
 msgstr "Inizia ora"
@@ -490,6 +489,7 @@ msgid "Upload new song"
 msgstr "Carica una nuova canzone"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Layout/Navbar/RightMenu.tsx
 msgid "Upload song"
 msgstr "Carica canzone"

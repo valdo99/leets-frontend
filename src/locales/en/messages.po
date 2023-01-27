@@ -144,7 +144,6 @@ msgid "Get in <0>touch</0>"
 msgstr "Get in <0>touch</0>"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
-#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Get started"
 msgstr "Get started"
@@ -485,6 +484,7 @@ msgid "Upload new song"
 msgstr "Upload new song"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Layout/Navbar/RightMenu.tsx
 msgid "Upload song"
 msgstr "Upload song"

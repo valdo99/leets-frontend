@@ -10,7 +10,6 @@ import { ProfileMenu } from "@components/Layout/Navbar/ProfileMenu";
 import { useTransitionControl } from "@hooks/useTransitionControl";
 import CloseIcon from "@icons/close.svg";
 import HamburgerIcon from "@icons/hamburger.svg";
-import LoginIcon from "@icons/login.svg";
 import { useApiClient } from "@providers/AuthProvider";
 import { userAtom } from "@state/user";
 
@@ -72,10 +71,8 @@ export const RightMenu = ({ showMenu, setShowMenu }: RightMenuProps) => {
               </Link>
               <Link href="/signup">
                 <a>
-                  <Button
-                    leftIcon={<LoginIcon className="hidden h-6 w-6 sm:block" />}
-                  >
-                    <Trans>Get started</Trans>
+                  <Button>
+                    <Trans>Upload song</Trans>
                   </Button>
                 </a>
               </Link>
