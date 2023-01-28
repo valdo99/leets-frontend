@@ -1,308 +1,85 @@
-/* eslint-disable react/no-unescaped-entities */
 import { NextSeo } from "next-seo";
 
-export default function TermsAndConditions() {
+import { DefaultLayout } from "@layouts/DefaultLayout";
+import { PageWithLayout } from "@types";
+
+const TermsAndConditionsPage: PageWithLayout = () => {
   return (
     <>
       <NextSeo />
-      <div className="p-4 text-left text-white">
-        <h4> Termini e condizioni </h4> <p> Le diamo il benvenuto su Leets! </p>{" "}
+      <div className="mt-8 text-left">
+        <h4 className="mb-2 text-2xl font-bold">Introduction</h4>
         <p>
-          {" "}
-          I termini e le condizioni seguenti indicano regole e normative per
-          l'utilizzo del sito di leets, all'indirizzo https://leets.it.{" "}
-        </p>{" "}
+          Welcome to Leets! By accessing or using our website, you agree to be
+          bound by these terms of service (“Terms”). If you do not agree to
+          these Terms, you may not access or use the Leets website.
+        </p>
+        <h4 className="mt-6 mb-2 text-2xl font-bold">Account Creation</h4>
         <p>
-          {" "}
-          Accedendo a questo sito, Lei accetta i termini e le condizioni
-          seguenti. Le chiediamo di non continuare ad usare Leets nel caso in
-          cui non fosse d'accordo con tutti i termini e le condizioni in questa
-          pagina.{" "}
-        </p>{" "}
-        <h4> Cookie: </h4>{" "}
+          In order to access certain features of the Leets website, you may be
+          required to create an account. You agree to provide accurate and
+          complete information when creating your account, and to update your
+          account information as necessary. You are responsible for maintaining
+          the confidentiality of your account login information and are fully
+          responsible for all activities that occur under your account.
+        </p>
+        <h4 className="mt-6 mb-2 text-2xl font-bold">User Content</h4>
         <p>
-          {" "}
-          Il sito utilizza cookie per personalizzare l'esperienza online.
-          Accedendo a Leets, accetta l'uso dei cookie richiesti.{" "}
-        </p>{" "}
+          Leets allows users to post content to the website, including but not
+          limited to text, images, and videos (“User Content”). By posting User
+          Content, you grant Leets a non-exclusive, royalty-free, perpetual,
+          irrevocable, and fully sublicensable right to use, reproduce, modify,
+          adapt, publish, translate, create derivative works from, distribute,
+          and display such User Content throughout the world in any media. You
+          represent and warrant that you own or have the necessary rights to
+          post the User Content and that it does not violate any intellectual
+          property rights or any other laws.
+        </p>
+        <h4 className="mt-6 mb-2 text-2xl font-bold">Prohibited Use</h4>
         <p>
-          {" "}
-          Un cookie è un file di testo che viene posizionato sull'hard disk da
-          un server web. I cookie non possono essere usati per eseguire
-          programmi o inviare virus al computer. I cookie vengono assegnati
-          unicamente a Lei e possono essere letti solo dal server web nel
-          dominio che ha emesso il cookie.{" "}
-        </p>{" "}
+          You agree not to use the Leets website for any illegal or unauthorized
+          purpose, or to post or transmit any content that is harmful,
+          threatening, abusive, harassing, defamatory, vulgar, obscene, invasive
+          of another&apos;s privacy, or racially, ethnically, or otherwise
+          objectionable. You also agree not to use the Leets website to post or
+          transmit any content that is illegal, including but not limited to,
+          copyrighted material, trademark infringement, or any other proprietary
+          rights violations.
+        </p>
+        <h4>Limitation of Liability</h4>
         <p>
-          {" "}
-          Potremmo usare i cookie per raccogliere, archiviare e tracciare
-          informazioni per finalità statistiche e di marketing al fine di
-          gestire il nostro sito web. Le consentiamo di accettare o rifiutare i
-          cookie opzionali. Sono presenti dei cookie necessari indispensabili
-          per il funzionamento del sito. Tali cookie non richiedono il consenso
-          dato che sono attivi in ogni caso. Le chiediamo di tenere a mente che
-          l'accettazione dei cookie richiesti prevede anche l'accettazione dei
-          cookie di terzi, che potrebbero provenire da servizi forniti da terzi
-          nel caso in cui decida di usare tali servizi sul nostro sito. Ad
-          esempio, una schermata video fornita da terzi e integrata sul nostro
-          sito.{" "}
-        </p>{" "}
-        <h4> Licenza: </h4>{" "}
+          Leets shall not be liable for any damages, including but not limited
+          to, direct, indirect, incidental, special, consequential, or punitive
+          damages, arising out of or in connection with the use or inability to
+          use the Leets website or any content or services provided on the Leets
+          website.
+        </p>
+        <h4 className="mt-6 mb-2 text-2xl font-bold">Changes to These Terms</h4>
         <p>
-          {" "}
-          A meno che indicato altrimenti, leets e/o gli affiliati con licenza
-          detengono i diritti di proprietà intellettuale per tutto il materiale
-          su Leets. Tutti i diritti di proprietà intellettuale sono riservati.
-          Può accedervi tramite Leets per uso personale soggetto a restrizioni
-          indicate nei termini e nelle condizioni seguenti.{" "}
-        </p>{" "}
-        <p> Non è consentito: </p>{" "}
-        <ul>
-          {" "}
-          <li> Copiare o ripubblicare il materiale di Leets </li>{" "}
-          <li>
-            {" "}
-            Vendere, noleggiare o fornire in sub-licenza il materiale di Leets{" "}
-          </li>{" "}
-          <li> Riprodurre, duplicare o copiare il materiale di Leets </li>{" "}
-          <li> Ridistribuire contenuti di Leets </li>{" "}
-        </ul>{" "}
-        <p> Il presente accordo ha inizio dalla data qui indicata. </p>{" "}
+          Leets reserves the right to change these Terms at any time. Your
+          continued use of the Leets website after any changes to these Terms
+          will be deemed to be your acceptance of such changes.
+        </p>
+        <h4>Governing Law</h4>
         <p>
-          {" "}
-          Parti di questo sito offrono all'utente la possibilità di pubblicare e
-          scambiare opinioni e informazioni in certe aree del sito. leets non
-          filtra, modifica, pubblica o revisiona i commenti prima di aggiungerli
-          sul sito. I commenti non riflettono il punto di vista e l'opinione di
-          leets, dei suoi agenti e/o dei suoi affiliati. I commenti riflettono
-          punto di vista e opinione di colui che pubblica tale punto di vista o
-          opinione. Nella misura consentita dalla legge, leets non deve essere
-          ritenuta responsabile per i commenti e non può ricevere richieste di
-          risarcimento danni o spese causate dall'uso, dalla pubblicazione e/o
-          dalla presenza dei commenti sul sito.{" "}
-        </p>{" "}
+          These Terms shall be governed by and construed in accordance with the
+          laws of Italy, without giving effect to any principles of conflicts of
+          law.
+        </p>
+        <h4>Contact Information</h4>
         <p>
-          {" "}
-          leets si riserva il diritto di monitorare tutti i commenti e rimuovere
-          quelli che considera non appropriati, offensivi o in violazione con i
-          presenti termini e condizioni.{" "}
-        </p>{" "}
-        <p> Lei garantisce che: </p>{" "}
-        <ul>
-          {" "}
-          <li>
-            {" "}
-            È autorizzato a pubblicare commenti sul sito e ha tutte le licenze e
-            i permessi necessari per tale azione;{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            I commenti non violano nessun diritto di proprietà intellettuale,
-            inclusi senza limitazione diritto d'autore, brevetti o marchi
-            commerciali di terze parti;{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            I commenti non contengono materiale diffamatorio, calunnioso,
-            offensivo, indecente o altrimenti illegale, provocando una
-            violazione della privacy;{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            I commenti non verranno usati per sollecitare o promuovere business,
-            attività commerciali o illegali.{" "}
-          </li>{" "}
-        </ul>{" "}
-        <p>
-          {" "}
-          Lei concede a leets una licenza non esclusiva di usare, riprodurre,
-          modificare e autorizza altri a usare, riprodurre e modificare
-          qualsiasi Suo commento in ogni forma, formato o media.{" "}
-        </p>{" "}
-        <h4> Collegamenti ipertestuali ai nostri contenuti: </h4>{" "}
-        <p>
-          {" "}
-          Le organizzazioni seguenti potrebbero aggiungere collegamenti
-          ipertestuali al nostro sito senza previa autorizzazione scritta:{" "}
-        </p>{" "}
-        <ul>
-          {" "}
-          <li> Agenzie governative; </li> <li> Motori di ricerca; </li>{" "}
-          <li> Testate giornalistiche; </li>{" "}
-          <li>
-            {" "}
-            Distributori di directory online potrebbero aggiungere un
-            collegamento ipertestuale al nostro sito nello stesso modo fatto per
-            altri siti web indicati;{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            Attività accreditate di sistema eccetto organizzazioni non-profit,
-            società di beneficenza e gruppi di raccolta fondi per attività di
-            carità che non possono aggiungere un collegamento ipertestuale al
-            nostro sito.{" "}
-          </li>{" "}
-        </ul>{" "}
-        <p>
-          {" "}
-          Queste organizzazioni potrebbero aggiungere un collegamento
-          ipertestuale alla nostra homepage, alle pubblicazioni e alle
-          informazioni di altri siti a patto che il collegamento: (a) non sia
-          ingannevole in alcun modo; (b) non implichi falsamente
-          sponsorizzazione, pubblicità o approvazione del terzo che ha aggiunto
-          il collegamento e dei suoi prodotti e/o servizi; (c) sia adatto al
-          contesto del sito del terzo che ha aggiunto il collegamento.{" "}
-        </p>{" "}
-        <p>
-          {" "}
-          Potremmo considerare e approvare altre richieste di collegamento dai
-          seguenti tipi di organizzazioni:{" "}
-        </p>{" "}
-        <ul>
-          {" "}
-          <li>
-            {" "}
-            fonti di informazioni commerciali e/o per consumatori conosciute;{" "}
-          </li>{" "}
-          <li> siti di community punto.com; </li>{" "}
-          <li>
-            {" "}
-            associazioni o altri gruppi che rappresentano attività di carità;{" "}
-          </li>{" "}
-          <li> distributori di directory online; </li>{" "}
-          <li> portali internet; </li>{" "}
-          <li> agenzie di consulenza, legali e di revisione contabile; </li>{" "}
-          <li> istituti di istruzione e associazioni professionali. </li>{" "}
-        </ul>{" "}
-        <p>
-          {" "}
-          Approveremo le richieste di collegamento da queste organizzazioni se:
-          (a) il collegamento non ci porrà in una posizione sfavorevole per noi
-          stessi o per le nostre attività registrate; (b) l'organizzazione non
-          ha precedenti negativi con noi; (c) il vantaggio dato dalla visibilità
-          del collegamento ipertestuale compensa l'assenza per leets; (d) il
-          link è in un contesto di informazioni generali.{" "}
-        </p>{" "}
-        <p>
-          {" "}
-          Queste organizzazioni potrebbero aggiungere un collegamento alla
-          nostra homepage a patto che il collegamento: (a) non sia ingannevole
-          in alcun modo; (b) non implichi falsamente sponsorizzazione,
-          pubblicità o approvazione del terzo che ha aggiunto il collegamento o
-          dei suoi prodotti e/o servizi; (c) sia adatto al contesto del sito del
-          terzo che ha aggiunto il collegamento.{" "}
-        </p>{" "}
-        <p>
-          {" "}
-          Nel caso in cui Lei rappresenti una delle organizzazioni indicate nel
-          paragrafo 2 sopra e sia interessato ad aggiungere un collegamento al
-          nostro sito, deve informarci inviando un'email a leets. Le chiediamo
-          di includere nome, denominazione dell'organizzazione, informazioni di
-          contatto e URL del sito, una lista di URL su cui intende aggiungere un
-          collegamento al nostro sito e una lista di URL sul nostro sito che
-          intende collegare. Le chiediamo di attendere 2-3 settimane per una
-          risposta.{" "}
-        </p>{" "}
-        <p>
-          {" "}
-          Le organizzazioni approvate possono aggiungere un collegamento
-          ipertestuale al nostro sito come segue:{" "}
-        </p>{" "}
-        <ul>
-          {" "}
-          <li> Usando il nostro nome societario; </li>{" "}
-          <li> Usando l'uniform resource locator collegato; </li>{" "}
-          <li>
-            {" "}
-            Usando qualsiasi altra descrizione del nostro sito rilevante per
-            contesto e formato dei contenuti sul sito terzo.{" "}
-          </li>{" "}
-        </ul>{" "}
-        <p>
-          {" "}
-          Non è consentito uso di logo o immagini di leets per collegamenti in
-          caso di mancanza di un accordo di licenza commerciale.{" "}
-        </p>{" "}
-        <h4> Responsabilità sui contenuti: </h4>{" "}
-        <p>
-          {" "}
-          Non possiamo essere ritenuti responsabili per i contenuti presenti sul
-          Suo sito. Accetta di proteggerci e difenderci da qualsiasi azione
-          legale proveniente dal Suo sito. Non devono essere aggiunti
-          collegamenti sul Suo sito che potrebbero essere interpretati come
-          calunniosi, osceni, criminali o che infrangono, violano o suggeriscono
-          la violazione di diritti di terzi.{" "}
-        </p>{" "}
-        <h4> Diritti riservati: </h4>{" "}
-        <p>
-          {" "}
-          Ci riserviamo il diritto di richiedere la rimozione di tutti i
-          collegamenti o di un collegamento specifico al nostro sito. Deve
-          approvare immediatamente la richiesta di rimozione dei collegamenti.
-          Ci riserviamo il diritto di modificare termini e condizioni, oltre che
-          politica di collegamento in qualsiasi momento. Continuando a usare il
-          nostro sito, accetta di essere vincolato dai presenti termini e
-          condizioni.{" "}
-        </p>{" "}
-        <h4> Rimozione di collegamenti dal nostro sito: </h4>{" "}
-        <p>
-          {" "}
-          Nel caso in cui un collegamento sul nostro sito sia offensivo per
-          qualsiasi motivo, può contattarci e informarci in qualsiasi momento.
-          Considereremo le richieste di rimozione dei collegamenti, tuttavia non
-          siamo obbligati a completare la rimozione o rispondere direttamente.{" "}
-        </p>{" "}
-        <p>
-          {" "}
-          Non garantiamo l'accuratezza delle informazioni presenti sul sito. Non
-          garantiamo che le informazioni siano complete o precise, né
-          promettiamo di assicurare che il sito resti disponibile o che il
-          materiale sul sito venga costantemente aggiornato.{" "}
-        </p>{" "}
-        <h4> Esclusione di responsabilità: </h4>{" "}
-        <p>
-          {" "}
-          Nella misura massima consentita dalla legge, escludiamo ogni
-          rappresentanza, garanzia e condizione correlata al nostro sito e
-          all'uso dello stesso. Niente in questa esclusione di responsabilità:
-        </p>{" "}
-        <ul>
-          {" "}
-          <li>
-            {" "}
-            limita o esclude la nostra o la Sua responsabilità per decesso o
-            lesioni personali;{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            limita o esclude la nostra o la Sua responsabilità per frode o
-            rappresentazione errata fraudolenta;{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            limita la nostra o la Sua responsabilità in modo non consentito
-            dalla legge;
-          </li>{" "}
-          <li>
-            {" "}
-            esclude la nostra o la Sua responsabilità in modo non escludibile
-            dalla legge.
-          </li>{" "}
-        </ul>{" "}
-        <p>
-          Le limitazioni e i divieti di responsabilità indicati in questa
-          sezione e in altre parti di questa esclusione di responsabilità: (a)
-          sono soggetti al paragrafo precedente; (b) governano tutte le
-          responsabilità correlate a questa esclusione di responsabilità,
-          incluse quelle correlate a contratto, torto o violazione di obblighi
-          normativi.
-        </p>{" "}
-        <p>
-          Se sito, informazioni e servizi vengono forniti gratuitamente, non
-          possiamo essere ritenuti responsabili per perdite o danni di qualsiasi
-          natura.
+          If you have any questions or comments about these Terms, please
+          contact us at hey@leets.it. Please note that this is an example of
+          terms of service and need to be reviewed and modified as per your
+          requirement.
         </p>
       </div>
     </>
   );
-}
+};
+
+export default TermsAndConditionsPage;
+
+TermsAndConditionsPage.getLayout = (page) => (
+  <DefaultLayout showFooter>{page}</DefaultLayout>
+);
