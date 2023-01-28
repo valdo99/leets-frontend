@@ -6,8 +6,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { Provider } from "jotai";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 import { ToastContainer } from "react-toastify";
 
+import { CookieConsent } from "@components/CookieConsent";
 import { ErrorState } from "@components/Modals/ErrorState";
 import { useInitViewportHeight } from "@hooks/useInitViewportHeight";
 import { DefaultLayout } from "@layouts/DefaultLayout";
@@ -50,6 +52,8 @@ function MyApp({ Component, pageProps }: AppProps) {
               <PlayerProvider>
                 <ErrorState />
                 <DefaultSeo {...SEO} />
+                <CookieConsent />
+                <GoogleAnalytics trackPageViews />
                 <AuthGuard auth={(Component as PageWithLayout).auth}>
                   {getLayout(<Component {...pageProps} />)}
                 </AuthGuard>

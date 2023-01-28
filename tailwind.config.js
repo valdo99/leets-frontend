@@ -27,6 +27,18 @@ module.exports = {
       },
       animation: {
         flash: "flash 2s linear infinite",
+        "slide-in-from-bottom": "slide-in-from-bottom 1s ease-in-out",
+        "slide-out-to-bottom": "slide-out-to-bottom 1s ease-in-out",
+      },
+      keyframes: {
+        "slide-in-from-bottom": {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "slide-out-to-bottom": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(100%)" },
+        },
       },
     },
   },
