@@ -121,7 +121,7 @@ export const SongCard = ({
 
       <div
         className={cx(
-          "flex items-center justify-between sm:flex-col sm:items-end",
+          "flex items-center justify-between sm:flex-col sm:items-end shrink-0",
           {
             "absolute top-2 right-2": isPreview,
           }
