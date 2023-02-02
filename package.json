@@ -14,6 +14,7 @@
     "i18n": "yarn i18n:extract && yarn i18n:compile"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^1.7.0",
     "@headlessui/react": "^1.7.2",
     "@lingui/react": "^3.14.0",
     "@radix-ui/react-slider": "^1.1.0",
