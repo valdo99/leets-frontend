@@ -11,7 +11,7 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 
-import { CookieConsent } from "@components/CookieConsent";
+// import { CookieConsent } from "@components/CookieConsent";
 import { ErrorState } from "@components/Modals/ErrorState";
 import { useInitViewportHeight } from "@hooks/useInitViewportHeight";
 import { DefaultLayout } from "@layouts/DefaultLayout";
@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <PlayerProvider>
                 <ErrorState />
                 <DefaultSeo {...SEO} />
-                <CookieConsent />
+                {/* <CookieConsent /> */}
                 <GoogleAnalytics trackPageViews />
                 <AuthGuard auth={(Component as PageWithLayout).auth}>
                   {getLayout(<Component {...pageProps} />)}
