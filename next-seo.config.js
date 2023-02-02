@@ -1,6 +1,5 @@
-const title = "Leets - Discover new up-and-coming music daily";
-const description =
-  "Share and prove your musical discoveries of up-and-coming talents, supporting their growth";
+const title = "Leets - Discover the next big hits in music";
+const description = "Share and discover the best new emerging music daily";
 const url = "https://leets.it";
 const image = `https://www.leets.it/api/og-home`;
 
