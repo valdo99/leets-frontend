@@ -1,7 +1,7 @@
 import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/globals.css";
 
-import { init, track } from "@amplitude/analytics-browser";
+import { init } from "@amplitude/analytics-browser";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Analytics } from "@vercel/analytics/react";
 import { Provider } from "jotai";
@@ -33,11 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useInitViewportHeight();
 
   useEffect(() => {
-    // console.log("Key: ", process.env.NEXT_PUBLIC_AMPLITUDE_KEY);
     init(process.env.NEXT_PUBLIC_AMPLITUDE_KEY || "");
-    track("Example");
-
-    // event("example");
   }, []);
 
   return (
