@@ -74,6 +74,7 @@ export const SongCard = ({
                   src={song.image}
                   alt="song"
                   layout="fill"
+                  unoptimized
                 />
               </a>
             </Link>

@@ -39,6 +39,7 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
               layout="fill"
               className="rounded-full"
               priority
+              unoptimized
             />
           </span>
           <h3 className="min-w-0 truncate text-2xl font-bold md:text-3xl">

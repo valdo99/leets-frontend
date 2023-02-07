@@ -60,6 +60,7 @@ const SongPageInner = ({ song }: { song: Song }) => {
               src={song.image}
               className="rounded-box object-contain"
               layout="fill"
+              unoptimized
             />
           </div>
           {/* Song Details */}
