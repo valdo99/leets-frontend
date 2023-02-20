@@ -40,7 +40,6 @@ const RecoverPassowrdPage = () => {
       </h1>
       <form className="flex w-full flex-col rounded" onSubmit={onSubmit}>
         <Input
-          variant="bordered"
           label={`Email`}
           name="email"
           onChange={handleChange}

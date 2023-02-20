@@ -4,8 +4,8 @@ import { Button } from "@components/Basic/Button";
 
 export const ContactSection = () => {
   return (
-    <section className="mt-36 mb-20 text-center">
-      <h3 className="text-2xl font-bold">
+    <section className="mt-40 mb-20 text-center sm:mt-48">
+      <h3 className="text-2xl font-bold sm:text-3xl">
         <Trans>
           Get in <span className="text-primary">touch</span>
         </Trans>

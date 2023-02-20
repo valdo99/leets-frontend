@@ -21,6 +21,10 @@ msgstr "404 - Not Found"
 msgid "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
 msgstr "<0>Leets</0> is the platform where you can <1>share</1> your music discoveries and <2>promote emergent artists</2>."
 
+#: src/components/CookieConsent.tsx
+msgid "Accept"
+msgstr "Accept"
+
 #: src/pages/signup.tsx
 msgid "Accept terms and conditions"
 msgstr "Accept terms and conditions"
@@ -38,8 +42,8 @@ msgid "Already have an account?"
 msgstr "Already have an account?"
 
 #: src/components/Landing/HuntersSection.tsx
-msgid "Are you a song <0>hunter</0>?"
-msgstr "Are you a song <0>hunter</0>?"
+msgid "Are you a music <0>hunter</0>?"
+msgstr "Are you a music <0>hunter</0>?"
 
 #: src/components/Landing/DiscoverSection.tsx
 msgid "Are you bored of the same old music? Leets is a curation of the best new emerging music, where every day you can find new hits to make your playlists shine."
@@ -92,6 +96,10 @@ msgstr "Contact us"
 msgid "Create account"
 msgstr "Create account"
 
+#: src/components/CookieConsent.tsx
+msgid "Decline"
+msgstr "Decline"
+
 #: src/pages/upload.tsx
 msgid "Desktop"
 msgstr "Desktop"
@@ -143,8 +151,6 @@ msgstr "Feed"
 msgid "Get in <0>touch</0>"
 msgstr "Get in <0>touch</0>"
 
-#: src/components/Layout/Navbar/MobileMenu.tsx
-#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Get started"
 msgstr "Get started"
@@ -276,8 +282,8 @@ msgid "Logout"
 msgstr "Logout"
 
 #: src/components/Landing/DiscoverSection.tsx
-msgid "Looking for new <0>songs</0>?"
-msgstr "Looking for new <0>songs</0>?"
+msgid "Looking for <0>new songs</0>?"
+msgstr "Looking for <0>new songs</0>?"
 
 #: src/components/Layout/Footer.tsx
 msgid "Made with <0/> by <1>Federica</1> , <2>Edvaldo</2> and <3>Mattia</3>, designed by <4>Guido</4>"
@@ -343,6 +349,10 @@ msgstr "Play count"
 #: src/pages/song/[song].tsx
 msgid "Play count:"
 msgstr "Play count:"
+
+#: src/components/Layout/Footer.tsx
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
 
 #: src/components/Layout/Navbar/ProfileMenu.tsx
 msgid "Profile"
@@ -426,9 +436,13 @@ msgstr "Support"
 msgid "Support the emergent artists you love and help them to grow"
 msgstr "Support the emergent artists you love and help them to grow"
 
+#: src/components/Layout/Footer.tsx
+msgid "Terms"
+msgstr "Terms"
+
 #: src/components/Landing/Hero.tsx
-msgid "The place where anyone can share their discoveries of new hits, support emerging artists and discover new cool music daily."
-msgstr "The place where anyone can share their discoveries of new hits, support emerging artists and discover new cool music daily."
+msgid "The place to find new cool music daily, share your discoveries of new hits and support talented emerging artists."
+msgstr "The place to find new cool music daily, share your discoveries of new hits and support talented emerging artists."
 
 #: src/components/Artists/ArtistHuntedSongs.tsx
 msgid "There are no hunted songs by this artist"
@@ -485,6 +499,8 @@ msgid "Upload new song"
 msgstr "Upload new song"
 
 #: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/MobileMenu.tsx
+#: src/components/Layout/Navbar/RightMenu.tsx
 #: src/components/Layout/Navbar/RightMenu.tsx
 msgid "Upload song"
 msgstr "Upload song"
@@ -496,6 +512,10 @@ msgstr "Username"
 #: src/pages/artist/[artist].tsx
 msgid "Variation of monthly listeners between the time the artist was hunted and now."
 msgstr "Variation of monthly listeners between the time the artist was hunted and now."
+
+#: src/components/CookieConsent.tsx
+msgid "We use cookies to enhance your browsing experience and to collect information for analytics and metrics about our visitors on this website."
+msgstr "We use cookies to enhance your browsing experience and to collect information for analytics and metrics about our visitors on this website."
 
 #: src/components/Modals/WelcomeModal.tsx
 msgid "Welcome to Leets"

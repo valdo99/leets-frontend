@@ -1,13 +1,17 @@
 import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/globals.css";
 
+import { init } from "@amplitude/analytics-browser";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Analytics } from "@vercel/analytics/react";
 import { Provider } from "jotai";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
+import { GoogleAnalytics } from "nextjs-google-analytics";
+import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 
+// import { CookieConsent } from "@components/CookieConsent";
 import { ErrorState } from "@components/Modals/ErrorState";
 import { useInitViewportHeight } from "@hooks/useInitViewportHeight";
 import { DefaultLayout } from "@layouts/DefaultLayout";
@@ -27,6 +31,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     ((page) => <DefaultLayout>{page}</DefaultLayout>);
 
   useInitViewportHeight();
+
+  useEffect(() => {
+    init(process.env.NEXT_PUBLIC_AMPLITUDE_KEY || "");
+  }, []);
 
   return (
     <>
@@ -50,6 +58,8 @@ function MyApp({ Component, pageProps }: AppProps) {
               <PlayerProvider>
                 <ErrorState />
                 <DefaultSeo {...SEO} />
+                {/* <CookieConsent /> */}
+                <GoogleAnalytics trackPageViews />
                 <AuthGuard auth={(Component as PageWithLayout).auth}>
                   {getLayout(<Component {...pageProps} />)}
                 </AuthGuard>

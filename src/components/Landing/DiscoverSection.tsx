@@ -8,11 +8,11 @@ interface DiscoverSectionProps {}
 
 export const DiscoverSection = ({}: DiscoverSectionProps) => {
   return (
-    <section className="mt-36 flex flex-col items-center space-x-8 space-y-8 md:flex-row">
+    <section className="relative z-20 mt-2 flex flex-col items-center space-x-8 space-y-8 md:flex-row">
       <div className="flex-1 text-center md:text-left">
-        <h3 className="text-2xl font-bold">
+        <h3 className="text-2xl font-bold sm:text-3xl">
           <Trans>
-            Looking for new <span className="text-primary">songs</span>?
+            Looking for <span className="text-primary">new songs</span>?
           </Trans>
         </h3>
         <p className="mx-auto mt-4 max-w-[40rem] text-lg text-base-content-neutral">

@@ -109,7 +109,7 @@ export const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
                 <Link href="/signup">
                   <a className="flex-1">
                     <Button onClick={closeMenu} block>
-                      <Trans>Get started</Trans>
+                      <Trans>Upload song</Trans>
                     </Button>
                   </a>
                 </Link>

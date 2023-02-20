@@ -1,3 +1,4 @@
+import { track } from "@amplitude/analytics-browser";
 import { Trans } from "@lingui/macro";
 import { useMutation } from "@tanstack/react-query";
 import cx from "classnames";
@@ -120,7 +121,7 @@ export const SongCard = ({
 
       <div
         className={cx(
-          "flex items-center justify-between sm:flex-col sm:items-end",
+          "flex items-center justify-between sm:flex-col sm:items-end shrink-0",
           {
             "absolute top-2 right-2": isPreview,
           }
@@ -148,7 +149,15 @@ export const SongCard = ({
             rel="noopener noreferrer"
             className="cursor-pointer"
           >
-            <SpotifyIcon className="h-5 w-5" />
+            <Button
+              size="xs"
+              rightIcon={<SpotifyIcon className="h-4 w-4" />}
+              onClick={() => {
+                track("add_to_spotify");
+              }}
+            >
+              Add to playlist
+            </Button>
           </a>
 
           {/* Status / Likes */}

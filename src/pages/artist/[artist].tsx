@@ -29,7 +29,7 @@ const ArtistPageInner = ({ artist }: { artist: Artist }) => {
 
   return (
     <>
-      <div className="mt-10 flex flex-col justify-between space-y-6 md:flex-row md:items-center">
+      <div className="mt-8 flex flex-col justify-between space-y-6 md:flex-row md:items-center">
         {/* Header */}
         <div className="flex min-w-0 items-center space-x-4">
           <span className="relative h-16 w-16 shrink-0 md:h-24 md:w-24">
@@ -170,6 +170,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       artist,
     },
+    revalidate: 3600 * 24, // 1 day
   };
 };
 
