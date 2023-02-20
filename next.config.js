@@ -1,3 +1,9 @@
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+})
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -7,7 +13,7 @@ const nextConfig = {
   },
 };
 
-module.exports = {
+module.exports = withPWA({
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -18,4 +24,4 @@ module.exports = {
     return config;
   },
   ...nextConfig,
-};
+});
